@@ -4,7 +4,7 @@ from app.schemas.chat import ChatRequest, ChatResponse
 
 
 router = APIRouter(
-    prefix="/api/chat",
+    prefix="/chat",
     tags=["Chat"],
 )
 
