@@ -1,7 +1,6 @@
-from pdb import test
+from fastapi import APIRouter, HTTPException
 
-from fastapi import APIRouter
-
+from app.ai.service import generate_answer
 from app.schemas.chat import ChatRequest, ChatResponse
 
 
@@ -13,6 +12,15 @@ router = APIRouter(
 
 @router.post("", response_model=ChatResponse)
 async def chat(request: ChatRequest):
-    return ChatResponse(
-        answer=f"You asked: {request.message}"
-    )
+    try:
+        answer = await generate_answer(request.message)
+
+        return ChatResponse(
+            answer=answer
+        )
+
+    except Exception:
+        raise HTTPException(
+            status_code=503,
+            detail="AI service is temporarily unavailable."
+        )
