@@ -1,3 +1,5 @@
+from pdb import test
+
 from fastapi import APIRouter
 
 from app.schemas.chat import ChatRequest, ChatResponse

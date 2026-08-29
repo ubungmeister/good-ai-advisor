@@ -132,7 +132,7 @@ def seed():
             print("Created policy.")
 
         # -------------------------
-        # SAVE EVERYTHING
+        # SAVE
         # -------------------------
 
         db.commit()
