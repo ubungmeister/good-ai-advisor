@@ -2,9 +2,10 @@ from datetime import date
 from decimal import Decimal
 
 from sqlalchemy import select
+from sqlalchemy.orm import joinedload
 
 from app.db.database import SessionLocal
-from app.models.customer_profile import CustomerProfile
+from app.models.person import Person
 from app.models.policy import Policy
 from app.models.product import Product
 from app.models.product_version import ProductVersion
@@ -12,32 +13,29 @@ from app.models.user import User
 
 
 TEST_EMAIL = "test@example.com"
+
 PRODUCT_CODE = "TRAVEL_INSURANCE"
 PRODUCT_VERSION = "2026.1"
+
 POLICY_NUMBER = "TI-2026-0001"
 
 
-def seed():
+def seed() -> None:
     db = SessionLocal()
 
     try:
-        # -------------------------
-        # 1. USER
-        # -------------------------
+        # =====================================================
+        # 1. USER + PERSON
+        # =====================================================
 
         user = db.scalar(
-            select(User).where(
-                User.email == TEST_EMAIL
-            )
+            select(User)
+            .options(joinedload(User.person))
+            .where(User.email == TEST_EMAIL)
         )
 
         if user is None:
-            user = User(
-                email=TEST_EMAIL,
-                status="ACTIVE",
-            )
-
-            user.profile = CustomerProfile(
+            person = Person(
                 first_name="Max",
                 last_name="Test",
                 date_of_birth=date(1995, 1, 1),
@@ -45,17 +43,27 @@ def seed():
                 phone="+420000000000",
             )
 
+            user = User(
+                email=TEST_EMAIL,
+                status="ACTIVE",
+                person=person,
+            )
+
             db.add(user)
 
-            # Send INSERT to DB so user.id exists,
-            # but do not commit yet.
+            # Sends INSERT statements to PostgreSQL,
+            # but transaction is still not committed.
+            # We need user.id for the Policy later.
             db.flush()
 
-            print("Created test user.")
+            print("Created test user and person.")
 
-        # -------------------------
+        else:
+            print("Test user already exists.")
+
+        # =====================================================
         # 2. PRODUCT
-        # -------------------------
+        # =====================================================
 
         product = db.scalar(
             select(Product).where(
@@ -76,9 +84,12 @@ def seed():
 
             print("Created product.")
 
-        # -------------------------
+        else:
+            print("Product already exists.")
+
+        # =====================================================
         # 3. PRODUCT VERSION
-        # -------------------------
+        # =====================================================
 
         product_version = db.scalar(
             select(ProductVersion).where(
@@ -100,9 +111,27 @@ def seed():
 
             print("Created product version.")
 
-        # -------------------------
+        else:
+            print("Product version already exists.")
+
+        # =====================================================
         # 4. POLICY
-        # -------------------------
+        #
+        # TEMPORARY OLD POLICY MODEL.
+        #
+        # In the next refactor this becomes:
+        #
+        # Product
+        #   ↓
+        # ProductVersion
+        #   ↓
+        # Plan
+        #   ↓
+        # Policy
+        #
+        # territory_code will also move to
+        # TravelPolicyDetails.
+        # =====================================================
 
         policy = db.scalar(
             select(Policy).where(
@@ -131,9 +160,12 @@ def seed():
 
             print("Created policy.")
 
-        # -------------------------
-        # SAVE
-        # -------------------------
+        else:
+            print("Policy already exists.")
+
+        # =====================================================
+        # 5. SAVE TRANSACTION
+        # =====================================================
 
         db.commit()
 

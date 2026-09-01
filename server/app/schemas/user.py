@@ -4,9 +4,9 @@ from uuid import UUID
 from pydantic import BaseModel, ConfigDict
 
 
-class CustomerProfileResponse(BaseModel):
-    first_name: str
-    last_name: str
+class PersonResponse(BaseModel):
+    first_name: str | None
+    last_name: str | None
     date_of_birth: date | None
     phone: str | None
 
@@ -17,6 +17,6 @@ class UserResponse(BaseModel):
     id: UUID
     email: str
     status: str
-    profile: CustomerProfileResponse | None
+    person: PersonResponse
 
     model_config = ConfigDict(from_attributes=True)

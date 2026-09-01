@@ -4,12 +4,14 @@ import uuid
 from datetime import date
 from typing import TYPE_CHECKING
 
+from app.models.plan import Plan
 from sqlalchemy import Date, ForeignKey, String
 from sqlalchemy.orm import Mapped, mapped_column, relationship
 
 from app.db.database import Base
 
 if TYPE_CHECKING:
+    from app.models.plan import Plan
     from app.models.product import Product
 
 
@@ -41,4 +43,10 @@ class ProductVersion(Base):
         nullable=True,
     )
 
-    product: Mapped[Product] = relationship()
+    product: Mapped[Product] = relationship(
+        back_populates="versions"
+    )
+
+    plans: Mapped[list[Plan]] = relationship(
+        back_populates="product_version",
+    )

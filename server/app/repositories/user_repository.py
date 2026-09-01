@@ -12,7 +12,7 @@ def get_user_by_id(
 ) -> User | None:
     statement = (
         select(User)
-        .options(joinedload(User.profile))
+        .options(joinedload(User.person))
         .where(User.id == user_id)
     )
 
@@ -25,7 +25,7 @@ def get_user_by_email(
 ) -> User | None:
     statement = (
         select(User)
-        .options(joinedload(User.profile))
+        .options(joinedload(User.person))
         .where(User.email == email)
     )
 
