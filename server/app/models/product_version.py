@@ -1,17 +1,15 @@
 from __future__ import annotations
 
 import uuid
-from datetime import date
+from datetime import date, datetime
 from typing import TYPE_CHECKING
 
-from app.models.plan import Plan
-from sqlalchemy import Date, ForeignKey, String
+from sqlalchemy import Boolean, Date, DateTime, ForeignKey, String
 from sqlalchemy.orm import Mapped, mapped_column, relationship
 
 from app.db.database import Base
 
 if TYPE_CHECKING:
-    from app.models.plan import Plan
     from app.models.product import Product
 
 
@@ -43,10 +41,16 @@ class ProductVersion(Base):
         nullable=True,
     )
 
-    product: Mapped[Product] = relationship(
-        back_populates="versions"
+    is_active: Mapped[bool] = mapped_column(
+        Boolean,
+        default=True,
+        nullable=False,
     )
 
-    plans: Mapped[list[Plan]] = relationship(
-        back_populates="product_version",
+    created_at: Mapped[datetime] = mapped_column(
+        DateTime,
+        default=datetime.utcnow,
+        nullable=False,
     )
+
+    product: Mapped[Product] = relationship()

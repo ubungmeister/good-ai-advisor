@@ -4,7 +4,14 @@ import uuid
 from datetime import datetime
 from typing import TYPE_CHECKING
 
-from sqlalchemy import Boolean, DateTime, ForeignKey, String, Text, UniqueConstraint
+from sqlalchemy import (
+    Boolean,
+    DateTime,
+    ForeignKey,
+    String,
+    Text,
+    UniqueConstraint,
+)
 from sqlalchemy.orm import Mapped, mapped_column, relationship
 
 from app.db.database import Base
@@ -61,6 +68,4 @@ class Plan(Base):
         nullable=False,
     )
 
-    product_version: Mapped[ProductVersion] = relationship(
-        back_populates="plans",
-    )
+    product_version: Mapped[ProductVersion] = relationship()

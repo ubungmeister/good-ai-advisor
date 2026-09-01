@@ -8,7 +8,6 @@ from alembic import context
 from app.core.config import settings
 from app.db.database import Base
 from app.models.user import User
-from app.models.customer_profile import CustomerProfile
 
 
 config = context.config
@@ -29,7 +28,6 @@ if config.config_file_name is not None:
 # target_metadata = mymodel.Base.metadata
 from app.db.database import Base
 from app.models.user import User
-from app.models.customer_profile import CustomerProfile
 
 target_metadata = Base.metadata
 # other values from the config, defined by the needs of env.py,

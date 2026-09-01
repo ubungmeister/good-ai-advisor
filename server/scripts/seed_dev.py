@@ -6,6 +6,7 @@ from sqlalchemy.orm import joinedload
 
 from app.db.database import SessionLocal
 from app.models.person import Person
+from app.models.plan import Plan
 from app.models.policy import Policy
 from app.models.product import Product
 from app.models.product_version import ProductVersion
@@ -50,10 +51,6 @@ def seed() -> None:
             )
 
             db.add(user)
-
-            # Sends INSERT statements to PostgreSQL,
-            # but transaction is still not committed.
-            # We need user.id for the Policy later.
             db.flush()
 
             print("Created test user and person.")
@@ -100,10 +97,11 @@ def seed() -> None:
 
         if product_version is None:
             product_version = ProductVersion(
-                product_id=product.id,
+                product=product,
                 version=PRODUCT_VERSION,
                 valid_from=date(2026, 1, 1),
                 valid_to=date(2026, 12, 31),
+                is_active=True,
             )
 
             db.add(product_version)
@@ -115,22 +113,56 @@ def seed() -> None:
             print("Product version already exists.")
 
         # =====================================================
-        # 4. POLICY
+        # 4. PLANS
+        # =====================================================
+
+        plans_data = [
+            (
+                "STANDARD",
+                "Standard",
+                "Basic travel insurance package",
+            ),
+            (
+                "DOMINANT",
+                "Dominant",
+                "Extended travel insurance package",
+            ),
+            (
+                "PREMIANT",
+                "Premiant",
+                "Premium travel insurance package",
+            ),
+        ]
+
+        for code, name, description in plans_data:
+            plan = db.scalar(
+                select(Plan).where(
+                    Plan.product_version_id == product_version.id,
+                    Plan.code == code,
+                )
+            )
+
+            if plan is None:
+                plan = Plan(
+                    product_version=product_version,
+                    code=code,
+                    name=name,
+                    description=description,
+                    is_active=True,
+                )
+
+                db.add(plan)
+
+                print(f"Created plan: {code}")
+
+            else:
+                print(f"Plan already exists: {code}")
+
+        # =====================================================
+        # 5. POLICY
         #
         # TEMPORARY OLD POLICY MODEL.
-        #
-        # In the next refactor this becomes:
-        #
-        # Product
-        #   ↓
-        # ProductVersion
-        #   ↓
-        # Plan
-        #   ↓
-        # Policy
-        #
-        # territory_code will also move to
-        # TravelPolicyDetails.
+        # We refactor this in R3.
         # =====================================================
 
         policy = db.scalar(
@@ -164,7 +196,7 @@ def seed() -> None:
             print("Policy already exists.")
 
         # =====================================================
-        # 5. SAVE TRANSACTION
+        # 6. SAVE
         # =====================================================
 
         db.commit()

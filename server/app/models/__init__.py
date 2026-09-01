@@ -1,3 +1,4 @@
+from app.models.plan import Plan
 from app.models.policy import Policy
 from app.models.product import Product
 from app.models.product_version import ProductVersion
@@ -10,4 +11,5 @@ __all__ = [
     "Product",
     "ProductVersion",
     "Policy",
+    "Plan",
 ]
