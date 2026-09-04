@@ -1,4 +1,4 @@
-from datetime import date
+from datetime import date, datetime
 from decimal import Decimal
 
 from sqlalchemy import select
@@ -7,7 +7,11 @@ from sqlalchemy.orm import joinedload
 from app.db.database import SessionLocal
 from app.models.person import Person
 from app.models.plan import Plan
-from app.models.policy import Policy
+from app.models.policy import (
+    PaymentStatus,
+    Policy,
+    PolicyStatus,
+)
 from app.models.product import Product
 from app.models.product_version import ProductVersion
 from app.models.user import User
@@ -158,11 +162,28 @@ def seed() -> None:
             else:
                 print(f"Plan already exists: {code}")
 
+        # Important because SessionLocal has autoflush=False.
+        # Makes newly created plans available for the next SELECT.
+        db.flush()
+
         # =====================================================
-        # 5. POLICY
-        #
-        # TEMPORARY OLD POLICY MODEL.
-        # We refactor this in R3.
+        # 5. SELECT PLAN FOR TEST POLICY
+        # =====================================================
+
+        selected_plan = db.scalar(
+            select(Plan).where(
+                Plan.product_version_id == product_version.id,
+                Plan.code == "PREMIANT",
+            )
+        )
+
+        if selected_plan is None:
+            raise RuntimeError(
+                "PREMIANT plan was not found."
+            )
+
+        # =====================================================
+        # 6. POLICY
         # =====================================================
 
         policy = db.scalar(
@@ -173,19 +194,22 @@ def seed() -> None:
 
         if policy is None:
             policy = Policy(
-                user_id=user.id,
-                product_version_id=product_version.id,
+                owner=user,
+                product_version=product_version,
+                plan=selected_plan,
 
                 policy_number=POLICY_NUMBER,
-                status="ACTIVE",
+
+                policy_status=PolicyStatus.ACTIVE,
+                payment_status=PaymentStatus.PAID,
 
                 start_date=date(2026, 9, 1),
                 end_date=date(2026, 9, 15),
 
-                territory_code="EUROPE",
-
                 premium_amount=Decimal("1290.00"),
                 currency="CZK",
+
+                paid_at=datetime(2026, 8, 25, 10, 0),
             )
 
             db.add(policy)
@@ -196,7 +220,7 @@ def seed() -> None:
             print("Policy already exists.")
 
         # =====================================================
-        # 6. SAVE
+        # 7. SAVE
         # =====================================================
 
         db.commit()
