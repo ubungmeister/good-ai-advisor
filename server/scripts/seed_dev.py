@@ -5,13 +5,29 @@ from sqlalchemy import select
 from sqlalchemy.orm import joinedload
 
 from app.db.database import SessionLocal
+
 from app.models.person import Person
 from app.models.plan import Plan
+
 from app.models.policy import (
     PaymentStatus,
     Policy,
     PolicyStatus,
 )
+
+from app.models.travel_policy_detail import (
+    CoverageMode,
+    SportLevel,
+    TerritoryType,
+    TravelPolicyDetail,
+    TripPurpose,
+)
+
+from app.models.policy_person import (
+    PersonRole,
+    PolicyPerson,
+)
+
 from app.models.product import Product
 from app.models.product_version import ProductVersion
 from app.models.user import User
@@ -162,8 +178,9 @@ def seed() -> None:
             else:
                 print(f"Plan already exists: {code}")
 
-        # Important because SessionLocal has autoflush=False.
-        # Makes newly created plans available for the next SELECT.
+        # SessionLocal has autoflush=False.
+        # We need newly created plans to exist in PostgreSQL
+        # before selecting one below.
         db.flush()
 
         # =====================================================
@@ -219,8 +236,80 @@ def seed() -> None:
         else:
             print("Policy already exists.")
 
+        # We need policy.id for TravelPolicyDetail
+        # and PolicyPerson.
+        db.flush()
+
         # =====================================================
-        # 7. SAVE
+        # 7. TRAVEL POLICY DETAILS
+        # =====================================================
+
+        travel_details = db.scalar(
+            select(TravelPolicyDetail).where(
+                TravelPolicyDetail.policy_id == policy.id
+            )
+        )
+
+        if travel_details is None:
+            travel_details = TravelPolicyDetail(
+                policy=policy,
+
+                coverage_mode=CoverageMode.SINGLE_TRIP,
+                territory=TerritoryType.EUROPE,
+
+                destination_country_code="DE",
+
+                trip_purpose=TripPurpose.LEISURE,
+                sport_level=SportLevel.RECREATIONAL,
+
+                departure_date=date(2026, 9, 1),
+                return_date=date(2026, 9, 15),
+            )
+
+            db.add(travel_details)
+
+            print("Created travel policy details.")
+
+        else:
+            print("Travel policy details already exist.")
+
+        # =====================================================
+        # 8. POLICY PERSON
+        # =====================================================
+
+        if user.person is None:
+            raise RuntimeError(
+                "Test user has no Person."
+            )
+
+        policy_person = db.scalar(
+            select(PolicyPerson).where(
+                PolicyPerson.policy_id == policy.id,
+                PolicyPerson.person_id == user.person.id,
+                PolicyPerson.role == PersonRole.POLICYHOLDER,
+            )
+        )
+
+        if policy_person is None:
+            policy_person = PolicyPerson(
+                policy_id=policy.id,
+                person_id=user.person.id,
+
+                role=PersonRole.POLICYHOLDER,
+
+                coverage_start=policy.start_date,
+                coverage_end=policy.end_date,
+            )
+
+            db.add(policy_person)
+
+            print("Created policy person: POLICYHOLDER.")
+
+        else:
+            print("Policy person already exists.")
+
+        # =====================================================
+        # 9. SAVE
         # =====================================================
 
         db.commit()
