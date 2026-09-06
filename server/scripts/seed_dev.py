@@ -8,6 +8,10 @@ from app.db.database import SessionLocal
 
 from app.models.person import Person
 from app.models.plan import Plan
+from app.models.coverage_type import CoverageType
+from app.models.plan_coverage import PlanCoverage
+from app.models.policy_coverage import PolicyCoverage
+from app.models.policy_option import PolicyOption
 
 from app.models.policy import (
     PaymentStatus,
@@ -308,6 +312,394 @@ def seed() -> None:
         else:
             print("Policy person already exists.")
 
+        # =====================================================
+        # COVERAGE TYPES
+        # =====================================================
+
+        coverage_types_data = [
+            (
+                "MEDICAL_EXPENSES",
+                "Medical Expenses",
+                "MEDICAL",
+                "Medical treatment expenses during travel.",
+            ),
+            (
+                "DENTAL",
+                "Dental Treatment",
+                "MEDICAL",
+                "Emergency dental treatment.",
+            ),
+            (
+                "ASSISTANCE",
+                "Assistance Services",
+                "ASSISTANCE",
+                "Assistance services during travel.",
+            ),
+            (
+                "ACCIDENT",
+                "Accident",
+                "ACCIDENT",
+                "Coverage related to accidental injury.",
+            ),
+            (
+                "LIABILITY",
+                "Liability",
+                "LIABILITY",
+                "Liability for damage caused to another person.",
+            ),
+            (
+                "LEGAL_PROTECTION",
+                "Legal Protection",
+                "LEGAL",
+                "Legal assistance and protection.",
+            ),
+            (
+                "BAGGAGE",
+                "Baggage",
+                "PROPERTY",
+                "Coverage for baggage loss or damage.",
+            ),
+            (
+                "TRIP_INTERRUPTION",
+                "Trip Interruption",
+                "TRAVEL_DISRUPTION",
+                "Coverage when a trip must be interrupted.",
+            ),
+            (
+                "MISSED_DEPARTURE",
+                "Missed Departure",
+                "TRAVEL_DISRUPTION",
+                "Coverage for certain missed departures.",
+            ),
+            (
+                "BAGGAGE_DELAY",
+                "Baggage Delay",
+                "TRAVEL_DISRUPTION",
+                "Coverage for delayed baggage.",
+            ),
+            (
+                "FLIGHT_DELAY",
+                "Flight Delay",
+                "TRAVEL_DISRUPTION",
+                "Coverage for flight delays.",
+            ),
+            (
+                "CANCELLATION",
+                "Cancellation",
+                "TRAVEL_DISRUPTION",
+                "Coverage for eligible trip cancellation.",
+            ),
+        ]
+
+        for code, name, category, description in coverage_types_data:
+            coverage_type = db.scalar(
+                select(CoverageType).where(
+                    CoverageType.code == code
+                )
+            )
+
+            if coverage_type is None:
+                coverage_type = CoverageType(
+                    code=code,
+                    name=name,
+                    category=category,
+                    description=description,
+                )
+
+                db.add(coverage_type)
+
+                print(f"Created coverage type: {code}")
+
+            else:
+                print(f"Coverage type already exists: {code}")
+
+        db.flush()
+        # =====================================================
+        # PLAN COVERAGES
+        # =====================================================
+
+        plan_coverages_data = [
+            # PLAN, COVERAGE, INCLUDED, LIMIT, CURRENCY
+            (
+                "STANDARD",
+                "MEDICAL_EXPENSES",
+                True,
+                Decimal("5000000.00"),
+                "CZK",
+            ),
+            (
+                "STANDARD",
+                "ASSISTANCE",
+                True,
+                None,
+                None,
+            ),
+
+            (
+                "DOMINANT",
+                "MEDICAL_EXPENSES",
+                True,
+                Decimal("10000000.00"),
+                "CZK",
+            ),
+            (
+                "DOMINANT",
+                "ASSISTANCE",
+                True,
+                None,
+                None,
+            ),
+            (
+                "DOMINANT",
+                "BAGGAGE",
+                True,
+                Decimal("50000.00"),
+                "CZK",
+            ),
+            (
+                "DOMINANT",
+                "LIABILITY",
+                True,
+                Decimal("5000000.00"),
+                "CZK",
+            ),
+
+            (
+                "PREMIANT",
+                "MEDICAL_EXPENSES",
+                True,
+                Decimal("100000000.00"),
+                "CZK",
+            ),
+            (
+                "PREMIANT",
+                "ASSISTANCE",
+                True,
+                None,
+                None,
+            ),
+            (
+                "PREMIANT",
+                "BAGGAGE",
+                True,
+                Decimal("100000.00"),
+                "CZK",
+            ),
+            (
+                "PREMIANT",
+                "LIABILITY",
+                True,
+                Decimal("20000000.00"),
+                "CZK",
+            ),
+        ]
+
+        for (
+                plan_code,
+                coverage_code,
+                included,
+                limit_amount,
+                currency,
+        ) in plan_coverages_data:
+
+            plan = db.scalar(
+                select(Plan).where(
+                    Plan.product_version_id == product_version.id,
+                    Plan.code == plan_code,
+                )
+            )
+
+            coverage_type = db.scalar(
+                select(CoverageType).where(
+                    CoverageType.code == coverage_code
+                )
+            )
+
+            if plan is None:
+                raise RuntimeError(
+                    f"Plan not found: {plan_code}"
+                )
+
+            if coverage_type is None:
+                raise RuntimeError(
+                    f"Coverage type not found: {coverage_code}"
+                )
+
+            plan_coverage = db.scalar(
+                select(PlanCoverage).where(
+                    PlanCoverage.plan_id == plan.id,
+                    PlanCoverage.coverage_type_id == coverage_type.id,
+                )
+            )
+
+            if plan_coverage is None:
+                plan_coverage = PlanCoverage(
+                    plan_id=plan.id,
+                    coverage_type_id=coverage_type.id,
+
+                    included=included,
+
+                    limit_amount=limit_amount,
+                    currency=currency,
+
+                    coverage_level=None,
+                    deductible_type=None,
+                    deductible_value=None,
+                    parameters=None,
+                )
+
+                db.add(plan_coverage)
+
+                print(
+                    f"Created plan coverage: "
+                    f"{plan_code} -> {coverage_code}"
+                )
+
+            else:
+                print(
+                    f"Plan coverage already exists: "
+                    f"{plan_code} -> {coverage_code}"
+                )
+            db.flush()
+        # =====================================================
+        # POLICY COVERAGES
+        # =====================================================
+
+        plan_coverages = db.scalars(
+            select(PlanCoverage).where(
+                PlanCoverage.plan_id == policy.plan_id,
+                PlanCoverage.included.is_(True),
+            )
+        ).all()
+
+        for plan_coverage in plan_coverages:
+
+            policy_coverage = db.scalar(
+                select(PolicyCoverage).where(
+                    PolicyCoverage.policy_id == policy.id,
+                    PolicyCoverage.coverage_type_id
+                    == plan_coverage.coverage_type_id,
+                    PolicyCoverage.policy_person_id.is_(None),
+                )
+            )
+
+            if policy_coverage is None:
+
+                policy_coverage = PolicyCoverage(
+                    policy_id=policy.id,
+
+                    coverage_type_id=plan_coverage.coverage_type_id,
+
+                    policy_person_id=None,
+
+                    source_plan_coverage_id=plan_coverage.id,
+
+                    status="ACTIVE",
+
+                    limit_amount=plan_coverage.limit_amount,
+                    currency=plan_coverage.currency,
+
+                    coverage_level=plan_coverage.coverage_level,
+
+                    deductible_type=plan_coverage.deductible_type,
+                    deductible_value=plan_coverage.deductible_value,
+
+                    parameters=plan_coverage.parameters,
+                )
+
+                db.add(policy_coverage)
+
+                print(
+                    f"Created policy coverage: "
+                    f"{plan_coverage.coverage_type.code}"
+                )
+
+            else:
+                print(
+                    f"Policy coverage already exists: "
+                    f"{plan_coverage.coverage_type.code}"
+                )
+
+        # =====================================================
+        # POLICY OPTIONS
+        # =====================================================
+
+        policy_options_data = [
+            (
+                "WINTER_SPORTS",
+                "Winter Sports",
+                True,
+                None,
+                Decimal("500.00"),
+                "CZK",
+                {
+                    "skiing": True,
+                    "snowboarding": True,
+                },
+            ),
+            (
+                "CANCELLATION",
+                "Trip Cancellation",
+                True,
+                "STANDARD",
+                Decimal("300.00"),
+                "CZK",
+                {
+                    "max_trip_price": 50000,
+                },
+            ),
+            (
+                "VEHICLE_ASSISTANCE",
+                "Vehicle Assistance",
+                False,
+                None,
+                None,
+                None,
+                None,
+            ),
+        ]
+
+        for (
+                code,
+                name,
+                selected,
+                variant,
+                premium_amount,
+                currency,
+                parameters,
+        ) in policy_options_data:
+
+            policy_option = db.scalar(
+                select(PolicyOption).where(
+                    PolicyOption.policy_id == policy.id,
+                    PolicyOption.code == code,
+                )
+            )
+
+            if policy_option is None:
+                policy_option = PolicyOption(
+                    policy_id=policy.id,
+                    code=code,
+                    name=name,
+                    selected=selected,
+                    variant=variant,
+                    premium_amount=premium_amount,
+                    currency=currency,
+                    parameters=parameters,
+                )
+
+                db.add(policy_option)
+
+                print(
+                    f"Created policy option: "
+                    f"{code}"
+                )
+
+            else:
+                print(
+                    f"Policy option already exists: "
+                    f"{code}"
+                )
         # =====================================================
         # 9. SAVE
         # =====================================================
