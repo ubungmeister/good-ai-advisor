@@ -1,7 +1,7 @@
 import uuid
 import enum
 
-from sqlalchemy.orm import Mapped, mapped_column
+from sqlalchemy.orm import Mapped, mapped_column, relationship
 from sqlalchemy import (
     DateTime,
     Date,
@@ -76,3 +76,5 @@ class PolicyPerson(Base):
         default=datetime.utcnow,
         nullable=False,
     )
+
+    person: Mapped["Person"] = relationship("Person")
