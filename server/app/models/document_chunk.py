@@ -81,8 +81,8 @@ class DocumentChunk(Base):
         nullable=False,
     )
 
-    embedding: Mapped[list[float] | None] = mapped_column(
-        Vector(),
+    embedding = mapped_column(
+        Vector(384),
         nullable=True,
     )
 
