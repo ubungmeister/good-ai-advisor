@@ -71,3 +71,21 @@
                     USER                  Regenerate /
                                           Safe fallback /
                                           Human handoff
+
+
+
+                    Question
+                       ↓
+              ┌────────┴────────┐
+              ↓                 ↓
+          E5 Top 20       Lexical Top 20
+              ↓                 ↓
+              └────────┬────────┘
+                       ↓
+                  RRF fusion
+                       ↓
+                12 unique chunks
+                       ↓
+               MiniLM reranker
+                       ↓
+                   Top 5
