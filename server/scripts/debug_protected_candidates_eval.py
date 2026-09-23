@@ -15,38 +15,10 @@ from app.services.reranker_service import RerankerService
 
 
 class RetrievalService:
-    """
-    Hybrid retrieval service.
 
-    Pipeline:
-
-    Question
-        |
-        +--> Semantic E5 + pgvector -> Top20
-        |
-        +--> Original lexical pg_trgm -> Top20
-        |
-        +--> Stanza + synonyms -> pg_trgm -> Top20
-                        |
-                        v
-                 RRF over all 3
-                        |
-                        +
-              protected candidates
-                        |
-                        v
-                max 12 candidates
-                        |
-                        v
-                     reranker
-                        |
-                        v
-                    Final Top K
-    """
-
-    # ----------------------------------------------------------
+    # ==========================================================
     # Retrieval configuration
-    # ----------------------------------------------------------
+    # ==========================================================
 
     RRF_K = 20
 
@@ -55,19 +27,21 @@ class RetrievalService:
     STANZA_LEXICAL_LIMIT = 20
 
     # Protected candidates.
+    #
+    # These candidates cannot be lost only because
+    # their final RRF rank is lower than Top 12.
     SEMANTIC_PROTECTED = 2
     ORIGINAL_LEXICAL_PROTECTED = 2
     STANZA_LEXICAL_PROTECTED = 5
 
-    # Maximum number of chunks passed to reranker.
+    # Expensive cross-encoder only sees 12 chunks.
     RERANKER_CANDIDATE_LIMIT = 12
 
+    # Default number of chunks returned to caller / LLM.
     DEFAULT_FINAL_LIMIT = 5
 
     def __init__(self):
-        self.embedding_service = (
-            EmbeddingService()
-        )
+        self.embedding_service = EmbeddingService()
 
         self.document_chunk_repository = (
             DocumentChunkRepository()
@@ -90,14 +64,52 @@ class RetrievalService:
         tuple[DocumentChunk, float]
     ]:
         """
-        Run the complete hybrid retrieval pipeline.
+        Final hybrid retrieval pipeline.
+
+        Question
+            |
+            +--> E5 semantic search
+            |       Top 20
+            |
+            +--> Original lexical search
+            |       Top 20
+            |
+            +--> Stanza + synonyms lexical search
+                    Top 20
+
+                        |
+                        v
+
+                RRF over all 3 lists
+
+                        +
+
+                Protected candidates:
+                    Semantic Top 2
+                    Original lexical Top 2
+                    Stanza lexical Top 5
+
+                        |
+                        v
+
+                Max 12 unique candidates
+
+                        |
+                        v
+
+                    MiniLM reranker
+
+                        |
+                        v
+
+                    Final Top K
         """
 
         total_start = time.perf_counter()
 
         # ======================================================
         # Stage 1
-        # Create semantic embedding.
+        # Question embedding
         # ======================================================
 
         embedding_start = time.perf_counter()
@@ -115,9 +127,13 @@ class RetrievalService:
 
         # ======================================================
         # Stage 2
-        # Semantic search:
+        # Semantic retrieval
         #
-        # question -> E5 -> pgvector -> Top20
+        # E5 embedding
+        #     ->
+        # pgvector cosine similarity
+        #     ->
+        # Top 20
         # ======================================================
 
         semantic_start = time.perf_counter()
@@ -137,11 +153,13 @@ class RetrievalService:
 
         # ======================================================
         # Stage 3
-        # Original lexical search:
+        # Original lexical retrieval
         #
-        # original question
-        # -> pg_trgm / word_similarity
-        # -> Top20
+        # Full original question
+        #     ->
+        # PostgreSQL pg_trgm / word_similarity
+        #     ->
+        # Top 20
         # ======================================================
 
         original_lexical_start = (
@@ -163,13 +181,23 @@ class RetrievalService:
 
         # ======================================================
         # Stage 4
-        # Build focused lexical query using:
+        # Build focused lexical query
         #
-        # Stanza
-        # + lemma
-        # + POS filtering
-        # + noise filtering
-        # + synonym expansion
+        # Example:
+        #
+        # "Je cestovní pas pojištěný
+        #  v rámci pojištění zavazadel?"
+        #
+        # becomes:
+        #
+        # "cestovní pas zavazadlo"
+        #
+        # Stanza performs:
+        # - tokenization
+        # - POS filtering
+        # - lemmatization
+        # - noise removal
+        # - synonym expansion
         # ======================================================
 
         lexical_builder_start = (
@@ -189,11 +217,13 @@ class RetrievalService:
 
         # ======================================================
         # Stage 5
-        # Stanza lexical search:
+        # Stanza lexical retrieval
         #
-        # focused lexical query
-        # -> pg_trgm / word_similarity
-        # -> Top20
+        # Focused query
+        #     ->
+        # pg_trgm / word_similarity
+        #     ->
+        # Top 20
         # ======================================================
 
         stanza_lexical_start = (
@@ -215,20 +245,32 @@ class RetrievalService:
 
         # ======================================================
         # Stage 6
-        # RRF:
+        # Reciprocal Rank Fusion
+        #
+        # ALL Top20 lists participate:
         #
         # Semantic Top20
         # Original lexical Top20
         # Stanza lexical Top20
         #
-        # All three participate.
+        # Formula:
+        #
+        # score += 1 / (RRF_K + rank)
+        #
+        # We use ranks instead of raw scores because:
+        #
+        # E5 cosine score
+        # !=
+        # pg_trgm similarity score
+        #
+        # Their numeric scales cannot safely be compared.
         # ======================================================
 
         fusion_start = time.perf_counter()
 
         fused_results = (
             self._fuse_retrieval_results(
-                result_lists=[
+                [
                     semantic_results,
                     original_lexical_results,
                     stanza_lexical_results,
@@ -243,37 +285,41 @@ class RetrievalService:
 
         # ======================================================
         # Stage 7
-        # Build final candidate pool.
+        # Protected candidate selection
         #
-        # Protect:
+        # RRF alone can lose a very strong candidate from
+        # one retriever.
+        #
+        # Example:
+        #
+        # Stanza lexical #1
+        #
+        # but because other chunks appear in multiple lists,
+        # RRF could put it below overall Top12.
+        #
+        # Therefore protect:
         #
         # Semantic Top2
         # Original lexical Top2
         # Stanza lexical Top5
         #
-        # Then fill remaining positions from RRF.
+        # Then fill remaining places from RRF.
         #
-        # Maximum remains 12.
+        # Final candidate count is STILL max 12.
         # ======================================================
 
-        candidate_start = (
-            time.perf_counter()
-        )
+        candidate_start = time.perf_counter()
 
         candidates = (
             self._build_protected_candidates(
-                semantic_results=(
-                    semantic_results
-                ),
+                semantic_results=semantic_results,
                 original_lexical_results=(
                     original_lexical_results
                 ),
                 stanza_lexical_results=(
                     stanza_lexical_results
                 ),
-                fused_results=(
-                    fused_results
-                ),
+                fused_results=fused_results,
             )
         )
 
@@ -284,15 +330,18 @@ class RetrievalService:
 
         # ======================================================
         # Stage 8
-        # Reranker.
+        # Cross-encoder reranker
         #
-        # It receives maximum 12 chunks and creates
-        # a new relevance ranking.
+        # The candidate pool is NOT the final ranking.
+        #
+        # MiniLM evaluates:
+        #
+        # (question, chunk)
+        #
+        # for every candidate and creates a new ranking.
         # ======================================================
 
-        reranker_start = (
-            time.perf_counter()
-        )
+        reranker_start = time.perf_counter()
 
         reranked = (
             self.reranker_service.rerank(
@@ -309,21 +358,19 @@ class RetrievalService:
 
         # ======================================================
         # Stage 9
-        # Final Top K.
+        # Final Top K
         # ======================================================
 
-        final_results = (
-            reranked[:limit]
-        )
+        final_results = reranked[:limit]
+
+        # ======================================================
+        # Timing
+        # ======================================================
 
         total_time = (
             time.perf_counter()
             - total_start
         )
-
-        # ======================================================
-        # Timing output
-        # ======================================================
 
         print()
         print(
@@ -340,47 +387,47 @@ class RetrievalService:
 
         print(
             f"Embedding: "
-            f"{embedding_time:.3f} sec"
+            f"{embedding_time:.3f}s"
         )
 
         print(
             f"Semantic search: "
-            f"{semantic_time:.3f} sec"
+            f"{semantic_time:.3f}s"
         )
 
         print(
             f"Original lexical: "
-            f"{original_lexical_time:.3f} sec"
+            f"{original_lexical_time:.3f}s"
         )
 
         print(
             f"Lexical builder: "
-            f"{lexical_builder_time:.3f} sec"
+            f"{lexical_builder_time:.3f}s"
         )
 
         print(
             f"Stanza lexical: "
-            f"{stanza_lexical_time:.3f} sec"
+            f"{stanza_lexical_time:.3f}s"
         )
 
         print(
             f"RRF fusion: "
-            f"{fusion_time:.3f} sec"
+            f"{fusion_time:.3f}s"
         )
 
         print(
             f"Candidate selection: "
-            f"{candidate_time:.3f} sec"
-        )
-
-        print(
-            f"Candidates for reranker: "
-            f"{len(candidates)}"
+            f"{candidate_time:.3f}s"
         )
 
         print(
             f"Reranker: "
-            f"{reranker_time:.3f} sec"
+            f"{reranker_time:.3f}s"
+        )
+
+        print(
+            f"Candidates: "
+            f"{len(candidates)}"
         )
 
         print(
@@ -390,7 +437,7 @@ class RetrievalService:
 
         print(
             f"TOTAL retrieval: "
-            f"{total_time:.3f} sec"
+            f"{total_time:.3f}s"
         )
 
         print(
@@ -416,13 +463,32 @@ class RetrievalService:
         ]
     ]:
         """
-        Reciprocal Rank Fusion across all retrievers.
+        Reciprocal Rank Fusion across any number
+        of retriever result lists.
 
-        Formula for every occurrence:
+        Current lists:
 
-            score += 1 / (RRF_K + rank)
+        1. Semantic E5
+        2. Original lexical
+        3. Stanza lexical
 
-        Raw E5 and lexical scores are not mixed directly.
+        Example:
+
+        Semantic:
+            A #1
+            B #2
+            C #3
+
+        Original lexical:
+            B #1
+            D #2
+
+        Stanza:
+            C #1
+            B #2
+
+        B receives RRF points from all three lists,
+        therefore its combined score becomes high.
         """
 
         scores: dict[
@@ -434,10 +500,6 @@ class RetrievalService:
             object,
             DocumentChunk,
         ] = {}
-
-        # ------------------------------------------------------
-        # Each retriever contributes independently.
-        # ------------------------------------------------------
 
         for results in result_lists:
 
@@ -466,10 +528,6 @@ class RetrievalService:
                         + rank
                     )
                 )
-
-        # ------------------------------------------------------
-        # Convert dictionary back to ranked list.
-        # ------------------------------------------------------
 
         fused_results = [
             (
@@ -522,15 +580,24 @@ class RetrievalService:
         ]
     ]:
         """
-        Build maximum 12 unique candidates.
+        Build final candidate pool for reranker.
 
-        Protection:
+        Strategy:
 
-        - Semantic Top2
-        - Original lexical Top2
-        - Stanza lexical Top5
+        1. Protect Semantic Top2.
+        2. Protect Original lexical Top2.
+        3. Protect Stanza lexical Top5.
+        4. Remove duplicates.
+        5. Fill remaining positions from RRF.
+        6. Stop at maximum 12 unique chunks.
 
-        Remaining positions are filled using RRF order.
+        Important:
+
+        Protected does NOT mean that a chunk will
+        appear in the final Top5.
+
+        It only guarantees that the reranker gets
+        the opportunity to evaluate that chunk.
         """
 
         selected_chunks: list[
@@ -544,16 +611,12 @@ class RetrievalService:
         def add_candidate(
             chunk: DocumentChunk,
         ) -> None:
-            """
-            Add one chunk unless:
 
-            - it is already selected
-            - candidate limit has been reached
-            """
-
+            # Do not add duplicate chunk.
             if chunk.id in selected_ids:
                 return
 
+            # Never send more than 12 candidates.
             if (
                 len(selected_chunks)
                 >= self.RERANKER_CANDIDATE_LIMIT
@@ -568,9 +631,9 @@ class RetrievalService:
                 chunk.id
             )
 
-        # ======================================================
-        # 1. Protect Semantic Top2
-        # ======================================================
+        # ==================================================
+        # Protect Semantic Top2
+        # ==================================================
 
         for chunk, _ in semantic_results[
             :self.SEMANTIC_PROTECTED
@@ -579,9 +642,9 @@ class RetrievalService:
                 chunk
             )
 
-        # ======================================================
-        # 2. Protect Original lexical Top2
-        # ======================================================
+        # ==================================================
+        # Protect Original Lexical Top2
+        # ==================================================
 
         for chunk, _ in original_lexical_results[
             :self.ORIGINAL_LEXICAL_PROTECTED
@@ -590,9 +653,9 @@ class RetrievalService:
                 chunk
             )
 
-        # ======================================================
-        # 3. Protect Stanza lexical Top5
-        # ======================================================
+        # ==================================================
+        # Protect Stanza Lexical Top5
+        # ==================================================
 
         for chunk, _ in stanza_lexical_results[
             :self.STANZA_LEXICAL_PROTECTED
@@ -601,9 +664,18 @@ class RetrievalService:
                 chunk
             )
 
-        # ======================================================
-        # 4. Fill remaining positions using RRF.
-        # ======================================================
+        # ==================================================
+        # Fill remaining places using RRF ranking.
+        #
+        # Example:
+        #
+        # protected unique = 8
+        #
+        # 12 - 8 = 4
+        #
+        # Therefore take next 4 unique candidates
+        # from RRF.
+        # ==================================================
 
         for chunk, _ in fused_results:
 
@@ -617,13 +689,16 @@ class RetrievalService:
                 chunk
             )
 
-        # ======================================================
-        # Reranker expects:
+        # ==================================================
+        # Reranker API expects:
         #
-        # (chunk, score)
+        # (DocumentChunk, score)
         #
-        # So attach each candidate's RRF score.
-        # ======================================================
+        # Protected candidates may have been selected
+        # outside RRF Top12, but they still have an RRF
+        # score because all three Top20 lists participated
+        # in RRF.
+        # ==================================================
 
         rrf_scores_by_id = {
             chunk.id: score

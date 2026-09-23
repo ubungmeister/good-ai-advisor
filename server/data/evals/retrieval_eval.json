@@ -1,0 +1,239 @@
+{
+  "document_code": "VPP_CP_2021",
+  "cases": [
+    {
+      "id": "baggage_theft",
+      "category": "baggage",
+      "language": "cs",
+      "question": "Je moje zavazadlo pojištěné proti krádeži?",
+      "expected_articles": [
+        35
+      ]
+    },
+    {
+      "id": "baggage_delay",
+      "category": "baggage",
+      "language": "cs",
+      "question": "Co když se moje zavazadlo opozdí o 8 hodin?",
+      "expected_articles": [
+        44
+      ]
+    },
+    {
+      "id": "liability_property_damage",
+      "category": "liability",
+      "language": "cs",
+      "question": "Co když během cesty poškodím cizí věc?",
+      "expected_articles": [
+        21
+      ]
+    },
+    {
+      "id": "assistance_find_doctor",
+      "category": "assistance",
+      "language": "cs",
+      "question": "Pomůže mi asistenční služba najít lékaře v zahraničí?",
+      "expected_articles": [
+        14
+      ]
+    },
+    {
+      "id": "assistance_lost_passport",
+      "category": "assistance",
+      "language": "cs",
+      "question": "Co mám dělat, když v zahraničí ztratím cestovní pas?",
+      "expected_articles": [
+        14
+      ]
+    },
+    {
+      "id": "assistance_vaccination_info",
+      "category": "assistance",
+      "language": "cs",
+      "question": "Může mi pojišťovna před cestou poradit, jestli potřebuji očkování?",
+      "expected_articles": [
+        15
+      ]
+    },
+    {
+      "id": "territory_europe_excludes_czech_republic",
+      "category": "territory",
+      "language": "cs",
+      "question": "Když mám sjednaný územní rozsah Evropa, platí pojištění i v České republice?",
+      "expected_articles": [
+        3
+      ]
+    },
+    {
+      "id": "claim_reporting_deadline",
+      "category": "claims",
+      "language": "cs",
+      "question": "Do kdy musím pojišťovně oznámit, že došlo ke škodné události?",
+      "expected_articles": [
+        4
+      ]
+    },
+    {
+      "id": "known_risk_before_insurance",
+      "category": "exclusions",
+      "language": "cs",
+      "question": "Bude pojištění platit, když jsem už při sjednání věděl o okolnostech, které mohly vést ke škodě?",
+      "expected_articles": [
+        8
+      ]
+    },
+    {
+      "id": "automatic_extension_hospitalization",
+      "category": "policy_duration",
+      "language": "cs",
+      "question": "Prodlouží se mi pojištění automaticky, když kvůli hospitalizaci nemohu odjet ze zahraničí včas?",
+      "expected_articles": [
+        9
+      ]
+    },
+    {
+      "id": "medical_prescribed_medicine",
+      "category": "medical",
+      "language": "cs",
+      "question": "Proplatí cestovní pojištění léky, které mi v zahraničí předepsal lékař?",
+      "expected_articles": [
+        11
+      ]
+    },
+    {
+      "id": "medical_repatriation",
+      "category": "medical",
+      "language": "cs",
+      "question": "Kryje pojištění převoz zpět do České republiky, když se kvůli zdravotnímu stavu nemohu vrátit plánovaným způsobem?",
+      "expected_articles": [
+        11
+      ]
+    },
+    {
+      "id": "winter_sports_default_exclusion",
+      "category": "sports",
+      "language": "cs",
+      "question": "Jsou zimní sporty automaticky zahrnuté v pojištění léčebných výloh?",
+      "expected_articles": [
+        12
+      ]
+    },
+    {
+      "id": "dental_treatment_after_accident",
+      "category": "medical",
+      "language": "cs",
+      "question": "Zaplatí pojišťovna ošetření zubu v zahraničí, když jsem si ho poškodil při úrazu?",
+      "expected_articles": [
+        12
+      ]
+    },
+    {
+      "id": "assistance_payment_guarantee",
+      "category": "assistance",
+      "language": "cs",
+      "question": "Může asistenční služba poskytnout lékaři platební záruku za ambulantní ošetření?",
+      "expected_articles": [
+        14
+      ]
+    },
+    {
+      "id": "assistance_consulate_information",
+      "category": "assistance",
+      "language": "cs",
+      "question": "Může mi rozšířená asistence dát kontakt na český zastupitelský úřad nebo konzulát?",
+      "expected_articles": [
+        15
+      ]
+    },
+    {
+      "id": "accident_permanent_consequences",
+      "category": "accident",
+      "language": "cs",
+      "question": "Kryje úrazové pojištění trvalé následky po úrazu?",
+      "expected_articles": [
+        17
+      ]
+    },
+    {
+      "id": "baggage_theft_police_report",
+      "category": "baggage",
+      "language": "cs",
+      "question": "Musím krádež zavazadla v zahraničí nahlásit policii a doložit policejní protokol?",
+      "expected_articles": [
+        37
+      ]
+    },
+    {
+      "id": "baggage_damage_repair",
+      "category": "baggage",
+      "language": "cs",
+      "question": "Jak pojišťovna postupuje, když se moje zavazadlo poškodí a je možné ho opravit?",
+      "expected_articles": [
+        38
+      ]
+    },
+    {
+      "id": "baggage_passport_exclusion",
+      "category": "baggage",
+      "language": "cs",
+      "question": "Je cestovní pas pojištěný v rámci pojištění zavazadel?",
+      "expected_articles": [
+        39
+      ]
+    },
+    {
+      "id": "trip_interruption_family_illness",
+      "category": "trip_interruption",
+      "language": "cs",
+      "question": "Mohu dostat plnění za nevyužité cestovní služby, když musím cestu přerušit kvůli akutnímu onemocnění člena rodiny?",
+      "expected_articles": [
+        41
+      ]
+    },
+    {
+      "id": "missed_departure_public_transport_delay",
+      "category": "missed_departure",
+      "language": "cs",
+      "question": "Co když zmeškám plánovaný odjezd kvůli zpoždění veřejné dopravy?",
+      "expected_articles": [
+        42
+      ]
+    },
+    {
+      "id": "flight_delay_six_hours",
+      "category": "flight_delay",
+      "language": "cs",
+      "question": "Mám nárok na plnění, když je můj let zpožděný o šest hodin?",
+      "expected_articles": [
+        45
+      ]
+    },
+    {
+      "id": "cancellation_due_to_illness",
+      "category": "cancellation",
+      "language": "cs",
+      "question": "Kryje pojištění stornopoplatků zrušení cesty kvůli akutnímu onemocnění?",
+      "expected_articles": [
+        47
+      ]
+    },
+    {
+      "id": "cancellation_deductible",
+      "category": "cancellation",
+      "language": "cs",
+      "question": "Jaká je spoluúčast u pojištění stornopoplatků?",
+      "expected_articles": [
+        51
+      ]
+    },
+    {
+      "id": "cancellation_no_visa_exclusion",
+      "category": "cancellation",
+      "language": "cs",
+      "question": "Dostanu plnění ze storna, když cestu zruším proto, že jsem nedostal vízum?",
+      "expected_articles": [
+        52
+      ]
+    }
+  ]
+}

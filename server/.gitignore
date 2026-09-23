@@ -4,3 +4,11 @@ __pycache__/
 *.py[cod]
 .pytest_cache/
 *.log
+
+# Local AI models / generated model weights
+server/models/
+
+*.onnx
+*.safetensors
+
+models/
