@@ -8,7 +8,7 @@ from app.services.llm_service import LLMService
 from app.services.retrieval_service import RetrievalService
 from app.services.safety_classifier import SafetyClassifier
 from app.services.safety_router import SafetyRouter
-
+from app.services.query_planner import QueryPlanner
 
 @lru_cache
 def get_llm_service() -> LLMService:
@@ -55,4 +55,9 @@ def get_chat_service() -> ChatService:
         safety_classifier=get_safety_classifier(),
         safety_router=get_safety_router(),
         critical_flow_service=get_critical_flow_service(),
+    )
+@lru_cache
+def get_query_planner() -> QueryPlanner:
+    return QueryPlanner(
+        llm_service=get_llm_service(),
     )
