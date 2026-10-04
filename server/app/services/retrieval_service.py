@@ -44,9 +44,9 @@ class RetrievalService:
                     Final Top K
     """
 
-    # ----------------------------------------------------------
+    # ==========================================================
     # Retrieval configuration
-    # ----------------------------------------------------------
+    # ==========================================================
 
     RRF_K = 20
 
@@ -54,17 +54,20 @@ class RetrievalService:
     ORIGINAL_LEXICAL_LIMIT = 20
     STANZA_LEXICAL_LIMIT = 20
 
-    # Protected candidates.
     SEMANTIC_PROTECTED = 2
     ORIGINAL_LEXICAL_PROTECTED = 2
     STANZA_LEXICAL_PROTECTED = 5
 
-    # Maximum number of chunks passed to reranker.
     RERANKER_CANDIDATE_LIMIT = 12
 
     DEFAULT_FINAL_LIMIT = 5
 
+    # ==========================================================
+    # INIT
+    # ==========================================================
+
     def __init__(self):
+
         self.embedding_service = (
             EmbeddingService()
         )
@@ -81,6 +84,10 @@ class RetrievalService:
             RerankerService()
         )
 
+    # ==========================================================
+    # SEARCH
+    # ==========================================================
+
     def search(
         self,
         db: Session,
@@ -91,16 +98,44 @@ class RetrievalService:
     ]:
         """
         Run the complete hybrid retrieval pipeline.
+
+        This version contains detailed diagnostic output
+        so we can find exactly where retrieval is hanging.
         """
 
         total_start = time.perf_counter()
 
+        print(
+            "\n========================================",
+            flush=True,
+        )
+        print(
+            "RETRIEVAL DEBUG START",
+            flush=True,
+        )
+        print(
+            "QUESTION:",
+            question,
+            flush=True,
+        )
+        print(
+            "========================================",
+            flush=True,
+        )
+
         # ======================================================
-        # Stage 1
-        # Create semantic embedding.
+        # STAGE 1
+        # EMBEDDING
         # ======================================================
 
-        embedding_start = time.perf_counter()
+        print(
+            "\nR1. EMBEDDING START",
+            flush=True,
+        )
+
+        embedding_start = (
+            time.perf_counter()
+        )
 
         query_embedding = (
             self.embedding_service.embed_query(
@@ -113,14 +148,36 @@ class RetrievalService:
             - embedding_start
         )
 
+        print(
+            "R1. EMBEDDING DONE",
+            flush=True,
+        )
+
+        print(
+            f"R1 TIME: "
+            f"{embedding_time:.3f} sec",
+            flush=True,
+        )
+
+        print(
+            "EMBEDDING DIMENSIONS:",
+            len(query_embedding),
+            flush=True,
+        )
+
         # ======================================================
-        # Stage 2
-        # Semantic search:
-        #
-        # question -> E5 -> pgvector -> Top20
+        # STAGE 2
+        # SEMANTIC SEARCH
         # ======================================================
 
-        semantic_start = time.perf_counter()
+        print(
+            "\nR2. SEMANTIC SEARCH START",
+            flush=True,
+        )
+
+        semantic_start = (
+            time.perf_counter()
+        )
 
         semantic_results = list(
             self.document_chunk_repository.search_similar(
@@ -135,14 +192,32 @@ class RetrievalService:
             - semantic_start
         )
 
+        print(
+            "R2. SEMANTIC SEARCH DONE",
+            flush=True,
+        )
+
+        print(
+            f"R2 TIME: "
+            f"{semantic_time:.3f} sec",
+            flush=True,
+        )
+
+        print(
+            "SEMANTIC RESULTS:",
+            len(semantic_results),
+            flush=True,
+        )
+
         # ======================================================
-        # Stage 3
-        # Original lexical search:
-        #
-        # original question
-        # -> pg_trgm / word_similarity
-        # -> Top20
+        # STAGE 3
+        # ORIGINAL LEXICAL SEARCH
         # ======================================================
+
+        print(
+            "\nR3. ORIGINAL LEXICAL START",
+            flush=True,
+        )
 
         original_lexical_start = (
             time.perf_counter()
@@ -161,16 +236,32 @@ class RetrievalService:
             - original_lexical_start
         )
 
+        print(
+            "R3. ORIGINAL LEXICAL DONE",
+            flush=True,
+        )
+
+        print(
+            f"R3 TIME: "
+            f"{original_lexical_time:.3f} sec",
+            flush=True,
+        )
+
+        print(
+            "ORIGINAL LEXICAL RESULTS:",
+            len(original_lexical_results),
+            flush=True,
+        )
+
         # ======================================================
-        # Stage 4
-        # Build focused lexical query using:
-        #
-        # Stanza
-        # + lemma
-        # + POS filtering
-        # + noise filtering
-        # + synonym expansion
+        # STAGE 4
+        # STANZA / LEXICAL QUERY BUILDER
         # ======================================================
+
+        print(
+            "\nR4. STANZA BUILD START",
+            flush=True,
+        )
 
         lexical_builder_start = (
             time.perf_counter()
@@ -187,14 +278,32 @@ class RetrievalService:
             - lexical_builder_start
         )
 
+        print(
+            "R4. STANZA BUILD DONE",
+            flush=True,
+        )
+
+        print(
+            f"R4 TIME: "
+            f"{lexical_builder_time:.3f} sec",
+            flush=True,
+        )
+
+        print(
+            "STANZA QUERY:",
+            stanza_query,
+            flush=True,
+        )
+
         # ======================================================
-        # Stage 5
-        # Stanza lexical search:
-        #
-        # focused lexical query
-        # -> pg_trgm / word_similarity
-        # -> Top20
+        # STAGE 5
+        # STANZA LEXICAL SEARCH
         # ======================================================
+
+        print(
+            "\nR5. STANZA LEXICAL START",
+            flush=True,
+        )
 
         stanza_lexical_start = (
             time.perf_counter()
@@ -213,18 +322,36 @@ class RetrievalService:
             - stanza_lexical_start
         )
 
+        print(
+            "R5. STANZA LEXICAL DONE",
+            flush=True,
+        )
+
+        print(
+            f"R5 TIME: "
+            f"{stanza_lexical_time:.3f} sec",
+            flush=True,
+        )
+
+        print(
+            "STANZA LEXICAL RESULTS:",
+            len(stanza_lexical_results),
+            flush=True,
+        )
+
         # ======================================================
-        # Stage 6
-        # RRF:
-        #
-        # Semantic Top20
-        # Original lexical Top20
-        # Stanza lexical Top20
-        #
-        # All three participate.
+        # STAGE 6
+        # RECIPROCAL RANK FUSION
         # ======================================================
 
-        fusion_start = time.perf_counter()
+        print(
+            "\nR6. RRF START",
+            flush=True,
+        )
+
+        fusion_start = (
+            time.perf_counter()
+        )
 
         fused_results = (
             self._fuse_retrieval_results(
@@ -241,20 +368,32 @@ class RetrievalService:
             - fusion_start
         )
 
+        print(
+            "R6. RRF DONE",
+            flush=True,
+        )
+
+        print(
+            f"R6 TIME: "
+            f"{fusion_time:.3f} sec",
+            flush=True,
+        )
+
+        print(
+            "FUSED RESULTS:",
+            len(fused_results),
+            flush=True,
+        )
+
         # ======================================================
-        # Stage 7
-        # Build final candidate pool.
-        #
-        # Protect:
-        #
-        # Semantic Top2
-        # Original lexical Top2
-        # Stanza lexical Top5
-        #
-        # Then fill remaining positions from RRF.
-        #
-        # Maximum remains 12.
+        # STAGE 7
+        # CANDIDATE SELECTION
         # ======================================================
+
+        print(
+            "\nR7. CANDIDATE SELECTION START",
+            flush=True,
+        )
 
         candidate_start = (
             time.perf_counter()
@@ -282,13 +421,32 @@ class RetrievalService:
             - candidate_start
         )
 
+        print(
+            "R7. CANDIDATE SELECTION DONE",
+            flush=True,
+        )
+
+        print(
+            f"R7 TIME: "
+            f"{candidate_time:.3f} sec",
+            flush=True,
+        )
+
+        print(
+            "CANDIDATES FOR RERANKER:",
+            len(candidates),
+            flush=True,
+        )
+
         # ======================================================
-        # Stage 8
-        # Reranker.
-        #
-        # It receives maximum 12 chunks and creates
-        # a new relevance ranking.
+        # STAGE 8
+        # RERANKER
         # ======================================================
+
+        print(
+            "\nR8. RERANKER START",
+            flush=True,
+        )
 
         reranker_start = (
             time.perf_counter()
@@ -307,97 +465,146 @@ class RetrievalService:
             - reranker_start
         )
 
+        print(
+            "R8. RERANKER DONE",
+            flush=True,
+        )
+
+        print(
+            f"R8 TIME: "
+            f"{reranker_time:.3f} sec",
+            flush=True,
+        )
+
+        print(
+            "RERANKED RESULTS:",
+            len(reranked),
+            flush=True,
+        )
+
         # ======================================================
-        # Stage 9
-        # Final Top K.
+        # STAGE 9
+        # FINAL TOP K
         # ======================================================
+
+        print(
+            "\nR9. FINAL TOP K START",
+            flush=True,
+        )
 
         final_results = (
             reranked[:limit]
         )
+
+        print(
+            "R9. FINAL TOP K DONE",
+            flush=True,
+        )
+
+        print(
+            "FINAL RESULTS:",
+            len(final_results),
+            flush=True,
+        )
+
+        # ======================================================
+        # TOTAL
+        # ======================================================
 
         total_time = (
             time.perf_counter()
             - total_start
         )
 
-        # ======================================================
-        # Timing output
-        # ======================================================
-
-        print()
         print(
-            "----------------------------------------"
+            "\n----------------------------------------",
+            flush=True,
         )
 
         print(
-            "RETRIEVAL TIMINGS"
+            "RETRIEVAL TIMINGS",
+            flush=True,
         )
 
         print(
-            "----------------------------------------"
+            "----------------------------------------",
+            flush=True,
         )
 
         print(
-            f"Embedding: "
-            f"{embedding_time:.3f} sec"
+            f"Embedding:          "
+            f"{embedding_time:.3f} sec",
+            flush=True,
         )
 
         print(
-            f"Semantic search: "
-            f"{semantic_time:.3f} sec"
+            f"Semantic search:    "
+            f"{semantic_time:.3f} sec",
+            flush=True,
         )
 
         print(
-            f"Original lexical: "
-            f"{original_lexical_time:.3f} sec"
+            f"Original lexical:   "
+            f"{original_lexical_time:.3f} sec",
+            flush=True,
         )
 
         print(
-            f"Lexical builder: "
-            f"{lexical_builder_time:.3f} sec"
+            f"Stanza builder:     "
+            f"{lexical_builder_time:.3f} sec",
+            flush=True,
         )
 
         print(
-            f"Stanza lexical: "
-            f"{stanza_lexical_time:.3f} sec"
+            f"Stanza lexical:     "
+            f"{stanza_lexical_time:.3f} sec",
+            flush=True,
         )
 
         print(
-            f"RRF fusion: "
-            f"{fusion_time:.3f} sec"
+            f"RRF fusion:         "
+            f"{fusion_time:.3f} sec",
+            flush=True,
         )
 
         print(
-            f"Candidate selection: "
-            f"{candidate_time:.3f} sec"
+            f"Candidate selection:"
+            f" {candidate_time:.3f} sec",
+            flush=True,
         )
 
         print(
-            f"Candidates for reranker: "
-            f"{len(candidates)}"
+            f"Reranker:           "
+            f"{reranker_time:.3f} sec",
+            flush=True,
         )
 
         print(
-            f"Reranker: "
-            f"{reranker_time:.3f} sec"
+            f"TOTAL RETRIEVAL:    "
+            f"{total_time:.3f} sec",
+            flush=True,
         )
 
         print(
-            f"Final results: "
-            f"{len(final_results)}"
+            "========================================",
+            flush=True,
         )
 
         print(
-            f"TOTAL retrieval: "
-            f"{total_time:.3f} sec"
+            "RETRIEVAL DEBUG COMPLETE",
+            flush=True,
         )
 
         print(
-            "----------------------------------------"
+            "========================================\n",
+            flush=True,
         )
 
         return final_results
+
+    # ==========================================================
+    # RRF
+    # ==========================================================
 
     def _fuse_retrieval_results(
         self,
@@ -448,6 +655,7 @@ class RetrievalService:
                 results,
                 start=1,
             ):
+
                 chunks_by_id[
                     chunk.id
                 ] = chunk
@@ -488,6 +696,10 @@ class RetrievalService:
         )
 
         return fused_results
+
+    # ==========================================================
+    # PROTECTED CANDIDATES
+    # ==========================================================
 
     def _build_protected_candidates(
         self,
@@ -575,6 +787,7 @@ class RetrievalService:
         for chunk, _ in semantic_results[
             :self.SEMANTIC_PROTECTED
         ]:
+
             add_candidate(
                 chunk
             )
@@ -586,6 +799,7 @@ class RetrievalService:
         for chunk, _ in original_lexical_results[
             :self.ORIGINAL_LEXICAL_PROTECTED
         ]:
+
             add_candidate(
                 chunk
             )
@@ -597,12 +811,13 @@ class RetrievalService:
         for chunk, _ in stanza_lexical_results[
             :self.STANZA_LEXICAL_PROTECTED
         ]:
+
             add_candidate(
                 chunk
             )
 
         # ======================================================
-        # 4. Fill remaining positions using RRF.
+        # 4. Fill remaining positions using RRF
         # ======================================================
 
         for chunk, _ in fused_results:
@@ -618,11 +833,7 @@ class RetrievalService:
             )
 
         # ======================================================
-        # Reranker expects:
-        #
-        # (chunk, score)
-        #
-        # So attach each candidate's RRF score.
+        # Attach RRF score to candidates
         # ======================================================
 
         rrf_scores_by_id = {
