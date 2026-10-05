@@ -1,6 +1,8 @@
 import time
 import uuid
+import json
 
+from app.schemas.query_plan import TaskType
 from sqlalchemy.orm import Session
 
 from app.schemas.policy import PolicyDetailsResponse
@@ -71,6 +73,12 @@ class ChatService:
 
         total_start = time.perf_counter()
 
+        print("\n========================================")
+        print("CHAT FLOW START")
+        print("MESSAGE:", message)
+        print("USER ID:", user_id)
+        print("POLICY ID:", policy_id)
+        print("========================================")
         # =====================================================
         # 1. SAFETY
         # =====================================================
@@ -80,10 +88,13 @@ class ChatService:
                 message=message,
             )
         )
+        print("\n1. SAFETY DONE")
+        print("SAFETY DECISION:", safety_decision)
 
         safety_route = self.safety_router.route(
             decision=safety_decision,
         )
+        print("2. SAFETY ROUTE:", safety_route)
 
         # =====================================================
         # 2. CRITICAL FLOW
@@ -107,6 +118,9 @@ class ChatService:
             message=message,
         )
 
+        print("\n3. QUERY PLANNER DONE")
+        print("PLAN:", plan)
+
         # =====================================================
         # 4. PRIORITIZE TASKS
         # =====================================================
@@ -116,6 +130,8 @@ class ChatService:
                 plan=plan,
             )
         )
+        print("\n4. TASK PRIORITIZER DONE")
+        print("PRIORITIZED TASKS:", tasks)
 
         # =====================================================
         # 5. EXECUTE ROUTED TASKS
@@ -130,6 +146,10 @@ class ChatService:
                     task=task,
                 )
             )
+            print("\n5. TASK ROUTED")
+            print("TASK TYPE:", task.type)
+            print("TASK QUERY:", task.query)
+            print("TARGETS:", routed_task.targets)
 
             for target in routed_task.targets:
 
@@ -222,10 +242,129 @@ class ChatService:
                         )
                     )
 
-                    policy_content = (
-                        policy_dto.model_dump_json(
-                            indent=2,
+                    # -------------------------------------------------
+                    # Build only the policy facts required
+                    # for the current task type.
+                    # -------------------------------------------------
+
+                    if task.type == TaskType.POLICY_DETAILS:
+
+                        policy_content_data = {
+                            "policy_number": (
+                                policy_dto.policy.policy_number
+                            ),
+                            "policy_status": (
+                                policy_dto.policy.policy_status
+                            ),
+                            "payment_status": (
+                                policy_dto.policy.payment_status
+                            ),
+                            "start_date": (
+                                policy_dto.policy.start_date
+                            ),
+                            "end_date": (
+                                policy_dto.policy.end_date
+                            ),
+                            "premium_amount": (
+                                policy_dto.policy.premium_amount
+                            ),
+                            "currency": (
+                                policy_dto.policy.currency
+                            ),
+                            "paid_at": (
+                                policy_dto.policy.paid_at
+                            ),
+                        }
+
+                    elif task.type == TaskType.COVERAGE_CHECK:
+
+                        policy_content_data = {
+                            "policy": {
+                                "policy_status": (
+                                    policy_dto.policy.policy_status
+                                ),
+                                "start_date": (
+                                    policy_dto.policy.start_date
+                                ),
+                                "end_date": (
+                                    policy_dto.policy.end_date
+                                ),
+                            },
+
+                            "coverages": [
+                                {
+                                    "code": (
+                                        coverage.coverage_type.code
+                                    ),
+                                    "name": (
+                                        coverage.coverage_type.name
+                                    ),
+                                    "limit_amount": (
+                                        coverage.limit_amount
+                                    ),
+                                    "currency": (
+                                        coverage.currency
+                                    ),
+                                }
+                                for coverage
+                                in policy_dto.coverages
+                            ],
+
+                            "options": [
+                                {
+                                    "code": option.code,
+                                    "name": option.name,
+                                    "selected": option.selected,
+                                    "variant": option.variant,
+                                }
+                                for option
+                                in policy_dto.options
+                            ],
+
+                            "travel_details": (
+                                {
+                                    "coverage_mode": (
+                                        policy_dto
+                                        .travel_details
+                                        .coverage_mode
+                                    ),
+                                    "territory_type": (
+                                        policy_dto
+                                        .travel_details
+                                        .territory_type
+                                    ),
+                                    "destination_country": (
+                                        policy_dto
+                                        .travel_details
+                                        .destination_country
+                                    ),
+                                    "trip_purpose": (
+                                        policy_dto
+                                        .travel_details
+                                        .trip_purpose
+                                    ),
+                                    "sport_level": (
+                                        policy_dto
+                                        .travel_details
+                                        .sport_level
+                                    ),
+                                }
+                                if policy_dto.travel_details
+                                else None
+                            ),
+                        }
+
+                    else:
+                        raise ValueError(
+                            f"Unsupported policy task type: "
+                            f"{task.type}"
                         )
+
+                    policy_content = json.dumps(
+                        policy_content_data,
+                        ensure_ascii=False,
+                        indent=2,
+                        default=str,
                     )
 
                     task_results.append(
@@ -249,9 +388,28 @@ class ChatService:
         # =====================================================
         # 6. CONTEXT BUILDER
         # =====================================================
+        print("\n6. TASK EXECUTION DONE")
 
+        print(
+            "TASK RESULTS:",
+            [
+                (
+                    result.task_type.value,
+                    result.target.value,
+                )
+                for result in task_results
+            ],
+        )
         context = self.context_builder.build(
             results=task_results,
+        )
+
+        print("\n7. CONTEXT BUILDER DONE")
+        print("CONTEXT LENGTH:", len(context))
+
+        print(
+            "CONTEXT PREVIEW:\n",
+            context[:1500],
         )
 
         if not context:
@@ -300,6 +458,7 @@ Rules:
   information.
 - Answer in the same language as the user.
 """
+        print("\n8. FINAL LLM START")
 
         answer = (
             await self.llm_service.generate_answer(
@@ -308,15 +467,22 @@ Rules:
                 context=context,
             )
         )
+        print("9. FINAL LLM DONE")
+        print("ANSWER:", answer)
 
         total_time = (
-            time.perf_counter()
-            - total_start
+                time.perf_counter()
+                - total_start
         )
 
+        print("\n========================================")
+        print("CHAT FLOW COMPLETE")
         print(
             f"TOTAL CHAT TIME: "
             f"{total_time:.3f} sec"
         )
+        print("========================================\n")
+
+        return answer
 
         return answer
