@@ -7,7 +7,7 @@ from sqlalchemy.orm import Session
 
 from app.schemas.policy import PolicyDetailsResponse
 from app.schemas.safety import SafetyRoute
-from app.schemas.task_result import TaskResult
+from app.schemas.task_result import TaskResult, RetrievalTaskContent, RetrievedChunk, PolicyTaskContent
 from app.schemas.task_routing import TaskTarget
 
 from app.services.context_builder import ContextBuilder
@@ -173,20 +173,20 @@ class ChatService:
                     if not retrieval_results:
                         continue
 
-                    retrieval_content = (
-                        "\n\n".join(
-                            (
-                                f"[DOCUMENT {index}]\n"
-                                f"{chunk.content}"
+                    retrieval_content = RetrievalTaskContent(
+                        chunks=[
+                            RetrievedChunk(
+                                id=chunk.id,
+                                document_id=chunk.document_id,
+                                content=chunk.content,
+                                score=score,
+                                page_number=chunk.page_number,
+                                article_number=chunk.article_number,
+                                section_title=chunk.section_title,
+                                coverage_code=chunk.coverage_code,
                             )
-                            for index, (
-                                chunk,
-                                _score,
-                            ) in enumerate(
-                                retrieval_results,
-                                start=1,
-                            )
-                        )
+                            for chunk, score in retrieval_results
+                        ]
                     )
 
                     task_results.append(
@@ -233,138 +233,10 @@ class ChatService:
                             "to the user."
                         )
 
-                    # Convert ORM objects returned by
-                    # PolicyService into our clean API DTO.
-                    policy_dto = (
-                        PolicyDetailsResponse
-                        .model_validate(
+                    policy_content = (
+                        PolicyTaskContent.model_validate(
                             policy_details
                         )
-                    )
-
-                    # -------------------------------------------------
-                    # Build only the policy facts required
-                    # for the current task type.
-                    # -------------------------------------------------
-
-                    if task.type == TaskType.POLICY_DETAILS:
-
-                        policy_content_data = {
-                            "policy_number": (
-                                policy_dto.policy.policy_number
-                            ),
-                            "policy_status": (
-                                policy_dto.policy.policy_status
-                            ),
-                            "payment_status": (
-                                policy_dto.policy.payment_status
-                            ),
-                            "start_date": (
-                                policy_dto.policy.start_date
-                            ),
-                            "end_date": (
-                                policy_dto.policy.end_date
-                            ),
-                            "premium_amount": (
-                                policy_dto.policy.premium_amount
-                            ),
-                            "currency": (
-                                policy_dto.policy.currency
-                            ),
-                            "paid_at": (
-                                policy_dto.policy.paid_at
-                            ),
-                        }
-
-                    elif task.type == TaskType.COVERAGE_CHECK:
-
-                        policy_content_data = {
-                            "policy": {
-                                "policy_status": (
-                                    policy_dto.policy.policy_status
-                                ),
-                                "start_date": (
-                                    policy_dto.policy.start_date
-                                ),
-                                "end_date": (
-                                    policy_dto.policy.end_date
-                                ),
-                            },
-
-                            "coverages": [
-                                {
-                                    "code": (
-                                        coverage.coverage_type.code
-                                    ),
-                                    "name": (
-                                        coverage.coverage_type.name
-                                    ),
-                                    "limit_amount": (
-                                        coverage.limit_amount
-                                    ),
-                                    "currency": (
-                                        coverage.currency
-                                    ),
-                                }
-                                for coverage
-                                in policy_dto.coverages
-                            ],
-
-                            "options": [
-                                {
-                                    "code": option.code,
-                                    "name": option.name,
-                                    "selected": option.selected,
-                                    "variant": option.variant,
-                                }
-                                for option
-                                in policy_dto.options
-                            ],
-
-                            "travel_details": (
-                                {
-                                    "coverage_mode": (
-                                        policy_dto
-                                        .travel_details
-                                        .coverage_mode
-                                    ),
-                                    "territory_type": (
-                                        policy_dto
-                                        .travel_details
-                                        .territory_type
-                                    ),
-                                    "destination_country": (
-                                        policy_dto
-                                        .travel_details
-                                        .destination_country
-                                    ),
-                                    "trip_purpose": (
-                                        policy_dto
-                                        .travel_details
-                                        .trip_purpose
-                                    ),
-                                    "sport_level": (
-                                        policy_dto
-                                        .travel_details
-                                        .sport_level
-                                    ),
-                                }
-                                if policy_dto.travel_details
-                                else None
-                            ),
-                        }
-
-                    else:
-                        raise ValueError(
-                            f"Unsupported policy task type: "
-                            f"{task.type}"
-                        )
-
-                    policy_content = json.dumps(
-                        policy_content_data,
-                        ensure_ascii=False,
-                        indent=2,
-                        default=str,
                     )
 
                     task_results.append(
@@ -374,6 +246,7 @@ class ChatService:
                             content=policy_content,
                         )
                     )
+
 
                 # =============================================
                 # UNKNOWN TARGET
