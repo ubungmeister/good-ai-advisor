@@ -1,90 +1,289 @@
+from collections.abc import Sequence
+
 from app.schemas.response_validation import (
-    ResponseValidation,
+    GroundingCheckResult,
+    GroundingVerdict,
+    ValidationIssue,
+    ValidationIssueCode,
+    ValidationResult,
 )
-from app.services.llm_service import LLMService
+from app.schemas.task_result import TaskResult
+
+from app.services.deterministic_guard_service import (
+    DeterministicGuardService,
+)
+from app.services.grounding_fact_builder import (
+    GroundingFactBuilder,
+)
+from app.services.grounding_validator import (
+    GroundingValidator,
+)
+from app.services.validation_decision_policy import (
+    ValidationDecisionPolicy,
+)
 
 
 class ResponseValidator:
+    """
+    Orchestrates validation of Model A's draft answer.
+
+    Flow:
+
+    draft answer
+        ↓
+    deterministic guards
+        ↓
+    grounding facts
+        ↓
+    Model B grounding validation
+        ↓
+    deterministic decision policy
+        ↓
+    ValidationResult
+    """
 
     def __init__(
         self,
         *,
-        llm_service: LLMService,
+        guard_service: DeterministicGuardService,
+        grounding_fact_builder: GroundingFactBuilder,
+        grounding_validator: GroundingValidator,
+        decision_policy: ValidationDecisionPolicy,
     ):
-        self.llm_service = llm_service
+        self.guard_service = guard_service
+        self.grounding_fact_builder = (
+            grounding_fact_builder
+        )
+        self.grounding_validator = (
+            grounding_validator
+        )
+        self.decision_policy = decision_policy
 
     async def validate(
         self,
         *,
-        user_message: str,
+        question: str,
         draft_answer: str,
-        trusted_context: str,
-    ) -> ResponseValidation:
+        task_results: Sequence[TaskResult],
+        regeneration_count: int = 0,
+    ) -> ValidationResult:
 
-        system_prompt = """
-You are a response validator for an insurance assistant.
+        # =====================================================
+        # 1. DETERMINISTIC GUARDS
+        # =====================================================
 
-Your job is NOT to answer the user.
+        guard_issues = self.guard_service.check(
+            draft_answer=draft_answer,
+            task_results=task_results,
+            regeneration_count=regeneration_count,
+        )
 
-Your job is to verify whether the draft answer is grounded
-in the trusted context.
+        print("\n--- RESPONSE VALIDATION ---")
+        print("GUARD ISSUES:", guard_issues)
 
-The trusted context is the only source of truth.
+        # Some failures make semantic grounding either
+        # impossible or unnecessary.
+        if self._should_skip_grounding(
+            issues=guard_issues,
+        ):
+            return self.decision_policy.decide(
+                grounding_result=(
+                    self._not_checked_result()
+                ),
+                guard_issues=guard_issues,
+                regeneration_count=regeneration_count,
+            )
 
-Check especially:
-- dates
-- numbers
-- currencies
-- policy status
-- payment status
-- coverage
-- coverage limits
-- selected options
-- exclusions
-- insurance procedures
-- who must do what
-- any other factual claim
+        # =====================================================
+        # 2. BUILD TRUSTED GROUNDING FACTS
+        # =====================================================
 
-Rules:
+        try:
+            facts = self.grounding_fact_builder.build(
+                task_results=task_results,
+            )
 
-1. Return OK only when every material factual claim in the
-   draft answer is supported by the trusted context.
+        except Exception as exc:
+            issues = list(guard_issues)
 
-2. Translation, formatting, summarization and natural
-   wording are allowed if the factual meaning is preserved.
+            issues.append(
+                ValidationIssue(
+                    code=(
+                        ValidationIssueCode
+                        .INVALID_RUNTIME_STATE
+                    ),
+                    message=(
+                        "Failed to build trusted "
+                        "grounding facts."
+                    ),
+                )
+            )
 
-3. Return REGENERATE when the trusted context contains enough
-   information to answer correctly, but the draft contains
-   an incorrect, contradictory or unsupported factual claim.
+            print(
+                "GROUNDING FACT BUILDER ERROR:",
+                repr(exc),
+            )
 
-4. Return REJECT when the trusted context does not contain
-   enough information to support the answer.
+            return self.decision_policy.decide(
+                grounding_result=(
+                    self._not_checked_result()
+                ),
+                guard_issues=issues,
+                regeneration_count=regeneration_count,
+            )
 
-5. Return HANDOFF only when the request requires a human
-   decision or action that cannot be safely completed from
-   the trusted context.
+        print(
+            "GROUNDING FACTS:",
+            [
+                fact.id
+                for fact in facts
+            ],
+        )
 
-6. Do not invent facts while validating.
+        # TaskResult[] may technically exist while producing
+        # no usable grounding facts.
+        if not facts:
+            issues = list(guard_issues)
 
-7. issues must contain short, concrete explanations of the
-   validation problem.
+            issues.append(
+                ValidationIssue(
+                    code=(
+                        ValidationIssueCode
+                        .NO_TRUSTED_EVIDENCE
+                    ),
+                    message=(
+                        "No trusted grounding facts "
+                        "were produced."
+                    ),
+                )
+            )
 
-8. If action is OK, issues must be empty.
-"""
+            return self.decision_policy.decide(
+                grounding_result=(
+                    self._not_checked_result()
+                ),
+                guard_issues=issues,
+                regeneration_count=regeneration_count,
+            )
 
-        validation_input = f"""
-USER MESSAGE:
-{user_message}
+        # =====================================================
+        # 3. SEMANTIC GROUNDING — MODEL B
+        # =====================================================
 
-DRAFT ANSWER:
-{draft_answer}
+        try:
+            grounding_result = (
+                await self.grounding_validator.validate(
+                    question=question,
+                    draft_answer=draft_answer,
+                    facts=facts,
+                )
+            )
 
-TRUSTED CONTEXT:
-{trusted_context}
-"""
+        except Exception as exc:
+            issues = list(guard_issues)
 
-        return await self.llm_service.generate_structured(
-            system_prompt=system_prompt,
-            user_message=validation_input,
-            response_model=ResponseValidation,
+            issues.append(
+                ValidationIssue(
+                    code=(
+                        ValidationIssueCode
+                        .VALIDATOR_ERROR
+                    ),
+                    message=(
+                        "Semantic grounding validation "
+                        "could not be completed."
+                    ),
+                )
+            )
+
+            print(
+                "GROUNDING VALIDATOR ERROR:",
+                repr(exc),
+            )
+
+            return self.decision_policy.decide(
+                grounding_result=(
+                    self._not_checked_result()
+                ),
+                guard_issues=issues,
+                regeneration_count=regeneration_count,
+            )
+
+        print(
+            "GROUNDING VERDICT:",
+            grounding_result.verdict,
+        )
+
+        print(
+            "GROUNDING CLAIMS:",
+            grounding_result.claims,
+        )
+
+        # =====================================================
+        # 4. FINAL BACKEND DECISION
+        # =====================================================
+
+        validation_result = (
+            self.decision_policy.decide(
+                grounding_result=grounding_result,
+                guard_issues=guard_issues,
+                regeneration_count=regeneration_count,
+            )
+        )
+
+        print(
+            "VALIDATION ACTION:",
+            validation_result.action,
+        )
+
+        print(
+            "VALIDATION ISSUES:",
+            validation_result.issues,
+        )
+
+        return validation_result
+
+    # ========================================================
+    # HELPERS
+    # ========================================================
+
+    def _should_skip_grounding(
+        self,
+        *,
+        issues: Sequence[ValidationIssue],
+    ) -> bool:
+        """
+        Grounding should not run when the runtime is already
+        in a state where Model B cannot meaningfully validate
+        the answer.
+        """
+
+        blocking_codes = {
+            ValidationIssueCode.EMPTY_ANSWER,
+            ValidationIssueCode.NO_TRUSTED_EVIDENCE,
+            ValidationIssueCode.INVALID_RUNTIME_STATE,
+            ValidationIssueCode.POLICY_FACT_MISMATCH,
+            (
+                ValidationIssueCode
+                .REGENERATION_LIMIT_EXCEEDED
+            ),
+        }
+
+        return any(
+            issue.code in blocking_codes
+            for issue in issues
+        )
+
+    def _not_checked_result(
+        self,
+    ) -> GroundingCheckResult:
+        """
+        Backend-created state.
+
+        Model B itself is not allowed to return NOT_CHECKED.
+        """
+
+        return GroundingCheckResult(
+            verdict=GroundingVerdict.NOT_CHECKED,
+            support_score=None,
+            claims=[],
         )
