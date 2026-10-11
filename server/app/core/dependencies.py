@@ -4,8 +4,12 @@ from app.core.config import settings
 from app.llm.providers.groq_provider import GroqProvider
 from app.services.chat_service import ChatService
 from app.services.critical_flow_service import CriticalFlowService
+from app.services.deterministic_guard_service import DeterministicGuardService
+from app.services.grounding_fact_builder import GroundingFactBuilder
+from app.services.grounding_validator import GroundingValidator
 from app.services.llm_service import LLMService
 from app.services.policy_service import PolicyService
+from app.services.response_validator import ResponseValidator
 from app.services.retrieval_service import RetrievalService
 from app.services.safety_classifier import SafetyClassifier
 from app.services.safety_router import SafetyRouter
@@ -13,6 +17,8 @@ from app.services.query_planner import QueryPlanner
 from app.services.task_prioritizer import TaskPrioritizer
 from app.services.task_router import TaskRouter
 from app.services.context_builder import ContextBuilder
+from app.services.validation_decision_policy import ValidationDecisionPolicy
+
 
 @lru_cache
 def get_llm_service() -> LLMService:
@@ -52,6 +58,37 @@ def get_safety_router() -> SafetyRouter:
 def get_critical_flow_service() -> CriticalFlowService:
     return CriticalFlowService()
 
+@lru_cache
+def get_deterministic_guard_service() -> DeterministicGuardService:
+    return DeterministicGuardService()
+
+
+@lru_cache
+def get_grounding_fact_builder() -> GroundingFactBuilder:
+    return GroundingFactBuilder()
+
+
+@lru_cache
+def get_grounding_validator() -> GroundingValidator:
+    return GroundingValidator(
+        llm_service=get_llm_service(),
+    )
+
+
+@lru_cache
+def get_validation_decision_policy() -> ValidationDecisionPolicy:
+    return ValidationDecisionPolicy()
+
+
+@lru_cache
+def get_response_validator() -> ResponseValidator:
+    return ResponseValidator(
+        guard_service=get_deterministic_guard_service(),
+        grounding_fact_builder=get_grounding_fact_builder(),
+        grounding_validator=get_grounding_validator(),
+        decision_policy=get_validation_decision_policy(),
+    )
+
 def get_chat_service() -> ChatService:
     return ChatService(
         retrieval_service=get_retrieval_service(),
@@ -67,7 +104,10 @@ def get_chat_service() -> ChatService:
 
         policy_service=get_policy_service(),
         context_builder=get_context_builder(),
+
+        response_validator=get_response_validator(),
     )
+
 @lru_cache
 def get_query_planner() -> QueryPlanner:
     return QueryPlanner(

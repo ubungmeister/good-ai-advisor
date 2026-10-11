@@ -9,6 +9,8 @@ from app.schemas.policy import PolicyDetailsResponse
 from app.schemas.safety import SafetyRoute
 from app.schemas.task_result import TaskResult, RetrievalTaskContent, RetrievedChunk, PolicyTaskContent
 from app.schemas.task_routing import TaskTarget
+from app.schemas.response_validation import ValidationAction
+from app.services.response_validator import ResponseValidator
 
 from app.services.context_builder import ContextBuilder
 from app.services.critical_flow_service import (
@@ -33,18 +35,19 @@ from app.services.task_router import TaskRouter
 class ChatService:
 
     def __init__(
-        self,
-        *,
-        retrieval_service: RetrievalService,
-        llm_service: LLMService,
-        safety_classifier: SafetyClassifier,
-        safety_router: SafetyRouter,
-        critical_flow_service: CriticalFlowService,
-        query_planner: QueryPlanner,
-        task_prioritizer: TaskPrioritizer,
-        task_router: TaskRouter,
-        policy_service: PolicyService,
-        context_builder: ContextBuilder,
+            self,
+            *,
+            retrieval_service: RetrievalService,
+            llm_service: LLMService,
+            safety_classifier: SafetyClassifier,
+            safety_router: SafetyRouter,
+            critical_flow_service: CriticalFlowService,
+            query_planner: QueryPlanner,
+            task_prioritizer: TaskPrioritizer,
+            task_router: TaskRouter,
+            policy_service: PolicyService,
+            context_builder: ContextBuilder,
+            response_validator: ResponseValidator,
     ):
         self.retrieval_service = retrieval_service
         self.llm_service = llm_service
@@ -61,6 +64,8 @@ class ChatService:
 
         self.policy_service = policy_service
         self.context_builder = context_builder
+
+        self.response_validator = response_validator
 
     async def generate_answer(
         self,
@@ -333,14 +338,14 @@ Rules:
 """
         print("\n8. FINAL LLM START")
 
-        answer = (
-            await self.llm_service.generate_answer(
-                system_prompt=system_prompt,
-                user_message=message,
-                context=context,
-            )
+        answer = await self._generate_validated_answer(
+            message=message,
+            context=context,
+            task_results=task_results,
+            system_prompt=system_prompt,
         )
-        print("9. FINAL LLM DONE")
+
+        print("9. FINAL LLM + VALIDATION DONE")
         print("ANSWER:", answer)
 
         total_time = (
@@ -358,4 +363,149 @@ Rules:
 
         return answer
 
-        return answer
+    async def _generate_validated_answer(
+            self,
+            *,
+            message: str,
+            context: str,
+            task_results: list[TaskResult],
+            system_prompt: str,
+    ) -> str:
+
+        draft_answer = await self.llm_service.generate_answer(
+            system_prompt=system_prompt,
+            user_message=message,
+            context=context,
+        )
+
+        print("\nVALIDATION: FIRST DRAFT")
+        print("DRAFT:", draft_answer)
+
+        validation = await self.response_validator.validate(
+            question=message,
+            draft_answer=draft_answer,
+            task_results=task_results,
+            regeneration_count=0,
+        )
+
+        print("VALIDATION RESULT:", validation)
+
+        if validation.action == ValidationAction.OK:
+            return draft_answer
+
+        if validation.action in {
+            ValidationAction.HANDOFF,
+            ValidationAction.REJECT,
+        }:
+            return self._validation_fallback()
+
+        if validation.action == ValidationAction.REGENERATE:
+
+            regeneration_context = (
+                self._build_regeneration_context(
+                    trusted_context=context,
+                    previous_answer=draft_answer,
+                    validation=validation,
+                )
+            )
+
+            print("\nREGENERATION START")
+
+            regenerated_answer = (
+                await self.llm_service.generate_answer(
+                    system_prompt=system_prompt,
+                    user_message=message,
+                    context=regeneration_context,
+                )
+            )
+
+            print(
+                "REGENERATED ANSWER:",
+                regenerated_answer,
+            )
+
+            second_validation = (
+                await self.response_validator.validate(
+                    question=message,
+                    draft_answer=regenerated_answer,
+                    task_results=task_results,
+                    regeneration_count=1,
+                )
+            )
+
+            print(
+                "SECOND VALIDATION RESULT:",
+                second_validation,
+            )
+
+            if (
+                    second_validation.action
+                    == ValidationAction.OK
+            ):
+                return regenerated_answer
+
+            return self._validation_fallback()
+
+        return self._validation_fallback()
+
+    @staticmethod
+    def _build_regeneration_context(
+            *,
+            trusted_context: str,
+            previous_answer: str,
+            validation,
+    ) -> str:
+
+        feedback_lines: list[str] = []
+
+        for issue in validation.issues:
+
+            feedback_lines.append(
+                f"- {issue.code.value}: {issue.message}"
+            )
+
+            if issue.claim:
+                feedback_lines.append(
+                    f"  Problematic claim: {issue.claim}"
+                )
+
+            if issue.evidence:
+                feedback_lines.append(
+                    "  Relevant evidence IDs: "
+                    + ", ".join(issue.evidence)
+                )
+
+        feedback = "\n".join(feedback_lines)
+
+        return f"""
+    [TRUSTED CONTEXT]
+
+    {trusted_context}
+
+    [PREVIOUS DRAFT - NOT TRUSTED EVIDENCE]
+
+    {previous_answer}
+
+    [VALIDATION FEEDBACK]
+
+    {feedback}
+
+    Generate a corrected answer.
+
+    Rules:
+    - Use only the TRUSTED CONTEXT as factual evidence.
+    - Correct the problems identified in VALIDATION FEEDBACK.
+    - Do not treat the previous draft as evidence.
+    - Do not invent missing insurance facts.
+    - Keep the answer focused on the user's original question.
+    """
+
+    @staticmethod
+    def _validation_fallback() -> str:
+        return (
+            "I could not verify a sufficiently grounded "
+            "answer from the available trusted insurance "
+            "information. Please check the policy "
+            "documentation or contact support."
+        )
+
