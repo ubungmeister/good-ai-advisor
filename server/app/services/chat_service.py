@@ -11,6 +11,7 @@ from app.schemas.task_result import TaskResult, RetrievalTaskContent, RetrievedC
 from app.schemas.task_routing import TaskTarget
 from app.schemas.response_validation import ValidationAction
 from app.services.response_validator import ResponseValidator
+from app.services.safe_response_service import SafeResponseService
 
 from app.services.context_builder import ContextBuilder
 from app.services.critical_flow_service import (
@@ -48,6 +49,7 @@ class ChatService:
             policy_service: PolicyService,
             context_builder: ContextBuilder,
             response_validator: ResponseValidator,
+            safe_response_service: SafeResponseService,
     ):
         self.retrieval_service = retrieval_service
         self.llm_service = llm_service
@@ -66,7 +68,7 @@ class ChatService:
         self.context_builder = context_builder
 
         self.response_validator = response_validator
-
+        self.safe_response_service = safe_response_service
     async def generate_answer(
         self,
         *,
@@ -397,7 +399,9 @@ Rules:
             ValidationAction.HANDOFF,
             ValidationAction.REJECT,
         }:
-            return self._validation_fallback()
+            return self.safe_response_service.build(
+                action=validation.action,
+            )
 
         if validation.action == ValidationAction.REGENERATE:
 
@@ -444,9 +448,13 @@ Rules:
             ):
                 return regenerated_answer
 
-            return self._validation_fallback()
+            return self.safe_response_service.build(
+                action=validation.action,
+            )
 
-        return self._validation_fallback()
+        return self.safe_response_service.build(
+            action=ValidationAction.HANDOFF,
+        )
 
     @staticmethod
     def _build_regeneration_context(

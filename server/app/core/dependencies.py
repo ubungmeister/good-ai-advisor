@@ -11,6 +11,7 @@ from app.services.llm_service import LLMService
 from app.services.policy_service import PolicyService
 from app.services.response_validator import ResponseValidator
 from app.services.retrieval_service import RetrievalService
+from app.services.safe_response_service import SafeResponseService
 from app.services.safety_classifier import SafetyClassifier
 from app.services.safety_router import SafetyRouter
 from app.services.query_planner import QueryPlanner
@@ -106,6 +107,7 @@ def get_chat_service() -> ChatService:
         context_builder=get_context_builder(),
 
         response_validator=get_response_validator(),
+        safe_response_service=get_safe_response_service()
     )
 
 @lru_cache
@@ -133,3 +135,7 @@ def get_policy_service() -> PolicyService:
 @lru_cache
 def get_context_builder() -> ContextBuilder:
     return ContextBuilder()
+
+@lru_cache
+def get_safe_response_service() -> SafeResponseService:
+    return SafeResponseService()
