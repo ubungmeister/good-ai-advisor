@@ -19,6 +19,7 @@ from app.services.task_prioritizer import TaskPrioritizer
 from app.services.task_router import TaskRouter
 from app.services.context_builder import ContextBuilder
 from app.services.validation_decision_policy import ValidationDecisionPolicy
+from app.services.conversation_service import ConversationService
 
 
 @lru_cache
@@ -107,7 +108,8 @@ def get_chat_service() -> ChatService:
         context_builder=get_context_builder(),
 
         response_validator=get_response_validator(),
-        safe_response_service=get_safe_response_service()
+        safe_response_service=get_safe_response_service(),
+        conversation_service=get_conversation_service(),
     )
 
 @lru_cache
@@ -139,3 +141,7 @@ def get_context_builder() -> ContextBuilder:
 @lru_cache
 def get_safe_response_service() -> SafeResponseService:
     return SafeResponseService()
+
+@lru_cache
+def get_conversation_service() -> ConversationService:
+    return ConversationService()

@@ -2,7 +2,9 @@ import time
 import uuid
 import json
 
+from app.models import ConversationRole
 from app.schemas.query_plan import TaskType
+from app.services.conversation_service import ConversationService
 from sqlalchemy.orm import Session
 
 from app.schemas.policy import PolicyDetailsResponse
@@ -50,6 +52,7 @@ class ChatService:
             context_builder: ContextBuilder,
             response_validator: ResponseValidator,
             safe_response_service: SafeResponseService,
+            conversation_service: ConversationService
     ):
         self.retrieval_service = retrieval_service
         self.llm_service = llm_service
@@ -69,6 +72,8 @@ class ChatService:
 
         self.response_validator = response_validator
         self.safe_response_service = safe_response_service
+        self.conversation_service = conversation_service
+
     async def generate_answer(
         self,
         *,
@@ -76,15 +81,37 @@ class ChatService:
         message: str,
         user_id: uuid.UUID | None = None,
         policy_id: uuid.UUID | None = None,
+        conversation_id: uuid.UUID | None = None,
     ) -> str:
 
         total_start = time.perf_counter()
+
+        if user_id is None:
+            raise ValueError(
+                "Chat persistence requires user_id."
+            )
+
+        conversation = self.conversation_service.get_or_create(
+            db=db,
+            user_id=user_id,
+            policy_id=policy_id,
+            conversation_id=conversation_id,
+        )
+
+        self.conversation_service.add_message(
+            db=db,
+            conversation_id=conversation.id,
+            role=ConversationRole.USER,
+            content=message,
+        )
+
+        active_policy_id = conversation.policy_id
 
         print("\n========================================")
         print("CHAT FLOW START")
         print("MESSAGE:", message)
         print("USER ID:", user_id)
-        print("POLICY ID:", policy_id)
+        print("POLICY ID:", active_policy_id)
         print("========================================")
         # =====================================================
         # 1. SAFETY
@@ -108,13 +135,17 @@ class ChatService:
         # =====================================================
 
         if (
-            safety_route
-            == SafetyRoute.CRITICAL_FLOW
+                safety_route
+                == SafetyRoute.CRITICAL_FLOW
         ):
-            return (
-                self.critical_flow_service.handle(
-                    decision=safety_decision,
-                )
+            answer = self.critical_flow_service.handle(
+                decision=safety_decision,
+            )
+
+            return self._save_assistant_answer(
+                db=db,
+                conversation_id=conversation.id,
+                answer=answer,
             )
 
         # =====================================================
@@ -217,7 +248,7 @@ class ChatService:
 
                     if (
                         user_id is None
-                        or policy_id is None
+                        or active_policy_id is None
                     ):
                         raise ValueError(
                             "Policy task requires "
@@ -228,7 +259,7 @@ class ChatService:
                         self.policy_service
                         .get_policy_details_for_user(
                             db=db,
-                            policy_id=policy_id,
+                            policy_id=active_policy_id,
                             user_id=user_id,
                         )
                     )
@@ -293,9 +324,15 @@ class ChatService:
         )
 
         if not context:
-            return (
+            answer = (
                 "I do not have enough trusted "
                 "information to answer this question."
+            )
+
+            return self._save_assistant_answer(
+                db=db,
+                conversation_id=conversation.id,
+                answer=answer,
             )
 
         # =====================================================
@@ -362,6 +399,27 @@ Rules:
             f"{total_time:.3f} sec"
         )
         print("========================================\n")
+
+        return self._save_assistant_answer(
+            db=db,
+            conversation_id=conversation.id,
+            answer=answer,
+        )
+
+    def _save_assistant_answer(
+            self,
+            *,
+            db: Session,
+            conversation_id: uuid.UUID,
+            answer: str,
+    ) -> str:
+
+        self.conversation_service.add_message(
+            db=db,
+            conversation_id=conversation_id,
+            role=ConversationRole.ASSISTANT,
+            content=answer,
+        )
 
         return answer
 
@@ -449,7 +507,7 @@ Rules:
                 return regenerated_answer
 
             return self.safe_response_service.build(
-                action=validation.action,
+                action=second_validation.action,
             )
 
         return self.safe_response_service.build(
