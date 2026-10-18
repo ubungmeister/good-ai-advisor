@@ -8,6 +8,7 @@ from app.services.deterministic_guard_service import DeterministicGuardService
 from app.services.grounding_fact_builder import GroundingFactBuilder
 from app.services.grounding_validator import GroundingValidator
 from app.services.llm_service import LLMService
+from app.services.message_source_service import MessageSourceService
 from app.services.policy_service import PolicyService
 from app.services.response_validator import ResponseValidator
 from app.services.retrieval_service import RetrievalService
@@ -110,6 +111,7 @@ def get_chat_service() -> ChatService:
         response_validator=get_response_validator(),
         safe_response_service=get_safe_response_service(),
         conversation_service=get_conversation_service(),
+        message_source_service=get_message_source_service(),
     )
 
 @lru_cache
@@ -145,3 +147,7 @@ def get_safe_response_service() -> SafeResponseService:
 @lru_cache
 def get_conversation_service() -> ConversationService:
     return ConversationService()
+
+@lru_cache
+def get_message_source_service() -> MessageSourceService:
+    return MessageSourceService()

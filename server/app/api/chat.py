@@ -1,3 +1,5 @@
+import traceback
+
 from fastapi import APIRouter, Depends, HTTPException
 from sqlalchemy.orm import Session
 
@@ -32,8 +34,20 @@ async def chat(
             answer=answer,
         )
 
+
+
     except Exception as exc:
+
+        print("\n========== CHAT ERROR ==========")
+
+        traceback.print_exc()
+
+        print("================================\n")
+
         raise HTTPException(
+
             status_code=503,
+
             detail="AI service is temporarily unavailable.",
+
         ) from exc

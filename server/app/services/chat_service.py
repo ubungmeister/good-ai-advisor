@@ -5,6 +5,7 @@ import json
 from app.models import ConversationRole
 from app.schemas.query_plan import TaskType
 from app.services.conversation_service import ConversationService
+from app.services.message_source_service import MessageSourceService
 from sqlalchemy.orm import Session
 
 from app.schemas.policy import PolicyDetailsResponse
@@ -52,7 +53,8 @@ class ChatService:
             context_builder: ContextBuilder,
             response_validator: ResponseValidator,
             safe_response_service: SafeResponseService,
-            conversation_service: ConversationService
+            conversation_service: ConversationService,
+            message_source_service: MessageSourceService
     ):
         self.retrieval_service = retrieval_service
         self.llm_service = llm_service
@@ -73,6 +75,7 @@ class ChatService:
         self.response_validator = response_validator
         self.safe_response_service = safe_response_service
         self.conversation_service = conversation_service
+        self.message_source_service = message_source_service
 
     async def generate_answer(
         self,
@@ -412,14 +415,24 @@ Rules:
             db: Session,
             conversation_id: uuid.UUID,
             answer: str,
+            task_results: list[TaskResult] | None = None,
     ) -> str:
 
-        self.conversation_service.add_message(
-            db=db,
-            conversation_id=conversation_id,
-            role=ConversationRole.ASSISTANT,
-            content=answer,
+        assistant_message = (
+            self.conversation_service.add_message(
+                db=db,
+                conversation_id=conversation_id,
+                role=ConversationRole.ASSISTANT,
+                content=answer,
+            )
         )
+
+        if task_results:
+            self.message_source_service.save_from_task_results(
+                db=db,
+                message_id=assistant_message.id,
+                task_results=task_results,
+            )
 
         return answer
 
