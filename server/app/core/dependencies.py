@@ -2,6 +2,7 @@ from functools import lru_cache
 
 from app.core.config import settings
 from app.llm.providers.groq_provider import GroqProvider
+from app.services.ai_run_service import AiRunService
 from app.services.chat_service import ChatService
 from app.services.critical_flow_service import CriticalFlowService
 from app.services.deterministic_guard_service import DeterministicGuardService
@@ -112,6 +113,7 @@ def get_chat_service() -> ChatService:
         safe_response_service=get_safe_response_service(),
         conversation_service=get_conversation_service(),
         message_source_service=get_message_source_service(),
+        ai_run_service=get_ai_run_service(),
     )
 
 @lru_cache
@@ -151,3 +153,6 @@ def get_conversation_service() -> ConversationService:
 @lru_cache
 def get_message_source_service() -> MessageSourceService:
     return MessageSourceService()
+@lru_cache
+def get_ai_run_service() -> AiRunService:
+    return AiRunService()

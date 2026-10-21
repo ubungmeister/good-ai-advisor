@@ -15,6 +15,7 @@ from app.schemas.task_routing import TaskTarget
 from app.schemas.response_validation import ValidationAction
 from app.services.response_validator import ResponseValidator
 from app.services.safe_response_service import SafeResponseService
+from app.services.ai_run_service import AiRunService
 
 from app.services.context_builder import ContextBuilder
 from app.services.critical_flow_service import (
@@ -54,7 +55,8 @@ class ChatService:
             response_validator: ResponseValidator,
             safe_response_service: SafeResponseService,
             conversation_service: ConversationService,
-            message_source_service: MessageSourceService
+            message_source_service: MessageSourceService,
+            ai_run_service: AiRunService
     ):
         self.retrieval_service = retrieval_service
         self.llm_service = llm_service
@@ -76,6 +78,7 @@ class ChatService:
         self.safe_response_service = safe_response_service
         self.conversation_service = conversation_service
         self.message_source_service = message_source_service
+        self.ai_run_service = ai_run_service
 
     async def generate_answer(
         self,
@@ -415,6 +418,8 @@ Rules:
             db: Session,
             conversation_id: uuid.UUID,
             answer: str,
+            latency_ms: int,
+            safety_result: str,
             task_results: list[TaskResult] | None = None,
     ) -> str:
 
@@ -433,6 +438,15 @@ Rules:
                 message_id=assistant_message.id,
                 task_results=task_results,
             )
+
+        self.ai_run_service.save_run(
+            db=db,
+            conversation_id=conversation_id,
+            message_id=assistant_message.id,
+            latency_ms=latency_ms,
+            safety_result=safety_result,
+            task_results=task_results,
+        )
 
         return answer
 
