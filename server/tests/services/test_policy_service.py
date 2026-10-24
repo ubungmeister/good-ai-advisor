@@ -30,6 +30,7 @@ def test_get_policy_for_owner():
 
     assert result == policy
 
+
 def test_get_policy_for_wrong_user_returns_none():
     service = PolicyService()
 
@@ -55,6 +56,7 @@ def test_get_policy_for_wrong_user_returns_none():
     )
 
     assert result is None
+
 
 def test_get_policy_not_found_returns_none():
     service = PolicyService()

@@ -1,8 +1,13 @@
 venv/
+.venv/
 node_modules/
 dist/
 .env
 .env.local
 __pycache__/
 *.pyc
+.pytest_cache/
+.coverage
+.mypy_cache/
+.idea/
 server/models/

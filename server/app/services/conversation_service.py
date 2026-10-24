@@ -1,8 +1,8 @@
 import uuid
 from collections.abc import Sequence
 
-from repositories.conversation_repository import ConversationRepository
-from repositories.message_repository import MessageRepository
+from app.repositories.conversation_repository import ConversationRepository
+from app.repositories.message_repository import MessageRepository
 from sqlalchemy.orm import Session
 
 from app.models.conversation import Conversation

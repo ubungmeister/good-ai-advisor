@@ -1,7 +1,5 @@
 from app.schemas.response_validation import ValidationIssueCode
-from app.services.deterministic_guard_service import (
-    DeterministicGuardService,
-)
+from app.services.deterministic_guard_service import DeterministicGuardService
 
 
 def test_valid_runtime_state_has_no_issues():
@@ -81,7 +79,4 @@ def test_second_regeneration_exceeds_limit():
 
     codes = [issue.code for issue in issues]
 
-    assert (
-        ValidationIssueCode.REGENERATION_LIMIT_EXCEEDED
-        in codes
-    )
+    assert ValidationIssueCode.REGENERATION_LIMIT_EXCEEDED in codes
