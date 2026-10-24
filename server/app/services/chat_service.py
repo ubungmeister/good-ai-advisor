@@ -152,6 +152,8 @@ class ChatService:
                 db=db,
                 conversation_id=conversation.id,
                 answer=answer,
+                latency_ms=latency_ms,
+                safety_result=safety_decision.category.value,
             )
 
         # =====================================================
@@ -335,10 +337,16 @@ class ChatService:
                 "information to answer this question."
             )
 
+            latency_ms = int(
+                (time.perf_counter() - total_start) * 1000
+            )
+
             return self._save_assistant_answer(
                 db=db,
                 conversation_id=conversation.id,
                 answer=answer,
+                latency_ms=latency_ms,
+                safety_result=safety_decision.category.value,
             )
 
         # =====================================================
@@ -406,10 +414,15 @@ Rules:
         )
         print("========================================\n")
 
+        task_results = task_results
+
         return self._save_assistant_answer(
             db=db,
             conversation_id=conversation.id,
             answer=answer,
+            latency_ms=int(total_time * 1000),
+            safety_result=safety_decision.category.value,
+            task_results=task_results,
         )
 
     def _save_assistant_answer(
