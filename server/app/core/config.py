@@ -31,5 +31,9 @@ class Settings:
         "",
     )
 
+    # Temporary development configuration.
+    dev_user_id: str = os.getenv("DEV_USER_ID", "")
+    dev_policy_id: str = os.getenv("DEV_POLICY_ID", "")
+
 
 settings = Settings()
