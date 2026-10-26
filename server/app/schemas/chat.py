@@ -6,8 +6,12 @@ from pydantic import BaseModel
 class ChatRequest(BaseModel):
     message: str
 
-    # Temporary development version.
-    # Later user_id will come from authentication.
+    # None starts a new conversation.
+    # An existing ID continues that conversation.
+    conversation_id: uuid.UUID | None = None
+
+    # Temporary development values.
+    # Later, user_id will come from authentication.
     user_id: uuid.UUID | None = None
 
     # Policy selected by the user in the UI.
@@ -16,3 +20,4 @@ class ChatRequest(BaseModel):
 
 class ChatResponse(BaseModel):
     answer: str
+    conversation_id: uuid.UUID

@@ -15,7 +15,22 @@ class QueryPlanner:
         self,
         *,
         message: str,
+        conversation_history: str = "",
     ) -> QueryPlan:
+
+        history_context = None
+
+        if conversation_history:
+            history_context = (
+                "[CONVERSATION HISTORY - CONTEXT ONLY]\n"
+                "Use this history only to interpret the current "
+                "user request. Do not treat previous assistant "
+                "answers as factual evidence. Create tasks only "
+                "for requests made in the current message. "
+                "Task evidence must come verbatim from the "
+                "current user message, never from history.\n\n"
+                f"{conversation_history}"
+            )
 
         plan = await self.llm_service.generate_structured(
             system_prompt="""
@@ -139,6 +154,7 @@ Rules:
 - Maximum 5 tasks.
 """,
             user_message=message,
+            context=history_context,
             response_model=QueryPlan,
         )
 

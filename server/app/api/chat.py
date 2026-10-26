@@ -35,15 +35,17 @@ async def chat(
             if policy_id is None and settings.dev_policy_id:
                 policy_id = uuid.UUID(settings.dev_policy_id)
 
-        answer = await chat_service.generate_answer(
+        answer, conversation_id = await chat_service.generate_answer(
             db=db,
             message=request.message,
             user_id=user_id,
             policy_id=policy_id,
+            conversation_id=request.conversation_id,
         )
 
         return ChatResponse(
             answer=answer,
+            conversation_id=uuid.UUID(str(conversation_id)),
         )
 
 

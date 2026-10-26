@@ -16,6 +16,14 @@ from app.schemas.response_validation import ValidationAction
 from app.services.response_validator import ResponseValidator
 from app.services.safe_response_service import SafeResponseService
 from app.services.ai_run_service import AiRunService
+from app.services.chat_context import (
+    format_conversation_history,
+    build_answer_context,
+    build_regeneration_context,
+)
+from app.prompts.answer_generation import (
+    INSURANCE_ANSWER_SYSTEM_PROMPT,
+)
 
 from app.services.context_builder import ContextBuilder
 from app.services.critical_flow_service import (
@@ -88,7 +96,7 @@ class ChatService:
         user_id: uuid.UUID | None = None,
         policy_id: uuid.UUID | None = None,
         conversation_id: uuid.UUID | None = None,
-    ) -> str:
+    ) -> tuple[str, uuid.UUID]:
 
         total_start = time.perf_counter()
 
@@ -104,6 +112,16 @@ class ChatService:
             conversation_id=conversation_id,
         )
 
+        # 1. Load only the messages from previous turns.
+        conversation_history = format_conversation_history(
+            messages=self.conversation_service.get_messages(
+                db=db,
+                conversation_id=conversation.id,
+                user_id=user_id,
+            )
+        )
+
+        # 2. Save the current user message.
         self.conversation_service.add_message(
             db=db,
             conversation_id=conversation.id,
@@ -148,7 +166,7 @@ class ChatService:
                 decision=safety_decision,
             )
 
-            return self._save_assistant_answer(
+            answer = self._save_assistant_answer(
                 db=db,
                 conversation_id=conversation.id,
                 answer=answer,
@@ -156,12 +174,15 @@ class ChatService:
                 safety_result=safety_decision.category.value,
             )
 
+            return answer, conversation.id
+
         # =====================================================
         # 3. QUERY PLANNER
         # =====================================================
 
         plan = await self.query_planner.plan(
             message=message,
+            conversation_history=conversation_history,
         )
 
         print("\n3. QUERY PLANNER DONE")
@@ -341,61 +362,28 @@ class ChatService:
                 (time.perf_counter() - total_start) * 1000
             )
 
-            return self._save_assistant_answer(
+            answer = self._save_assistant_answer(
                 db=db,
                 conversation_id=conversation.id,
                 answer=answer,
                 latency_ms=latency_ms,
                 safety_result=safety_decision.category.value,
             )
+            return answer, conversation.id
 
         # =====================================================
         # 7. FINAL LLM
         # =====================================================
 
-        system_prompt = """
-You are an insurance assistant.
-
-Answer the user's question using only the trusted
-context provided to you.
-
-The context may contain two kinds of information:
-
-[POLICY FACTS]
-Facts about the customer's actual purchased insurance,
-including dates, coverages, options, insured people,
-roles and travel details.
-
-[INSURANCE DOCUMENTATION]
-Relevant excerpts from official insurance terms
-and documentation.
-
-Rules:
-
-- Use only information present in the provided context.
-- Do not invent coverage, exclusions, limits, procedures,
-  people, contract facts or insurance conditions.
-- POLICY FACTS describe the customer's actual contract.
-- INSURANCE DOCUMENTATION describes applicable insurance
-  rules and conditions.
-- For personalized coverage questions, combine contract
-  facts and insurance documentation when both are present.
-- Distinguish between a person being insured and a specific
-  activity or event being covered.
-- If the context is insufficient to answer confidently,
-  clearly say that there is not enough information.
-- Preserve the meaning of who must do what and to whom.
-- Clearly distinguish mandatory requirements from optional
-  information.
-- Answer in the same language as the user.
-"""
         print("\n8. FINAL LLM START")
 
         answer = await self._generate_validated_answer(
             message=message,
             context=context,
             task_results=task_results,
-            system_prompt=system_prompt,
+            system_prompt=INSURANCE_ANSWER_SYSTEM_PROMPT,
+            conversation_history=conversation_history,
+
         )
 
         print("9. FINAL LLM + VALIDATION DONE")
@@ -416,7 +404,7 @@ Rules:
 
         task_results = task_results
 
-        return self._save_assistant_answer(
+        answer = self._save_assistant_answer(
             db=db,
             conversation_id=conversation.id,
             answer=answer,
@@ -424,6 +412,7 @@ Rules:
             safety_result=safety_decision.category.value,
             task_results=task_results,
         )
+        return answer, conversation.id
 
     def _save_assistant_answer(
             self,
@@ -469,13 +458,19 @@ Rules:
             message: str,
             context: str,
             task_results: list[TaskResult],
+            conversation_history: str,
             system_prompt: str,
     ) -> str:
 
+        answer_context = build_answer_context(
+            trusted_context=context,
+            conversation_history=conversation_history,
+        )
+
         draft_answer = await self.llm_service.generate_answer(
-            system_prompt=system_prompt,
+            system_prompt=INSURANCE_ANSWER_SYSTEM_PROMPT,
             user_message=message,
-            context=context,
+            context=answer_context
         )
 
         print("\nVALIDATION: FIRST DRAFT")
@@ -503,12 +498,11 @@ Rules:
 
         if validation.action == ValidationAction.REGENERATE:
 
-            regeneration_context = (
-                self._build_regeneration_context(
-                    trusted_context=context,
-                    previous_answer=draft_answer,
-                    validation=validation,
-                )
+            regeneration_context = build_regeneration_context(
+                trusted_context=context,
+                conversation_history=conversation_history,
+                previous_answer=draft_answer,
+                validation=validation,
             )
 
             print("\nREGENERATION START")
@@ -553,58 +547,6 @@ Rules:
         return self.safe_response_service.build(
             action=ValidationAction.HANDOFF,
         )
-
-    @staticmethod
-    def _build_regeneration_context(
-            *,
-            trusted_context: str,
-            previous_answer: str,
-            validation,
-    ) -> str:
-
-        feedback_lines: list[str] = []
-
-        for issue in validation.issues:
-
-            feedback_lines.append(
-                f"- {issue.code.value}: {issue.message}"
-            )
-
-            if issue.claim:
-                feedback_lines.append(
-                    f"  Problematic claim: {issue.claim}"
-                )
-
-            if issue.evidence:
-                feedback_lines.append(
-                    "  Relevant evidence IDs: "
-                    + ", ".join(issue.evidence)
-                )
-
-        feedback = "\n".join(feedback_lines)
-
-        return f"""
-    [TRUSTED CONTEXT]
-
-    {trusted_context}
-
-    [PREVIOUS DRAFT - NOT TRUSTED EVIDENCE]
-
-    {previous_answer}
-
-    [VALIDATION FEEDBACK]
-
-    {feedback}
-
-    Generate a corrected answer.
-
-    Rules:
-    - Use only the TRUSTED CONTEXT as factual evidence.
-    - Correct the problems identified in VALIDATION FEEDBACK.
-    - Do not treat the previous draft as evidence.
-    - Do not invent missing insurance facts.
-    - Keep the answer focused on the user's original question.
-    """
 
     @staticmethod
     def _validation_fallback() -> str:
