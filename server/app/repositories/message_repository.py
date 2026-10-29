@@ -45,3 +45,33 @@ class MessageRepository:
                 Message.created_at.asc(),
             )
         ).all()
+
+    def get_recent_by_conversation(
+        self,
+        *,
+        db: Session,
+        conversation_id: uuid.UUID,
+        limit: int = 10,
+    ) -> Sequence[Message]:
+        if limit < 1:
+            raise ValueError("Message limit must be positive.")
+
+        messages = list(
+            db.scalars(
+                select(Message)
+                .where(
+                    Message.conversation_id == conversation_id,
+                )
+                .order_by(
+                    Message.created_at.desc(),
+                    Message.id.desc(),
+                )
+                .limit(limit)
+            ).all()
+        )
+
+        # The database returns newest first. Restore chronological order.
+        messages.reverse()
+
+        return messages
+

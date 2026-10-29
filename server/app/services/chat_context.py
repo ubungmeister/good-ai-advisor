@@ -1,15 +1,18 @@
 
+import json
 from collections.abc import Sequence
 
 from app.models import ConversationRole
 from app.models.message import Message
+
+DEFAULT_CONVERSATION_CONTEXT_MESSAGE_LIMIT = 10
 
 
 def format_conversation_history(
     *,
     messages: Sequence[Message],
 ) -> str:
-    # Keep the prompt bounded to the latest 10 messages.
+    # Keep the existing plain-text format for current LLM calls.
     recent_messages = messages[-10:]
 
     lines: list[str] = []
@@ -27,73 +30,34 @@ def format_conversation_history(
     return "\n".join(lines)
 
 
-def build_answer_context(
+def format_conversation_context(
     *,
-    trusted_context: str,
-    conversation_history: str,
+    messages: Sequence[Message],
 ) -> str:
-    if not conversation_history:
-        return trusted_context
+    """Format conversation messages for the future resolver."""
+    context_messages = []
 
-    return (
-        f"{trusted_context}\n\n"
-        "[CONVERSATION HISTORY - CONTEXT ONLY, "
-        "NOT TRUSTED EVIDENCE]\n"
-        f"{conversation_history}"
-    )
+    for message in messages:
+        if message.role not in {
+            ConversationRole.USER,
+            ConversationRole.ASSISTANT,
+        }:
+            continue
 
-
-def build_regeneration_context(
-    *,
-    trusted_context: str,
-    conversation_history: str,
-    previous_answer: str,
-    validation,
-) -> str:
-    feedback_lines: list[str] = []
-
-    for issue in validation.issues:
-        feedback_lines.append(
-            f"- {issue.code.value}: {issue.message}"
+        context_messages.append(
+            {
+                "message_id": str(message.id),
+                "role": message.role.value,
+                "created_at": message.created_at.isoformat(),
+                "content": message.content,
+            }
         )
 
-        if issue.claim:
-            feedback_lines.append(
-                f"  Problematic claim: {issue.claim}"
-            )
+    if not context_messages:
+        return ""
 
-        if issue.evidence:
-            feedback_lines.append(
-                "  Relevant evidence IDs: "
-                + ", ".join(issue.evidence)
-            )
-
-    feedback = "\n".join(feedback_lines)
-
-    return f"""
-[TRUSTED INSURANCE CONTEXT]
-
-{trusted_context}
-
-[CONVERSATION HISTORY - CONTEXT ONLY, NOT TRUSTED EVIDENCE]
-
-{conversation_history}
-
-[PREVIOUS DRAFT - NOT TRUSTED EVIDENCE]
-
-{previous_answer}
-
-[VALIDATION FEEDBACK]
-
-{feedback}
-
-Generate a corrected answer.
-
-Rules:
-- Use only TRUSTED INSURANCE CONTEXT as factual evidence.
-- Use conversation history only to interpret the current request.
-- Correct the problems identified in VALIDATION FEEDBACK.
-- Do not treat the previous draft as evidence.
-- Do not invent missing insurance facts.
-- Keep the answer focused on the user's original question.
-"""
+    return json.dumps(
+        context_messages,
+        ensure_ascii=False,
+        indent=2,
+    )

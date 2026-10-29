@@ -17,10 +17,15 @@ from app.services.response_validator import ResponseValidator
 from app.services.safe_response_service import SafeResponseService
 from app.services.ai_run_service import AiRunService
 from app.services.chat_context import (
-    format_conversation_history,
-    build_answer_context,
-    build_regeneration_context,
+    DEFAULT_CONVERSATION_CONTEXT_MESSAGE_LIMIT,
+    format_conversation_history, format_conversation_context,
 )
+from app.services.conversation_resolver import (
+    ConversationResolver,
+    ConversationResolutionAction,
+)
+from app.services.conversation_resolver import ConversationResolver
+from app.services.conversation_resolver import ConversationResolver
 from app.prompts.answer_generation import (
     INSURANCE_ANSWER_SYSTEM_PROMPT,
 )
@@ -64,8 +69,11 @@ class ChatService:
             safe_response_service: SafeResponseService,
             conversation_service: ConversationService,
             message_source_service: MessageSourceService,
-            ai_run_service: AiRunService
+            ai_run_service: AiRunService,
+            conversation_resolver: ConversationResolver,
+
     ):
+        self.conversation_resolver = conversation_resolver
         self.retrieval_service = retrieval_service
         self.llm_service = llm_service
 
@@ -112,16 +120,39 @@ class ChatService:
             conversation_id=conversation_id,
         )
 
-        # 1. Load only the messages from previous turns.
-        conversation_history = format_conversation_history(
-            messages=self.conversation_service.get_messages(
-                db=db,
-                conversation_id=conversation.id,
-                user_id=user_id,
-            )
+        # 1. Load recent messages from previous turns.
+        previous_messages = self.conversation_service.get_recent_messages(
+            db=db,
+            conversation_id=conversation.id,
+            user_id=user_id,
+            limit=DEFAULT_CONVERSATION_CONTEXT_MESSAGE_LIMIT,
         )
 
-        # 2. Save the current user message.
+        conversation_history = format_conversation_history(
+            messages=previous_messages,
+        )
+
+        conversation_context = format_conversation_context(
+            messages=previous_messages,
+        )
+
+
+
+        # Save the current user message after loading history.
+        self.conversation_service.add_message(
+            db=db,
+            conversation_id=conversation.id,
+            role=ConversationRole.USER,
+            content=message,
+        )
+
+        # resolution = await self.conversation_resolver.resolve(
+        #     message=message,
+        #     conversation_context=conversation_context,
+        # )
+
+
+        # 2. Save the current user message only after loading history.
         self.conversation_service.add_message(
             db=db,
             conversation_id=conversation.id,
@@ -179,10 +210,37 @@ class ChatService:
         # =====================================================
         # 3. QUERY PLANNER
         # =====================================================
+        # 3. Resolve the current message against previous conversation turns.
+        resolution = await self.conversation_resolver.resolve(
+            message=message,
+            conversation_context=conversation_context,
+        )
+
+        if resolution.action == ConversationResolutionAction.NEEDS_CLARIFICATION:
+            latency_ms = int(
+                (time.perf_counter() - total_start) * 1000
+            )
+
+            answer = self._save_assistant_answer(
+                db=db,
+                conversation_id=conversation.id,
+                answer=resolution.clarification_question,
+                latency_ms=latency_ms,
+                safety_result=safety_decision.category.value,
+            )
+
+            return answer, conversation.id
+
+        resolved_request = (
+            resolution.resolved_request
+            if resolution.action == ConversationResolutionAction.RESOLVED_FOLLOW_UP
+            else None
+        )
 
         plan = await self.query_planner.plan(
             message=message,
             conversation_history=conversation_history,
+            resolved_request=resolved_request,
         )
 
         print("\n3. QUERY PLANNER DONE")

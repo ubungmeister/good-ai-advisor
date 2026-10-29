@@ -113,3 +113,31 @@ class ConversationService:
             db=db,
             user_id=user_id,
         )
+
+    def get_recent_messages(
+        self,
+        *,
+        db: Session,
+        conversation_id: uuid.UUID,
+        user_id: uuid.UUID,
+        limit: int = 10,
+    ) -> Sequence[Message]:
+        conversation = (
+            self.conversation_repository.get_by_id_for_user(
+                db=db,
+                conversation_id=conversation_id,
+                user_id=user_id,
+            )
+        )
+
+        if conversation is None:
+            raise ValueError(
+                "Conversation was not found "
+                "or does not belong to the user."
+            )
+
+        return self.message_repository.get_recent_by_conversation(
+            db=db,
+            conversation_id=conversation_id,
+            limit=limit,
+        )
