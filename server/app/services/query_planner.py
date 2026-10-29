@@ -1,5 +1,6 @@
+
 from app.prompts.query_planner import QUERY_PLANNER_SYSTEM_PROMPT
-from app.schemas.query_plan import QueryPlan
+from app.schemas.query_plan import QueryPlan, QueryPlanAction
 from app.services.llm_service import LLMService
 
 
@@ -17,35 +18,19 @@ class QueryPlanner:
         *,
         message: str,
         conversation_history: str = "",
-        resolved_request: str | None = None,
     ) -> QueryPlan:
+        planning_context = None
 
-        context_parts = []
-
-        if resolved_request:
-            context_parts.append(
-                "[RESOLVED CURRENT REQUEST - INTERPRETATION ONLY]\n"
-                "Use this interpretation to understand the current "
-                "message as a follow-up. Do not treat it as evidence.\n\n"
-                f"{resolved_request}"
-            )
-
-        if conversation_history:
-            context_parts.append(
+        if conversation_history.strip():
+            planning_context = (
                 "[CONVERSATION HISTORY - CONTEXT ONLY]\n"
-                "Use this history only to interpret the current user "
-                "request. Do not treat previous assistant answers as "
-                "factual evidence. Task evidence must come verbatim "
-                "from the current user message, never from history.\n\n"
-                f"{conversation_history}"
+                "Use this history to interpret the current request "
+                "and resolve references. Do not treat previous "
+                "assistant answers as factual evidence. Each task's "
+                "evidence must be copied verbatim from the current "
+                "user message, never from conversation history.\n\n"
+                f"{conversation_history.strip()}"
             )
-
-        planning_context = (
-            "\n\n".join(context_parts)
-            if context_parts
-            else None
-        )
-
 
         plan = await self.llm_service.generate_structured(
             system_prompt=QUERY_PLANNER_SYSTEM_PROMPT,
@@ -54,10 +39,11 @@ class QueryPlanner:
             response_model=QueryPlan,
         )
 
-        self._validate_evidence(
-            message=message,
-            plan=plan,
-        )
+        if plan.action == QueryPlanAction.EXECUTE:
+            self._validate_evidence(
+                message=message,
+                plan=plan,
+            )
 
         return plan
 
@@ -67,11 +53,12 @@ class QueryPlanner:
         message: str,
         plan: QueryPlan,
     ) -> None:
-
         normalized_message = message.casefold()
 
         for task in plan.tasks:
-            if task.evidence.casefold() not in normalized_message:
+            evidence = task.evidence.strip()
+
+            if evidence.casefold() not in normalized_message:
                 raise ValueError(
                     "QueryPlanner evidence is not present in the "
                     f"original user message: {task.evidence}"

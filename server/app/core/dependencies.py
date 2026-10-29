@@ -4,6 +4,7 @@ from app.core.config import settings
 from app.llm.providers.groq_provider import GroqProvider
 from app.services.ai_run_service import AiRunService
 from app.services.chat_service import ChatService
+from app.services.conversation_resolver import ConversationResolver
 from app.services.critical_flow_service import CriticalFlowService
 from app.services.deterministic_guard_service import DeterministicGuardService
 from app.services.grounding_fact_builder import GroundingFactBuilder
@@ -156,3 +157,8 @@ def get_message_source_service() -> MessageSourceService:
 @lru_cache
 def get_ai_run_service() -> AiRunService:
     return AiRunService()
+@lru_cache
+def get_conversation_resolver() -> ConversationResolver:
+    return ConversationResolver(
+        llm_service=get_llm_service(),
+    )

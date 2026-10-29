@@ -18,7 +18,9 @@ from app.services.safe_response_service import SafeResponseService
 from app.services.ai_run_service import AiRunService
 from app.services.chat_context import (
     DEFAULT_CONVERSATION_CONTEXT_MESSAGE_LIMIT,
-    format_conversation_history, format_conversation_context,
+    format_conversation_history,
+    build_answer_context,
+    build_regeneration_context,
 )
 from app.services.conversation_resolver import (
     ConversationResolver,
@@ -36,7 +38,7 @@ from app.services.critical_flow_service import (
 )
 from app.services.llm_service import LLMService
 from app.services.policy_service import PolicyService
-from app.services.query_planner import QueryPlanner
+from app.services.query_planner import QueryPlanner, QueryPlanAction
 from app.services.retrieval_service import (
     RetrievalService,
 )
@@ -47,6 +49,7 @@ from app.services.safety_router import SafetyRouter
 from app.services.task_prioritizer import (
     TaskPrioritizer,
 )
+from app.schemas.response_validation import ValidationResult
 from app.services.task_router import TaskRouter
 
 
@@ -70,10 +73,8 @@ class ChatService:
             conversation_service: ConversationService,
             message_source_service: MessageSourceService,
             ai_run_service: AiRunService,
-            conversation_resolver: ConversationResolver,
 
     ):
-        self.conversation_resolver = conversation_resolver
         self.retrieval_service = retrieval_service
         self.llm_service = llm_service
 
@@ -132,24 +133,6 @@ class ChatService:
             messages=previous_messages,
         )
 
-        conversation_context = format_conversation_context(
-            messages=previous_messages,
-        )
-
-
-
-        # Save the current user message after loading history.
-        self.conversation_service.add_message(
-            db=db,
-            conversation_id=conversation.id,
-            role=ConversationRole.USER,
-            content=message,
-        )
-
-        # resolution = await self.conversation_resolver.resolve(
-        #     message=message,
-        #     conversation_context=conversation_context,
-        # )
 
 
         # 2. Save the current user message only after loading history.
@@ -197,6 +180,10 @@ class ChatService:
                 decision=safety_decision,
             )
 
+            latency_ms = int(
+                (time.perf_counter() - total_start) * 1000
+            )
+
             answer = self._save_assistant_answer(
                 db=db,
                 conversation_id=conversation.id,
@@ -208,15 +195,29 @@ class ChatService:
             return answer, conversation.id
 
         # =====================================================
-        # 3. QUERY PLANNER
+        # QUERY PLANNER
         # =====================================================
-        # 3. Resolve the current message against previous conversation turns.
-        resolution = await self.conversation_resolver.resolve(
+
+        plan = await self.query_planner.plan(
             message=message,
-            conversation_context=conversation_context,
+            conversation_history=conversation_history,
         )
 
-        if resolution.action == ConversationResolutionAction.NEEDS_CLARIFICATION:
+        print("\nQUERY PLANNER DONE")
+        print("PLAN:", plan)
+
+        # A clarification is a complete response for this turn.
+        # Do not prioritize or execute tasks.
+        if plan.action == QueryPlanAction.NEEDS_CLARIFICATION:
+            clarification_question = plan.clarification_question
+
+            # The QueryPlan schema guarantees this is present for
+            # NEEDS_CLARIFICATION. Keep the runtime guard as a safeguard.
+            if clarification_question is None:
+                raise RuntimeError(
+                    "Clarification plan has no clarification question."
+                )
+
             latency_ms = int(
                 (time.perf_counter() - total_start) * 1000
             )
@@ -224,27 +225,23 @@ class ChatService:
             answer = self._save_assistant_answer(
                 db=db,
                 conversation_id=conversation.id,
-                answer=resolution.clarification_question,
+                answer=clarification_question,
                 latency_ms=latency_ms,
                 safety_result=safety_decision.category.value,
             )
 
             return answer, conversation.id
 
-        resolved_request = (
-            resolution.resolved_request
-            if resolution.action == ConversationResolutionAction.RESOLVED_FOLLOW_UP
-            else None
+        # =====================================================
+        # PRIORITIZE TASKS
+        # =====================================================
+
+        tasks = self.task_prioritizer.prioritize(
+            plan=plan,
         )
 
-        plan = await self.query_planner.plan(
-            message=message,
-            conversation_history=conversation_history,
-            resolved_request=resolved_request,
-        )
-
-        print("\n3. QUERY PLANNER DONE")
-        print("PLAN:", plan)
+        print("\nTASK PRIORITIZER DONE")
+        print("PRIORITIZED TASKS:", tasks)
 
         # =====================================================
         # 4. PRIORITIZE TASKS

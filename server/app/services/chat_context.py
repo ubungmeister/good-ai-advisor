@@ -4,6 +4,7 @@ from collections.abc import Sequence
 
 from app.models import ConversationRole
 from app.models.message import Message
+from app.schemas.response_validation import ValidationResult
 
 DEFAULT_CONVERSATION_CONTEXT_MESSAGE_LIMIT = 10
 
@@ -61,3 +62,65 @@ def format_conversation_context(
         ensure_ascii=False,
         indent=2,
     )
+
+
+
+def build_answer_context(
+    *,
+    trusted_context: str,
+    conversation_history: str,
+) -> str:
+    """Combine trusted evidence with history used only for interpretation."""
+
+    sections = [
+        "[TRUSTED INSURANCE EVIDENCE]\n"
+        f"{trusted_context.strip()}"
+    ]
+
+    if conversation_history.strip():
+        sections.append(
+            "[CONVERSATION HISTORY — CONTEXT ONLY, "
+            "NOT FACTUAL EVIDENCE]\n"
+            f"{conversation_history.strip()}"
+        )
+
+    return "\n\n".join(sections)
+
+def build_regeneration_context(
+    *,
+    trusted_context: str,
+    conversation_history: str,
+    previous_answer: str,
+    validation: ValidationResult,
+) -> str:
+    """Build context for regenerating an answer after validation fails."""
+
+    sections = [
+        build_answer_context(
+            trusted_context=trusted_context,
+            conversation_history=conversation_history,
+        )
+    ]
+
+    sections.append(
+        "[PREVIOUS DRAFT — UNVERIFIED]\n"
+        "This answer failed validation. Do not assume its claims "
+        "are correct; use it only to identify what needs correction.\n"
+        f"{previous_answer.strip()}"
+    )
+
+    validation_json = json.dumps(
+        validation.model_dump(mode="json"),
+        ensure_ascii=False,
+        indent=2,
+    )
+
+    sections.append(
+        "[VALIDATION FEEDBACK]\n"
+        "Use this result to identify and correct the previous draft. "
+        "The trusted insurance evidence above remains the source "
+        "of factual claims.\n"
+        f"{validation_json}"
+    )
+
+    return "\n\n".join(sections)

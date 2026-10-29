@@ -1,13 +1,16 @@
 export interface ChatRequest {
   message: string;
+  conversation_id: string | null;
 }
 
 export interface ChatResponse {
   answer: string;
+  conversation_id: string;
 }
 
 export async function sendMessage(
-  message: string
+  message: string,
+  conversationId: string | null
 ): Promise<ChatResponse> {
   const response = await fetch(
     `${import.meta.env.VITE_API_URL}/chat`,
@@ -18,6 +21,7 @@ export async function sendMessage(
       },
       body: JSON.stringify({
         message,
+        conversation_id: conversationId,
       }),
     }
   );
