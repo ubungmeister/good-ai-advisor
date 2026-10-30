@@ -39,10 +39,12 @@ class LLMService:
         user_message: str,
         response_model: type[T],
         context: str | None = None,
+        strict: bool = False,
     ) -> T:
         return await self.provider.generate_structured(
             system_prompt=system_prompt,
             user_message=user_message,
             response_model=response_model,
             context=context,
+            strict=strict,
         )

@@ -6,6 +6,9 @@ from groq.types.chat import (
 import json
 
 from app.llm.base import BaseLLMProvider
+from groq.types.chat.completion_create_params import (
+    ResponseFormatResponseFormatJsonSchema,
+)
 
 from typing import TypeVar
 from pydantic import BaseModel
@@ -72,6 +75,8 @@ User question:
             user_message: str,
             response_model: type[T],
             context: str | None = None,
+            strict: bool = False,
+
     ) -> T:
 
         user_content = user_message
@@ -95,20 +100,29 @@ User question:
             "content": user_content,
         }
 
+        schema = response_model.model_json_schema()
+
+        response_format: ResponseFormatResponseFormatJsonSchema = {
+            "type": "json_schema",
+            "json_schema": {
+                "name": response_model.__name__.lower(),
+                "strict": strict,
+                "schema": schema,
+            },
+        }
+
+        print("GROQ MODEL:", self.model)
+        print("GROQ STRICT:", strict)
+        print("GROQ RESPONSE FORMAT:")
+        print(json.dumps(response_format, indent=2))
+
         response = await self.client.chat.completions.create(
             model=self.model,
             messages=[
                 system_message,
                 user_message_param,
             ],
-            response_format={
-                "type": "json_schema",
-                "json_schema": {
-                    "name": response_model.__name__,
-                    "strict": False,
-                    "schema": response_model.model_json_schema(),
-                },
-            },
+            response_format=response_format,
         )
 
         content = response.choices[0].message.content

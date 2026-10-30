@@ -1,5 +1,7 @@
 from collections.abc import Sequence
+from time import perf_counter
 
+from app.prompts.grounding_validator import GROUNDING_VALIDATOR_SYSTEM_PROMPT
 from app.schemas.response_validation import (
     GroundingCheckResult,
     GroundingFact,
@@ -55,15 +57,43 @@ class GroundingValidator:
             facts=facts,
         )
 
-        result = (
-            await self.llm_service.generate_structured(
-                system_prompt=self._system_prompt(),
-                user_message=question,
-                context=context,
-                response_model=GroundingCheckResult,
-            )
+        # Before the Model B call
+        model_b_started = perf_counter()
+
+        result = await self.llm_service.generate_structured(
+            system_prompt=GROUNDING_VALIDATOR_SYSTEM_PROMPT,
+            user_message=question,
+            context=context,
+            response_model=GroundingCheckResult,
+            strict=True,
         )
 
+        print(
+            f"MODEL B LATENCY: "
+            f"{perf_counter() - model_b_started:.2f}s"
+        )
+
+        print("\nMODEL B STRUCTURED RESULT:")
+        print(result.model_dump_json(indent=2))
+
+        # Continue with normalization and backend validation
+        result = self._normalize_evidence_ids(
+            result=result,
+            facts=facts,
+        )
+
+        # # Normalize evidence IDs returned by Model B.
+        # result = self._normalize_evidence_ids(
+        #     result=result,
+        #     facts=facts,
+        # )
+
+        if not result.claims:
+            raise ValueError(
+                "Grounding validator returned no claims."
+            )
+
+        # Validate the normalized result.
         self._validate_result(
             result=result,
             facts=facts,
@@ -71,76 +101,10 @@ class GroundingValidator:
 
         return result
 
+
     # ========================================================
     # MODEL B PROMPT
     # ========================================================
-
-    def _system_prompt(self) -> str:
-        return """
-You are a factual grounding validator for an insurance assistant.
-
-Your task is NOT to answer the user's question.
-
-Your task is to evaluate the DRAFT ANSWER against
-the supplied TRUSTED EVIDENCE.
-
-For each meaningful factual claim in the draft:
-
-1. Extract the claim.
-2. Decide whether the claim requires grounding.
-3. If grounding is required, determine whether the claim
-   is supported by the trusted evidence.
-4. Return the exact evidence IDs relevant to the claim.
-
-A factual insurance or policy statement normally requires
-grounding.
-
-Conversational or purely stylistic text does not require
-grounding.
-
-Choose the overall verdict using these rules:
-
-SUPPORTED:
-Every material factual claim that requires grounding is
-supported by the supplied trusted evidence.
-
-UNSUPPORTED:
-At least one material factual claim is not established
-by the supplied trusted evidence.
-
-CONTRADICTED:
-At least one material factual claim directly conflicts
-with the supplied trusted evidence.
-
-Do NOT use NOT_CHECKED.
-NOT_CHECKED is reserved for backend flows where semantic
-grounding validation was intentionally not executed.
-
-Important rules:
-
-- Use only TRUSTED EVIDENCE supplied in the context.
-- Do not use outside knowledge.
-- Do not assume missing information.
-- Do not invent insurance facts.
-- Do not invent evidence IDs.
-- Evidence IDs must exactly match IDs supplied in
-  TRUSTED EVIDENCE.
-- Different wording may express the same factual meaning.
-- Different formatting of the same value does not make
-  a claim unsupported.
-- If evidence directly contradicts a claim, mark the
-  claim as unsupported and include the conflicting
-  evidence ID.
-- If evidence simply does not establish a claim,
-  mark it as unsupported.
-- Do not generate a new answer for the user.
-
-For the current implementation:
-- set support_score to null
-- set every claim score to null
-
-Confidence scores are not used by the runtime yet.
-"""
 
     # ========================================================
     # MODEL B CONTEXT
@@ -155,8 +119,8 @@ Confidence scores are not used by the runtime yet.
 
         evidence = "\n\n".join(
             (
-                f"[{fact.id}]\n"
-                f"{fact.text}"
+                f"Evidence ID: {fact.id}\n"
+                f"Evidence text: {fact.text}"
             )
             for fact in facts
         )
@@ -255,3 +219,37 @@ Confidence scores are not used by the runtime yet.
                     "CONTRADICTED result must reference "
                     "conflicting trusted evidence."
                 )
+
+
+    @staticmethod
+    def _normalize_evidence_ids(
+            *,
+            result: GroundingCheckResult,
+            facts: Sequence[GroundingFact],
+    ) -> GroundingCheckResult:
+
+        allowed_ids = {
+            fact.id
+            for fact in facts
+        }
+
+        for claim in result.claims:
+            normalized_ids = []
+
+            for evidence_id in claim.evidence_ids:
+                normalized_id = evidence_id.strip()
+
+                # Handle a single pair of surrounding brackets.
+                if (
+                        normalized_id.startswith("[")
+                        and normalized_id.endswith("]")
+                ):
+                    normalized_id = normalized_id[1:-1].strip()
+
+                normalized_ids.append(normalized_id)
+
+            claim.evidence_ids = list(
+                dict.fromkeys(normalized_ids)
+            )
+
+        return result

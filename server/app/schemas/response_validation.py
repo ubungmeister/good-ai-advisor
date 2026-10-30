@@ -1,6 +1,6 @@
 from enum import StrEnum
 
-from pydantic import BaseModel, Field, model_validator
+from pydantic import BaseModel, Field, model_validator, ConfigDict
 
 
 # ============================================================
@@ -103,6 +103,7 @@ class GroundingClaim(BaseModel):
     One claim extracted from the generated answer
     and checked against trusted evidence.
     """
+    model_config = ConfigDict(extra="forbid")
 
     # Example:
     # "Your policy expires on 15 September 2026."
@@ -127,15 +128,12 @@ class GroundingClaim(BaseModel):
     # Example:
     # ["policy.end_date"]
     evidence_ids: list[str] = Field(
-        default_factory=list,
+        ...,
         max_length=10,
     )
 
-    # Optional secondary signal.
-    #
-    # We do NOT use this as the only safety gate.
     score: float | None = Field(
-        default=None,
+        ...,
         ge=0.0,
         le=1.0,
     )
@@ -173,6 +171,8 @@ class GroundingCheckResult(BaseModel):
     after checking the complete draft answer.
     """
 
+    model_config = ConfigDict(extra="forbid")
+
     verdict: GroundingVerdict
 
     # Overall score across the answer.
@@ -180,13 +180,13 @@ class GroundingCheckResult(BaseModel):
     # Secondary signal / telemetry only.
     # Claim-level validation remains the main runtime gate.
     support_score: float | None = Field(
-        default=None,
+        ...,
         ge=0.0,
         le=1.0,
     )
 
     claims: list[GroundingClaim] = Field(
-        default_factory=list,
+        ...,
         max_length=50,
     )
 

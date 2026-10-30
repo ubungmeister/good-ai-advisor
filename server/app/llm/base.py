@@ -28,5 +28,7 @@ class BaseLLMProvider(ABC):
             user_message: str,
             response_model: type[T],
             context: str | None = None,
+            strict: bool = False,
+
     ) -> T:
         pass
