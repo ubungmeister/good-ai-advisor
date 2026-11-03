@@ -1,4 +1,5 @@
 from functools import lru_cache
+from app.llm.providers.gemini_provider import GeminiProvider
 
 from app.core.config import settings
 from app.llm.providers.groq_provider import GroqProvider
@@ -26,22 +27,52 @@ from app.services.conversation_service import ConversationService
 
 
 @lru_cache
+@lru_cache
 def get_llm_service() -> LLMService:
-    if not settings.groq_api_key:
-        raise RuntimeError("GROQ_API_KEY is not configured.")
 
-    if not settings.groq_model:
-        raise RuntimeError("GROQ_MODEL is not configured.")
+    if settings.llm_provider == "gemini":
 
-    provider = GroqProvider(
-        api_key=settings.groq_api_key,
-        model=settings.groq_model,
-    )
+        if not settings.gemini_api_key:
+            raise RuntimeError(
+                "GEMINI_API_KEY is not configured."
+            )
+
+        if not settings.gemini_model:
+            raise RuntimeError(
+                "GEMINI_MODEL is not configured."
+            )
+
+        provider = GeminiProvider(
+            api_key=settings.gemini_api_key,
+            model=settings.gemini_model,
+        )
+
+    elif settings.llm_provider == "groq":
+
+        if not settings.groq_api_key:
+            raise RuntimeError(
+                "GROQ_API_KEY is not configured."
+            )
+
+        if not settings.groq_model:
+            raise RuntimeError(
+                "GROQ_MODEL is not configured."
+            )
+
+        provider = GroqProvider(
+            api_key=settings.groq_api_key,
+            model=settings.groq_model,
+        )
+
+    else:
+        raise RuntimeError(
+            f"Unsupported LLM_PROVIDER: {settings.llm_provider}. "
+            "Expected 'groq' or 'gemini'."
+        )
 
     return LLMService(
         provider=provider,
     )
-
 
 @lru_cache
 def get_retrieval_service() -> RetrievalService:
