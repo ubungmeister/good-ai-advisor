@@ -132,6 +132,12 @@ class ChatService:
         conversation_history = format_conversation_history(
             messages=previous_messages,
         )
+        print("\n--- CONVERSATION DEBUG ---")
+        print("CONVERSATION ID:", conversation.id)
+        print("HISTORY MESSAGE COUNT:", len(previous_messages))
+        print("CONVERSATION HISTORY:")
+        print(conversation_history)
+        print("--------------------------\n")
 
 
 
@@ -232,16 +238,6 @@ class ChatService:
 
             return answer, conversation.id
 
-        # =====================================================
-        # PRIORITIZE TASKS
-        # =====================================================
-
-        tasks = self.task_prioritizer.prioritize(
-            plan=plan,
-        )
-
-        print("\nTASK PRIORITIZER DONE")
-        print("PRIORITIZED TASKS:", tasks)
 
         # =====================================================
         # 4. PRIORITIZE TASKS

@@ -40,6 +40,18 @@ class QueryPlanner:
         )
 
         if plan.action == QueryPlanAction.EXECUTE:
+
+            for task in plan.tasks:
+                evidence = task.evidence.strip()
+
+                if evidence.casefold() not in message.casefold():
+                    print(
+                        "QUERY PLANNER: Invalid evidence corrected:",
+                        repr(evidence),
+                    )
+
+                    task.evidence = message.strip()[:500]
+
             self._validate_evidence(
                 message=message,
                 plan=plan,

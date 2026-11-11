@@ -8,13 +8,7 @@ MODEL_NAME = "cross-encoder/mmarco-mMiniLMv2-L12-H384-v1"
 
 class RerankerService:
     def __init__(self):
-        self.model = CrossEncoder(
-            MODEL_NAME,
-            backend="onnx",
-            model_kwargs={
-                "file_name": "onnx/model_quint8_avx2.onnx",
-            },
-        )
+        self.model = CrossEncoder(MODEL_NAME)
 
     def rerank(
         self,

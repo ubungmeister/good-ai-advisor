@@ -1,5 +1,6 @@
 
 from typing import Any, TypeVar
+from google.genai import types as genai_types
 
 from google import genai
 from pydantic import BaseModel
@@ -14,6 +15,7 @@ T = TypeVar(
 
 
 # JSON Schema keywords supported by Gemini structured outputs.
+
 _GEMINI_SCHEMA_KEYS = {
     "$id",
     "$defs",
@@ -26,10 +28,6 @@ _GEMINI_SCHEMA_KEYS = {
     "enum",
     "items",
     "prefixItems",
-    "minItems",
-    "maxItems",
-    "minimum",
-    "maximum",
     "anyOf",
     "oneOf",
     "properties",
@@ -110,6 +108,12 @@ class GeminiProvider(BaseLLMProvider):
     ):
         self._client = genai.Client(
             api_key=api_key,
+            http_options=genai_types.HttpOptions(
+                timeout=30_000,
+                retry_options=genai_types.HttpRetryOptions(
+                    attempts=0,
+                ),
+            ),
         )
 
         self._async_client = self._client.aio
@@ -149,6 +153,7 @@ User question:
                 context=context,
             ),
             store=False,
+            timeout=45.0,
         )
 
         content = response.output_text
