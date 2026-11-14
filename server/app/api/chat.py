@@ -1,4 +1,6 @@
 import traceback
+import time
+from fastapi import Request
 
 from fastapi import APIRouter, Depends, HTTPException
 from sqlalchemy.orm import Session
@@ -21,9 +23,21 @@ router = APIRouter(
 @router.post("", response_model=ChatResponse)
 async def chat(
     request: ChatRequest,
+    http_request: Request,
     db: Session = Depends(get_db),
     chat_service: ChatService = Depends(get_chat_service),
 ):
+    print(
+        "PRE-HANDLER LATENCY:",
+        round(
+            time.perf_counter()
+            - http_request.state.http_started,
+            3,
+        ),
+        "sec",
+        flush=True,
+    )
+
     try:
         user_id = request.user_id
         policy_id = request.policy_id
@@ -35,12 +49,19 @@ async def chat(
             if policy_id is None and settings.dev_policy_id:
                 policy_id = uuid.UUID(settings.dev_policy_id)
 
+        handler_started = time.perf_counter()
+
         answer, conversation_id = await chat_service.generate_answer(
             db=db,
             message=request.message,
             user_id=user_id,
             policy_id=policy_id,
             conversation_id=request.conversation_id,
+        )
+
+        print(
+            f"API HANDLER TOTAL: "
+            f"{time.perf_counter() - handler_started:.3f}s"
         )
 
         return ChatResponse(

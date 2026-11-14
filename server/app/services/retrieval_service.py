@@ -1,4 +1,5 @@
 import time
+import uuid
 from typing import Sequence
 
 from sqlalchemy.orm import Session
@@ -93,6 +94,8 @@ class RetrievalService:
         db: Session,
         question: str,
         limit: int = DEFAULT_FINAL_LIMIT,
+        *,
+        product_version_id: uuid.UUID,
     ) -> Sequence[
         tuple[DocumentChunk, float]
     ]:
@@ -184,6 +187,7 @@ class RetrievalService:
                 db=db,
                 embedding=query_embedding,
                 limit=self.SEMANTIC_LIMIT,
+                product_version_id=product_version_id,
             )
         )
 
@@ -228,6 +232,7 @@ class RetrievalService:
                 db=db,
                 question=question,
                 limit=self.ORIGINAL_LEXICAL_LIMIT,
+                product_version_id=product_version_id,
             )
         )
 
@@ -314,6 +319,7 @@ class RetrievalService:
                 db=db,
                 question=stanza_query,
                 limit=self.STANZA_LEXICAL_LIMIT,
+                product_version_id=product_version_id,
             )
         )
 

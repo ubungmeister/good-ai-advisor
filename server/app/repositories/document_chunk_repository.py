@@ -1,9 +1,11 @@
+import uuid
 from typing import Sequence
 
 from sqlalchemy import func, literal, select
 from sqlalchemy.orm import Session
 
 from app.models.document_chunk import DocumentChunk
+from app.models.knowledge_document import DocumentStatus, KnowledgeDocument
 
 
 class DocumentChunkRepository:
@@ -12,6 +14,8 @@ class DocumentChunkRepository:
         db: Session,
         embedding: list[float],
         limit: int = 5,
+        *,
+        product_version_id: uuid.UUID,
     ) -> Sequence[
         tuple[DocumentChunk, float]
     ]:
@@ -30,8 +34,14 @@ class DocumentChunkRepository:
                 DocumentChunk,
                 distance,
             )
+            .join(
+                KnowledgeDocument,
+                DocumentChunk.document_id == KnowledgeDocument.id,
+            )
             .where(
-                DocumentChunk.embedding.is_not(None)
+                KnowledgeDocument.product_version_id == product_version_id,
+                KnowledgeDocument.ingestion_status == DocumentStatus.READY,
+                DocumentChunk.embedding.is_not(None),
             )
             .order_by(distance)
             .limit(limit)
@@ -52,6 +62,8 @@ class DocumentChunkRepository:
         db: Session,
         question: str,
         limit: int = 20,
+        *,
+        product_version_id: uuid.UUID,
     ) -> Sequence[
         tuple[DocumentChunk, float]
     ]:
@@ -83,6 +95,14 @@ class DocumentChunkRepository:
             select(
                 DocumentChunk,
                 lexical_score,
+            )
+            .join(
+                KnowledgeDocument,
+                DocumentChunk.document_id == KnowledgeDocument.id,
+            )
+            .where(
+                KnowledgeDocument.product_version_id == product_version_id,
+                KnowledgeDocument.ingestion_status == DocumentStatus.READY,
             )
             .order_by(
                 lexical_score.desc()

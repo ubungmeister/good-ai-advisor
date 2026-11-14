@@ -1,5 +1,6 @@
 from functools import lru_cache
 from app.llm.providers.gemini_provider import GeminiProvider
+import time
 
 from app.core.config import settings
 from app.llm.providers.groq_provider import GroqProvider
@@ -75,8 +76,18 @@ def get_llm_service() -> LLMService:
     )
 
 @lru_cache
+@lru_cache
 def get_retrieval_service() -> RetrievalService:
-    return RetrievalService()
+    started = time.perf_counter()
+
+    service = RetrievalService()
+
+    print(
+        f"RETRIEVAL SERVICE INITIALIZATION: "
+        f"{time.perf_counter() - started:.3f}s"
+    )
+
+    return service
 
 
 @lru_cache

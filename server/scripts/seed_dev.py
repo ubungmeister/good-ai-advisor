@@ -17,7 +17,6 @@ from app.models.knowledge_document import (
     DocumentStatus,
     KnowledgeDocument,
 )
-from app.models.document_chunk import DocumentChunk
 from app.models.conversation import Conversation
 from app.models.message import Message, ConversationRole
 from app.models.message_source import MessageSource
@@ -770,17 +769,6 @@ def seed() -> None:
 
         knowledge_documents_data = [
             (
-                "Travel Insurance Conditions 2026",
-                "VPP",
-                "2026.1",
-                "cs",
-                date(2026, 1, 1),
-                date(2026, 12, 31),
-                1,
-                "travel-insurance-vpp-2026.pdf",
-                "dev://knowledge/travel-insurance-vpp-2026.pdf",
-            ),
-            (
                 "Travel Insurance Product Information 2026",
                 "PRODUCT_INFORMATION",
                 "2026.1",
@@ -843,95 +831,6 @@ def seed() -> None:
 
         db.flush()
 
-        # =====================================================
-        # DOCUMENT CHUNKS
-        # =====================================================
-
-        knowledge_document = db.scalar(
-            select(KnowledgeDocument).where(
-                KnowledgeDocument.product_version_id == product_version.id,
-                KnowledgeDocument.document_type == "VPP",
-                KnowledgeDocument.version == "2026.1",
-            )
-        )
-
-        if knowledge_document is None:
-            raise RuntimeError("VPP knowledge document was not found.")
-
-        document_chunks_data = [
-            (
-                0,
-                1,
-                "1",
-                "Medical Expenses",
-                "MEDICAL_EXPENSES",
-                "Medical expenses during an insured trip are covered according to the policy conditions.",
-            ),
-            (
-                1,
-                5,
-                "5",
-                "Baggage",
-                "BAGGAGE",
-                "Baggage insurance covers eligible loss, damage or destruction of insured baggage.",
-            ),
-            (
-                2,
-                8,
-                "8",
-                "Liability",
-                "LIABILITY",
-                "Liability insurance covers eligible damage caused by the insured person to another person.",
-            ),
-        ]
-
-        for (
-                chunk_index,
-                page_number,
-                article_number,
-                section_title,
-                coverage_code,
-                content,
-        ) in document_chunks_data:
-
-            document_chunk = db.scalar(
-                select(DocumentChunk).where(
-                    DocumentChunk.document_id == knowledge_document.id,
-                    DocumentChunk.chunk_index == chunk_index,
-                )
-            )
-
-            if document_chunk is None:
-                document_chunk = DocumentChunk(
-                    document_id=knowledge_document.id,
-                    chunk_index=chunk_index,
-                    page_number=page_number,
-                    article_number=article_number,
-                    section_title=section_title,
-                    section_path=None,
-                    coverage_code=coverage_code,
-                    content=content,
-
-                    # embeddings will be generated later
-                    embedding=None,
-
-                    chunk_metadata={
-                        "source": "synthetic_dev_seed",
-                    },
-                )
-
-                db.add(document_chunk)
-
-                print(
-                    f"Created document chunk: "
-                    f"{chunk_index} -> {coverage_code}"
-                )
-
-            else:
-                print(
-                    f"Document chunk already exists: "
-                    f"{chunk_index}"
-                )
         # =====================================================
         # CONVERSATION
         # =====================================================
@@ -1051,19 +950,6 @@ def seed() -> None:
             )
 
 
-        baggage_chunk = db.scalar(
-            select(DocumentChunk).where(
-                DocumentChunk.document_id == knowledge_document.id,
-                DocumentChunk.coverage_code == "BAGGAGE",
-            )
-        )
-
-        if baggage_chunk is None:
-            raise RuntimeError(
-                "BAGGAGE document chunk was not found."
-            )
-
-
         policy_coverage_source = db.scalar(
             select(MessageSource).where(
                 MessageSource.message_id == assistant_message.id,
@@ -1089,32 +975,6 @@ def seed() -> None:
 
         else:
             print("POLICY_COVERAGE message source already exists.")
-
-
-        document_chunk_source = db.scalar(
-            select(MessageSource).where(
-                MessageSource.message_id == assistant_message.id,
-                MessageSource.source_type == "DOCUMENT_CHUNK",
-                MessageSource.document_chunk_id == baggage_chunk.id,
-            )
-        )
-
-        if document_chunk_source is None:
-            document_chunk_source = MessageSource(
-                message_id=assistant_message.id,
-                source_type="DOCUMENT_CHUNK",
-                document_chunk_id=baggage_chunk.id,
-                policy_coverage_id=None,
-                policy_option_id=None,
-                relevance_score=Decimal("0.92"),
-            )
-
-            db.add(document_chunk_source)
-
-            print("Created DOCUMENT_CHUNK message source.")
-
-        else:
-            print("DOCUMENT_CHUNK message source already exists.")
 
 
         # =====================================================

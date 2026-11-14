@@ -161,11 +161,15 @@ class ChatService:
         # 1. SAFETY
         # =====================================================
 
-        safety_decision = (
-            await self.safety_classifier.classify(
+        started = time.perf_counter()
+
+        try:
+            safety_decision = await self.safety_classifier.classify(
                 message=message,
             )
-        )
+        finally:
+            print(f"SAFETY LATENCY: {time.perf_counter() - started:.2f}s")
+
         print("\n1. SAFETY DONE")
         print("SAFETY DECISION:", safety_decision)
 
@@ -279,12 +283,29 @@ class ChatService:
                     target
                     == TaskTarget.RETRIEVAL
                 ):
+                    # Never search across all product versions.
+                    # Resolve the scope from an owned policy, not LLM output.
+                    if active_policy_id is None:
+                        raise ValueError(
+                            "Document retrieval requires a selected policy."
+                        )
+
+                    authorized_policy = self.policy_service.get_policy_for_user(
+                        db=db,
+                        policy_id=active_policy_id,
+                        user_id=user_id,
+                    )
+                    if authorized_policy is None:
+                        raise ValueError(
+                            "Policy was not found or does not belong to the user."
+                        )
 
                     retrieval_results = (
                         self.retrieval_service.search(
                             db=db,
                             question=task.query,
                             limit=5,
+                            product_version_id=authorized_policy.product_version_id,
                         )
                     )
 
@@ -455,6 +476,8 @@ class ChatService:
 
         task_results = task_results
 
+        save_started = time.perf_counter()
+
         answer = self._save_assistant_answer(
             db=db,
             conversation_id=conversation.id,
@@ -463,7 +486,20 @@ class ChatService:
             safety_result=safety_decision.category.value,
             task_results=task_results,
         )
+
+        print(f"DB SAVE TOTAL: {time.perf_counter() - save_started:.3f}s")
+        print(f"CHAT INCLUDING SAVE: {time.perf_counter() - total_start:.3f}s")
+
         return answer, conversation.id
+        # answer = self._save_assistant_answer(
+        #     db=db,
+        #     conversation_id=conversation.id,
+        #     answer=answer,
+        #     latency_ms=int(total_time * 1000),
+        #     safety_result=safety_decision.category.value,
+        #     task_results=task_results,
+        # )
+        # return answer, conversation.id
 
     def _save_assistant_answer(
             self,
