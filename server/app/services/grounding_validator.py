@@ -1,5 +1,6 @@
 from collections.abc import Sequence
 from time import perf_counter
+from uuid import UUID
 
 from app.prompts.grounding_validator import GROUNDING_VALIDATOR_SYSTEM_PROMPT
 from app.schemas.response_validation import (
@@ -221,17 +222,36 @@ class GroundingValidator:
                 )
 
 
+
     @staticmethod
     def _normalize_evidence_ids(
-            *,
-            result: GroundingCheckResult,
-            facts: Sequence[GroundingFact],
+        *,
+        result: GroundingCheckResult,
+        facts: Sequence[GroundingFact],
     ) -> GroundingCheckResult:
 
-        allowed_ids = {
-            fact.id
-            for fact in facts
-        }
+        allowed_ids = {fact.id for fact in facts}
+
+        # Build aliases for known UUID-based evidence IDs.
+        uuid_aliases: dict[str, list[str]] = {}
+
+        for full_id in allowed_ids:
+            suffix = full_id.rsplit(":", 1)[-1]
+
+            if len(suffix) != 36:
+                continue
+
+            try:
+                canonical = str(UUID(suffix))
+            except ValueError:
+                continue
+
+            if canonical != suffix.lower():
+                continue
+
+            uuid_aliases.setdefault(
+                canonical, []
+            ).append(full_id)
 
         for claim in result.claims:
             normalized_ids = []
@@ -239,12 +259,36 @@ class GroundingValidator:
             for evidence_id in claim.evidence_ids:
                 normalized_id = evidence_id.strip()
 
-                # Handle a single pair of surrounding brackets.
+                # Remove one pair of surrounding brackets.
                 if (
-                        normalized_id.startswith("[")
-                        and normalized_id.endswith("]")
+                    normalized_id.startswith("[")
+                    and normalized_id.endswith("]")
                 ):
-                    normalized_id = normalized_id[1:-1].strip()
+                    normalized_id = (
+                        normalized_id[1:-1].strip()
+                    )
+
+                # Recover a missing prefix ONLY when
+                # exactly one trusted fact matches.
+                if (
+                    normalized_id not in allowed_ids
+                    and len(normalized_id) == 36
+                ):
+                    try:
+                        canonical = str(UUID(normalized_id))
+                    except ValueError:
+                        canonical = None
+
+                    if (
+                        canonical is not None
+                        and canonical == normalized_id.lower()
+                    ):
+                        matches = uuid_aliases.get(
+                            canonical, []
+                        )
+
+                        if len(matches) == 1:
+                            normalized_id = matches[0]
 
                 normalized_ids.append(normalized_id)
 

@@ -20,7 +20,7 @@ from app.schemas.response_validation import (
     GroundingClaim,
     GroundingVerdict,
     ValidationAction,
-    ValidationIssueCode,
+    ValidationIssueCode, GroundingFact,
 )
 from app.schemas.task_result import PolicyTaskContent, TaskResult
 from app.schemas.task_routing import TaskTarget
@@ -250,3 +250,118 @@ def test_model_b_invented_evidence_id_is_rejected():
     assert result.grounding == GroundingVerdict.NOT_CHECKED
     assert any(issue.code == ValidationIssueCode.VALIDATOR_ERROR for issue in result.issues)
     fake_llm.generate_structured.assert_awaited_once()
+
+
+def test_model_b_bare_document_uuid_is_normalized():
+    chunk_uuid = (
+        "a4f3ab50-d2e7-4b79-934e-de4119a061b8"
+    )
+
+    full_id = f"document.chunk:{chunk_uuid}"
+
+    facts = [
+        GroundingFact(
+            id=full_id,
+            text="Relevant baggage insurance conditions.",
+        )
+    ]
+
+    result = GroundingCheckResult(
+        verdict=GroundingVerdict.CONTRADICTED,
+        support_score=None,
+        claims=[
+            GroundingClaim(
+                claim="The event is definitely covered.",
+                grounding_required=True,
+                supported=False,
+                evidence_ids=[chunk_uuid],
+                score=None,
+            )
+        ],
+    )
+
+    normalized = GroundingValidator._normalize_evidence_ids(
+        result=result,
+        facts=facts,
+    )
+
+    assert normalized.claims[0].evidence_ids == [
+        full_id
+    ]
+
+    GroundingValidator(
+        llm_service=Mock()
+    )._validate_result(
+        result=normalized,
+        facts=facts,
+    )
+
+
+def test_ambiguous_uuid_is_not_normalized():
+    chunk_uuid = (
+        "a4f3ab50-d2e7-4b79-934e-de4119a061b8"
+    )
+
+    facts = [
+        GroundingFact(
+            id=f"document.chunk:{chunk_uuid}",
+            text="Document evidence",
+        ),
+        GroundingFact(
+            id=f"policy.coverage:{chunk_uuid}",
+            text="Policy evidence",
+        ),
+    ]
+
+    result = GroundingCheckResult(
+        verdict=GroundingVerdict.SUPPORTED,
+        support_score=None,
+        claims=[
+            GroundingClaim(
+                claim="A factual claim",
+                grounding_required=True,
+                supported=True,
+                evidence_ids=[chunk_uuid],
+                score=None,
+            )
+        ],
+    )
+
+    validator = GroundingValidator(
+        llm_service=Mock()
+    )
+
+    normalized = validator._normalize_evidence_ids(
+        result=result,
+        facts=facts,
+    )
+
+    with pytest.raises(ValueError):
+        validator._validate_result(
+            result=normalized,
+            facts=facts,
+        )
+
+
+def test_coverage_check_requires_retrieval():
+    judge = Mock()
+    judge.validate = AsyncMock()
+
+    policy_result = _policy_task_results()[0].model_copy(
+        update={
+            "task_type": TaskType.COVERAGE_CHECK
+        }
+    )
+
+    validation = _run(
+        _validator_with_judge(judge),
+        task_results=[policy_result],
+    )
+
+    assert validation.action == ValidationAction.HANDOFF
+    assert any(
+        issue.code == ValidationIssueCode.NO_TRUSTED_EVIDENCE
+        for issue in validation.issues
+    )
+
+    judge.validate.assert_not_awaited()

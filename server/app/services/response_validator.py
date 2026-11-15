@@ -1,4 +1,6 @@
 from collections.abc import Sequence
+from app.schemas.query_plan import TaskType
+from app.schemas.task_routing import TaskTarget
 
 from app.schemas.response_validation import (
     GroundingCheckResult,
@@ -71,6 +73,42 @@ class ResponseValidator:
         # =====================================================
         # 1. DETERMINISTIC GUARDS
         # =====================================================
+
+
+        # Coverage applicability checks require both
+        # customer policy facts and insurance documentation.
+        coverage_targets = {
+            result.target
+            for result in task_results
+            if result.task_type == TaskType.COVERAGE_CHECK
+        }
+
+        required_targets = {
+            TaskTarget.POLICY,
+            TaskTarget.RETRIEVAL,
+        }
+
+        if (
+            coverage_targets
+            and not required_targets.issubset(
+                coverage_targets
+            )
+        ):
+            return self.decision_policy.decide(
+                grounding_result=self._not_checked_result(),
+                guard_issues=[
+                    ValidationIssue(
+                        code=ValidationIssueCode.NO_TRUSTED_EVIDENCE,
+                        message=(
+                            "Coverage check requires both "
+                            "policy facts and insurance "
+                            "documentation."
+                        ),
+                    )
+                ],
+                regeneration_count=regeneration_count,
+            )
+
 
         guard_issues = self.guard_service.check(
             draft_answer=draft_answer,

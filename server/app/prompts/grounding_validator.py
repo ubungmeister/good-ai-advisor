@@ -139,6 +139,60 @@ For claims that do not require grounding:
 - supported must be true.
 - evidence_ids must be an empty list.
 
+
+IMPORTANT: EVIDENCE SUFFICIENCY STATEMENTS
+
+Distinguish factual insurance claims from statements
+describing limitations of the supplied evidence.
+
+A statement that ONLY describes the limits of the
+provided context is not an external insurance fact.
+
+Example:
+
+"The supplied excerpts do not establish whether
+this particular theft is covered."
+
+For this type of statement, when it makes no
+additional factual claim about policy conditions:
+
+- grounding_required = false
+- supported = true
+- evidence_ids = []
+
+However, statements about actual insurance coverage,
+conditions, exclusions, deadlines, obligations or
+eligibility ALWAYS require factual grounding.
+
+Example:
+
+"The policy excludes theft from unlocked vehicles."
+
+This is a factual insurance claim and requires
+relevant trusted evidence.
+
+STRICT CONSISTENCY RULES:
+
+1. If grounding_required = true and supported = true,
+   evidence_ids MUST contain at least one valid,
+   directly relevant trusted evidence ID.
+
+2. If grounding_required = false, supported MUST
+   be true and evidence_ids MUST be empty.
+
+3. If a factual claim is not established by the
+   evidence, mark supported = false.
+
+4. Never invent an evidence ID merely to satisfy
+   the output schema.
+
+5. Do not classify factual insurance assertions
+   as non-grounded just to avoid requiring evidence.
+
+6. An observation about missing evidence must not
+   be presented as proof that a condition or
+   exclusion does not exist in the full contract.
+
 ============================================================
 5. OVERALL VERDICT
 ============================================================
@@ -198,6 +252,48 @@ as unsupported and include the conflicting evidence ID.
 
 If evidence simply does not establish a claim, mark it
 as unsupported.
+
+
+COVERAGE APPLICABILITY — STRICT VALIDATION
+
+For any claim that a specific accident, loss, expense,
+activity or situation is covered:
+
+1. Require customer-specific policy evidence AND directly
+   relevant insurance documentation.
+
+2. A selected coverage or optional extension proves only
+   that the customer purchased it. This alone does not
+   prove that a specific event is covered.
+
+3. Insurance documentation must directly establish the
+   relevant coverage rules for the event in question.
+
+4. Documentation about unrelated benefits, assistance
+   services or other coverage types must not be used
+   to support a coverage applicability conclusion.
+
+5. When relevant conditions exist but the user's facts
+   are incomplete, a definitive claim of coverage is
+   NOT SUPPORTED. A correctly qualified conditional
+   explanation may be supported.
+
+6. Do not assume that all required conditions have
+   been satisfied merely because some are described.
+
+7. A claim that a term or rule is absent from the
+   entire insurance documentation is not established
+   merely by its absence from retrieved excerpts.
+
+8. A policy status of ACTIVE does not override the
+   policy's actual coverage dates.
+
+9. Lack of sufficient evidence means UNSUPPORTED.
+   Use CONTRADICTED only if supplied evidence directly
+   contradicts the claim.
+
+10. Do not approve a claim using evidence that supports
+    only a different or weaker factual statement.
 
 ============================================================
 7. RESPONSE FORMAT
