@@ -16,6 +16,9 @@ existing chunks for this document are deleted and recreated.
 """
 
 from datetime import date
+from pathlib import Path
+import argparse
+from uuid import UUID
 
 from sqlalchemy import delete, select
 
@@ -27,9 +30,9 @@ from app.models.knowledge_document import (
     KnowledgeDocument,
 )
 from app.models.product_version import ProductVersion
+from app.models.product import Product
 
 from app.services.chunking_service import ChunkingService
-from app.services.embedding_service import EmbeddingService
 from app.services.structured_knowledge_loader import (
     StructuredKnowledgeLoader,
 )
@@ -39,9 +42,9 @@ from app.services.structured_knowledge_loader import (
 # Configuration
 # ---------------------------------------------------------
 
-STRUCTURED_FILE_PATH = (
-    "data/knowledge/processed/"
-    "vpp_cp_2021_structured.json"
+STRUCTURED_FILE_PATH = str(
+    Path(__file__).resolve().parents[1]
+    / "data/knowledge/processed/vpp_cp_2021_structured.json"
 )
 
 SOURCE_FILE_NAME = "11N9393_VPP_CP_2021.pdf"
@@ -56,6 +59,9 @@ MAX_TOKENS = 400
 
 
 def main():
+    parser = argparse.ArgumentParser(description="Index the prepared VPP document.")
+    parser.add_argument("--product-version-id", type=UUID)
+    args = parser.parse_args()
     db = SessionLocal()
 
     try:
@@ -89,6 +95,8 @@ def main():
 
         print("Loading embedding model...")
 
+        from app.services.embedding_service import EmbeddingService
+
         embedding_service = EmbeddingService()
 
         # ---------------------------------------------------------
@@ -105,6 +113,8 @@ def main():
         chunks = chunking_service.create_chunks(
             structured_document
         )
+        if not chunks:
+            raise ValueError("The structured document produced no chunks.")
 
         print(
             f"Chunks created: {len(chunks)}"
@@ -160,13 +170,15 @@ def main():
             f"Finding ProductVersion {PRODUCT_VERSION}..."
         )
 
-        product_version = db.scalar(
-            select(ProductVersion)
-            .where(
-                ProductVersion.version
-                == PRODUCT_VERSION
-            )
-        )
+        if args.product_version_id is not None:
+            product_version = db.get(ProductVersion, args.product_version_id)
+        else:
+            product_version = db.execute(
+                select(ProductVersion)
+                .join(Product, ProductVersion.product_id == Product.id)
+                .where(Product.code == "TRAVEL_INSURANCE",
+                       ProductVersion.version == PRODUCT_VERSION)
+            ).scalar_one_or_none()
 
         if product_version is None:
             raise ValueError(
@@ -188,7 +200,7 @@ def main():
         # of that document.
         # ---------------------------------------------------------
 
-        knowledge_document = db.scalar(
+        knowledge_document = db.execute(
             select(KnowledgeDocument)
             .where(
                 KnowledgeDocument.product_version_id
@@ -197,7 +209,7 @@ def main():
                 KnowledgeDocument.version
                 == DOCUMENT_CODE,
             )
-        )
+        ).scalar_one_or_none()
 
         if knowledge_document is None:
             print(

@@ -1,8 +1,11 @@
+import argparse
+from uuid import UUID
+
 from app.db.database import SessionLocal
 from app.repositories.document_chunk_repository import (
     DocumentChunkRepository,
 )
-from app.services.embedding_service import EmbeddingService
+from scripts.retrieval_scope import resolve_document_scope
 
 
 QUESTION = "Je moje zavazadlo pojištěné proti krádeži?"
@@ -10,9 +13,15 @@ LIMIT = 5
 
 
 def main():
+    parser = argparse.ArgumentParser(description="Test version-scoped semantic retrieval.")
+    parser.add_argument("--product-version-id", type=UUID)
+    args = parser.parse_args()
     db = SessionLocal()
 
     try:
+        document = resolve_document_scope(db, "VPP_CP_2021", args.product_version_id)
+        from app.services.embedding_service import EmbeddingService
+
         print("=== REAL RETRIEVAL TEST ===")
         print()
 
@@ -33,6 +42,7 @@ def main():
             db=db,
             embedding=query_embedding,
             limit=LIMIT,
+            product_version_id=document.product_version_id,
         )
 
         print(f"Results: {len(results)}")

@@ -1020,6 +1020,10 @@ def seed() -> None:
         db.commit()
 
         print("Seed completed successfully.")
+        print("Local demo configuration (copy into server/.env):")
+        print(f"DEV_USER_ID={user.id}")
+        print(f"DEV_POLICY_ID={policy.id}")
+        print(f"Product version ID: {product_version.id}")
 
     except Exception:
         db.rollback()

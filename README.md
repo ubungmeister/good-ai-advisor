@@ -156,7 +156,7 @@ good-ai-advisor/
 docker compose up -d
 ```
 
-### 2. Configure and run the API
+### 2. Configure Python and create the demo data
 
 ```powershell
 cd server
@@ -166,14 +166,46 @@ python -m venv .venv
 .\.venv\Scripts\Activate.ps1
 pip install -r requirements-dev.txt
 alembic upgrade head
-python scripts/seed_dev.py
+python -m scripts.seed_dev
+```
+
+Copy the printed `DEV_USER_ID` and `DEV_POLICY_ID` UUIDs into `server/.env`.
+These identify the synthetic demo policy; the client does not send them.
+They apply only when `ENVIRONMENT=development` and are not authentication.
+
+The seed creates structured policy records and sample document metadata. It
+does not create searchable VPP chunks or embeddings. From `server`, index the
+included, prepared document and check the result:
+
+```powershell
+python -m scripts.validate_chunking
+python -m scripts.ingest_vpp_cp_2021
+python -m scripts.check_demo_setup
+```
+
+Validation uses the E5 tokenizer without loading model weights or calling an LLM.
+Ingestion loads embedding weights, chunks the prepared JSON, embeds it and saves
+it to PostgreSQL. The JSON is already derived from the PDF; this command does
+not re-parse the PDF. Ingestion replaces existing chunks for this document in a
+transaction, so use a separate demo database when testing a fresh setup.
+
+The default target is `TRAVEL_INSURANCE` version `2026.1` created by the seed.
+Use `--product-version-id <UUID>` to choose a different existing product version
+explicitly. First-time model/tokenizer downloads require internet access; the
+chat retrieval pipeline also downloads Czech Stanza resources on first use.
+
+### 3. Start the API
+
+From `server`, with the environment activated and demo IDs saved:
+
+```powershell
 uvicorn app.main:app --reload
 ```
 
 The API is available at `http://localhost:8000`; interactive API docs are at
 `http://localhost:8000/docs`.
 
-### 3. Run the client
+### 4. Run the client
 
 In a second terminal:
 
@@ -186,14 +218,41 @@ npm run dev
 
 Open `http://localhost:5173`.
 
+Start a new conversation and try `Jaké povinnosti mám při pojistné události?`.
+The assistant should use the indexed terms, or return its safe fallback when
+it cannot validate an answer. Wording depends on the configured LLM. A working
+old database is not proof of a reproducible setup: repeat the steps against an
+empty demo database to verify migrations, seed and indexing together.
+
+### Retrieval evaluation
+
+From `server`:
+
+```powershell
+python -m scripts.run_retrieval_eval
+python -m scripts.test_retrieval_latency
+```
+
+These scripts resolve `VPP_CP_2021` to exactly one READY document with embeddings
+and pass its product version into retrieval. If the document is indexed under
+multiple versions, supply `--product-version-id <UUID>`. Evaluation credits an
+article only when it comes from the dataset's document. These are retrieval
+metrics, not measurements of final-answer correctness.
+
 ## Test
 
 With the backend virtual environment activated:
 
 ```powershell
 cd server
-pytest tests
+python -m pytest tests
 ```
+
+The chunking regression tests use a lightweight token counter. For the full
+included document with the actual E5 tokenizer, run `python -m scripts.validate_chunking`;
+add `--local-files-only` to require cached tokenizer files. Neither check writes
+to the database or calls an LLM. Additional existing AI service tests are in
+`app/services/test/`; its PostgreSQL integration test requires seeded, indexed data.
 
 ## Notes
 

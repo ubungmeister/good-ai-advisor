@@ -1,11 +1,13 @@
-from sentence_transformers import SentenceTransformer
+EMBEDDING_MODEL_NAME = "intfloat/multilingual-e5-small"
 
 
 class EmbeddingService:
 
     def __init__(self):
+        from sentence_transformers import SentenceTransformer
+
         self.model = SentenceTransformer(
-            "intfloat/multilingual-e5-small"
+            EMBEDDING_MODEL_NAME
         )
 
     def embed_document(

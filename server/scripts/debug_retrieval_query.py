@@ -1,5 +1,8 @@
+import argparse
+from uuid import UUID
+
 from app.db.database import SessionLocal
-from app.services.retrieval_service import RetrievalService
+from scripts.retrieval_scope import resolve_document_scope
 
 
 QUESTION = "Co když během cesty poškodím cizí věc?"
@@ -7,14 +10,21 @@ TOP_K = 200
 
 
 def main():
+    parser = argparse.ArgumentParser(description="Inspect version-scoped retrieval results.")
+    parser.add_argument("--product-version-id", type=UUID)
+    args = parser.parse_args()
+    from app.services.retrieval_service import RetrievalService
+
     retrieval_service = RetrievalService()
     db = SessionLocal()
 
     try:
+        document = resolve_document_scope(db, "VPP_CP_2021", args.product_version_id)
         results = retrieval_service.search(
             db=db,
             question=QUESTION,
             limit=TOP_K,
+            product_version_id=document.product_version_id,
         )
 
         print("=== RETRIEVAL DEBUG ===")

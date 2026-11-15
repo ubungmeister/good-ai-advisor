@@ -1,15 +1,22 @@
 import time
+import argparse
+from uuid import UUID
 
 from app.db.database import SessionLocal
-from app.services.retrieval_service import RetrievalService
+from typing import TYPE_CHECKING
+from scripts.retrieval_scope import resolve_document_scope
+
+if TYPE_CHECKING:
+    from app.services.retrieval_service import RetrievalService
 
 QUESTION = "Co když během cesty poškodím cizí věc?"
 
 
 def run_search(
-    retrieval_service: RetrievalService,
+    retrieval_service: "RetrievalService",
     db,
     number: int,
+    product_version_id: UUID,
 ):
     start = time.perf_counter()
 
@@ -17,6 +24,7 @@ def run_search(
         db=db,
         question=QUESTION,
         limit=5,
+        product_version_id=product_version_id,
     )
 
     elapsed = time.perf_counter() - start
@@ -37,6 +45,11 @@ def run_search(
 
 
 def main():
+    parser = argparse.ArgumentParser(description="Measure version-scoped retrieval latency.")
+    parser.add_argument("--product-version-id", type=UUID)
+    args = parser.parse_args()
+    from app.services.retrieval_service import RetrievalService
+
     print("Loading services...")
 
     init_start = time.perf_counter()
@@ -52,16 +65,19 @@ def main():
     db = SessionLocal()
 
     try:
+        document = resolve_document_scope(db, "VPP_CP_2021", args.product_version_id)
         run_search(
             retrieval_service,
             db,
             1,
+            document.product_version_id,
         )
 
         run_search(
             retrieval_service,
             db,
             2,
+            document.product_version_id,
         )
 
     finally:
