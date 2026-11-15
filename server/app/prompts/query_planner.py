@@ -76,26 +76,110 @@ evidence about insurance coverage, policy terms, or policy facts.
 Previous assistant answers may be wrong. Never treat them as
 proof that a policy fact or coverage claim is true.
 
+
 # 3. TASK TYPES
 
-Use only these task types:
+Use only these task types.
+
+Choose the task type based on the information REQUIRED
+to answer the question, not just insurance-related words.
 
 POLICY_DETAILS:
-For customer-specific structured policy information, such as
-policy dates, insured persons, and available policy details.
+Use for factual information already stored in the
+customer's purchased insurance contract.
+
+Examples:
+- Policy start and end dates
+- Policy status and payment status
+- Purchased plan and selected coverages
+- Coverage limits, currencies, and deductibles
+- Insured persons and their coverage details
+- Selected policy options
+- Travel destination and territory
+
+Examples of POLICY_DETAILS questions:
+- "What insurance do I have?"
+- "What is my baggage coverage limit?"
+- "Do I have baggage insurance?"
+- "Is the winter sports option selected?"
+- "When does my insurance expire?"
+- "Is my wife included in the policy?"
+
+IMPORTANT:
+A question about a coverage limit does NOT automatically
+mean COVERAGE_CHECK.
+
+If the user only wants to know a factual value recorded
+in their own policy, use POLICY_DETAILS.
 
 COVERAGE_CHECK:
-For determining whether a particular event, expense, service,
-or situation is covered. This task requires policy information
-and relevant official insurance documentation.
+Use when determining whether a particular event,
+loss, expense, activity, or situation is covered
+under the customer's insurance contract.
+
+This requires:
+- Customer-specific policy facts
+- Relevant insurance terms, conditions, and exclusions
+
+Examples of COVERAGE_CHECK questions:
+- "Does my insurance cover skiing accidents?"
+- "Is theft from an unattended car covered?"
+- "Will my insurance pay for emergency dental treatment?"
+- "My baggage was stolen. Am I covered?"
+- "Does my policy cover damage caused to another person?"
+
+IMPORTANT:
+The fact that a coverage is purchased does not
+necessarily mean a particular event is covered.
+
+Do not classify a coverage applicability question
+as POLICY_DETAILS simply because policy information
+is available.
 
 PROCEDURE:
-For instructions about how to report an event, submit a claim,
-or follow an insurance process. Use official documentation.
+Use for questions about insurance processes,
+claim submission, reporting incidents, required
+documents, deadlines, and assistance procedures.
+
+Examples:
+- "How do I submit a claim?"
+- "What documents do I need to report stolen baggage?"
+- "How do I contact assistance?"
 
 GENERAL_QUESTION:
-For general insurance questions that should be answered using
-the available official insurance documentation.
+Use for general insurance knowledge, definitions,
+and explanations of insurance conditions that do
+not require customer-specific contract facts.
+
+Examples:
+- "What is a deductible?"
+- "What does travel liability insurance mean?"
+- "What is generally excluded from baggage insurance?"
+
+# TASK CLASSIFICATION RULES
+
+1. Classify by the user's actual intent.
+
+2. Do not infer COVERAGE_CHECK merely from words such as
+   "coverage", "covered", "insurance", or "limit".
+
+3. Distinguish:
+   - "Do I have baggage insurance?" -> POLICY_DETAILS
+   - "Is my stolen baggage covered?" -> COVERAGE_CHECK
+
+4. Distinguish:
+   - "What is MY baggage limit?" -> POLICY_DETAILS
+   - "What do the insurance CONDITIONS say about
+      baggage limits?" -> GENERAL_QUESTION
+
+5. If the question requires applying insurance conditions
+   to the customer's situation, use COVERAGE_CHECK.
+
+6. If the message contains genuinely separate requests,
+   create multiple tasks using the appropriate types.
+
+7. Do not invent missing policy facts or coverage decisions.
+   The backend services will retrieve the required evidence.
 
 # 4. TASK QUERIES
 
