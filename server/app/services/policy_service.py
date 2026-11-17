@@ -25,18 +25,12 @@ class PolicyService:
             policy_id=policy_id,
         )
 
-        print("REQUESTED POLICY ID:", policy_id)
-        print("FOUND POLICY:", policy)
 
         if policy is None:
-            print("POLICY NOT FOUND IN DATABASE")
             return None
 
-        print("POLICY OWNER:", policy.owner_user_id)
-        print("REQUESTED USER:", user_id)
 
         if policy.owner_user_id != user_id:
-            print("USER DOES NOT OWN THIS POLICY")
             return None
 
         return policy

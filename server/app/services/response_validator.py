@@ -1,3 +1,4 @@
+import logging
 from collections.abc import Sequence
 from app.schemas.query_plan import TaskType
 from app.schemas.task_routing import TaskTarget
@@ -23,6 +24,9 @@ from app.services.grounding_validator import (
 from app.services.validation_decision_policy import (
     ValidationDecisionPolicy,
 )
+
+
+logger = logging.getLogger(__name__)
 
 
 class ResponseValidator:
@@ -116,8 +120,6 @@ class ResponseValidator:
             regeneration_count=regeneration_count,
         )
 
-        print("\n--- RESPONSE VALIDATION ---")
-        print("GUARD ISSUES:", guard_issues)
 
         # Some failures make semantic grounding either
         # impossible or unnecessary.
@@ -141,7 +143,8 @@ class ResponseValidator:
                 task_results=task_results,
             )
 
-        except Exception as exc:
+        except Exception:
+            logger.warning("Grounding fact construction failed.")
             issues = list(guard_issues)
 
             issues.append(
@@ -157,10 +160,6 @@ class ResponseValidator:
                 )
             )
 
-            print(
-                "GROUNDING FACT BUILDER ERROR:",
-                repr(exc),
-            )
 
             return self.decision_policy.decide(
                 grounding_result=(
@@ -170,13 +169,6 @@ class ResponseValidator:
                 regeneration_count=regeneration_count,
             )
 
-        print(
-            "GROUNDING FACTS:",
-            [
-                fact.id
-                for fact in facts
-            ],
-        )
 
         # TaskResult[] may technically exist while producing
         # no usable grounding facts.
@@ -217,7 +209,8 @@ class ResponseValidator:
                 )
             )
 
-        except Exception as exc:
+        except Exception:
+            logger.warning("Grounding validation failed.")
             issues = list(guard_issues)
 
             issues.append(
@@ -233,10 +226,6 @@ class ResponseValidator:
                 )
             )
 
-            print(
-                "GROUNDING VALIDATOR ERROR:",
-                repr(exc),
-            )
 
             return self.decision_policy.decide(
                 grounding_result=(
@@ -246,15 +235,7 @@ class ResponseValidator:
                 regeneration_count=regeneration_count,
             )
 
-        print(
-            "GROUNDING VERDICT:",
-            grounding_result.verdict,
-        )
 
-        print(
-            "GROUNDING CLAIMS:",
-            grounding_result.claims,
-        )
 
         # =====================================================
         # 4. FINAL BACKEND DECISION
@@ -268,15 +249,7 @@ class ResponseValidator:
             )
         )
 
-        print(
-            "VALIDATION ACTION:",
-            validation_result.action,
-        )
 
-        print(
-            "VALIDATION ISSUES:",
-            validation_result.issues,
-        )
 
         return validation_result
 

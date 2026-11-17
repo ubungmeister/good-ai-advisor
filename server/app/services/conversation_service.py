@@ -7,6 +7,8 @@ from sqlalchemy.orm import Session
 
 from app.models.conversation import Conversation
 from app.models.message import ConversationRole, Message
+from app.services.access_errors import ResourceNotFoundError
+from app.services.policy_service import PolicyService
 
 
 
@@ -15,6 +17,7 @@ class ConversationService:
     def __init__(self):
         self.conversation_repository = ConversationRepository()
         self.message_repository = MessageRepository()
+        self.policy_service = PolicyService()
 
     def get_or_create(
         self,
@@ -36,12 +39,18 @@ class ConversationService:
             )
 
             if conversation is None:
-                raise ValueError(
+                raise ResourceNotFoundError(
                     "Conversation was not found "
                     "or does not belong to the user."
                 )
 
+            # A continuation keeps the original policy; switching requires a new chat.
+            if policy_id is not None and policy_id != conversation.policy_id:
+                raise ResourceNotFoundError("Conversation not found.")
+            self._check_policy(db=db, user_id=user_id, policy_id=conversation.policy_id)
             return conversation
+
+        self._check_policy(db=db, user_id=user_id, policy_id=policy_id)
 
         conversation = self.conversation_repository.create(
             db=db,
@@ -53,6 +62,14 @@ class ConversationService:
         db.refresh(conversation)
 
         return conversation
+
+    def _check_policy(
+        self, *, db: Session, user_id: uuid.UUID, policy_id: uuid.UUID | None,
+    ) -> None:
+        if policy_id is not None and self.policy_service.get_policy_for_user(
+            db=db, policy_id=policy_id, user_id=user_id,
+        ) is None:
+            raise ResourceNotFoundError("Policy not found.")
 
     def add_message(
         self,

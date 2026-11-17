@@ -2,9 +2,11 @@ from fastapi import APIRouter, Depends
 
 from app.core.dependencies import get_llm_service
 from app.services.llm_service import LLMService
+from app.core.identity import get_current_user
 
 
 router = APIRouter(
+    dependencies=[Depends(get_current_user)],
     prefix="/api/llm",
     tags=["LLM"],
 )
