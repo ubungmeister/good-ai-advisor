@@ -11,6 +11,9 @@ from app.api.users import router as users_router
 import time
 
 from fastapi import Request
+import logging
+
+logger = logging.getLogger(__name__)
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
@@ -40,10 +43,11 @@ async def request_timing_middleware(
 
     total = time.perf_counter() - start
 
-    print(
-        f"\nFULL HTTP REQUEST: "
-        f"{request.method} {request.url.path} "
-        f"{total:.3f} sec\n"
+    # Route templates avoid logging policy/conversation IDs from URL paths.
+    route = request.scope.get("route")
+    logger.info(
+        "HTTP %s %s completed in %.3f seconds.",
+        request.method, getattr(route, "path", "unmatched"), total,
     )
 
     return response

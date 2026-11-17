@@ -6,6 +6,7 @@ Run from the server directory:
 """
 
 import asyncio
+import logging
 from unittest.mock import AsyncMock, Mock
 
 from app.schemas.response_validation import (
@@ -173,3 +174,20 @@ def test_rejected_draft_is_never_returned():
     assert _answer(service) == SafeResponseService.REJECT_MESSAGE
     assert service.llm_service.generate_answer.await_count == 1
     assert service.response_validator.validate.await_count == 1
+
+
+def test_regeneration_does_not_log_messages_history_context_or_drafts(caplog, capsys):
+    service = _chat_service(
+        drafts=[WRONG_DRAFT, CORRECT_DRAFT],
+        decisions=[
+            _decision(ValidationAction.REGENERATE, GroundingVerdict.UNSUPPORTED,
+                      ValidationIssueCode.UNSUPPORTED_CLAIM),
+            _decision(ValidationAction.OK, GroundingVerdict.SUPPORTED),
+        ],
+    )
+    with caplog.at_level(logging.DEBUG):
+        assert _answer(service) == CORRECT_DRAFT
+    captured = capsys.readouterr()
+    output = caplog.text + captured.out + captured.err
+    for private_value in [QUESTION, TRUSTED_CONTEXT, HISTORY, WRONG_DRAFT, CORRECT_DRAFT]:
+        assert private_value not in output

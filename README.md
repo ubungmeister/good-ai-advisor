@@ -170,8 +170,15 @@ python -m scripts.seed_dev
 ```
 
 Copy the printed `DEV_USER_ID` and `DEV_POLICY_ID` UUIDs into `server/.env`.
-These identify the synthetic demo policy; the client does not send them.
-They apply only when `ENVIRONMENT=development` and are not authentication.
+These select the server-controlled demo user and default policy; the client
+must not send `user_id` in a body or query string. Chat, users, policy, and LLM
+test endpoints share this identity and require an ACTIVE seeded user.
+They work only with explicit `ENVIRONMENT=development` and are not authentication.
+Without an environment setting the API defaults to production and these endpoints
+return 401 until real authentication is implemented. Keep development mode local
+and use only synthetic data; everyone accessing it acts as the same demo user.
+Selecting a policy still requires ownership. Continuing a conversation preserves
+its original policy and rechecks ownership before saving the next message.
 
 The seed creates structured policy records and sample document metadata. It
 does not create searchable VPP chunks or embeddings. From `server`, index the
@@ -259,8 +266,10 @@ to the database or calls an LLM. Additional existing AI service tests are in
 - The included policy document and derived chunks are sample development data.
 - Model weights and runtime caches are intentionally excluded from Git.
 - The first run may download embedding and reranking models.
-- Authentication is intentionally not implemented yet; the request schema marks
-  user identity as a temporary development concern.
+- Production authentication is not implemented yet; protected endpoints refuse
+  access outside explicit development mode. Runtime diagnostics omit message,
+  history, context, answer, claim, and identity content. Configure access logs at
+  the hosting layer separately; raw request URLs may contain resource IDs.
 
 ## Next Improvements
 

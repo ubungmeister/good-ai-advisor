@@ -1,3 +1,4 @@
+import logging
 import time
 import uuid
 import json
@@ -51,6 +52,9 @@ from app.services.task_prioritizer import (
 )
 from app.schemas.response_validation import ValidationResult
 from app.services.task_router import TaskRouter
+
+
+logger = logging.getLogger(__name__)
 
 
 class ChatService:
@@ -132,12 +136,6 @@ class ChatService:
         conversation_history = format_conversation_history(
             messages=previous_messages,
         )
-        print("\n--- CONVERSATION DEBUG ---")
-        print("CONVERSATION ID:", conversation.id)
-        print("HISTORY MESSAGE COUNT:", len(previous_messages))
-        print("CONVERSATION HISTORY:")
-        print(conversation_history)
-        print("--------------------------\n")
 
 
 
@@ -151,12 +149,6 @@ class ChatService:
 
         active_policy_id = conversation.policy_id
 
-        print("\n========================================")
-        print("CHAT FLOW START")
-        print("MESSAGE:", message)
-        print("USER ID:", user_id)
-        print("POLICY ID:", active_policy_id)
-        print("========================================")
         # =====================================================
         # 1. SAFETY
         # =====================================================
@@ -168,15 +160,12 @@ class ChatService:
                 message=message,
             )
         finally:
-            print(f"SAFETY LATENCY: {time.perf_counter() - started:.2f}s")
+            logger.info(f'SAFETY LATENCY: {time.perf_counter() - started:.2f}s')
 
-        print("\n1. SAFETY DONE")
-        print("SAFETY DECISION:", safety_decision)
 
         safety_route = self.safety_router.route(
             decision=safety_decision,
         )
-        print("2. SAFETY ROUTE:", safety_route)
 
         # =====================================================
         # 2. CRITICAL FLOW
@@ -213,8 +202,6 @@ class ChatService:
             conversation_history=conversation_history,
         )
 
-        print("\nQUERY PLANNER DONE")
-        print("PLAN:", plan)
 
         # A clarification is a complete response for this turn.
         # Do not prioritize or execute tasks.
@@ -252,8 +239,6 @@ class ChatService:
                 plan=plan,
             )
         )
-        print("\n4. TASK PRIORITIZER DONE")
-        print("PRIORITIZED TASKS:", tasks)
 
         # =====================================================
         # 5. EXECUTE ROUTED TASKS
@@ -268,10 +253,6 @@ class ChatService:
                     task=task,
                 )
             )
-            print("\n5. TASK ROUTED")
-            print("TASK TYPE:", task.type)
-            print("TASK QUERY:", task.query)
-            print("TARGETS:", routed_task.targets)
 
             for target in routed_task.targets:
 
@@ -400,29 +381,12 @@ class ChatService:
         # =====================================================
         # 6. CONTEXT BUILDER
         # =====================================================
-        print("\n6. TASK EXECUTION DONE")
 
-        print(
-            "TASK RESULTS:",
-            [
-                (
-                    result.task_type.value,
-                    result.target.value,
-                )
-                for result in task_results
-            ],
-        )
         context = self.context_builder.build(
             results=task_results,
         )
 
-        print("\n7. CONTEXT BUILDER DONE")
-        print("CONTEXT LENGTH:", len(context))
 
-        print(
-            "CONTEXT PREVIEW:\n",
-            context[:1500],
-        )
 
         if not context:
             answer = (
@@ -447,7 +411,6 @@ class ChatService:
         # 7. FINAL LLM
         # =====================================================
 
-        print("\n8. FINAL LLM START")
 
         answer = await self._generate_validated_answer(
             message=message,
@@ -458,21 +421,13 @@ class ChatService:
 
         )
 
-        print("9. FINAL LLM + VALIDATION DONE")
-        print("ANSWER:", answer)
 
         total_time = (
                 time.perf_counter()
                 - total_start
         )
 
-        print("\n========================================")
-        print("CHAT FLOW COMPLETE")
-        print(
-            f"TOTAL CHAT TIME: "
-            f"{total_time:.3f} sec"
-        )
-        print("========================================\n")
+        logger.info(f'TOTAL CHAT TIME: {total_time:.3f} sec')
 
         task_results = task_results
 
@@ -487,8 +442,8 @@ class ChatService:
             task_results=task_results,
         )
 
-        print(f"DB SAVE TOTAL: {time.perf_counter() - save_started:.3f}s")
-        print(f"CHAT INCLUDING SAVE: {time.perf_counter() - total_start:.3f}s")
+        logger.info(f'DB SAVE TOTAL: {time.perf_counter() - save_started:.3f}s')
+        logger.info(f'CHAT INCLUDING SAVE: {time.perf_counter() - total_start:.3f}s')
 
         return answer, conversation.id
         # answer = self._save_assistant_answer(
@@ -560,8 +515,6 @@ class ChatService:
             context=answer_context
         )
 
-        print("\nVALIDATION: FIRST DRAFT")
-        print("DRAFT:", draft_answer)
 
         validation = await self.response_validator.validate(
             question=message,
@@ -570,7 +523,6 @@ class ChatService:
             regeneration_count=0,
         )
 
-        print("VALIDATION RESULT:", validation)
 
         if validation.action == ValidationAction.OK:
             return draft_answer
@@ -592,7 +544,6 @@ class ChatService:
                 validation=validation,
             )
 
-            print("\nREGENERATION START")
 
             regenerated_answer = (
                 await self.llm_service.generate_answer(
@@ -602,10 +553,6 @@ class ChatService:
                 )
             )
 
-            print(
-                "REGENERATED ANSWER:",
-                regenerated_answer,
-            )
 
             second_validation = (
                 await self.response_validator.validate(
@@ -616,10 +563,6 @@ class ChatService:
                 )
             )
 
-            print(
-                "SECOND VALIDATION RESULT:",
-                second_validation,
-            )
 
             if (
                     second_validation.action

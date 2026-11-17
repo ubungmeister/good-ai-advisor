@@ -117,11 +117,6 @@ class RetrievalService:
             flush=True,
         )
         print(
-            "QUESTION:",
-            question,
-            flush=True,
-        )
-        print(
             "========================================",
             flush=True,
         )
@@ -294,11 +289,6 @@ class RetrievalService:
             flush=True,
         )
 
-        print(
-            "STANZA QUERY:",
-            stanza_query,
-            flush=True,
-        )
 
         # ======================================================
         # STAGE 5

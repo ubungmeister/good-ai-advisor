@@ -1,8 +1,7 @@
-from fastapi import APIRouter, Depends, HTTPException
-from sqlalchemy.orm import Session
-from app.db.dependencies import get_db
+from fastapi import APIRouter, Depends
 from app.schemas.user import UserResponse
-from app.services.user_service import get_current_user
+from app.core.identity import get_current_user
+from app.models.user import User
 
 router = APIRouter(
     prefix="/api/users",
@@ -15,14 +14,6 @@ router = APIRouter(
     response_model=UserResponse,
 )
 def read_current_user(
-    db: Session = Depends(get_db),
+    user: User = Depends(get_current_user),
 ):
-    user = get_current_user(db)
-
-    if user is None:
-        raise HTTPException(
-            status_code=404,
-            detail="User not found",
-        )
-
     return user

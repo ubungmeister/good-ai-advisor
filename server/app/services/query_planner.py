@@ -46,10 +46,6 @@ class QueryPlanner:
                 evidence = task.evidence.strip()
 
                 if evidence.casefold() not in message.casefold():
-                    print(
-                        "QUERY PLANNER: Invalid evidence corrected:",
-                        repr(evidence),
-                    )
 
                     task.evidence = message.strip()[:500]
 

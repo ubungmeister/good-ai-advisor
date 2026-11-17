@@ -5,6 +5,8 @@ from fastapi import APIRouter, Depends, HTTPException
 from sqlalchemy.orm import Session
 
 from app.db.dependencies import get_db
+from app.core.identity import get_current_user
+from app.models.user import User
 from app.schemas.policy import PolicyResponse, PolicyDetailsResponse
 
 router = APIRouter(
@@ -21,13 +23,13 @@ policy_service = PolicyService()
 )
 def get_policy(
     policy_id: uuid.UUID,
-    user_id: uuid.UUID,
+    current_user: User = Depends(get_current_user),
     db: Session = Depends(get_db),
 ):
     policy = policy_service.get_policy_for_user(
         db=db,
         policy_id=policy_id,
-        user_id=user_id,
+        user_id=current_user.id,
     )
 
     if policy is None:
@@ -44,13 +46,13 @@ def get_policy(
 )
 def get_policy_details(
     policy_id: uuid.UUID,
-    user_id: uuid.UUID,
+    current_user: User = Depends(get_current_user),
     db: Session = Depends(get_db),
 ):
     details = policy_service.get_policy_details_for_user(
         db=db,
         policy_id=policy_id,
-        user_id=user_id,
+        user_id=current_user.id,
     )
 
     if details is None:
@@ -66,10 +68,10 @@ def get_policy_details(
     response_model=list[PolicyResponse],
 )
 def get_policies(
-    user_id: uuid.UUID,
+    current_user: User = Depends(get_current_user),
     db: Session = Depends(get_db),
 ):
     return policy_service.get_policies_for_user(
         db=db,
-        user_id=user_id,
+        user_id=current_user.id,
     )

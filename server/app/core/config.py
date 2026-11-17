@@ -8,7 +8,7 @@ load_dotenv()
 class Settings:
     environment: str = os.getenv(
         "ENVIRONMENT",
-        "development",
+        "production",
     )
 
     frontend_url: str = os.getenv(
