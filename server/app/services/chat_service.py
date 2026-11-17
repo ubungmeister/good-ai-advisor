@@ -51,6 +51,7 @@ from app.services.task_prioritizer import (
 )
 from app.schemas.response_validation import ValidationResult
 from app.services.task_router import TaskRouter
+from app.services.document_context import section_label
 
 
 class ChatService:
@@ -286,8 +287,9 @@ class ChatService:
                     # Never search across all product versions.
                     # Resolve the scope from an owned policy, not LLM output.
                     if active_policy_id is None:
-                        raise ValueError(
-                            "Document retrieval requires a selected policy."
+                        return self._policy_unavailable(
+                            db=db, conversation_id=conversation.id, started=total_start,
+                            safety_result=safety_decision.category.value,
                         )
 
                     authorized_policy = self.policy_service.get_policy_for_user(
@@ -296,8 +298,9 @@ class ChatService:
                         user_id=user_id,
                     )
                     if authorized_policy is None:
-                        raise ValueError(
-                            "Policy was not found or does not belong to the user."
+                        return self._policy_unavailable(
+                            db=db, conversation_id=conversation.id, started=total_start,
+                            safety_result=safety_decision.category.value,
                         )
 
                     retrieval_results = (
@@ -321,7 +324,7 @@ class ChatService:
                                 score=score,
                                 page_number=chunk.page_number,
                                 article_number=chunk.article_number,
-                                section_title=chunk.section_title,
+                                section_title=section_label(chunk),
                                 coverage_code=chunk.coverage_code,
                             )
                             for chunk, score in retrieval_results
@@ -351,9 +354,9 @@ class ChatService:
                         user_id is None
                         or active_policy_id is None
                     ):
-                        raise ValueError(
-                            "Policy task requires "
-                            "user_id and policy_id."
+                        return self._policy_unavailable(
+                            db=db, conversation_id=conversation.id, started=total_start,
+                            safety_result=safety_decision.category.value,
                         )
 
                     policy_details = (
@@ -366,10 +369,9 @@ class ChatService:
                     )
 
                     if policy_details is None:
-                        raise ValueError(
-                            "Policy was not found "
-                            "or does not belong "
-                            "to the user."
+                        return self._policy_unavailable(
+                            db=db, conversation_id=conversation.id, started=total_start,
+                            safety_result=safety_decision.category.value,
                         )
 
                     policy_content = (
@@ -500,6 +502,15 @@ class ChatService:
         #     task_results=task_results,
         # )
         # return answer, conversation.id
+
+    def _policy_unavailable(self, *, db, conversation_id, started, safety_result):
+        answer = self._save_assistant_answer(
+            db=db, conversation_id=conversation_id,
+            answer=SafeResponseService.POLICY_UNAVAILABLE_MESSAGE,
+            latency_ms=int((time.perf_counter() - started) * 1000),
+            safety_result=safety_result,
+        )
+        return answer, conversation_id
 
     def _save_assistant_answer(
             self,

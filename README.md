@@ -241,6 +241,10 @@ metrics, not measurements of final-answer correctness.
 
 ## Test
 
+For final-answer and validator evaluation (beyond retrieval article scores), see
+[AI evaluation](server/docs/ai-evaluation.md). Start with the offline dataset
+check: `python -m scripts.run_ai_eval --check` from `server`.
+
 With the backend virtual environment activated:
 
 ```powershell

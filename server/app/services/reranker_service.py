@@ -1,6 +1,7 @@
 from sentence_transformers import CrossEncoder
 
 from app.models.document_chunk import DocumentChunk
+from app.services.document_context import reranker_text
 
 
 MODEL_NAME = "cross-encoder/mmarco-mMiniLMv2-L12-H384-v1"
@@ -26,7 +27,7 @@ class RerankerService:
         pairs = [
             (
                 question,
-                chunk.content,
+                reranker_text(chunk),
             )
             for chunk, _ in candidates
         ]

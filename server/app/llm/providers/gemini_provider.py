@@ -1,11 +1,19 @@
 
+import asyncio
+import logging
+import time
 from typing import Any, TypeVar
+import httpx
+from google.genai._interactions import APIConnectionError, APITimeoutError
 from google.genai import types as genai_types
 
 from google import genai
 from pydantic import BaseModel
 
 from app.llm.base import BaseLLMProvider
+from app.llm.diagnostics import log_failure, status_code
+
+logger = logging.getLogger(__name__)
 
 
 T = TypeVar(
@@ -105,11 +113,19 @@ class GeminiProvider(BaseLLMProvider):
         *,
         api_key: str,
         model: str,
+        request_timeout: float = 20.0,
+        call_timeout: float = 45.0,
+        max_attempts: int = 2,
     ):
+        if request_timeout <= 0 or call_timeout <= 0 or max_attempts not in (1, 2):
+            raise ValueError("Provider deadlines must be positive; at most one retry is allowed.")
+        self.request_timeout = request_timeout
+        self.call_timeout = call_timeout
+        self.max_attempts = max_attempts
         self._client = genai.Client(
             api_key=api_key,
             http_options=genai_types.HttpOptions(
-                timeout=30_000,
+                timeout=int(request_timeout * 1000),
                 retry_options=genai_types.HttpRetryOptions(
                     attempts=0,
                 ),
@@ -118,6 +134,26 @@ class GeminiProvider(BaseLLMProvider):
 
         self._async_client = self._client.aio
         self.model = model
+
+    async def _create(self, *, stage, **kwargs):
+        deadline = time.monotonic() + self.call_timeout
+        async with asyncio.timeout(self.call_timeout):
+            for attempt in range(1, self.max_attempts + 1):
+                timeout = min(self.request_timeout, deadline - time.monotonic())
+                try:
+                    # Disable SDK retries above so there is exactly one bounded retry layer.
+                    return await asyncio.wait_for(
+                        self._async_client.interactions.create(**kwargs, timeout=timeout),
+                        timeout=timeout,
+                    )
+                except Exception as exc:
+                    log_failure(logger, stage, exc, attempt)
+                    transient = (status_code(exc) in {408, 429, 500, 502, 503, 504}
+                                 or isinstance(exc, (TimeoutError, httpx.TransportError,
+                                                     APIConnectionError, APITimeoutError)))
+                    if not transient or attempt == self.max_attempts:
+                        raise
+                    await asyncio.sleep(min(0.5, max(0, deadline - time.monotonic())))
 
     @staticmethod
     def _build_input(
@@ -145,7 +181,8 @@ User question:
         context: str | None = None,
     ) -> str:
 
-        response = await self._async_client.interactions.create(
+        response = await self._create(
+            stage="answer_generation",
             model=self.model,
             system_instruction=system_prompt,
             input=self._build_input(
@@ -153,7 +190,6 @@ User question:
                 context=context,
             ),
             store=False,
-            timeout=45.0,
         )
 
         content = response.output_text
@@ -183,7 +219,8 @@ User question:
             response_model.model_json_schema()
         )
 
-        response = await self._async_client.interactions.create(
+        response = await self._create(
+            stage=f"structured:{response_model.__name__}",
             model=self.model,
             system_instruction=system_prompt,
             input=self._build_input(

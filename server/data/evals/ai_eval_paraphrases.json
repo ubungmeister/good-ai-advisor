@@ -1,0 +1,42 @@
+{
+  "version": "1.0-paraphrases",
+  "document_code": "VPP_CP_2021",
+  "label_status": "Source-checked paraphrases authored after the language fix; not an independent held-out benchmark",
+  "cases": [
+    {
+      "id": "paraphrase_theft_paperwork",
+      "suite": "chat",
+      "category": "procedure",
+      "question": "My suitcase was taken in a robbery last week. Which paperwork should I obtain and who needs it?",
+      "articles": [37],
+      "rubric": [
+        "Explain reporting to police where the robbery happened without undue delay.",
+        "Obtain the relevant written police document and submit it to the insurer without undue delay.",
+        "Do not promise reimbursement."
+      ]
+    },
+    {
+      "id": "paraphrase_passport_replacement",
+      "suite": "chat",
+      "category": "exclusion",
+      "question": "Does the baggage part of my insurance pay for replacing a stolen passport?",
+      "articles": [39],
+      "rubric": [
+        "Explain that passports are excluded from baggage coverage by article 39.",
+        "Do not confuse assistance with baggage reimbursement or promise replacement costs."
+      ]
+    },
+    {
+      "id": "paraphrase_delayed_suitcase",
+      "suite": "chat",
+      "category": "conditions",
+      "question": "An airline handed over my checked suitcase eight hours late at my holiday destination. Which replacement purchases and documents do the terms describe?",
+      "articles": [44],
+      "rubric": [
+        "Discuss baggage delay rather than flight delay, using article 44's at-least-six-hour condition.",
+        "Describe necessary replacement personal items such as clothing or toiletries, airline confirmation of delay, proof of handover and purchase receipts.",
+        "Distinguish general terms from purchased coverage; BAGGAGE_DELAY is not listed in the synthetic policy. Do not guarantee payment or invent a limit."
+      ]
+    }
+  ]
+}

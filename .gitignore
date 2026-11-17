@@ -11,3 +11,4 @@ __pycache__/
 .mypy_cache/
 .idea/
 server/models/
+server/data/evals/runs/

@@ -82,7 +82,12 @@ class DocumentChunkRepository:
 
         normalized_content = func.lower(
             func.unaccent(
-                DocumentChunk.content
+                # Short clauses often omit their subject (e.g. baggage) because
+                # it is in the source chapter heading. Search that scope too.
+                func.concat_ws(
+                    " ", DocumentChunk.chunk_metadata["part_title"].astext,
+                    DocumentChunk.section_title, DocumentChunk.content,
+                )
             )
         )
 

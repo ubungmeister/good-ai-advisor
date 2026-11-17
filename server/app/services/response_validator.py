@@ -1,4 +1,6 @@
 from collections.abc import Sequence
+import logging
+from app.llm.diagnostics import log_failure
 from app.schemas.query_plan import TaskType
 from app.schemas.task_routing import TaskTarget
 
@@ -23,6 +25,9 @@ from app.services.grounding_validator import (
 from app.services.validation_decision_policy import (
     ValidationDecisionPolicy,
 )
+
+
+logger = logging.getLogger(__name__)
 
 
 class ResponseValidator:
@@ -142,6 +147,7 @@ class ResponseValidator:
             )
 
         except Exception as exc:
+            log_failure(logger, "grounding_facts", exc)
             issues = list(guard_issues)
 
             issues.append(
@@ -157,10 +163,6 @@ class ResponseValidator:
                 )
             )
 
-            print(
-                "GROUNDING FACT BUILDER ERROR:",
-                repr(exc),
-            )
 
             return self.decision_policy.decide(
                 grounding_result=(
@@ -218,6 +220,7 @@ class ResponseValidator:
             )
 
         except Exception as exc:
+            log_failure(logger, "grounding_validation", exc)
             issues = list(guard_issues)
 
             issues.append(
@@ -233,10 +236,6 @@ class ResponseValidator:
                 )
             )
 
-            print(
-                "GROUNDING VALIDATOR ERROR:",
-                repr(exc),
-            )
 
             return self.decision_policy.decide(
                 grounding_result=(
