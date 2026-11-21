@@ -24,6 +24,7 @@ class AiRunService:
         latency_ms: int,
         safety_result: str,
         task_results: list[TaskResult] | None = None,
+        answer_source: str | None = None,
     ) -> None:
 
         retrieval_count = 0
@@ -49,6 +50,8 @@ class AiRunService:
             latency_ms=latency_ms,
             retrieval_count=retrieval_count,
             safety_result=safety_result,
+            **({"model_provider": "TEMPLATE", "model_name": answer_source,
+                "prompt_version": answer_source} if answer_source is not None else {}),
         )
 
         db.commit()

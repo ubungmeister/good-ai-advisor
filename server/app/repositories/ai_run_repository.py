@@ -16,6 +16,9 @@ class AiRunRepository:
         latency_ms: int | None = None,
         retrieval_count: int | None = None,
         safety_result: str | None = None,
+        model_provider: str | None = None,
+        model_name: str | None = None,
+        prompt_version: str | None = None,
     ) -> AiRun:
 
         ai_run = AiRun(
@@ -24,6 +27,9 @@ class AiRunRepository:
             latency_ms=latency_ms,
             retrieval_count=retrieval_count,
             safety_result=safety_result,
+            model_provider=model_provider,
+            model_name=model_name,
+            prompt_version=prompt_version,
         )
 
         db.add(ai_run)

@@ -3,6 +3,7 @@ import time
 from app.prompts.query_planner import QUERY_PLANNER_SYSTEM_PROMPT
 from app.schemas.query_plan import QueryPlan, QueryPlanAction
 from app.services.llm_service import LLMService
+from app.core.config import settings
 
 
 class QueryPlanner:
@@ -34,7 +35,22 @@ class QueryPlanner:
             )
 
         plan = await self.llm_service.generate_structured(
-            system_prompt=QUERY_PLANNER_SYSTEM_PROMPT,
+            system_prompt=(
+                QUERY_PLANNER_SYSTEM_PROMPT
+                + "\n# CORPUS SEARCH LANGUAGE\n"
+                + f"Write every task.query in {settings.retrieval_query_language}, the indexed corpus language. "
+                + "Translate the meaning faithfully; preserve entities, amounts, dates and distinctions "
+                  "such as baggage delay versus flight delay. Do not add coverage assumptions. "
+                  "Keep task.evidence verbatim in the current user's original language. "
+                  "Write clarification questions in the user's language. "
+                  "The query language does not change the final answer language."
+                  "\nFor a broad POLICY_DETAILS request asking what insurance, purchased coverages "
+                  "or selected options the user has, set policy_overview_language to 'en' for an English "
+                  "reply or 'cs' for a Czech reply. This requests a summary of recorded selections only. "
+                  "For specific limits, dates, premiums, people, procedures, claim eligibility, unclear "
+                  "follow-ups or other reply languages, leave policy_overview_language null. "
+                  "Never set it on COVERAGE_CHECK, PROCEDURE or GENERAL_QUESTION tasks."
+            ),
             user_message=message,
             context=planning_context,
             response_model=QueryPlan,
@@ -46,7 +62,6 @@ class QueryPlanner:
                 evidence = task.evidence.strip()
 
                 if evidence.casefold() not in message.casefold():
-
                     task.evidence = message.strip()[:500]
 
             self._validate_evidence(

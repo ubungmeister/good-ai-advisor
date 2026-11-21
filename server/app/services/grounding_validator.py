@@ -1,4 +1,3 @@
-import logging
 from collections.abc import Sequence
 from time import perf_counter
 from uuid import UUID
@@ -10,9 +9,6 @@ from app.schemas.response_validation import (
     GroundingVerdict,
 )
 from app.services.llm_service import LLMService
-
-
-logger = logging.getLogger(__name__)
 
 
 class GroundingValidator:
@@ -65,16 +61,16 @@ class GroundingValidator:
         # Before the Model B call
         model_b_started = perf_counter()
 
-        result = await self.llm_service.generate_structured(
-            system_prompt=GROUNDING_VALIDATOR_SYSTEM_PROMPT,
-            user_message=question,
-            context=context,
-            response_model=GroundingCheckResult,
-            strict=True,
-        )
-
-        logger.info(f'MODEL B LATENCY: {perf_counter() - model_b_started:.2f}s')
-
+        try:
+            result = await self.llm_service.generate_structured(
+                system_prompt=GROUNDING_VALIDATOR_SYSTEM_PROMPT,
+                user_message=question,
+                context=context,
+                response_model=GroundingCheckResult,
+                strict=True,
+            )
+        finally:
+            print(f"MODEL B LATENCY: {perf_counter() - model_b_started:.2f}s")
 
         # Continue with normalization and backend validation
         result = self._normalize_evidence_ids(

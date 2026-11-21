@@ -36,7 +36,7 @@ class RetrievalService:
               protected candidates
                         |
                         v
-                max 12 candidates
+                max 16 candidates
                         |
                         v
                      reranker
@@ -55,11 +55,13 @@ class RetrievalService:
     ORIGINAL_LEXICAL_LIMIT = 20
     STANZA_LEXICAL_LIMIT = 20
 
-    SEMANTIC_PROTECTED = 2
+    # Keep strong semantic hits even if neither lexical channel agrees.
+    SEMANTIC_PROTECTED = 5
     ORIGINAL_LEXICAL_PROTECTED = 2
     STANZA_LEXICAL_PROTECTED = 5
 
-    RERANKER_CANDIDATE_LIMIT = 12
+    # 5 semantic + 2 original lexical + 5 expanded lexical, with room for RRF.
+    RERANKER_CANDIDATE_LIMIT = 16
 
     DEFAULT_FINAL_LIMIT = 5
 
@@ -730,11 +732,11 @@ class RetrievalService:
         ]
     ]:
         """
-        Build maximum 12 unique candidates.
+        Build maximum 16 unique candidates.
 
         Protection:
 
-        - Semantic Top2
+        - Semantic Top5
         - Original lexical Top2
         - Stanza lexical Top5
 
@@ -777,7 +779,7 @@ class RetrievalService:
             )
 
         # ======================================================
-        # 1. Protect Semantic Top2
+        # 1. Protect strong semantic candidates
         # ======================================================
 
         for chunk, _ in semantic_results[

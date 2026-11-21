@@ -80,11 +80,9 @@ class DocumentChunkRepository:
             )
         )
 
-        normalized_content = func.lower(
-            func.unaccent(
-                DocumentChunk.content
-            )
-        )
+        # Keep the established body-only lexical signal. Replacing it with a
+        # heading-heavy text displaced valid clauses from protected candidates.
+        normalized_content = func.lower(func.unaccent(DocumentChunk.content))
 
         lexical_score = func.word_similarity(
             normalized_question,

@@ -52,5 +52,7 @@ class Settings:
     # Temporary development configuration.
     dev_user_id: str = os.getenv("DEV_USER_ID", "")
     dev_policy_id: str = os.getenv("DEV_POLICY_ID", "")
+    # Language of the indexed policy corpus, independent of the user's language.
+    retrieval_query_language: str = os.getenv("RETRIEVAL_QUERY_LANGUAGE", "Czech")
 
 settings = Settings()
