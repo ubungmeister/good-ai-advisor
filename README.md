@@ -83,6 +83,12 @@ assistant rather than a generic chat interface.
 
 The key property of this runtime is that **Model A and Model B are derived from the same trusted structured `TaskResult[]`**.
 
+Broad recorded-policy overviews can use a factual template after safety and
+planning, avoiding generation and semantic-judge calls for those responses.
+Generated explanations retain the validation flow above. See
+[interactive chat latency](server/docs/chat-latency.md) for the routing contract,
+timing measurements and retry behavior.
+
 `ContextBuilder` changes representation for generation.
 
 `GroundingFactBuilder` changes representation for validation.

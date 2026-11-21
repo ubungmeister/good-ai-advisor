@@ -13,6 +13,11 @@ class SafeResponseService:
     response for the user.
     """
 
+    POLICY_UNAVAILABLE_MESSAGE = (
+        "I cannot access the selected policy details, so I cannot verify this answer. "
+        "Please select an available policy or contact support."
+    )
+
     HANDOFF_MESSAGE = (
         "I could not reliably verify the answer from the "
         "available trusted insurance information. "

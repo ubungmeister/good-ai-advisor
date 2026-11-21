@@ -1,5 +1,6 @@
 import logging
 import time
+import asyncio
 import uuid
 import json
 
@@ -52,6 +53,8 @@ from app.services.task_prioritizer import (
 )
 from app.schemas.response_validation import ValidationResult
 from app.services.task_router import TaskRouter
+from app.services.document_context import section_label
+from app.services.policy_overview import render_policy_overview
 
 
 logger = logging.getLogger(__name__)
@@ -118,6 +121,7 @@ class ChatService:
                 "Chat persistence requires user_id."
             )
 
+        print("[CHAT] START - preparing conversation", flush=True)
         conversation = self.conversation_service.get_or_create(
             db=db,
             user_id=user_id,
@@ -148,6 +152,7 @@ class ChatService:
         )
 
         active_policy_id = conversation.policy_id
+        print("[CHAT] Conversation ready", flush=True)
 
         # =====================================================
         # 1. SAFETY
@@ -156,16 +161,11 @@ class ChatService:
         started = time.perf_counter()
 
         try:
-            safety_decision = await self.safety_classifier.classify(
-                message=message,
+            safety_decision, safety_route, planning_task = await self._prepare_turn(
+                message=message, conversation_history=conversation_history,
             )
         finally:
-            logger.info(f'SAFETY LATENCY: {time.perf_counter() - started:.2f}s')
-
-
-        safety_route = self.safety_router.route(
-            decision=safety_decision,
-        )
+            print(f"[CHAT] Safety elapsed: {time.perf_counter() - started:.2f}s", flush=True)
 
         # =====================================================
         # 2. CRITICAL FLOW
@@ -175,6 +175,7 @@ class ChatService:
                 safety_route
                 == SafetyRoute.CRITICAL_FLOW
         ):
+            print("[CHAT] Critical response selected", flush=True)
             answer = self.critical_flow_service.handle(
                 decision=safety_decision,
             )
@@ -197,15 +198,14 @@ class ChatService:
         # QUERY PLANNER
         # =====================================================
 
-        plan = await self.query_planner.plan(
-            message=message,
-            conversation_history=conversation_history,
-        )
+        plan = await planning_task
+        print(f"[CHAT] Plan ready: action={plan.action.value}, tasks={len(plan.tasks)}", flush=True)
 
 
         # A clarification is a complete response for this turn.
         # Do not prioritize or execute tasks.
         if plan.action == QueryPlanAction.NEEDS_CLARIFICATION:
+            print("[CHAT] Clarification selected", flush=True)
             clarification_question = plan.clarification_question
 
             # The QueryPlan schema guarantees this is present for
@@ -239,6 +239,7 @@ class ChatService:
                 plan=plan,
             )
         )
+        print(f"[CHAT] Tasks prioritized: {len(tasks)}", flush=True)
 
         # =====================================================
         # 5. EXECUTE ROUTED TASKS
@@ -255,6 +256,8 @@ class ChatService:
             )
 
             for target in routed_task.targets:
+                task_started = time.perf_counter()
+                print(f"[CHAT] Task started: {task.type.value} -> {target.value}", flush=True)
 
                 # =============================================
                 # RETRIEVAL
@@ -267,8 +270,9 @@ class ChatService:
                     # Never search across all product versions.
                     # Resolve the scope from an owned policy, not LLM output.
                     if active_policy_id is None:
-                        raise ValueError(
-                            "Document retrieval requires a selected policy."
+                        return self._policy_unavailable(
+                            db=db, conversation_id=conversation.id, started=total_start,
+                            safety_result=safety_decision.category.value,
                         )
 
                     authorized_policy = self.policy_service.get_policy_for_user(
@@ -277,8 +281,9 @@ class ChatService:
                         user_id=user_id,
                     )
                     if authorized_policy is None:
-                        raise ValueError(
-                            "Policy was not found or does not belong to the user."
+                        return self._policy_unavailable(
+                            db=db, conversation_id=conversation.id, started=total_start,
+                            safety_result=safety_decision.category.value,
                         )
 
                     retrieval_results = (
@@ -290,7 +295,9 @@ class ChatService:
                         )
                     )
 
+                    print(f"[CHAT] Retrieval returned {len(retrieval_results)} chunks", flush=True)
                     if not retrieval_results:
+                        print(f"[CHAT] Task elapsed: {time.perf_counter() - task_started:.2f}s", flush=True)
                         continue
 
                     retrieval_content = RetrievalTaskContent(
@@ -302,7 +309,7 @@ class ChatService:
                                 score=score,
                                 page_number=chunk.page_number,
                                 article_number=chunk.article_number,
-                                section_title=chunk.section_title,
+                                section_title=section_label(chunk),
                                 coverage_code=chunk.coverage_code,
                             )
                             for chunk, score in retrieval_results
@@ -332,9 +339,9 @@ class ChatService:
                         user_id is None
                         or active_policy_id is None
                     ):
-                        raise ValueError(
-                            "Policy task requires "
-                            "user_id and policy_id."
+                        return self._policy_unavailable(
+                            db=db, conversation_id=conversation.id, started=total_start,
+                            safety_result=safety_decision.category.value,
                         )
 
                     policy_details = (
@@ -347,10 +354,9 @@ class ChatService:
                     )
 
                     if policy_details is None:
-                        raise ValueError(
-                            "Policy was not found "
-                            "or does not belong "
-                            "to the user."
+                        return self._policy_unavailable(
+                            db=db, conversation_id=conversation.id, started=total_start,
+                            safety_result=safety_decision.category.value,
                         )
 
                     policy_content = (
@@ -378,17 +384,35 @@ class ChatService:
                         f"{target}"
                     )
 
+                print(f"[CHAT] Task completed in {time.perf_counter() - task_started:.2f}s", flush=True)
+
         # =====================================================
         # 6. CONTEXT BUILDER
         # =====================================================
+        if (len(tasks) == 1 and tasks[0].policy_overview_language is not None
+                and tasks[0].type == TaskType.POLICY_DETAILS and len(task_results) == 1
+                and task_results[0].target == TaskTarget.POLICY
+                and isinstance(task_results[0].content, PolicyTaskContent)):
+            print("[CHAT] Rendering recorded-policy overview", flush=True)
+            # No generated prose: every listed value comes directly from the
+            # ownership-checked, schema-validated policy result above.
+            answer = render_policy_overview(task_results[0].content, tasks[0].policy_overview_language)
+            answer = self._save_assistant_answer(
+                db=db, conversation_id=conversation.id, answer=answer,
+                latency_ms=int((time.perf_counter() - total_start) * 1000),
+                safety_result=safety_decision.category.value, task_results=task_results,
+                answer_source="policy-overview-v1",
+            )
+            return answer, conversation.id
 
         context = self.context_builder.build(
             results=task_results,
         )
-
+        print(f"[CHAT] Context built: {len(task_results)} results, {len(context)} characters", flush=True)
 
 
         if not context:
+            print("[CHAT] Fallback selected: no trusted context", flush=True)
             answer = (
                 "I do not have enough trusted "
                 "information to answer this question."
@@ -427,7 +451,7 @@ class ChatService:
                 - total_start
         )
 
-        logger.info(f'TOTAL CHAT TIME: {total_time:.3f} sec')
+        logger.info("TOTAL CHAT TIME: %.3f sec", total_time)
 
         task_results = task_results
 
@@ -442,8 +466,8 @@ class ChatService:
             task_results=task_results,
         )
 
-        logger.info(f'DB SAVE TOTAL: {time.perf_counter() - save_started:.3f}s')
-        logger.info(f'CHAT INCLUDING SAVE: {time.perf_counter() - total_start:.3f}s')
+        logger.info("DB SAVE TOTAL: %.3fs", time.perf_counter() - save_started)
+        logger.info("CHAT INCLUDING SAVE: %.3fs", time.perf_counter() - total_start)
 
         return answer, conversation.id
         # answer = self._save_assistant_answer(
@@ -456,6 +480,42 @@ class ChatService:
         # )
         # return answer, conversation.id
 
+    async def _prepare_turn(self, *, message, conversation_history):
+        # Planning is read-only. No plan is executed until the safety route is
+        # known; critical flows discard it and cancellation cleans up the task.
+        async def plan():
+            started = time.perf_counter()
+            try:
+                return await self.query_planner.plan(message=message, conversation_history=conversation_history)
+            finally:
+                print(f"[CHAT] Planning elapsed: {time.perf_counter() - started:.2f}s", flush=True)
+
+        print("[CHAT] Safety and planning started concurrently", flush=True)
+        planning_task = asyncio.create_task(plan())
+        try:
+            decision = await self.safety_classifier.classify(message=message)
+            route = self.safety_router.route(decision=decision)
+            if route == SafetyRoute.CRITICAL_FLOW:
+                print("[CHAT] Normal planning discarded", flush=True)
+                planning_task.cancel()
+                await asyncio.gather(planning_task, return_exceptions=True)
+                return decision, route, None
+            return decision, route, planning_task
+        except BaseException:
+            planning_task.cancel()
+            await asyncio.gather(planning_task, return_exceptions=True)
+            raise
+
+    def _policy_unavailable(self, *, db, conversation_id, started, safety_result):
+        print("[CHAT] Fallback selected: policy unavailable", flush=True)
+        answer = self._save_assistant_answer(
+            db=db, conversation_id=conversation_id,
+            answer=SafeResponseService.POLICY_UNAVAILABLE_MESSAGE,
+            latency_ms=int((time.perf_counter() - started) * 1000),
+            safety_result=safety_result,
+        )
+        return answer, conversation_id
+
     def _save_assistant_answer(
             self,
             *,
@@ -465,8 +525,11 @@ class ChatService:
             latency_ms: int,
             safety_result: str,
             task_results: list[TaskResult] | None = None,
+            answer_source: str | None = None,
     ) -> str:
 
+        save_started = time.perf_counter()
+        print("[CHAT] Saving response", flush=True)
         assistant_message = (
             self.conversation_service.add_message(
                 db=db,
@@ -490,8 +553,11 @@ class ChatService:
             latency_ms=latency_ms,
             safety_result=safety_result,
             task_results=task_results,
+            **({"answer_source": answer_source} if answer_source is not None else {}),
         )
 
+        save_elapsed = time.perf_counter() - save_started
+        print(f"[CHAT] Saved in {save_elapsed:.2f}s; COMPLETE in {latency_ms / 1000 + save_elapsed:.2f}s", flush=True)
         return answer
 
     async def _generate_validated_answer(
@@ -509,20 +575,22 @@ class ChatService:
             conversation_history=conversation_history,
         )
 
+        print("[CHAT] Answer generation started", flush=True)
         draft_answer = await self.llm_service.generate_answer(
             system_prompt=INSURANCE_ANSWER_SYSTEM_PROMPT,
             user_message=message,
             context=answer_context
         )
 
-
+        print("[CHAT] Draft ready; grounding validation started", flush=True)
         validation = await self.response_validator.validate(
             question=message,
             draft_answer=draft_answer,
             task_results=task_results,
             regeneration_count=0,
         )
-
+        codes = ",".join(issue.code.value for issue in validation.issues) or "none"
+        print(f"[CHAT] Validation: {validation.action.value}; grounding={validation.grounding.value}; issues={codes}", flush=True)
 
         if validation.action == ValidationAction.OK:
             return draft_answer
@@ -531,11 +599,13 @@ class ChatService:
             ValidationAction.HANDOFF,
             ValidationAction.REJECT,
         }:
+            print("[CHAT] Validation fallback selected", flush=True)
             return self.safe_response_service.build(
                 action=validation.action,
             )
 
         if validation.action == ValidationAction.REGENERATE:
+            print("[CHAT] Regeneration started", flush=True)
 
             regeneration_context = build_regeneration_context(
                 trusted_context=context,
@@ -562,7 +632,8 @@ class ChatService:
                     regeneration_count=1,
                 )
             )
-
+            codes = ",".join(issue.code.value for issue in second_validation.issues) or "none"
+            print(f"[CHAT] Revalidation: {second_validation.action.value}; grounding={second_validation.grounding.value}; issues={codes}", flush=True)
 
             if (
                     second_validation.action
@@ -570,6 +641,7 @@ class ChatService:
             ):
                 return regenerated_answer
 
+            print("[CHAT] Revalidation fallback selected", flush=True)
             return self.safe_response_service.build(
                 action=second_validation.action,
             )

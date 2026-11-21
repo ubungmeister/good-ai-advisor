@@ -1,5 +1,6 @@
 
 from enum import StrEnum
+from typing import Literal
 
 from pydantic import BaseModel, Field, model_validator
 
@@ -28,6 +29,15 @@ class PlannedTask(BaseModel):
         min_length=1,
         max_length=500,
     )
+
+    # Only broad summaries of recorded policy selections can use the template.
+    policy_overview_language: Literal["en", "cs"] | None = None
+
+    @model_validator(mode="after")
+    def validate_overview(self):
+        if self.policy_overview_language is not None and self.type != TaskType.POLICY_DETAILS:
+            raise ValueError("Only POLICY_DETAILS can request a recorded-policy overview")
+        return self
 
 
 class QueryPlan(BaseModel):

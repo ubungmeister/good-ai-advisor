@@ -33,6 +33,7 @@ from app.models.product_version import ProductVersion
 from app.models.product import Product
 
 from app.services.chunking_service import ChunkingService
+from app.services.document_context import EMBEDDING_FORMAT, prepare_embedding_texts
 from app.services.structured_knowledge_loader import (
     StructuredKnowledgeLoader,
 )
@@ -132,10 +133,7 @@ def main():
 
         print("Creating embeddings...")
 
-        texts = [
-            chunk.content
-            for chunk in chunks
-        ]
+        texts = prepare_embedding_texts(chunks, embedding_service)
 
         embeddings = embedding_service.embed_documents(
             texts
@@ -381,6 +379,7 @@ def main():
                 # that may be useful later for filtering,
                 # debugging and citations.
                 chunk_metadata={
+                    "embedding_format": EMBEDDING_FORMAT,
                     "document_code": (
                         chunk.document_code
                     ),
