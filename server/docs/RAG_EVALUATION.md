@@ -42,4 +42,4 @@ These timings represent one observed retrieval execution, not the average across
 - Ground truth is defined at article level.
 - Hit@5 does not establish that all conditions required for an answer have been retrieved.
 - Results do not establish end-to-end answer correctness.
-- Independent review and a broader evaluation dataset are required before making production reliability claims.git add server/docs/RAG_EVALUATION.md
+- Independent review and a broader evaluation dataset are required before making production reliability claims.
