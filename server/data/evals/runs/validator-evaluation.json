@@ -1,0 +1,1000 @@
+{
+  "metadata": {
+    "started_at": "2026-11-23T17:28:10.606251+00:00",
+    "dataset_version": "1.0",
+    "dataset_sha256": "e1c54063493d66abc648f20771df56239d460dc94989a71ecee319bcc077203d",
+    "source_sha256": "c60193d3a6d139e862827cba944589d9e2f440b5c17cfc124938443d06521eec",
+    "policy_fixture_sha256": "c0298c81ace98337c4a9b9eb72192f3b50a0814b48988c14c995796020159c9e",
+    "label_status": "Source-checked initial labels; pending independent human review",
+    "retrieval": "fixture",
+    "provider": "gemini",
+    "model": "gemini-3.5-flash-lite",
+    "scope": "Real AI pipeline; synthetic policy, in-memory conversations; no API/auth or persistence evaluation",
+    "planned_case_ids": [
+      "val_valid_limit",
+      "val_valid_dates",
+      "val_valid_premium",
+      "val_valid_procedure",
+      "val_wrong_limit",
+      "val_wrong_date",
+      "val_invented_deductible",
+      "val_mixed_claims",
+      "val_reversed_exclusion",
+      "val_missing_evidence",
+      "val_empty",
+      "val_retry_still_wrong"
+    ],
+    "runtime_source_sha256": "d5ffc36e8745901b986e6858526d9cfc42da38c055c225a15ecfc59a233c94a2",
+    "harness_sha256": "16eb517220e4b58a7d692e7c7ae7e3d68adc846266e42435945efc08bdcbc2c8",
+    "git_commit": "f78b91a6e1988391ef3b8d4f28428715fe46962d",
+    "finished_at": "2026-11-23T17:30:57.414813+00:00"
+  },
+  "complete": true,
+  "results": [
+    {
+      "id": "val_valid_limit",
+      "suite": "validator",
+      "category": "supported",
+      "question": "What is my baggage limit?",
+      "history": [],
+      "use_policy": true,
+      "articles": [],
+      "expected_behavior": "answer",
+      "rubric": [
+        "The synthetic policy lists BAGGAGE with limit_amount 100000.00 CZK."
+      ],
+      "draft": "Your policy includes baggage coverage with a limit of 100,000 CZK.",
+      "expected_accept": true,
+      "regeneration_count": 0,
+      "review": {
+        "reviewer": "",
+        "correct": null,
+        "grounded": null,
+        "behavior_correct": null,
+        "notes": ""
+      },
+      "validation": {
+        "action": "HANDOFF",
+        "grounding": "NOT_CHECKED",
+        "issues": [
+          {
+            "code": "VALIDATOR_ERROR",
+            "message": "Semantic grounding validation could not be completed.",
+            "claim": null,
+            "evidence": []
+          }
+        ]
+      },
+      "evidence": [
+        {
+          "task_type": "POLICY_DETAILS",
+          "target": "POLICY",
+          "content": {
+            "policy": {
+              "id": "00000000-0000-0000-0000-000000000002",
+              "policy_number": "EVAL-SYNTHETIC-001",
+              "policy_status": "ACTIVE",
+              "payment_status": "PAID",
+              "start_date": "2026-09-01",
+              "end_date": "2026-09-15",
+              "premium_amount": "1290.00",
+              "currency": "CZK",
+              "paid_at": null
+            },
+            "coverages": [
+              {
+                "id": "00000000-0000-0000-0000-000000000005",
+                "limit_amount": "100000.00",
+                "currency": "CZK",
+                "coverage_type": {
+                  "code": "BAGGAGE",
+                  "name": "Baggage"
+                }
+              }
+            ],
+            "options": [],
+            "people": [],
+            "travel_details": null
+          }
+        }
+      ],
+      "accepted": false,
+      "validator_error": true,
+      "status": "completed",
+      "diagnostics": [
+        {
+          "stage": "structured:GroundingCheckResult",
+          "error_type": "TimeoutError",
+          "status_code": null,
+          "attempt": 1
+        }
+      ],
+      "latency_seconds": 20.02
+    },
+    {
+      "id": "val_valid_dates",
+      "suite": "validator",
+      "category": "supported",
+      "question": "When does my policy end?",
+      "history": [],
+      "use_policy": true,
+      "articles": [],
+      "expected_behavior": "answer",
+      "rubric": [
+        "The policy end_date is 2026-09-15."
+      ],
+      "draft": "The policy end date is 15 September 2026.",
+      "expected_accept": true,
+      "regeneration_count": 0,
+      "review": {
+        "reviewer": "",
+        "correct": null,
+        "grounded": null,
+        "behavior_correct": null,
+        "notes": ""
+      },
+      "validation": {
+        "action": "HANDOFF",
+        "grounding": "NOT_CHECKED",
+        "issues": [
+          {
+            "code": "VALIDATOR_ERROR",
+            "message": "Semantic grounding validation could not be completed.",
+            "claim": null,
+            "evidence": []
+          }
+        ]
+      },
+      "evidence": [
+        {
+          "task_type": "POLICY_DETAILS",
+          "target": "POLICY",
+          "content": {
+            "policy": {
+              "id": "00000000-0000-0000-0000-000000000002",
+              "policy_number": "EVAL-SYNTHETIC-001",
+              "policy_status": "ACTIVE",
+              "payment_status": "PAID",
+              "start_date": "2026-09-01",
+              "end_date": "2026-09-15",
+              "premium_amount": "1290.00",
+              "currency": "CZK",
+              "paid_at": null
+            },
+            "coverages": [
+              {
+                "id": "00000000-0000-0000-0000-000000000005",
+                "limit_amount": "100000.00",
+                "currency": "CZK",
+                "coverage_type": {
+                  "code": "BAGGAGE",
+                  "name": "Baggage"
+                }
+              }
+            ],
+            "options": [],
+            "people": [],
+            "travel_details": null
+          }
+        }
+      ],
+      "accepted": false,
+      "validator_error": true,
+      "status": "completed",
+      "diagnostics": [
+        {
+          "stage": "structured:GroundingCheckResult",
+          "error_type": "TimeoutError",
+          "status_code": null,
+          "attempt": 1
+        }
+      ],
+      "latency_seconds": 20.012
+    },
+    {
+      "id": "val_valid_premium",
+      "suite": "validator",
+      "category": "supported",
+      "question": "What is the premium?",
+      "history": [],
+      "use_policy": true,
+      "articles": [],
+      "expected_behavior": "answer",
+      "rubric": [
+        "The policy premium_amount is 1290.00 CZK."
+      ],
+      "draft": "The policy premium is 1,290 CZK.",
+      "expected_accept": true,
+      "regeneration_count": 0,
+      "review": {
+        "reviewer": "",
+        "correct": null,
+        "grounded": null,
+        "behavior_correct": null,
+        "notes": ""
+      },
+      "validation": {
+        "action": "HANDOFF",
+        "grounding": "NOT_CHECKED",
+        "issues": [
+          {
+            "code": "VALIDATOR_ERROR",
+            "message": "Semantic grounding validation could not be completed.",
+            "claim": null,
+            "evidence": []
+          }
+        ]
+      },
+      "evidence": [
+        {
+          "task_type": "POLICY_DETAILS",
+          "target": "POLICY",
+          "content": {
+            "policy": {
+              "id": "00000000-0000-0000-0000-000000000002",
+              "policy_number": "EVAL-SYNTHETIC-001",
+              "policy_status": "ACTIVE",
+              "payment_status": "PAID",
+              "start_date": "2026-09-01",
+              "end_date": "2026-09-15",
+              "premium_amount": "1290.00",
+              "currency": "CZK",
+              "paid_at": null
+            },
+            "coverages": [
+              {
+                "id": "00000000-0000-0000-0000-000000000005",
+                "limit_amount": "100000.00",
+                "currency": "CZK",
+                "coverage_type": {
+                  "code": "BAGGAGE",
+                  "name": "Baggage"
+                }
+              }
+            ],
+            "options": [],
+            "people": [],
+            "travel_details": null
+          }
+        }
+      ],
+      "accepted": false,
+      "validator_error": true,
+      "status": "completed",
+      "diagnostics": [
+        {
+          "stage": "structured:GroundingCheckResult",
+          "error_type": "TimeoutError",
+          "status_code": null,
+          "attempt": 1
+        }
+      ],
+      "latency_seconds": 20.014
+    },
+    {
+      "id": "val_valid_procedure",
+      "suite": "validator",
+      "category": "supported",
+      "question": "What must I do after baggage robbery abroad?",
+      "history": [],
+      "use_policy": true,
+      "articles": [
+        37
+      ],
+      "expected_behavior": "answer",
+      "rubric": [
+        "Each obligation appears in article 37."
+      ],
+      "draft": "Report it to police in the country where it happened without undue delay, obtain the relevant written document and submit it to the insurer without undue delay.",
+      "expected_accept": true,
+      "regeneration_count": 0,
+      "review": {
+        "reviewer": "",
+        "correct": null,
+        "grounded": null,
+        "behavior_correct": null,
+        "notes": ""
+      },
+      "validation": {
+        "action": "HANDOFF",
+        "grounding": "NOT_CHECKED",
+        "issues": [
+          {
+            "code": "VALIDATOR_ERROR",
+            "message": "Semantic grounding validation could not be completed.",
+            "claim": null,
+            "evidence": []
+          }
+        ]
+      },
+      "evidence": [
+        {
+          "task_type": "POLICY_DETAILS",
+          "target": "POLICY",
+          "content": {
+            "policy": {
+              "id": "00000000-0000-0000-0000-000000000002",
+              "policy_number": "EVAL-SYNTHETIC-001",
+              "policy_status": "ACTIVE",
+              "payment_status": "PAID",
+              "start_date": "2026-09-01",
+              "end_date": "2026-09-15",
+              "premium_amount": "1290.00",
+              "currency": "CZK",
+              "paid_at": null
+            },
+            "coverages": [
+              {
+                "id": "00000000-0000-0000-0000-000000000005",
+                "limit_amount": "100000.00",
+                "currency": "CZK",
+                "coverage_type": {
+                  "code": "BAGGAGE",
+                  "name": "Baggage"
+                }
+              }
+            ],
+            "options": [],
+            "people": [],
+            "travel_details": null
+          }
+        },
+        {
+          "task_type": "GENERAL_QUESTION",
+          "target": "RETRIEVAL",
+          "content": {
+            "chunks": [
+              {
+                "id": "d30f1d68-1992-527a-8261-72610edc630f",
+                "document_id": "00000000-0000-0000-0000-000000000004",
+                "content": "Vedle povinností stanovených v čl. 4 je pojištěný dále povinen: a) oznámit vznik škodné události způsobené krádeží vloupáním nebo loupežným přepadením bez zbytečného odkladu policejnímu orgánu státu místa vzniku škodné události,\nb) vyžádat si od něj relevantní písemný dokument o tomto oznámení a c) tento předložit bez zbytečného odkladu pojistiteli.",
+                "score": 1.0,
+                "page_number": 13,
+                "article_number": "37",
+                "section_title": "Povinnosti pojištěného",
+                "coverage_code": null
+              }
+            ]
+          }
+        }
+      ],
+      "accepted": false,
+      "validator_error": true,
+      "status": "completed",
+      "diagnostics": [
+        {
+          "stage": "structured:GroundingCheckResult",
+          "error_type": "TimeoutError",
+          "status_code": null,
+          "attempt": 1
+        }
+      ],
+      "latency_seconds": 20.017
+    },
+    {
+      "id": "val_wrong_limit",
+      "suite": "validator",
+      "category": "contradicted",
+      "question": "What is my baggage limit?",
+      "history": [],
+      "use_policy": true,
+      "articles": [],
+      "expected_behavior": "answer",
+      "rubric": [
+        "500000 contradicts the policy limit of 100000 CZK."
+      ],
+      "draft": "Your baggage limit is 500,000 CZK.",
+      "expected_accept": false,
+      "regeneration_count": 0,
+      "review": {
+        "reviewer": "",
+        "correct": null,
+        "grounded": null,
+        "behavior_correct": null,
+        "notes": ""
+      },
+      "validation": {
+        "action": "REGENERATE",
+        "grounding": "CONTRADICTED",
+        "issues": [
+          {
+            "code": "CONTRADICTED_CLAIM",
+            "message": "Generated answer contains a claim that contradicts trusted evidence.",
+            "claim": "Your baggage limit is 500,000 CZK.",
+            "evidence": [
+              "policy.coverage:00000000-0000-0000-0000-000000000005"
+            ]
+          }
+        ]
+      },
+      "evidence": [
+        {
+          "task_type": "POLICY_DETAILS",
+          "target": "POLICY",
+          "content": {
+            "policy": {
+              "id": "00000000-0000-0000-0000-000000000002",
+              "policy_number": "EVAL-SYNTHETIC-001",
+              "policy_status": "ACTIVE",
+              "payment_status": "PAID",
+              "start_date": "2026-09-01",
+              "end_date": "2026-09-15",
+              "premium_amount": "1290.00",
+              "currency": "CZK",
+              "paid_at": null
+            },
+            "coverages": [
+              {
+                "id": "00000000-0000-0000-0000-000000000005",
+                "limit_amount": "100000.00",
+                "currency": "CZK",
+                "coverage_type": {
+                  "code": "BAGGAGE",
+                  "name": "Baggage"
+                }
+              }
+            ],
+            "options": [],
+            "people": [],
+            "travel_details": null
+          }
+        }
+      ],
+      "accepted": false,
+      "validator_error": false,
+      "status": "completed",
+      "diagnostics": [],
+      "latency_seconds": 2.513
+    },
+    {
+      "id": "val_wrong_date",
+      "suite": "validator",
+      "category": "contradicted",
+      "question": "When does the policy end?",
+      "history": [],
+      "use_policy": true,
+      "articles": [],
+      "expected_behavior": "answer",
+      "rubric": [
+        "The policy end_date is 2026-09-15, not September 30."
+      ],
+      "draft": "Your policy ends on 30 September 2026.",
+      "expected_accept": false,
+      "regeneration_count": 0,
+      "review": {
+        "reviewer": "",
+        "correct": null,
+        "grounded": null,
+        "behavior_correct": null,
+        "notes": ""
+      },
+      "validation": {
+        "action": "HANDOFF",
+        "grounding": "NOT_CHECKED",
+        "issues": [
+          {
+            "code": "VALIDATOR_ERROR",
+            "message": "Semantic grounding validation could not be completed.",
+            "claim": null,
+            "evidence": []
+          }
+        ]
+      },
+      "evidence": [
+        {
+          "task_type": "POLICY_DETAILS",
+          "target": "POLICY",
+          "content": {
+            "policy": {
+              "id": "00000000-0000-0000-0000-000000000002",
+              "policy_number": "EVAL-SYNTHETIC-001",
+              "policy_status": "ACTIVE",
+              "payment_status": "PAID",
+              "start_date": "2026-09-01",
+              "end_date": "2026-09-15",
+              "premium_amount": "1290.00",
+              "currency": "CZK",
+              "paid_at": null
+            },
+            "coverages": [
+              {
+                "id": "00000000-0000-0000-0000-000000000005",
+                "limit_amount": "100000.00",
+                "currency": "CZK",
+                "coverage_type": {
+                  "code": "BAGGAGE",
+                  "name": "Baggage"
+                }
+              }
+            ],
+            "options": [],
+            "people": [],
+            "travel_details": null
+          }
+        }
+      ],
+      "accepted": false,
+      "validator_error": true,
+      "status": "completed",
+      "diagnostics": [
+        {
+          "stage": "structured:GroundingCheckResult",
+          "error_type": "TimeoutError",
+          "status_code": null,
+          "attempt": 1
+        }
+      ],
+      "latency_seconds": 20.014
+    },
+    {
+      "id": "val_invented_deductible",
+      "suite": "validator",
+      "category": "unsupported",
+      "question": "What is my baggage deductible?",
+      "history": [],
+      "use_policy": true,
+      "articles": [],
+      "expected_behavior": "answer",
+      "rubric": [
+        "No deductible appears in the synthetic evidence."
+      ],
+      "draft": "Your baggage deductible is 10 percent.",
+      "expected_accept": false,
+      "regeneration_count": 0,
+      "review": {
+        "reviewer": "",
+        "correct": null,
+        "grounded": null,
+        "behavior_correct": null,
+        "notes": ""
+      },
+      "validation": {
+        "action": "HANDOFF",
+        "grounding": "NOT_CHECKED",
+        "issues": [
+          {
+            "code": "VALIDATOR_ERROR",
+            "message": "Semantic grounding validation could not be completed.",
+            "claim": null,
+            "evidence": []
+          }
+        ]
+      },
+      "evidence": [
+        {
+          "task_type": "POLICY_DETAILS",
+          "target": "POLICY",
+          "content": {
+            "policy": {
+              "id": "00000000-0000-0000-0000-000000000002",
+              "policy_number": "EVAL-SYNTHETIC-001",
+              "policy_status": "ACTIVE",
+              "payment_status": "PAID",
+              "start_date": "2026-09-01",
+              "end_date": "2026-09-15",
+              "premium_amount": "1290.00",
+              "currency": "CZK",
+              "paid_at": null
+            },
+            "coverages": [
+              {
+                "id": "00000000-0000-0000-0000-000000000005",
+                "limit_amount": "100000.00",
+                "currency": "CZK",
+                "coverage_type": {
+                  "code": "BAGGAGE",
+                  "name": "Baggage"
+                }
+              }
+            ],
+            "options": [],
+            "people": [],
+            "travel_details": null
+          }
+        }
+      ],
+      "accepted": false,
+      "validator_error": true,
+      "status": "completed",
+      "diagnostics": [
+        {
+          "stage": "structured:GroundingCheckResult",
+          "error_type": "TimeoutError",
+          "status_code": null,
+          "attempt": 1
+        }
+      ],
+      "latency_seconds": 20.016
+    },
+    {
+      "id": "val_mixed_claims",
+      "suite": "validator",
+      "category": "unsupported",
+      "question": "Tell me my baggage terms.",
+      "history": [],
+      "use_policy": true,
+      "articles": [],
+      "expected_behavior": "answer",
+      "rubric": [
+        "The amount is supported; the unconditional 24-hour payout claim is unsupported.",
+        "A partly correct answer must not be accepted as wholly supported."
+      ],
+      "draft": "The baggage limit is 100,000 CZK and claims are always paid within 24 hours.",
+      "expected_accept": false,
+      "regeneration_count": 0,
+      "review": {
+        "reviewer": "",
+        "correct": null,
+        "grounded": null,
+        "behavior_correct": null,
+        "notes": ""
+      },
+      "validation": {
+        "action": "REGENERATE",
+        "grounding": "UNSUPPORTED",
+        "issues": [
+          {
+            "code": "UNSUPPORTED_CLAIM",
+            "message": "Generated answer contains a claim that is not supported by trusted evidence.",
+            "claim": "claims are always paid within 24 hours.",
+            "evidence": []
+          }
+        ]
+      },
+      "evidence": [
+        {
+          "task_type": "POLICY_DETAILS",
+          "target": "POLICY",
+          "content": {
+            "policy": {
+              "id": "00000000-0000-0000-0000-000000000002",
+              "policy_number": "EVAL-SYNTHETIC-001",
+              "policy_status": "ACTIVE",
+              "payment_status": "PAID",
+              "start_date": "2026-09-01",
+              "end_date": "2026-09-15",
+              "premium_amount": "1290.00",
+              "currency": "CZK",
+              "paid_at": null
+            },
+            "coverages": [
+              {
+                "id": "00000000-0000-0000-0000-000000000005",
+                "limit_amount": "100000.00",
+                "currency": "CZK",
+                "coverage_type": {
+                  "code": "BAGGAGE",
+                  "name": "Baggage"
+                }
+              }
+            ],
+            "options": [],
+            "people": [],
+            "travel_details": null
+          }
+        }
+      ],
+      "accepted": false,
+      "validator_error": false,
+      "status": "completed",
+      "diagnostics": [],
+      "latency_seconds": 4.041
+    },
+    {
+      "id": "val_reversed_exclusion",
+      "suite": "validator",
+      "category": "contradicted",
+      "question": "Is a passport covered by baggage insurance?",
+      "history": [],
+      "use_policy": true,
+      "articles": [
+        39
+      ],
+      "expected_behavior": "answer",
+      "rubric": [
+        "Article 39 explicitly excludes travel passports."
+      ],
+      "draft": "Travel passports are included in baggage insurance.",
+      "expected_accept": false,
+      "regeneration_count": 0,
+      "review": {
+        "reviewer": "",
+        "correct": null,
+        "grounded": null,
+        "behavior_correct": null,
+        "notes": ""
+      },
+      "validation": {
+        "action": "HANDOFF",
+        "grounding": "NOT_CHECKED",
+        "issues": [
+          {
+            "code": "VALIDATOR_ERROR",
+            "message": "Semantic grounding validation could not be completed.",
+            "claim": null,
+            "evidence": []
+          }
+        ]
+      },
+      "evidence": [
+        {
+          "task_type": "POLICY_DETAILS",
+          "target": "POLICY",
+          "content": {
+            "policy": {
+              "id": "00000000-0000-0000-0000-000000000002",
+              "policy_number": "EVAL-SYNTHETIC-001",
+              "policy_status": "ACTIVE",
+              "payment_status": "PAID",
+              "start_date": "2026-09-01",
+              "end_date": "2026-09-15",
+              "premium_amount": "1290.00",
+              "currency": "CZK",
+              "paid_at": null
+            },
+            "coverages": [
+              {
+                "id": "00000000-0000-0000-0000-000000000005",
+                "limit_amount": "100000.00",
+                "currency": "CZK",
+                "coverage_type": {
+                  "code": "BAGGAGE",
+                  "name": "Baggage"
+                }
+              }
+            ],
+            "options": [],
+            "people": [],
+            "travel_details": null
+          }
+        },
+        {
+          "task_type": "GENERAL_QUESTION",
+          "target": "RETRIEVAL",
+          "content": {
+            "chunks": [
+              {
+                "id": "aabb424d-48c6-55bc-b74c-cdc336bec4f0",
+                "document_id": "00000000-0000-0000-0000-000000000004",
+                "content": "1. Pojištění se nevztahuje na škodné události vzniklé na následujících hmotných movitých věcech osobní potřeby pojištěného:\na) motorová a přípojná vozidla, plavidla o výkonu motoru nad 4kW nebo plochou plachet nad 12 m2, letadla, sportovní létající zařízení včetně jejich příslušenství,\nb) občanské průkazy, jízdenky, letenky, cestovní pasy, doklady od vozidla nebo řidičské průkazy,\nc) individuálně pořízené spisy a záznamy na textových, zvukových a obrazových nosičích, plány a projekty,\nd) cennosti.\n2. Pojištění se dále nevztahuje na škodné události vzniklé vystavením věci užitkovému ohni nebo teplu.",
+                "score": 1.0,
+                "page_number": 14,
+                "article_number": "39",
+                "section_title": "Výluky z pojištění",
+                "coverage_code": null
+              }
+            ]
+          }
+        }
+      ],
+      "accepted": false,
+      "validator_error": true,
+      "status": "completed",
+      "diagnostics": [
+        {
+          "stage": "structured:GroundingCheckResult",
+          "error_type": "TimeoutError",
+          "status_code": null,
+          "attempt": 1
+        }
+      ],
+      "latency_seconds": 20.056
+    },
+    {
+      "id": "val_missing_evidence",
+      "suite": "validator",
+      "category": "missing_evidence",
+      "question": "What is my baggage limit?",
+      "history": [],
+      "use_policy": false,
+      "articles": [],
+      "expected_behavior": "answer",
+      "rubric": [
+        "Even a coincidentally correct number is ungrounded with no evidence."
+      ],
+      "draft": "Your baggage limit is 100,000 CZK.",
+      "expected_accept": false,
+      "regeneration_count": 0,
+      "review": {
+        "reviewer": "",
+        "correct": null,
+        "grounded": null,
+        "behavior_correct": null,
+        "notes": ""
+      },
+      "validation": {
+        "action": "HANDOFF",
+        "grounding": "NOT_CHECKED",
+        "issues": [
+          {
+            "code": "NO_TRUSTED_EVIDENCE",
+            "message": "No trusted task results are available for validating the generated answer.",
+            "claim": null,
+            "evidence": []
+          }
+        ]
+      },
+      "evidence": [],
+      "accepted": false,
+      "validator_error": false,
+      "status": "completed",
+      "diagnostics": [],
+      "latency_seconds": 0.0
+    },
+    {
+      "id": "val_empty",
+      "suite": "validator",
+      "category": "empty_answer",
+      "question": "What is my baggage limit?",
+      "history": [],
+      "use_policy": true,
+      "articles": [],
+      "expected_behavior": "answer",
+      "rubric": [
+        "An empty draft must not be released."
+      ],
+      "draft": "",
+      "expected_accept": false,
+      "regeneration_count": 0,
+      "review": {
+        "reviewer": "",
+        "correct": null,
+        "grounded": null,
+        "behavior_correct": null,
+        "notes": ""
+      },
+      "validation": {
+        "action": "REGENERATE",
+        "grounding": "NOT_CHECKED",
+        "issues": [
+          {
+            "code": "EMPTY_ANSWER",
+            "message": "The generated answer is empty.",
+            "claim": null,
+            "evidence": []
+          }
+        ]
+      },
+      "evidence": [
+        {
+          "task_type": "POLICY_DETAILS",
+          "target": "POLICY",
+          "content": {
+            "policy": {
+              "id": "00000000-0000-0000-0000-000000000002",
+              "policy_number": "EVAL-SYNTHETIC-001",
+              "policy_status": "ACTIVE",
+              "payment_status": "PAID",
+              "start_date": "2026-09-01",
+              "end_date": "2026-09-15",
+              "premium_amount": "1290.00",
+              "currency": "CZK",
+              "paid_at": null
+            },
+            "coverages": [
+              {
+                "id": "00000000-0000-0000-0000-000000000005",
+                "limit_amount": "100000.00",
+                "currency": "CZK",
+                "coverage_type": {
+                  "code": "BAGGAGE",
+                  "name": "Baggage"
+                }
+              }
+            ],
+            "options": [],
+            "people": [],
+            "travel_details": null
+          }
+        }
+      ],
+      "accepted": false,
+      "validator_error": false,
+      "status": "completed",
+      "diagnostics": [],
+      "latency_seconds": 0.001
+    },
+    {
+      "id": "val_retry_still_wrong",
+      "suite": "validator",
+      "category": "retry",
+      "question": "What is my baggage limit?",
+      "history": [],
+      "use_policy": true,
+      "articles": [],
+      "expected_behavior": "answer",
+      "rubric": [
+        "Reject the wrong amount after retry; no further regeneration is allowed."
+      ],
+      "draft": "Your baggage limit is 500,000 CZK.",
+      "expected_accept": false,
+      "regeneration_count": 1,
+      "review": {
+        "reviewer": "",
+        "correct": null,
+        "grounded": null,
+        "behavior_correct": null,
+        "notes": ""
+      },
+      "validation": {
+        "action": "HANDOFF",
+        "grounding": "NOT_CHECKED",
+        "issues": [
+          {
+            "code": "VALIDATOR_ERROR",
+            "message": "Semantic grounding validation could not be completed.",
+            "claim": null,
+            "evidence": []
+          }
+        ]
+      },
+      "evidence": [
+        {
+          "task_type": "POLICY_DETAILS",
+          "target": "POLICY",
+          "content": {
+            "policy": {
+              "id": "00000000-0000-0000-0000-000000000002",
+              "policy_number": "EVAL-SYNTHETIC-001",
+              "policy_status": "ACTIVE",
+              "payment_status": "PAID",
+              "start_date": "2026-09-01",
+              "end_date": "2026-09-15",
+              "premium_amount": "1290.00",
+              "currency": "CZK",
+              "paid_at": null
+            },
+            "coverages": [
+              {
+                "id": "00000000-0000-0000-0000-000000000005",
+                "limit_amount": "100000.00",
+                "currency": "CZK",
+                "coverage_type": {
+                  "code": "BAGGAGE",
+                  "name": "Baggage"
+                }
+              }
+            ],
+            "options": [],
+            "people": [],
+            "travel_details": null
+          }
+        }
+      ],
+      "accepted": false,
+      "validator_error": true,
+      "status": "completed",
+      "diagnostics": [
+        {
+          "stage": "structured:GroundingCheckResult",
+          "error_type": "TimeoutError",
+          "status_code": null,
+          "attempt": 1
+        }
+      ],
+      "latency_seconds": 20.014
+    }
+  ],
+  "summary": {
+    "cases": 12,
+    "execution_errors": 0,
+    "validator": {
+      "cases": 12,
+      "completed": 12,
+      "service_failures": 8,
+      "false_accepts": 0,
+      "false_accept_rate": 0.0,
+      "blocked_valid": 4,
+      "blocked_valid_rate": 1.0,
+      "label_accuracy_all_cases": 0.3333333333333333
+    },
+    "chat": {
+      "cases": 0,
+      "reviewed": 0,
+      "route_matches": 0,
+      "reviewed_correct_rate": null,
+      "reviewed_grounded_rate": null,
+      "reviewed_behavior_rate": null
+    }
+  }
+}
