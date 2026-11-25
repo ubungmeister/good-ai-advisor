@@ -8,7 +8,7 @@ A policy belongs to a user, selects a plan and product version, and stores polic
 
 ```mermaid
 erDiagram
-    persons o|--|| users : identifies
+    persons ||--o| users : identifies
     users ||--o{ policies : owns
     persons ||--o{ policy_persons : participates_as
     policies ||--o{ policy_persons : covers_people
