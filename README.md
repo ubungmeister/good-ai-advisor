@@ -134,6 +134,8 @@ Future security work includes real authentication, threat modeling, prompt-injec
 
 ## Data model
 
+For a navigable ERD grouped by policy/catalogue, retrieval documents, and chat evidence, see [Data model ERD](server/docs/DATA_MODEL_ERD.md).
+
 The PostgreSQL schema models users, insured people, policies, coverages, selected options, product/document versions, document chunks, and conversations.
 
 <img width="1536" height="1024" alt="Good AI Advisor entity-relationship diagram" src="https://github.com/user-attachments/assets/37e5dd9c-b6b9-4778-9c85-8be8970846b9" />
@@ -230,3 +232,4 @@ The seeded database integration test requires a properly initialized local datab
 - A hosted demo, automated CI and broader integration/security tests remain future work.
 
 This project prioritizes **traceable evidence, explicit backend decisions and honest uncertainty** over producing a confident answer for every question.
+
