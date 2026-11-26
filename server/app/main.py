@@ -22,10 +22,18 @@ def _initialize_backend(app: FastAPI) -> None:
     try:
         print("Importing API routes.", flush=True)
         logger.info("Importing API routes.")
+        print("Importing chat API route.", flush=True)
         from app.api.chat import router as chat_router
+        print("Imported chat API route.", flush=True)
+        print("Importing LLM API route.", flush=True)
         from app.api.llm import router as llm_router
+        print("Imported LLM API route.", flush=True)
+        print("Importing policies API route.", flush=True)
         from app.api.policies import router as policies_router
+        print("Imported policies API route.", flush=True)
+        print("Importing users API route.", flush=True)
         from app.api.users import router as users_router
+        print("Imported users API route.", flush=True)
 
         app.include_router(chat_router)
         app.include_router(users_router)

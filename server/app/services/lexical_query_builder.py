@@ -1,6 +1,3 @@
-import stanza
-
-
 class LexicalQueryBuilder:
     """
     Prepares a focused Czech query for lexical search.
@@ -63,6 +60,8 @@ class LexicalQueryBuilder:
     }
 
     def __init__(self):
+        import stanza
+
         self.nlp = stanza.Pipeline(
             lang="cs",
             processors="tokenize,pos,lemma",
