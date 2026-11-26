@@ -16,9 +16,11 @@ logger = logging.getLogger(__name__)
 
 def _initialize_backend(app: FastAPI) -> None:
     started = time.perf_counter()
+    print("Backend initialization started.", flush=True)
     logger.info("Starting backend initialization in background.")
 
     try:
+        print("Importing API routes.", flush=True)
         logger.info("Importing API routes.")
         from app.api.chat import router as chat_router
         from app.api.llm import router as llm_router
@@ -29,19 +31,25 @@ def _initialize_backend(app: FastAPI) -> None:
         app.include_router(users_router)
         app.include_router(policies_router)
         app.include_router(llm_router)
+        print("API routes imported and registered.", flush=True)
 
+        print("Retrieval model initialization started.", flush=True)
         logger.info("Starting retrieval model initialization.")
         from app.core.dependencies import get_retrieval_service
 
         get_retrieval_service()
+        print("Retrieval model initialization finished.", flush=True)
     except Exception as exc:
         app.state.initialization_error = type(exc).__name__
+        print(f"Backend initialization failed: {type(exc).__name__}.", flush=True)
         logger.exception("Backend initialization failed.")
         return
 
     app.state.backend_ready = True
     app.state.initialization_error = None
-    logger.info("Backend ready: %.3fs", time.perf_counter() - started)
+    elapsed = time.perf_counter() - started
+    print(f"Backend ready after {elapsed:.3f}s.", flush=True)
+    logger.info("Backend ready: %.3fs", elapsed)
 
 
 @asynccontextmanager
