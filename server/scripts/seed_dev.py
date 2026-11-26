@@ -1,3 +1,5 @@
+import os
+import uuid
 from datetime import date, datetime
 from decimal import Decimal
 
@@ -47,6 +49,8 @@ from app.models.user import User
 
 
 TEST_EMAIL = "test@example.com"
+SUPABASE_AUTH_USER_ID = os.getenv("SUPABASE_AUTH_USER_ID", "").strip()
+SUPABASE_AUTH_USER_EMAIL = os.getenv("SUPABASE_AUTH_USER_EMAIL", TEST_EMAIL).strip()
 
 PRODUCT_CODE = "TRAVEL_INSURANCE"
 PRODUCT_VERSION = "2026.1"
@@ -55,6 +59,14 @@ POLICY_NUMBER = "TI-2026-0001"
 
 
 def seed() -> None:
+    try:
+        auth_user_id = uuid.UUID(SUPABASE_AUTH_USER_ID) if SUPABASE_AUTH_USER_ID else None
+    except ValueError:
+        raise RuntimeError("SUPABASE_AUTH_USER_ID must be a valid UUID.") from None
+
+    if not SUPABASE_AUTH_USER_EMAIL:
+        raise RuntimeError("SUPABASE_AUTH_USER_EMAIL must not be empty.")
+
     db = SessionLocal()
 
     try:
@@ -65,8 +77,14 @@ def seed() -> None:
         user = db.scalar(
             select(User)
             .options(joinedload(User.person))
-            .where(User.email == TEST_EMAIL)
+            .where(User.email == SUPABASE_AUTH_USER_EMAIL)
         )
+
+        if user is not None and auth_user_id is not None and user.id != auth_user_id:
+            raise RuntimeError(
+                "The existing seed user ID does not match SUPABASE_AUTH_USER_ID. "
+                "Resolve the existing synthetic data mapping before reseeding."
+            )
 
         if user is None:
             person = Person(
@@ -78,10 +96,13 @@ def seed() -> None:
             )
 
             user = User(
-                email=TEST_EMAIL,
+                email=SUPABASE_AUTH_USER_EMAIL,
                 status="ACTIVE",
                 person=person,
             )
+
+            if auth_user_id is not None:
+                user.id = auth_user_id
 
             db.add(user)
             db.flush()
