@@ -4,50 +4,58 @@ import time
 from contextlib import asynccontextmanager
 
 from fastapi import FastAPI, HTTPException, Request
-from fastapi.responses import JSONResponse
 from fastapi.concurrency import run_in_threadpool
 from fastapi.middleware.cors import CORSMiddleware
+from fastapi.responses import JSONResponse
 from sqlalchemy import text
 
-from app.api.chat import router as chat_router
-from app.api.llm import router as llm_router
-from app.api.policies import router as policies_router
-from app.api.users import router as users_router
 from app.db.database import engine
 
 logger = logging.getLogger(__name__)
 
 
-def _initialize_retrieval(app: FastAPI) -> None:
+def _initialize_backend(app: FastAPI) -> None:
     started = time.perf_counter()
-    logger.info("Starting retrieval model initialization in background.")
+    logger.info("Starting backend initialization in background.")
 
     try:
+        logger.info("Importing API routes.")
+        from app.api.chat import router as chat_router
+        from app.api.llm import router as llm_router
+        from app.api.policies import router as policies_router
+        from app.api.users import router as users_router
+
+        app.include_router(chat_router)
+        app.include_router(users_router)
+        app.include_router(policies_router)
+        app.include_router(llm_router)
+
+        logger.info("Starting retrieval model initialization.")
         from app.core.dependencies import get_retrieval_service
 
         get_retrieval_service()
     except Exception as exc:
-        app.state.retrieval_error = type(exc).__name__
-        logger.exception("Retrieval model initialization failed.")
+        app.state.initialization_error = type(exc).__name__
+        logger.exception("Backend initialization failed.")
         return
 
-    app.state.retrieval_ready = True
-    app.state.retrieval_error = None
-    logger.info("RAG MODELS READY: %.3fs", time.perf_counter() - started)
+    app.state.backend_ready = True
+    app.state.initialization_error = None
+    logger.info("Backend ready: %.3fs", time.perf_counter() - started)
 
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
-    app.state.retrieval_ready = False
-    app.state.retrieval_error = None
+    app.state.backend_ready = False
+    app.state.initialization_error = None
 
-    warmup = threading.Thread(
-        target=_initialize_retrieval,
+    initialization = threading.Thread(
+        target=_initialize_backend,
         args=(app,),
-        name="retrieval-model-warmup",
+        name="backend-initialization",
         daemon=True,
     )
-    warmup.start()
+    initialization.start()
     yield
 
 
@@ -63,7 +71,6 @@ async def request_timing_middleware(
     request.state.http_started = start
 
     response = await call_next(request)
-
     total = time.perf_counter() - start
 
     # Route templates avoid logging policy/conversation IDs from URL paths.
@@ -77,12 +84,12 @@ async def request_timing_middleware(
 
 
 @app.middleware("http")
-async def require_retrieval_readiness(
+async def require_backend_readiness(
     request: Request,
     call_next,
 ):
     if request.url.path not in {"/health", "/ready"} and not getattr(
-        request.app.state, "retrieval_ready", False
+        request.app.state, "backend_ready", False
     ):
         return JSONResponse(status_code=503, content={"detail": "Service is starting."})
 
@@ -101,12 +108,6 @@ app.add_middleware(
 )
 
 
-app.include_router(chat_router)
-app.include_router(users_router)
-app.include_router(policies_router)
-app.include_router(llm_router)
-
-
 @app.get("/health")
 async def health():
     return {"status": "alive"}
@@ -119,13 +120,10 @@ def _check_database_connection() -> None:
 
 @app.get("/ready")
 async def readiness(request: Request):
-    if not getattr(request.app.state, "retrieval_ready", False):
-        error = getattr(request.app.state, "retrieval_error", None)
+    if not getattr(request.app.state, "backend_ready", False):
+        error = getattr(request.app.state, "initialization_error", None)
         if error:
-            raise HTTPException(
-                status_code=503,
-                detail="Retrieval models failed to initialize.",
-            )
+            raise HTTPException(status_code=503, detail="Backend initialization failed.")
         raise HTTPException(status_code=503, detail="Service is starting.")
 
     try:
@@ -134,4 +132,4 @@ async def readiness(request: Request):
         logger.exception("Database readiness check failed.")
         raise HTTPException(status_code=503, detail="Database is unavailable.") from None
 
-    return {"status": "ready", "database": "ok", "retrieval": "ready"}
+    return {"status": "ready", "database": "ok", "backend": "ready"}
