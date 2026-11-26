@@ -1,5 +1,3 @@
-from sentence_transformers import CrossEncoder
-
 from app.models.document_chunk import DocumentChunk
 
 
@@ -8,6 +6,8 @@ MODEL_NAME = "cross-encoder/mmarco-mMiniLMv2-L12-H384-v1"
 
 class RerankerService:
     def __init__(self):
+        from sentence_transformers import CrossEncoder
+
         self.model = CrossEncoder(MODEL_NAME)
 
     def rerank(
