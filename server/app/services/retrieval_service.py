@@ -1,6 +1,88 @@
+import threading
 import time
 import uuid
-from typing import Sequence
+from pathlib import Path
+from typing import Callable, Sequence, TypeVar
+
+
+T = TypeVar("T")
+
+
+def _memory_snapshot(stage: str) -> None:
+    """Print process and container memory without adding a runtime dependency."""
+    process_memory = {}
+    try:
+        for line in Path("/proc/self/status").read_text().splitlines():
+            key, _, value = line.partition(":")
+            if key in {"VmRSS", "VmHWM"}:
+                process_memory[key] = f"{int(value.strip().split()[0]) / 1024:.1f}MiB"
+    except (OSError, ValueError, IndexError):
+        pass
+
+    container_memory = {}
+    cgroup_files = {
+        "current": (
+            "/sys/fs/cgroup/memory.current",
+            "/sys/fs/cgroup/memory/memory.usage_in_bytes",
+        ),
+        "peak": (
+            "/sys/fs/cgroup/memory.peak",
+            "/sys/fs/cgroup/memory/memory.max_usage_in_bytes",
+        ),
+        "limit": (
+            "/sys/fs/cgroup/memory.max",
+            "/sys/fs/cgroup/memory/memory.limit_in_bytes",
+        ),
+    }
+    for name, candidates in cgroup_files.items():
+        for candidate in candidates:
+            try:
+                raw_value = Path(candidate).read_text().strip()
+                if raw_value.isdigit():
+                    container_memory[name] = f"{int(raw_value) / (1024 * 1024):.1f}MiB"
+                elif raw_value == "max":
+                    container_memory[name] = "unlimited"
+                break
+            except OSError:
+                continue
+
+    details = [f"{key}={value}" for key, value in process_memory.items()]
+    details.extend(f"container_{key}={value}" for key, value in container_memory.items())
+    print(f"MEMORY stage={stage} {' '.join(details) or 'metrics unavailable'}", flush=True)
+
+
+def _load_component(name: str, factory: Callable[[], T]) -> T:
+    """Sample memory while one retrieval component initializes."""
+    stop_sampling = threading.Event()
+
+    def sample_memory() -> None:
+        while not stop_sampling.wait(5.0):
+            _memory_snapshot(f"{name}_loading")
+
+    started = time.perf_counter()
+    print(f"RETRIEVAL_COMPONENT_START name={name}", flush=True)
+    _memory_snapshot(f"before_{name}")
+    sampler = threading.Thread(
+        target=sample_memory,
+        name=f"memory-{name}",
+        daemon=True,
+    )
+    sampler.start()
+    try:
+        component = factory()
+    except Exception:
+        _memory_snapshot(f"failed_{name}")
+        raise
+    finally:
+        stop_sampling.set()
+        sampler.join(timeout=1.0)
+
+    print(
+        f"RETRIEVAL_COMPONENT_READY name={name} seconds={time.perf_counter() - started:.2f}",
+        flush=True,
+    )
+    _memory_snapshot(f"after_{name}")
+    return component
 
 from sqlalchemy.orm import Session
 
@@ -70,22 +152,18 @@ class RetrievalService:
     # ==========================================================
 
     def __init__(self):
-
-        self.embedding_service = (
-            EmbeddingService()
+        _memory_snapshot("retrieval_service_start")
+        self.embedding_service = _load_component(
+            "embedding_model", EmbeddingService,
         )
-
-        self.document_chunk_repository = (
-            DocumentChunkRepository()
+        self.document_chunk_repository = DocumentChunkRepository()
+        self.lexical_query_builder = _load_component(
+            "stanza_pipeline", LexicalQueryBuilder,
         )
-
-        self.lexical_query_builder = (
-            LexicalQueryBuilder()
+        self.reranker_service = _load_component(
+            "cross_encoder", RerankerService,
         )
-
-        self.reranker_service = (
-            RerankerService()
-        )
+        _memory_snapshot("retrieval_service_ready")
 
     # ==========================================================
     # SEARCH
