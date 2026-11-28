@@ -25,6 +25,8 @@ async def chat(
     db: Session = Depends(get_db),
     chat_service: ChatService = Depends(get_chat_service),
 ):
+    print(f"[CHAT] USER QUESTION: {request.message}", flush=True)
+
     policy_id = request.policy_id
     # Only a new conversation may inherit the server's demo policy.
     if (request.conversation_id is None and policy_id is None

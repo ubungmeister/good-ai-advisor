@@ -1,0 +1,2398 @@
+{
+  "schema_version": "1.0",
+  "document_type": "support_knowledge_collection",
+  "language": "cs",
+  "dataset_status": "DRAFT_EXPERT_REVIEW_REQUIRED",
+  "generated_at": "2026-11-26",
+  "title": "Pomoc při hlášení a vyřizování škod",
+  "articles": [
+    {
+      "id": "SUP_CLAIMS_001",
+      "document_type": "support_procedure",
+      "schema_version": "1.0",
+      "language": "cs",
+      "category": "claims_procedures",
+      "title": "Nahlášení škody online",
+      "scenario": "Klient řeší situaci: nahlášení škody online. Potřebuje praktický, ověřený postup bez předčasného příslibu plnění.",
+      "intent_tag": "claim_online",
+      "question_variations": [
+        "Chci nahlásit škodu z cestovního pojištění.",
+        "Kde vyplním hlášení pojistné události?",
+        "Jaké údaje si mám připravit?"
+      ],
+      "conditions": [
+        "Postup posuzovat podle země události, konkrétního dopravce nebo poskytovatele služby a verze smlouvy."
+      ],
+      "immediate_steps": [
+        {
+          "text": "Pro oznámení škody si připravte číslo smlouvy nebo údaje o pojištěné osobě, datum, místo a popis události.",
+          "requirement_type": "recommended",
+          "evidence_level": "official_insurer",
+          "source_ids": [
+            "CSOB_CLAIM"
+          ],
+          "condition": null
+        },
+        {
+          "text": "Škodu lze nahlásit přes oficiální online formulář ČSOB Pojišťovny nebo telefonicky na +420 466 100 777.",
+          "requirement_type": "recommended",
+          "evidence_level": "official_insurer",
+          "source_ids": [
+            "CSOB_CLAIM"
+          ],
+          "condition": null
+        },
+        {
+          "text": "ČSOB umožňuje online oznámení jedné události týkající se více pojištěných osob ze stejné smlouvy.",
+          "requirement_type": "recommended",
+          "evidence_level": "official_insurer",
+          "source_ids": [
+            "CSOB_CLAIM"
+          ],
+          "condition": "Pokud jde o stejnou příčinu škody a společnou smlouvu."
+        }
+      ],
+      "required_documents": [],
+      "recommended_documents": [],
+      "police_involvement": {
+        "status": "not_established",
+        "guidance": "Z dostupných zdrojů nevyplývá jednotná povinnost pořídit policejní protokol právě pro tento scénář.",
+        "source_ids": [],
+        "needs_expert_review": true
+      },
+      "clarifying_questions": [
+        "O jaký typ škody a jaké datum události jde?",
+        "Byla už událost nahlášena a máte její evidenční číslo?"
+      ],
+      "coverage_considerations": [
+        "Proces přijetí hlášení není rozhodnutím o pojistném krytí; rozhodují konkrétní smlouva a zjištěné okolnosti.",
+        "U aktuálních webových doporučení je nutné ověřit soulad s verzí pojistných podmínek použitelnou pro smlouvu."
+      ],
+      "escalation_conditions": [
+        "Pokud potřebujete závazné rozhodnutí o krytí, přesný seznam povinných dokladů nebo výjimku z postupu, předejte dotaz pracovníkovi pojišťovny."
+      ],
+      "open_questions_for_expert": [
+        "Potvrdit pro scénář „Nahlášení škody online“ přesné doklady, použitelné výluky, rozsah asistence a případné povinnosti vůči ČSOB podle sjednaného produktu."
+      ],
+      "sources": [
+        {
+          "source_id": "CSOB_CLAIM",
+          "url": "https://www.csobpoj.cz/oznameni-pojistne-udalosti-cestovni-pojisteni",
+          "section": "Oznámení online, telefonicky a doplnění dokladů",
+          "last_checked_at": "2026-11-26",
+          "effective_from": null
+        }
+      ],
+      "source_ids": [
+        "CSOB_CLAIM"
+      ],
+      "evidence_level": "official_insurer",
+      "official_scenario_specific_evidence": true,
+      "procedure_completeness": "partial",
+      "priority": "P1",
+      "policy_version_check_required": true,
+      "applicable_policy_versions": [],
+      "review_status": "DRAFT",
+      "reviewed_by": null,
+      "last_verified_at": null,
+      "last_public_source_checked_at": "2026-11-26",
+      "approved_at": null,
+      "publication_status": "REVIEW_ONLY",
+      "retrieval_eligible": false,
+      "notes_for_reviewer": "Obecné pokyny od jiných institucí nejsou požadavky ČSOB. Ověřit každou povinnost a datum platnosti."
+    },
+    {
+      "id": "SUP_CLAIMS_002",
+      "document_type": "support_procedure",
+      "schema_version": "1.0",
+      "language": "cs",
+      "category": "claims_procedures",
+      "title": "Telefonické nahlášení škody",
+      "scenario": "Klient řeší situaci: telefonické nahlášení škody. Potřebuje praktický, ověřený postup bez předčasného příslibu plnění.",
+      "intent_tag": "claim_phone",
+      "question_variations": [
+        "Můžu škodu nahlásit telefonicky?",
+        "Nechci vyplňovat online formulář.",
+        "Na jaké číslo mám zavolat?"
+      ],
+      "conditions": [
+        "Postup posuzovat podle země události, konkrétního dopravce nebo poskytovatele služby a verze smlouvy."
+      ],
+      "immediate_steps": [
+        {
+          "text": "Pro oznámení škody si připravte číslo smlouvy nebo údaje o pojištěné osobě, datum, místo a popis události.",
+          "requirement_type": "recommended",
+          "evidence_level": "official_insurer",
+          "source_ids": [
+            "CSOB_CLAIM"
+          ],
+          "condition": null
+        },
+        {
+          "text": "Škodu lze nahlásit přes oficiální online formulář ČSOB Pojišťovny nebo telefonicky na +420 466 100 777.",
+          "requirement_type": "recommended",
+          "evidence_level": "official_insurer",
+          "source_ids": [
+            "CSOB_CLAIM"
+          ],
+          "condition": null
+        },
+        {
+          "text": "Při telefonickém hlášení ČSOB uvádí volbu 1; klientská linka pro hlášení je dostupná v pracovních dnech od 8 do 18 hodin.",
+          "requirement_type": "recommended",
+          "evidence_level": "official_insurer",
+          "source_ids": [
+            "CSOB_CLAIM"
+          ],
+          "condition": null
+        }
+      ],
+      "required_documents": [],
+      "recommended_documents": [],
+      "police_involvement": {
+        "status": "not_established",
+        "guidance": "Z dostupných zdrojů nevyplývá jednotná povinnost pořídit policejní protokol právě pro tento scénář.",
+        "source_ids": [],
+        "needs_expert_review": true
+      },
+      "clarifying_questions": [
+        "O jaký typ škody a jaké datum události jde?",
+        "Byla už událost nahlášena a máte její evidenční číslo?"
+      ],
+      "coverage_considerations": [
+        "Proces přijetí hlášení není rozhodnutím o pojistném krytí; rozhodují konkrétní smlouva a zjištěné okolnosti.",
+        "U aktuálních webových doporučení je nutné ověřit soulad s verzí pojistných podmínek použitelnou pro smlouvu."
+      ],
+      "escalation_conditions": [
+        "Pokud potřebujete závazné rozhodnutí o krytí, přesný seznam povinných dokladů nebo výjimku z postupu, předejte dotaz pracovníkovi pojišťovny."
+      ],
+      "open_questions_for_expert": [
+        "Potvrdit pro scénář „Telefonické nahlášení škody“ přesné doklady, použitelné výluky, rozsah asistence a případné povinnosti vůči ČSOB podle sjednaného produktu."
+      ],
+      "sources": [
+        {
+          "source_id": "CSOB_CLAIM",
+          "url": "https://www.csobpoj.cz/oznameni-pojistne-udalosti-cestovni-pojisteni",
+          "section": "Oznámení online, telefonicky a doplnění dokladů",
+          "last_checked_at": "2026-11-26",
+          "effective_from": null
+        }
+      ],
+      "source_ids": [
+        "CSOB_CLAIM"
+      ],
+      "evidence_level": "official_insurer",
+      "official_scenario_specific_evidence": true,
+      "procedure_completeness": "partial",
+      "priority": "P1",
+      "policy_version_check_required": true,
+      "applicable_policy_versions": [],
+      "review_status": "DRAFT",
+      "reviewed_by": null,
+      "last_verified_at": null,
+      "last_public_source_checked_at": "2026-11-26",
+      "approved_at": null,
+      "publication_status": "REVIEW_ONLY",
+      "retrieval_eligible": false,
+      "notes_for_reviewer": "Obecné pokyny od jiných institucí nejsou požadavky ČSOB. Ověřit každou povinnost a datum platnosti."
+    },
+    {
+      "id": "SUP_CLAIMS_003",
+      "document_type": "support_procedure",
+      "schema_version": "1.0",
+      "language": "cs",
+      "category": "claims_procedures",
+      "title": "Neznámé číslo pojistné smlouvy",
+      "scenario": "Klient řeší situaci: neznámé číslo pojistné smlouvy. Potřebuje praktický, ověřený postup bez předčasného příslibu plnění.",
+      "intent_tag": "claim_no_policy",
+      "question_variations": [
+        "Nevím číslo své pojistky.",
+        "Nemůžu najít číslo smlouvy k cestovnímu pojištění.",
+        "Stačí údaje pojištěného?"
+      ],
+      "conditions": [
+        "Postup posuzovat podle země události, konkrétního dopravce nebo poskytovatele služby a verze smlouvy."
+      ],
+      "immediate_steps": [
+        {
+          "text": "Pro oznámení škody si připravte číslo smlouvy nebo údaje o pojištěné osobě, datum, místo a popis události.",
+          "requirement_type": "recommended",
+          "evidence_level": "official_insurer",
+          "source_ids": [
+            "CSOB_CLAIM"
+          ],
+          "condition": null
+        },
+        {
+          "text": "Škodu lze nahlásit přes oficiální online formulář ČSOB Pojišťovny nebo telefonicky na +420 466 100 777.",
+          "requirement_type": "recommended",
+          "evidence_level": "official_insurer",
+          "source_ids": [
+            "CSOB_CLAIM"
+          ],
+          "condition": null
+        },
+        {
+          "text": "Při telefonickém hlášení ČSOB uvádí volbu 1; klientská linka pro hlášení je dostupná v pracovních dnech od 8 do 18 hodin.",
+          "requirement_type": "recommended",
+          "evidence_level": "official_insurer",
+          "source_ids": [
+            "CSOB_CLAIM"
+          ],
+          "condition": null
+        }
+      ],
+      "required_documents": [],
+      "recommended_documents": [],
+      "police_involvement": {
+        "status": "not_established",
+        "guidance": "Z dostupných zdrojů nevyplývá jednotná povinnost pořídit policejní protokol právě pro tento scénář.",
+        "source_ids": [],
+        "needs_expert_review": true
+      },
+      "clarifying_questions": [
+        "O jaký typ škody a jaké datum události jde?",
+        "Byla už událost nahlášena a máte její evidenční číslo?"
+      ],
+      "coverage_considerations": [
+        "Proces přijetí hlášení není rozhodnutím o pojistném krytí; rozhodují konkrétní smlouva a zjištěné okolnosti.",
+        "U aktuálních webových doporučení je nutné ověřit soulad s verzí pojistných podmínek použitelnou pro smlouvu."
+      ],
+      "escalation_conditions": [
+        "Pokud potřebujete závazné rozhodnutí o krytí, přesný seznam povinných dokladů nebo výjimku z postupu, předejte dotaz pracovníkovi pojišťovny."
+      ],
+      "open_questions_for_expert": [
+        "Potvrdit pro scénář „Neznámé číslo pojistné smlouvy“ přesné doklady, použitelné výluky, rozsah asistence a případné povinnosti vůči ČSOB podle sjednaného produktu."
+      ],
+      "sources": [
+        {
+          "source_id": "CSOB_CLAIM",
+          "url": "https://www.csobpoj.cz/oznameni-pojistne-udalosti-cestovni-pojisteni",
+          "section": "Oznámení online, telefonicky a doplnění dokladů",
+          "last_checked_at": "2026-11-26",
+          "effective_from": null
+        }
+      ],
+      "source_ids": [
+        "CSOB_CLAIM"
+      ],
+      "evidence_level": "official_insurer",
+      "official_scenario_specific_evidence": true,
+      "procedure_completeness": "partial",
+      "priority": "P1",
+      "policy_version_check_required": true,
+      "applicable_policy_versions": [],
+      "review_status": "DRAFT",
+      "reviewed_by": null,
+      "last_verified_at": null,
+      "last_public_source_checked_at": "2026-11-26",
+      "approved_at": null,
+      "publication_status": "REVIEW_ONLY",
+      "retrieval_eligible": false,
+      "notes_for_reviewer": "Obecné pokyny od jiných institucí nejsou požadavky ČSOB. Ověřit každou povinnost a datum platnosti."
+    },
+    {
+      "id": "SUP_CLAIMS_004",
+      "document_type": "support_procedure",
+      "schema_version": "1.0",
+      "language": "cs",
+      "category": "claims_procedures",
+      "title": "Jedna událost zasáhla několik pojištěných",
+      "scenario": "Klient řeší situaci: jedna událost zasáhla několik pojištěných. Potřebuje praktický, ověřený postup bez předčasného příslibu plnění.",
+      "intent_tag": "claim_group",
+      "question_variations": [
+        "Zpozdily se kufry celé rodině.",
+        "Máme čtyři pojištěné a jednu událost.",
+        "Musí každý podat hlášení zvlášť?"
+      ],
+      "conditions": [
+        "Postup posuzovat podle země události, konkrétního dopravce nebo poskytovatele služby a verze smlouvy."
+      ],
+      "immediate_steps": [
+        {
+          "text": "Pro oznámení škody si připravte číslo smlouvy nebo údaje o pojištěné osobě, datum, místo a popis události.",
+          "requirement_type": "recommended",
+          "evidence_level": "official_insurer",
+          "source_ids": [
+            "CSOB_CLAIM"
+          ],
+          "condition": null
+        },
+        {
+          "text": "Škodu lze nahlásit přes oficiální online formulář ČSOB Pojišťovny nebo telefonicky na +420 466 100 777.",
+          "requirement_type": "recommended",
+          "evidence_level": "official_insurer",
+          "source_ids": [
+            "CSOB_CLAIM"
+          ],
+          "condition": null
+        },
+        {
+          "text": "ČSOB umožňuje online oznámení jedné události týkající se více pojištěných osob ze stejné smlouvy.",
+          "requirement_type": "recommended",
+          "evidence_level": "official_insurer",
+          "source_ids": [
+            "CSOB_CLAIM"
+          ],
+          "condition": "Pokud jde o stejnou příčinu škody a společnou smlouvu."
+        }
+      ],
+      "required_documents": [],
+      "recommended_documents": [],
+      "police_involvement": {
+        "status": "not_established",
+        "guidance": "Z dostupných zdrojů nevyplývá jednotná povinnost pořídit policejní protokol právě pro tento scénář.",
+        "source_ids": [],
+        "needs_expert_review": true
+      },
+      "clarifying_questions": [
+        "O jaký typ škody a jaké datum události jde?",
+        "Byla už událost nahlášena a máte její evidenční číslo?"
+      ],
+      "coverage_considerations": [
+        "Proces přijetí hlášení není rozhodnutím o pojistném krytí; rozhodují konkrétní smlouva a zjištěné okolnosti.",
+        "U aktuálních webových doporučení je nutné ověřit soulad s verzí pojistných podmínek použitelnou pro smlouvu."
+      ],
+      "escalation_conditions": [
+        "Pokud potřebujete závazné rozhodnutí o krytí, přesný seznam povinných dokladů nebo výjimku z postupu, předejte dotaz pracovníkovi pojišťovny."
+      ],
+      "open_questions_for_expert": [
+        "Potvrdit pro scénář „Jedna událost zasáhla několik pojištěných“ přesné doklady, použitelné výluky, rozsah asistence a případné povinnosti vůči ČSOB podle sjednaného produktu."
+      ],
+      "sources": [
+        {
+          "source_id": "CSOB_CLAIM",
+          "url": "https://www.csobpoj.cz/oznameni-pojistne-udalosti-cestovni-pojisteni",
+          "section": "Oznámení online, telefonicky a doplnění dokladů",
+          "last_checked_at": "2026-11-26",
+          "effective_from": null
+        }
+      ],
+      "source_ids": [
+        "CSOB_CLAIM"
+      ],
+      "evidence_level": "official_insurer",
+      "official_scenario_specific_evidence": true,
+      "procedure_completeness": "partial",
+      "priority": "P1",
+      "policy_version_check_required": true,
+      "applicable_policy_versions": [],
+      "review_status": "DRAFT",
+      "reviewed_by": null,
+      "last_verified_at": null,
+      "last_public_source_checked_at": "2026-11-26",
+      "approved_at": null,
+      "publication_status": "REVIEW_ONLY",
+      "retrieval_eligible": false,
+      "notes_for_reviewer": "Obecné pokyny od jiných institucí nejsou požadavky ČSOB. Ověřit každou povinnost a datum platnosti."
+    },
+    {
+      "id": "SUP_CLAIMS_005",
+      "document_type": "support_procedure",
+      "schema_version": "1.0",
+      "language": "cs",
+      "category": "claims_procedures",
+      "title": "Chybí přesné datum nebo místo události",
+      "scenario": "Klient řeší situaci: chybí přesné datum nebo místo události. Potřebuje praktický, ověřený postup bez předčasného příslibu plnění.",
+      "intent_tag": "claim_missing_details",
+      "question_variations": [
+        "Nevím přesný čas, kdy mě okradli.",
+        "Nevím, kde přesně došlo ke škodě.",
+        "Co mám napsat do hlášení?"
+      ],
+      "conditions": [
+        "Postup posuzovat podle země události, konkrétního dopravce nebo poskytovatele služby a verze smlouvy."
+      ],
+      "immediate_steps": [
+        {
+          "text": "Pro oznámení škody si připravte číslo smlouvy nebo údaje o pojištěné osobě, datum, místo a popis události.",
+          "requirement_type": "recommended",
+          "evidence_level": "official_insurer",
+          "source_ids": [
+            "CSOB_CLAIM"
+          ],
+          "condition": null
+        },
+        {
+          "text": "Škodu lze nahlásit přes oficiální online formulář ČSOB Pojišťovny nebo telefonicky na +420 466 100 777.",
+          "requirement_type": "recommended",
+          "evidence_level": "official_insurer",
+          "source_ids": [
+            "CSOB_CLAIM"
+          ],
+          "condition": null
+        }
+      ],
+      "required_documents": [],
+      "recommended_documents": [],
+      "police_involvement": {
+        "status": "not_established",
+        "guidance": "Z dostupných zdrojů nevyplývá jednotná povinnost pořídit policejní protokol právě pro tento scénář.",
+        "source_ids": [],
+        "needs_expert_review": true
+      },
+      "clarifying_questions": [
+        "O jaký typ škody a jaké datum události jde?",
+        "Byla už událost nahlášena a máte její evidenční číslo?"
+      ],
+      "coverage_considerations": [
+        "Proces přijetí hlášení není rozhodnutím o pojistném krytí; rozhodují konkrétní smlouva a zjištěné okolnosti.",
+        "U aktuálních webových doporučení je nutné ověřit soulad s verzí pojistných podmínek použitelnou pro smlouvu."
+      ],
+      "escalation_conditions": [
+        "Pokud potřebujete závazné rozhodnutí o krytí, přesný seznam povinných dokladů nebo výjimku z postupu, předejte dotaz pracovníkovi pojišťovny."
+      ],
+      "open_questions_for_expert": [
+        "Potvrdit pro scénář „Chybí přesné datum nebo místo události“ přesné doklady, použitelné výluky, rozsah asistence a případné povinnosti vůči ČSOB podle sjednaného produktu."
+      ],
+      "sources": [
+        {
+          "source_id": "CSOB_CLAIM",
+          "url": "https://www.csobpoj.cz/oznameni-pojistne-udalosti-cestovni-pojisteni",
+          "section": "Oznámení online, telefonicky a doplnění dokladů",
+          "last_checked_at": "2026-11-26",
+          "effective_from": null
+        }
+      ],
+      "source_ids": [
+        "CSOB_CLAIM"
+      ],
+      "evidence_level": "needs_expert_review",
+      "official_scenario_specific_evidence": false,
+      "procedure_completeness": "unresolved",
+      "priority": "P1",
+      "policy_version_check_required": true,
+      "applicable_policy_versions": [],
+      "review_status": "DRAFT",
+      "reviewed_by": null,
+      "last_verified_at": null,
+      "last_public_source_checked_at": "2026-11-26",
+      "approved_at": null,
+      "publication_status": "REVIEW_ONLY",
+      "retrieval_eligible": false,
+      "notes_for_reviewer": "Obecné pokyny od jiných institucí nejsou požadavky ČSOB. Ověřit každou povinnost a datum platnosti."
+    },
+    {
+      "id": "SUP_CLAIMS_006",
+      "document_type": "support_procedure",
+      "schema_version": "1.0",
+      "language": "cs",
+      "category": "claims_procedures",
+      "title": "Odeslání fotografií poškození",
+      "scenario": "Klient řeší situaci: odeslání fotografií poškození. Potřebuje praktický, ověřený postup bez předčasného příslibu plnění.",
+      "intent_tag": "claim_photo",
+      "question_variations": [
+        "Jak mám nahrát fotky škody?",
+        "Mám fotky rozbitého kufru.",
+        "Kam je mám poslat?"
+      ],
+      "conditions": [
+        "Postup posuzovat podle země události, konkrétního dopravce nebo poskytovatele služby a verze smlouvy."
+      ],
+      "immediate_steps": [
+        {
+          "text": "Pro oznámení škody si připravte číslo smlouvy nebo údaje o pojištěné osobě, datum, místo a popis události.",
+          "requirement_type": "recommended",
+          "evidence_level": "official_insurer",
+          "source_ids": [
+            "CSOB_CLAIM"
+          ],
+          "condition": null
+        },
+        {
+          "text": "Škodu lze nahlásit přes oficiální online formulář ČSOB Pojišťovny nebo telefonicky na +420 466 100 777.",
+          "requirement_type": "recommended",
+          "evidence_level": "official_insurer",
+          "source_ids": [
+            "CSOB_CLAIM"
+          ],
+          "condition": null
+        }
+      ],
+      "required_documents": [],
+      "recommended_documents": [],
+      "police_involvement": {
+        "status": "not_established",
+        "guidance": "Z dostupných zdrojů nevyplývá jednotná povinnost pořídit policejní protokol právě pro tento scénář.",
+        "source_ids": [],
+        "needs_expert_review": true
+      },
+      "clarifying_questions": [
+        "O jaký typ škody a jaké datum události jde?",
+        "Byla už událost nahlášena a máte její evidenční číslo?"
+      ],
+      "coverage_considerations": [
+        "Proces přijetí hlášení není rozhodnutím o pojistném krytí; rozhodují konkrétní smlouva a zjištěné okolnosti.",
+        "U aktuálních webových doporučení je nutné ověřit soulad s verzí pojistných podmínek použitelnou pro smlouvu."
+      ],
+      "escalation_conditions": [
+        "Pokud potřebujete závazné rozhodnutí o krytí, přesný seznam povinných dokladů nebo výjimku z postupu, předejte dotaz pracovníkovi pojišťovny."
+      ],
+      "open_questions_for_expert": [
+        "Potvrdit pro scénář „Odeslání fotografií poškození“ přesné doklady, použitelné výluky, rozsah asistence a případné povinnosti vůči ČSOB podle sjednaného produktu."
+      ],
+      "sources": [
+        {
+          "source_id": "CSOB_CLAIM",
+          "url": "https://www.csobpoj.cz/oznameni-pojistne-udalosti-cestovni-pojisteni",
+          "section": "Oznámení online, telefonicky a doplnění dokladů",
+          "last_checked_at": "2026-11-26",
+          "effective_from": null
+        }
+      ],
+      "source_ids": [
+        "CSOB_CLAIM"
+      ],
+      "evidence_level": "needs_expert_review",
+      "official_scenario_specific_evidence": false,
+      "procedure_completeness": "unresolved",
+      "priority": "P1",
+      "policy_version_check_required": true,
+      "applicable_policy_versions": [],
+      "review_status": "DRAFT",
+      "reviewed_by": null,
+      "last_verified_at": null,
+      "last_public_source_checked_at": "2026-11-26",
+      "approved_at": null,
+      "publication_status": "REVIEW_ONLY",
+      "retrieval_eligible": false,
+      "notes_for_reviewer": "Obecné pokyny od jiných institucí nejsou požadavky ČSOB. Ověřit každou povinnost a datum platnosti."
+    },
+    {
+      "id": "SUP_CLAIMS_007",
+      "document_type": "support_procedure",
+      "schema_version": "1.0",
+      "language": "cs",
+      "category": "claims_procedures",
+      "title": "Chybějící doklad o zaplacení",
+      "scenario": "Klient řeší situaci: chybějící doklad o zaplacení. Potřebuje praktický, ověřený postup bez předčasného příslibu plnění.",
+      "intent_tag": "claim_no_receipt",
+      "question_variations": [
+        "Ztratil jsem účtenku za ošetření.",
+        "Nemám originál faktury.",
+        "Můžu škodu nahlásit i tak?"
+      ],
+      "conditions": [
+        "Postup posuzovat podle země události, konkrétního dopravce nebo poskytovatele služby a verze smlouvy."
+      ],
+      "immediate_steps": [
+        {
+          "text": "Pro oznámení škody si připravte číslo smlouvy nebo údaje o pojištěné osobě, datum, místo a popis události.",
+          "requirement_type": "recommended",
+          "evidence_level": "official_insurer",
+          "source_ids": [
+            "CSOB_CLAIM"
+          ],
+          "condition": null
+        },
+        {
+          "text": "Škodu lze nahlásit přes oficiální online formulář ČSOB Pojišťovny nebo telefonicky na +420 466 100 777.",
+          "requirement_type": "recommended",
+          "evidence_level": "official_insurer",
+          "source_ids": [
+            "CSOB_CLAIM"
+          ],
+          "condition": null
+        },
+        {
+          "text": "Oznámení události neodkládejte jen kvůli chybějícím lékařským dokladům; podle ČSOB je možné je přiložit později.",
+          "requirement_type": "recommended",
+          "evidence_level": "official_insurer",
+          "source_ids": [
+            "CSOB_MED"
+          ],
+          "condition": "Pokud jde o škodu z úrazu nebo nemoci v zahraničí."
+        }
+      ],
+      "required_documents": [],
+      "recommended_documents": [
+        {
+          "name": "Lékařská zpráva, případně propouštěcí zpráva.",
+          "requirement_type": "recommended",
+          "source_ids": [
+            "CSOB_MED"
+          ]
+        },
+        {
+          "name": "Vyúčtování a doklady o úhradě léčby a léků.",
+          "requirement_type": "recommended",
+          "source_ids": [
+            "CSOB_MED"
+          ]
+        }
+      ],
+      "police_involvement": {
+        "status": "not_established",
+        "guidance": "Z dostupných zdrojů nevyplývá jednotná povinnost pořídit policejní protokol právě pro tento scénář.",
+        "source_ids": [],
+        "needs_expert_review": true
+      },
+      "clarifying_questions": [
+        "O jaký typ škody a jaké datum události jde?",
+        "Byla už událost nahlášena a máte její evidenční číslo?"
+      ],
+      "coverage_considerations": [
+        "Proces přijetí hlášení není rozhodnutím o pojistném krytí; rozhodují konkrétní smlouva a zjištěné okolnosti.",
+        "U aktuálních webových doporučení je nutné ověřit soulad s verzí pojistných podmínek použitelnou pro smlouvu."
+      ],
+      "escalation_conditions": [
+        "Pokud potřebujete závazné rozhodnutí o krytí, přesný seznam povinných dokladů nebo výjimku z postupu, předejte dotaz pracovníkovi pojišťovny."
+      ],
+      "open_questions_for_expert": [
+        "Potvrdit pro scénář „Chybějící doklad o zaplacení“ přesné doklady, použitelné výluky, rozsah asistence a případné povinnosti vůči ČSOB podle sjednaného produktu."
+      ],
+      "sources": [
+        {
+          "source_id": "CSOB_MED",
+          "url": "https://www.csobpoj.cz/skody-a-pojistne-udalosti/co-delat-pri-urazu-nebo-nemoci-v-zahranici",
+          "section": "Záchrana života; Asistence; Dokumentace; Oznámení",
+          "last_checked_at": "2026-11-26",
+          "effective_from": null
+        },
+        {
+          "source_id": "CSOB_CLAIM",
+          "url": "https://www.csobpoj.cz/oznameni-pojistne-udalosti-cestovni-pojisteni",
+          "section": "Oznámení online, telefonicky a doplnění dokladů",
+          "last_checked_at": "2026-11-26",
+          "effective_from": null
+        }
+      ],
+      "source_ids": [
+        "CSOB_MED",
+        "CSOB_CLAIM"
+      ],
+      "evidence_level": "needs_expert_review",
+      "official_scenario_specific_evidence": false,
+      "procedure_completeness": "unresolved",
+      "priority": "P1",
+      "policy_version_check_required": true,
+      "applicable_policy_versions": [],
+      "review_status": "DRAFT",
+      "reviewed_by": null,
+      "last_verified_at": null,
+      "last_public_source_checked_at": "2026-11-26",
+      "approved_at": null,
+      "publication_status": "REVIEW_ONLY",
+      "retrieval_eligible": false,
+      "notes_for_reviewer": "Obecné pokyny od jiných institucí nejsou požadavky ČSOB. Ověřit každou povinnost a datum platnosti."
+    },
+    {
+      "id": "SUP_CLAIMS_008",
+      "document_type": "support_procedure",
+      "schema_version": "1.0",
+      "language": "cs",
+      "category": "claims_procedures",
+      "title": "Dodatečné dodání lékařské zprávy",
+      "scenario": "Klient řeší situaci: dodatečné dodání lékařské zprávy. Potřebuje praktický, ověřený postup bez předčasného příslibu plnění.",
+      "intent_tag": "claim_add_med",
+      "question_variations": [
+        "Lékařská zpráva mi přijde až později.",
+        "Nemám všechny zdravotní dokumenty.",
+        "Můžu je přidat po odeslání hlášení?"
+      ],
+      "conditions": [
+        "Postup posuzovat podle země události, konkrétního dopravce nebo poskytovatele služby a verze smlouvy."
+      ],
+      "immediate_steps": [
+        {
+          "text": "Pro oznámení škody si připravte číslo smlouvy nebo údaje o pojištěné osobě, datum, místo a popis události.",
+          "requirement_type": "recommended",
+          "evidence_level": "official_insurer",
+          "source_ids": [
+            "CSOB_CLAIM"
+          ],
+          "condition": null
+        },
+        {
+          "text": "Škodu lze nahlásit přes oficiální online formulář ČSOB Pojišťovny nebo telefonicky na +420 466 100 777.",
+          "requirement_type": "recommended",
+          "evidence_level": "official_insurer",
+          "source_ids": [
+            "CSOB_CLAIM"
+          ],
+          "condition": null
+        },
+        {
+          "text": "Oznámení události neodkládejte jen kvůli chybějícím lékařským dokladům; podle ČSOB je možné je přiložit později.",
+          "requirement_type": "recommended",
+          "evidence_level": "official_insurer",
+          "source_ids": [
+            "CSOB_MED"
+          ],
+          "condition": "Pokud jde o škodu z úrazu nebo nemoci v zahraničí."
+        }
+      ],
+      "required_documents": [],
+      "recommended_documents": [
+        {
+          "name": "Lékařská zpráva, případně propouštěcí zpráva.",
+          "requirement_type": "recommended",
+          "source_ids": [
+            "CSOB_MED"
+          ]
+        },
+        {
+          "name": "Vyúčtování a doklady o úhradě léčby a léků.",
+          "requirement_type": "recommended",
+          "source_ids": [
+            "CSOB_MED"
+          ]
+        }
+      ],
+      "police_involvement": {
+        "status": "not_established",
+        "guidance": "Z dostupných zdrojů nevyplývá jednotná povinnost pořídit policejní protokol právě pro tento scénář.",
+        "source_ids": [],
+        "needs_expert_review": true
+      },
+      "clarifying_questions": [
+        "O jaký typ škody a jaké datum události jde?",
+        "Byla už událost nahlášena a máte její evidenční číslo?"
+      ],
+      "coverage_considerations": [
+        "Proces přijetí hlášení není rozhodnutím o pojistném krytí; rozhodují konkrétní smlouva a zjištěné okolnosti.",
+        "U aktuálních webových doporučení je nutné ověřit soulad s verzí pojistných podmínek použitelnou pro smlouvu."
+      ],
+      "escalation_conditions": [
+        "Pokud potřebujete závazné rozhodnutí o krytí, přesný seznam povinných dokladů nebo výjimku z postupu, předejte dotaz pracovníkovi pojišťovny."
+      ],
+      "open_questions_for_expert": [
+        "Potvrdit pro scénář „Dodatečné dodání lékařské zprávy“ přesné doklady, použitelné výluky, rozsah asistence a případné povinnosti vůči ČSOB podle sjednaného produktu."
+      ],
+      "sources": [
+        {
+          "source_id": "CSOB_MED",
+          "url": "https://www.csobpoj.cz/skody-a-pojistne-udalosti/co-delat-pri-urazu-nebo-nemoci-v-zahranici",
+          "section": "Záchrana života; Asistence; Dokumentace; Oznámení",
+          "last_checked_at": "2026-11-26",
+          "effective_from": null
+        },
+        {
+          "source_id": "CSOB_CLAIM",
+          "url": "https://www.csobpoj.cz/oznameni-pojistne-udalosti-cestovni-pojisteni",
+          "section": "Oznámení online, telefonicky a doplnění dokladů",
+          "last_checked_at": "2026-11-26",
+          "effective_from": null
+        }
+      ],
+      "source_ids": [
+        "CSOB_MED",
+        "CSOB_CLAIM"
+      ],
+      "evidence_level": "official_insurer",
+      "official_scenario_specific_evidence": true,
+      "procedure_completeness": "partial",
+      "priority": "P1",
+      "policy_version_check_required": true,
+      "applicable_policy_versions": [],
+      "review_status": "DRAFT",
+      "reviewed_by": null,
+      "last_verified_at": null,
+      "last_public_source_checked_at": "2026-11-26",
+      "approved_at": null,
+      "publication_status": "REVIEW_ONLY",
+      "retrieval_eligible": false,
+      "notes_for_reviewer": "Obecné pokyny od jiných institucí nejsou požadavky ČSOB. Ověřit každou povinnost a datum platnosti."
+    },
+    {
+      "id": "SUP_CLAIMS_009",
+      "document_type": "support_procedure",
+      "schema_version": "1.0",
+      "language": "cs",
+      "category": "claims_procedures",
+      "title": "Krádež bez policejního protokolu",
+      "scenario": "Klient řeší situaci: krádež bez policejního protokolu. Potřebuje praktický, ověřený postup bez předčasného příslibu plnění.",
+      "intent_tag": "claim_theft_no_police",
+      "question_variations": [
+        "Batoh mi ukradli, ale nemám policejní zápis.",
+        "Policii jsem nevolal, už jsem doma.",
+        "Může to ovlivnit posouzení škody?"
+      ],
+      "conditions": [
+        "Postup posuzovat podle země události, konkrétního dopravce nebo poskytovatele služby a verze smlouvy."
+      ],
+      "immediate_steps": [
+        {
+          "text": "Pro oznámení škody si připravte číslo smlouvy nebo údaje o pojištěné osobě, datum, místo a popis události.",
+          "requirement_type": "recommended",
+          "evidence_level": "official_insurer",
+          "source_ids": [
+            "CSOB_CLAIM"
+          ],
+          "condition": null
+        },
+        {
+          "text": "Škodu lze nahlásit přes oficiální online formulář ČSOB Pojišťovny nebo telefonicky na +420 466 100 777.",
+          "requirement_type": "recommended",
+          "evidence_level": "official_insurer",
+          "source_ids": [
+            "CSOB_CLAIM"
+          ],
+          "condition": null
+        },
+        {
+          "text": "Při krádeži zavazadel VPP CP 2021 stanovují neprodlené ohlášení místní policii a vyžádání policejního protokolu; ověřte verzi podmínek pro vaši smlouvu.",
+          "requirement_type": "contractual_version_specific",
+          "evidence_level": "official_insurer",
+          "source_ids": [
+            "CSOB_VPP2021"
+          ],
+          "condition": null
+        }
+      ],
+      "required_documents": [
+        {
+          "name": "Policejní protokol o krádeži zavazadel podle VPP CP 2021.",
+          "requirement_type": "contractual_version_specific",
+          "source_ids": [
+            "CSOB_VPP2021"
+          ]
+        }
+      ],
+      "recommended_documents": [],
+      "police_involvement": {
+        "status": "required_by_VPP_CP_2021_for_baggage_theft",
+        "guidance": "VPP CP 2021 u krádeže zavazadel stanovují ohlášení místní policii a policejní protokol; ověřte použitelnost dané verze.",
+        "source_ids": [
+          "CSOB_VPP2021"
+        ],
+        "needs_expert_review": true
+      },
+      "clarifying_questions": [
+        "O jaký typ škody a jaké datum události jde?",
+        "Byla už událost nahlášena a máte její evidenční číslo?"
+      ],
+      "coverage_considerations": [
+        "Proces přijetí hlášení není rozhodnutím o pojistném krytí; rozhodují konkrétní smlouva a zjištěné okolnosti.",
+        "U aktuálních webových doporučení je nutné ověřit soulad s verzí pojistných podmínek použitelnou pro smlouvu."
+      ],
+      "escalation_conditions": [
+        "Situace vyžaduje individuální posouzení odborným pracovníkem; neslibujte pojistné plnění ani konkrétní výjimku.",
+        "Při bezprostředním nebezpečí nebo závažném zdravotním stavu má přednost přivolání místní pomoci.",
+        "Pokud potřebujete závazné rozhodnutí o krytí, přesný seznam povinných dokladů nebo výjimku z postupu, předejte dotaz pracovníkovi pojišťovny."
+      ],
+      "open_questions_for_expert": [
+        "Zjistit, jak ČSOB posuzuje prokazatelnou nemožnost získat policejní protokol po krádeži."
+      ],
+      "sources": [
+        {
+          "source_id": "CSOB_VPP2021",
+          "url": "https://www.csobpoj.cz/documents/10332/5083102/11N9393%2BVPP%2BCP%2B2021_form%C3%A1t%2BA4_CZ_v%C4%8Detn%C4%9B%2Boce%C5%88ovac%C3%ADch%2Btabulek_final_PDF-A.pdf/91a13cf6-8af5-00b8-784b-2f4f65ab34d0?t=1714117917863",
+          "section": "Pokyny pro klienta (strana 2) a jednotlivá ustanovení VPP CP 2021",
+          "last_checked_at": "2026-11-26",
+          "effective_from": "2021-04-01"
+        },
+        {
+          "source_id": "CSOB_CLAIM",
+          "url": "https://www.csobpoj.cz/oznameni-pojistne-udalosti-cestovni-pojisteni",
+          "section": "Oznámení online, telefonicky a doplnění dokladů",
+          "last_checked_at": "2026-11-26",
+          "effective_from": null
+        }
+      ],
+      "source_ids": [
+        "CSOB_VPP2021",
+        "CSOB_CLAIM"
+      ],
+      "evidence_level": "needs_expert_review",
+      "official_scenario_specific_evidence": false,
+      "procedure_completeness": "unresolved",
+      "priority": "P0",
+      "policy_version_check_required": true,
+      "applicable_policy_versions": [],
+      "review_status": "DRAFT",
+      "reviewed_by": null,
+      "last_verified_at": null,
+      "last_public_source_checked_at": "2026-11-26",
+      "approved_at": null,
+      "publication_status": "REVIEW_ONLY",
+      "retrieval_eligible": false,
+      "notes_for_reviewer": "Obecné pokyny od jiných institucí nejsou požadavky ČSOB. Ověřit každou povinnost a datum platnosti."
+    },
+    {
+      "id": "SUP_CLAIMS_010",
+      "document_type": "support_procedure",
+      "schema_version": "1.0",
+      "language": "cs",
+      "category": "claims_procedures",
+      "title": "Nechtěně zapomenutá věc bez policejního záznamu",
+      "scenario": "Klient řeší situaci: nechtěně zapomenutá věc bez policejního záznamu. Potřebuje praktický, ověřený postup bez předčasného příslibu plnění.",
+      "intent_tag": "claim_forgotten_police",
+      "question_variations": [
+        "Kufr jsem zapomněl, žádný protokol nemám.",
+        "Věc nebyla ukradená, jen jsem ji ztratil.",
+        "Musím zpětně na policii?"
+      ],
+      "conditions": [
+        "Postup posuzovat podle země události, konkrétního dopravce nebo poskytovatele služby a verze smlouvy."
+      ],
+      "immediate_steps": [
+        {
+          "text": "Pro oznámení škody si připravte číslo smlouvy nebo údaje o pojištěné osobě, datum, místo a popis události.",
+          "requirement_type": "recommended",
+          "evidence_level": "official_insurer",
+          "source_ids": [
+            "CSOB_CLAIM"
+          ],
+          "condition": null
+        },
+        {
+          "text": "Škodu lze nahlásit přes oficiální online formulář ČSOB Pojišťovny nebo telefonicky na +420 466 100 777.",
+          "requirement_type": "recommended",
+          "evidence_level": "official_insurer",
+          "source_ids": [
+            "CSOB_CLAIM"
+          ],
+          "condition": null
+        }
+      ],
+      "required_documents": [],
+      "recommended_documents": [],
+      "police_involvement": {
+        "status": "not_established",
+        "guidance": "Z dostupných zdrojů nevyplývá jednotná povinnost pořídit policejní protokol právě pro tento scénář.",
+        "source_ids": [],
+        "needs_expert_review": true
+      },
+      "clarifying_questions": [
+        "O jaký typ škody a jaké datum události jde?",
+        "Byla už událost nahlášena a máte její evidenční číslo?"
+      ],
+      "coverage_considerations": [
+        "Proces přijetí hlášení není rozhodnutím o pojistném krytí; rozhodují konkrétní smlouva a zjištěné okolnosti.",
+        "U aktuálních webových doporučení je nutné ověřit soulad s verzí pojistných podmínek použitelnou pro smlouvu."
+      ],
+      "escalation_conditions": [
+        "Pokud potřebujete závazné rozhodnutí o krytí, přesný seznam povinných dokladů nebo výjimku z postupu, předejte dotaz pracovníkovi pojišťovny."
+      ],
+      "open_questions_for_expert": [
+        "Potvrdit, zda a kdy ČSOB požaduje policejní protokol u pouhého zapomenutí věci bez podezření na krádež."
+      ],
+      "sources": [
+        {
+          "source_id": "CSOB_VPP2021",
+          "url": "https://www.csobpoj.cz/documents/10332/5083102/11N9393%2BVPP%2BCP%2B2021_form%C3%A1t%2BA4_CZ_v%C4%8Detn%C4%9B%2Boce%C5%88ovac%C3%ADch%2Btabulek_final_PDF-A.pdf/91a13cf6-8af5-00b8-784b-2f4f65ab34d0?t=1714117917863",
+          "section": "Pokyny pro klienta (strana 2) a jednotlivá ustanovení VPP CP 2021",
+          "last_checked_at": "2026-11-26",
+          "effective_from": "2021-04-01"
+        },
+        {
+          "source_id": "CSOB_CLAIM",
+          "url": "https://www.csobpoj.cz/oznameni-pojistne-udalosti-cestovni-pojisteni",
+          "section": "Oznámení online, telefonicky a doplnění dokladů",
+          "last_checked_at": "2026-11-26",
+          "effective_from": null
+        }
+      ],
+      "source_ids": [
+        "CSOB_VPP2021",
+        "CSOB_CLAIM"
+      ],
+      "evidence_level": "needs_expert_review",
+      "official_scenario_specific_evidence": false,
+      "procedure_completeness": "unresolved",
+      "priority": "P1",
+      "policy_version_check_required": true,
+      "applicable_policy_versions": [],
+      "review_status": "DRAFT",
+      "reviewed_by": null,
+      "last_verified_at": null,
+      "last_public_source_checked_at": "2026-11-26",
+      "approved_at": null,
+      "publication_status": "REVIEW_ONLY",
+      "retrieval_eligible": false,
+      "notes_for_reviewer": "Obecné pokyny od jiných institucí nejsou požadavky ČSOB. Ověřit každou povinnost a datum platnosti."
+    },
+    {
+      "id": "SUP_CLAIMS_011",
+      "document_type": "support_procedure",
+      "schema_version": "1.0",
+      "language": "cs",
+      "category": "claims_procedures",
+      "title": "Sledování stavu již nahlášené škody",
+      "scenario": "Klient řeší situaci: sledování stavu již nahlášené škody. Potřebuje praktický, ověřený postup bez předčasného příslibu plnění.",
+      "intent_tag": "claim_status",
+      "question_variations": [
+        "V jakém stavu je moje škoda?",
+        "Už jsem hlášení poslal a nic nevím.",
+        "Kde vidím průběh vyřízení?"
+      ],
+      "conditions": [
+        "Postup posuzovat podle země události, konkrétního dopravce nebo poskytovatele služby a verze smlouvy."
+      ],
+      "immediate_steps": [
+        {
+          "text": "Pro oznámení škody si připravte číslo smlouvy nebo údaje o pojištěné osobě, datum, místo a popis události.",
+          "requirement_type": "recommended",
+          "evidence_level": "official_insurer",
+          "source_ids": [
+            "CSOB_CLAIM"
+          ],
+          "condition": null
+        },
+        {
+          "text": "Škodu lze nahlásit přes oficiální online formulář ČSOB Pojišťovny nebo telefonicky na +420 466 100 777.",
+          "requirement_type": "recommended",
+          "evidence_level": "official_insurer",
+          "source_ids": [
+            "CSOB_CLAIM"
+          ],
+          "condition": null
+        },
+        {
+          "text": "Průběh šetření škody je podle ČSOB možné sledovat online v klientské zóně.",
+          "requirement_type": "recommended",
+          "evidence_level": "official_insurer",
+          "source_ids": [
+            "CSOB_CLAIM_GENERAL"
+          ],
+          "condition": null
+        }
+      ],
+      "required_documents": [],
+      "recommended_documents": [],
+      "police_involvement": {
+        "status": "not_established",
+        "guidance": "Z dostupných zdrojů nevyplývá jednotná povinnost pořídit policejní protokol právě pro tento scénář.",
+        "source_ids": [],
+        "needs_expert_review": true
+      },
+      "clarifying_questions": [
+        "O jaký typ škody a jaké datum události jde?",
+        "Byla už událost nahlášena a máte její evidenční číslo?"
+      ],
+      "coverage_considerations": [
+        "Proces přijetí hlášení není rozhodnutím o pojistném krytí; rozhodují konkrétní smlouva a zjištěné okolnosti.",
+        "U aktuálních webových doporučení je nutné ověřit soulad s verzí pojistných podmínek použitelnou pro smlouvu."
+      ],
+      "escalation_conditions": [
+        "Pokud potřebujete závazné rozhodnutí o krytí, přesný seznam povinných dokladů nebo výjimku z postupu, předejte dotaz pracovníkovi pojišťovny."
+      ],
+      "open_questions_for_expert": [
+        "Potvrdit pro scénář „Sledování stavu již nahlášené škody“ přesné doklady, použitelné výluky, rozsah asistence a případné povinnosti vůči ČSOB podle sjednaného produktu."
+      ],
+      "sources": [
+        {
+          "source_id": "CSOB_CLAIM_GENERAL",
+          "url": "https://www.csobpoj.cz/skody-a-pojistne-udalosti/jak-oznamit-skodu",
+          "section": "Šetření škody; Stav škodní události",
+          "last_checked_at": "2026-11-26",
+          "effective_from": null
+        },
+        {
+          "source_id": "CSOB_CLAIM",
+          "url": "https://www.csobpoj.cz/oznameni-pojistne-udalosti-cestovni-pojisteni",
+          "section": "Oznámení online, telefonicky a doplnění dokladů",
+          "last_checked_at": "2026-11-26",
+          "effective_from": null
+        }
+      ],
+      "source_ids": [
+        "CSOB_CLAIM_GENERAL",
+        "CSOB_CLAIM"
+      ],
+      "evidence_level": "official_insurer",
+      "official_scenario_specific_evidence": true,
+      "procedure_completeness": "partial",
+      "priority": "P1",
+      "policy_version_check_required": true,
+      "applicable_policy_versions": [],
+      "review_status": "DRAFT",
+      "reviewed_by": null,
+      "last_verified_at": null,
+      "last_public_source_checked_at": "2026-11-26",
+      "approved_at": null,
+      "publication_status": "REVIEW_ONLY",
+      "retrieval_eligible": false,
+      "notes_for_reviewer": "Obecné pokyny od jiných institucí nejsou požadavky ČSOB. Ověřit každou povinnost a datum platnosti."
+    },
+    {
+      "id": "SUP_CLAIMS_012",
+      "document_type": "support_procedure",
+      "schema_version": "1.0",
+      "language": "cs",
+      "category": "claims_procedures",
+      "title": "Pojišťovna vyžádala další dokumenty",
+      "scenario": "Klient řeší situaci: pojišťovna vyžádala další dokumenty. Potřebuje praktický, ověřený postup bez předčasného příslibu plnění.",
+      "intent_tag": "claim_supplement",
+      "question_variations": [
+        "Přišel mi e-mail, že chybí podklady.",
+        "Likvidátor chce dodat další dokument.",
+        "Kam je mám nahrát?"
+      ],
+      "conditions": [
+        "Postup posuzovat podle země události, konkrétního dopravce nebo poskytovatele služby a verze smlouvy."
+      ],
+      "immediate_steps": [
+        {
+          "text": "Pro oznámení škody si připravte číslo smlouvy nebo údaje o pojištěné osobě, datum, místo a popis události.",
+          "requirement_type": "recommended",
+          "evidence_level": "official_insurer",
+          "source_ids": [
+            "CSOB_CLAIM"
+          ],
+          "condition": null
+        },
+        {
+          "text": "Škodu lze nahlásit přes oficiální online formulář ČSOB Pojišťovny nebo telefonicky na +420 466 100 777.",
+          "requirement_type": "recommended",
+          "evidence_level": "official_insurer",
+          "source_ids": [
+            "CSOB_CLAIM"
+          ],
+          "condition": null
+        },
+        {
+          "text": "Doplňující dokumenty zašlete přednostně přes detail škody v odkazu doručeném e-mailem od ČSOB.",
+          "requirement_type": "recommended",
+          "evidence_level": "official_insurer",
+          "source_ids": [
+            "CSOB_CLAIM"
+          ],
+          "condition": null
+        }
+      ],
+      "required_documents": [],
+      "recommended_documents": [],
+      "police_involvement": {
+        "status": "not_established",
+        "guidance": "Z dostupných zdrojů nevyplývá jednotná povinnost pořídit policejní protokol právě pro tento scénář.",
+        "source_ids": [],
+        "needs_expert_review": true
+      },
+      "clarifying_questions": [
+        "O jaký typ škody a jaké datum události jde?",
+        "Byla už událost nahlášena a máte její evidenční číslo?"
+      ],
+      "coverage_considerations": [
+        "Proces přijetí hlášení není rozhodnutím o pojistném krytí; rozhodují konkrétní smlouva a zjištěné okolnosti.",
+        "U aktuálních webových doporučení je nutné ověřit soulad s verzí pojistných podmínek použitelnou pro smlouvu."
+      ],
+      "escalation_conditions": [
+        "Pokud potřebujete závazné rozhodnutí o krytí, přesný seznam povinných dokladů nebo výjimku z postupu, předejte dotaz pracovníkovi pojišťovny."
+      ],
+      "open_questions_for_expert": [
+        "Potvrdit pro scénář „Pojišťovna vyžádala další dokumenty“ přesné doklady, použitelné výluky, rozsah asistence a případné povinnosti vůči ČSOB podle sjednaného produktu."
+      ],
+      "sources": [
+        {
+          "source_id": "CSOB_CLAIM",
+          "url": "https://www.csobpoj.cz/oznameni-pojistne-udalosti-cestovni-pojisteni",
+          "section": "Oznámení online, telefonicky a doplnění dokladů",
+          "last_checked_at": "2026-11-26",
+          "effective_from": null
+        }
+      ],
+      "source_ids": [
+        "CSOB_CLAIM"
+      ],
+      "evidence_level": "official_insurer",
+      "official_scenario_specific_evidence": true,
+      "procedure_completeness": "partial",
+      "priority": "P1",
+      "policy_version_check_required": true,
+      "applicable_policy_versions": [],
+      "review_status": "DRAFT",
+      "reviewed_by": null,
+      "last_verified_at": null,
+      "last_public_source_checked_at": "2026-11-26",
+      "approved_at": null,
+      "publication_status": "REVIEW_ONLY",
+      "retrieval_eligible": false,
+      "notes_for_reviewer": "Obecné pokyny od jiných institucí nejsou požadavky ČSOB. Ověřit každou povinnost a datum platnosti."
+    },
+    {
+      "id": "SUP_CLAIMS_013",
+      "document_type": "support_procedure",
+      "schema_version": "1.0",
+      "language": "cs",
+      "category": "claims_procedures",
+      "title": "Ztracené evidenční číslo škody",
+      "scenario": "Klient řeší situaci: ztracené evidenční číslo škody. Potřebuje praktický, ověřený postup bez předčasného příslibu plnění.",
+      "intent_tag": "claim_number",
+      "question_variations": [
+        "Nemůžu najít číslo škodní události.",
+        "Ztratil jsem desetimístné číslo škody.",
+        "Jak se mám identifikovat?"
+      ],
+      "conditions": [
+        "Postup posuzovat podle země události, konkrétního dopravce nebo poskytovatele služby a verze smlouvy."
+      ],
+      "immediate_steps": [
+        {
+          "text": "Pro oznámení škody si připravte číslo smlouvy nebo údaje o pojištěné osobě, datum, místo a popis události.",
+          "requirement_type": "recommended",
+          "evidence_level": "official_insurer",
+          "source_ids": [
+            "CSOB_CLAIM"
+          ],
+          "condition": null
+        },
+        {
+          "text": "Škodu lze nahlásit přes oficiální online formulář ČSOB Pojišťovny nebo telefonicky na +420 466 100 777.",
+          "requirement_type": "recommended",
+          "evidence_level": "official_insurer",
+          "source_ids": [
+            "CSOB_CLAIM"
+          ],
+          "condition": null
+        },
+        {
+          "text": "Doplňující dokumenty zašlete přednostně přes detail škody v odkazu doručeném e-mailem od ČSOB.",
+          "requirement_type": "recommended",
+          "evidence_level": "official_insurer",
+          "source_ids": [
+            "CSOB_CLAIM"
+          ],
+          "condition": null
+        },
+        {
+          "text": "Při registraci škody ČSOB přiděluje desetimístné evidenční číslo, které usnadňuje další komunikaci.",
+          "requirement_type": "recommended",
+          "evidence_level": "official_insurer",
+          "source_ids": [
+            "CSOB_CLAIM"
+          ],
+          "condition": null
+        }
+      ],
+      "required_documents": [],
+      "recommended_documents": [],
+      "police_involvement": {
+        "status": "not_established",
+        "guidance": "Z dostupných zdrojů nevyplývá jednotná povinnost pořídit policejní protokol právě pro tento scénář.",
+        "source_ids": [],
+        "needs_expert_review": true
+      },
+      "clarifying_questions": [
+        "O jaký typ škody a jaké datum události jde?",
+        "Byla už událost nahlášena a máte její evidenční číslo?"
+      ],
+      "coverage_considerations": [
+        "Proces přijetí hlášení není rozhodnutím o pojistném krytí; rozhodují konkrétní smlouva a zjištěné okolnosti.",
+        "U aktuálních webových doporučení je nutné ověřit soulad s verzí pojistných podmínek použitelnou pro smlouvu."
+      ],
+      "escalation_conditions": [
+        "Pokud potřebujete závazné rozhodnutí o krytí, přesný seznam povinných dokladů nebo výjimku z postupu, předejte dotaz pracovníkovi pojišťovny."
+      ],
+      "open_questions_for_expert": [
+        "Potvrdit pro scénář „Ztracené evidenční číslo škody“ přesné doklady, použitelné výluky, rozsah asistence a případné povinnosti vůči ČSOB podle sjednaného produktu."
+      ],
+      "sources": [
+        {
+          "source_id": "CSOB_CLAIM",
+          "url": "https://www.csobpoj.cz/oznameni-pojistne-udalosti-cestovni-pojisteni",
+          "section": "Oznámení online, telefonicky a doplnění dokladů",
+          "last_checked_at": "2026-11-26",
+          "effective_from": null
+        }
+      ],
+      "source_ids": [
+        "CSOB_CLAIM"
+      ],
+      "evidence_level": "needs_expert_review",
+      "official_scenario_specific_evidence": false,
+      "procedure_completeness": "unresolved",
+      "priority": "P1",
+      "policy_version_check_required": true,
+      "applicable_policy_versions": [],
+      "review_status": "DRAFT",
+      "reviewed_by": null,
+      "last_verified_at": null,
+      "last_public_source_checked_at": "2026-11-26",
+      "approved_at": null,
+      "publication_status": "REVIEW_ONLY",
+      "retrieval_eligible": false,
+      "notes_for_reviewer": "Obecné pokyny od jiných institucí nejsou požadavky ČSOB. Ověřit každou povinnost a datum platnosti."
+    },
+    {
+      "id": "SUP_CLAIMS_014",
+      "document_type": "support_procedure",
+      "schema_version": "1.0",
+      "language": "cs",
+      "category": "claims_procedures",
+      "title": "Dlouhé čekání na vyřízení škody",
+      "scenario": "Klient řeší situaci: dlouhé čekání na vyřízení škody. Potřebuje praktický, ověřený postup bez předčasného příslibu plnění.",
+      "intent_tag": "claim_wait",
+      "question_variations": [
+        "Škodu řeší už dlouho.",
+        "Proč je moje pojistná událost pořád otevřená?",
+        "Můžu zjistit, co chybí?"
+      ],
+      "conditions": [
+        "Postup posuzovat podle země události, konkrétního dopravce nebo poskytovatele služby a verze smlouvy."
+      ],
+      "immediate_steps": [
+        {
+          "text": "Pro oznámení škody si připravte číslo smlouvy nebo údaje o pojištěné osobě, datum, místo a popis události.",
+          "requirement_type": "recommended",
+          "evidence_level": "official_insurer",
+          "source_ids": [
+            "CSOB_CLAIM"
+          ],
+          "condition": null
+        },
+        {
+          "text": "Škodu lze nahlásit přes oficiální online formulář ČSOB Pojišťovny nebo telefonicky na +420 466 100 777.",
+          "requirement_type": "recommended",
+          "evidence_level": "official_insurer",
+          "source_ids": [
+            "CSOB_CLAIM"
+          ],
+          "condition": null
+        },
+        {
+          "text": "Průběh šetření škody je podle ČSOB možné sledovat online v klientské zóně.",
+          "requirement_type": "recommended",
+          "evidence_level": "official_insurer",
+          "source_ids": [
+            "CSOB_CLAIM_GENERAL"
+          ],
+          "condition": null
+        }
+      ],
+      "required_documents": [],
+      "recommended_documents": [],
+      "police_involvement": {
+        "status": "not_established",
+        "guidance": "Z dostupných zdrojů nevyplývá jednotná povinnost pořídit policejní protokol právě pro tento scénář.",
+        "source_ids": [],
+        "needs_expert_review": true
+      },
+      "clarifying_questions": [
+        "O jaký typ škody a jaké datum události jde?",
+        "Byla už událost nahlášena a máte její evidenční číslo?"
+      ],
+      "coverage_considerations": [
+        "Proces přijetí hlášení není rozhodnutím o pojistném krytí; rozhodují konkrétní smlouva a zjištěné okolnosti.",
+        "U aktuálních webových doporučení je nutné ověřit soulad s verzí pojistných podmínek použitelnou pro smlouvu."
+      ],
+      "escalation_conditions": [
+        "Pokud potřebujete závazné rozhodnutí o krytí, přesný seznam povinných dokladů nebo výjimku z postupu, předejte dotaz pracovníkovi pojišťovny."
+      ],
+      "open_questions_for_expert": [
+        "Potvrdit pro scénář „Dlouhé čekání na vyřízení škody“ přesné doklady, použitelné výluky, rozsah asistence a případné povinnosti vůči ČSOB podle sjednaného produktu."
+      ],
+      "sources": [
+        {
+          "source_id": "CSOB_CLAIM_GENERAL",
+          "url": "https://www.csobpoj.cz/skody-a-pojistne-udalosti/jak-oznamit-skodu",
+          "section": "Šetření škody; Stav škodní události",
+          "last_checked_at": "2026-11-26",
+          "effective_from": null
+        },
+        {
+          "source_id": "CSOB_CLAIM",
+          "url": "https://www.csobpoj.cz/oznameni-pojistne-udalosti-cestovni-pojisteni",
+          "section": "Oznámení online, telefonicky a doplnění dokladů",
+          "last_checked_at": "2026-11-26",
+          "effective_from": null
+        }
+      ],
+      "source_ids": [
+        "CSOB_CLAIM_GENERAL",
+        "CSOB_CLAIM"
+      ],
+      "evidence_level": "needs_expert_review",
+      "official_scenario_specific_evidence": false,
+      "procedure_completeness": "unresolved",
+      "priority": "P1",
+      "policy_version_check_required": true,
+      "applicable_policy_versions": [],
+      "review_status": "DRAFT",
+      "reviewed_by": null,
+      "last_verified_at": null,
+      "last_public_source_checked_at": "2026-11-26",
+      "approved_at": null,
+      "publication_status": "REVIEW_ONLY",
+      "retrieval_eligible": false,
+      "notes_for_reviewer": "Obecné pokyny od jiných institucí nejsou požadavky ČSOB. Ověřit každou povinnost a datum platnosti."
+    },
+    {
+      "id": "SUP_CLAIMS_015",
+      "document_type": "support_procedure",
+      "schema_version": "1.0",
+      "language": "cs",
+      "category": "claims_procedures",
+      "title": "Zamítnuté pojistné plnění",
+      "scenario": "Klient řeší situaci: zamítnuté pojistné plnění. Potřebuje praktický, ověřený postup bez předčasného příslibu plnění.",
+      "intent_tag": "claim_rejected",
+      "question_variations": [
+        "Pojišťovna mi škodu zamítla.",
+        "Nesouhlasím s důvodem zamítnutí.",
+        "Jak požádat o přezkoumání?"
+      ],
+      "conditions": [
+        "Postup posuzovat podle země události, konkrétního dopravce nebo poskytovatele služby a verze smlouvy."
+      ],
+      "immediate_steps": [
+        {
+          "text": "Pro oznámení škody si připravte číslo smlouvy nebo údaje o pojištěné osobě, datum, místo a popis události.",
+          "requirement_type": "recommended",
+          "evidence_level": "official_insurer",
+          "source_ids": [
+            "CSOB_CLAIM"
+          ],
+          "condition": null
+        },
+        {
+          "text": "Škodu lze nahlásit přes oficiální online formulář ČSOB Pojišťovny nebo telefonicky na +420 466 100 777.",
+          "requirement_type": "recommended",
+          "evidence_level": "official_insurer",
+          "source_ids": [
+            "CSOB_CLAIM"
+          ],
+          "condition": null
+        }
+      ],
+      "required_documents": [],
+      "recommended_documents": [],
+      "police_involvement": {
+        "status": "not_established",
+        "guidance": "Z dostupných zdrojů nevyplývá jednotná povinnost pořídit policejní protokol právě pro tento scénář.",
+        "source_ids": [],
+        "needs_expert_review": true
+      },
+      "clarifying_questions": [
+        "O jaký typ škody a jaké datum události jde?",
+        "Byla už událost nahlášena a máte její evidenční číslo?"
+      ],
+      "coverage_considerations": [
+        "Proces přijetí hlášení není rozhodnutím o pojistném krytí; rozhodují konkrétní smlouva a zjištěné okolnosti.",
+        "U aktuálních webových doporučení je nutné ověřit soulad s verzí pojistných podmínek použitelnou pro smlouvu."
+      ],
+      "escalation_conditions": [
+        "Situace vyžaduje individuální posouzení odborným pracovníkem; neslibujte pojistné plnění ani konkrétní výjimku.",
+        "Pokud potřebujete závazné rozhodnutí o krytí, přesný seznam povinných dokladů nebo výjimku z postupu, předejte dotaz pracovníkovi pojišťovny."
+      ],
+      "open_questions_for_expert": [
+        "Potvrdit oficiální postup reklamace nebo přezkumu rozhodnutí k cestovnímu pojištění, příslušný kanál a lhůty."
+      ],
+      "sources": [
+        {
+          "source_id": "CSOB_CLAIM_GENERAL",
+          "url": "https://www.csobpoj.cz/skody-a-pojistne-udalosti/jak-oznamit-skodu",
+          "section": "Šetření škody; Stav škodní události",
+          "last_checked_at": "2026-11-26",
+          "effective_from": null
+        },
+        {
+          "source_id": "CSOB_CLAIM",
+          "url": "https://www.csobpoj.cz/oznameni-pojistne-udalosti-cestovni-pojisteni",
+          "section": "Oznámení online, telefonicky a doplnění dokladů",
+          "last_checked_at": "2026-11-26",
+          "effective_from": null
+        }
+      ],
+      "source_ids": [
+        "CSOB_CLAIM_GENERAL",
+        "CSOB_CLAIM"
+      ],
+      "evidence_level": "needs_expert_review",
+      "official_scenario_specific_evidence": false,
+      "procedure_completeness": "unresolved",
+      "priority": "P1",
+      "policy_version_check_required": true,
+      "applicable_policy_versions": [],
+      "review_status": "DRAFT",
+      "reviewed_by": null,
+      "last_verified_at": null,
+      "last_public_source_checked_at": "2026-11-26",
+      "approved_at": null,
+      "publication_status": "REVIEW_ONLY",
+      "retrieval_eligible": false,
+      "notes_for_reviewer": "Obecné pokyny od jiných institucí nejsou požadavky ČSOB. Ověřit každou povinnost a datum platnosti."
+    },
+    {
+      "id": "SUP_CLAIMS_016",
+      "document_type": "support_procedure",
+      "schema_version": "1.0",
+      "language": "cs",
+      "category": "claims_procedures",
+      "title": "Nesouhlas s vyplacenou částkou",
+      "scenario": "Klient řeší situaci: nesouhlas s vyplacenou částkou. Potřebuje praktický, ověřený postup bez předčasného příslibu plnění.",
+      "intent_tag": "claim_amount",
+      "question_variations": [
+        "Vyplatili mi méně, než jsem čekal.",
+        "S částkou plnění nesouhlasím.",
+        "Můžu požádat o vysvětlení výpočtu?"
+      ],
+      "conditions": [
+        "Postup posuzovat podle země události, konkrétního dopravce nebo poskytovatele služby a verze smlouvy."
+      ],
+      "immediate_steps": [
+        {
+          "text": "Pro oznámení škody si připravte číslo smlouvy nebo údaje o pojištěné osobě, datum, místo a popis události.",
+          "requirement_type": "recommended",
+          "evidence_level": "official_insurer",
+          "source_ids": [
+            "CSOB_CLAIM"
+          ],
+          "condition": null
+        },
+        {
+          "text": "Škodu lze nahlásit přes oficiální online formulář ČSOB Pojišťovny nebo telefonicky na +420 466 100 777.",
+          "requirement_type": "recommended",
+          "evidence_level": "official_insurer",
+          "source_ids": [
+            "CSOB_CLAIM"
+          ],
+          "condition": null
+        }
+      ],
+      "required_documents": [],
+      "recommended_documents": [],
+      "police_involvement": {
+        "status": "not_established",
+        "guidance": "Z dostupných zdrojů nevyplývá jednotná povinnost pořídit policejní protokol právě pro tento scénář.",
+        "source_ids": [],
+        "needs_expert_review": true
+      },
+      "clarifying_questions": [
+        "O jaký typ škody a jaké datum události jde?",
+        "Byla už událost nahlášena a máte její evidenční číslo?"
+      ],
+      "coverage_considerations": [
+        "Proces přijetí hlášení není rozhodnutím o pojistném krytí; rozhodují konkrétní smlouva a zjištěné okolnosti.",
+        "U aktuálních webových doporučení je nutné ověřit soulad s verzí pojistných podmínek použitelnou pro smlouvu."
+      ],
+      "escalation_conditions": [
+        "Situace vyžaduje individuální posouzení odborným pracovníkem; neslibujte pojistné plnění ani konkrétní výjimku.",
+        "Pokud potřebujete závazné rozhodnutí o krytí, přesný seznam povinných dokladů nebo výjimku z postupu, předejte dotaz pracovníkovi pojišťovny."
+      ],
+      "open_questions_for_expert": [
+        "Potvrdit oficiální postup reklamace nebo přezkumu rozhodnutí k cestovnímu pojištění, příslušný kanál a lhůty."
+      ],
+      "sources": [
+        {
+          "source_id": "CSOB_CLAIM_GENERAL",
+          "url": "https://www.csobpoj.cz/skody-a-pojistne-udalosti/jak-oznamit-skodu",
+          "section": "Šetření škody; Stav škodní události",
+          "last_checked_at": "2026-11-26",
+          "effective_from": null
+        },
+        {
+          "source_id": "CSOB_CLAIM",
+          "url": "https://www.csobpoj.cz/oznameni-pojistne-udalosti-cestovni-pojisteni",
+          "section": "Oznámení online, telefonicky a doplnění dokladů",
+          "last_checked_at": "2026-11-26",
+          "effective_from": null
+        }
+      ],
+      "source_ids": [
+        "CSOB_CLAIM_GENERAL",
+        "CSOB_CLAIM"
+      ],
+      "evidence_level": "needs_expert_review",
+      "official_scenario_specific_evidence": false,
+      "procedure_completeness": "unresolved",
+      "priority": "P1",
+      "policy_version_check_required": true,
+      "applicable_policy_versions": [],
+      "review_status": "DRAFT",
+      "reviewed_by": null,
+      "last_verified_at": null,
+      "last_public_source_checked_at": "2026-11-26",
+      "approved_at": null,
+      "publication_status": "REVIEW_ONLY",
+      "retrieval_eligible": false,
+      "notes_for_reviewer": "Obecné pokyny od jiných institucí nejsou požadavky ČSOB. Ověřit každou povinnost a datum platnosti."
+    },
+    {
+      "id": "SUP_CLAIMS_017",
+      "document_type": "support_procedure",
+      "schema_version": "1.0",
+      "language": "cs",
+      "category": "claims_procedures",
+      "title": "Současný nárok u aerolinky a pojišťovny",
+      "scenario": "Klient řeší situaci: současný nárok u aerolinky a pojišťovny. Potřebuje praktický, ověřený postup bez předčasného příslibu plnění.",
+      "intent_tag": "claim_double",
+      "question_variations": [
+        "Aerolinka mi zaplatila část škody.",
+        "Můžu řešit kufr u dopravce i pojišťovny?",
+        "Musím oznámit dříve získanou náhradu?"
+      ],
+      "conditions": [
+        "Postup posuzovat podle země události, konkrétního dopravce nebo poskytovatele služby a verze smlouvy."
+      ],
+      "immediate_steps": [
+        {
+          "text": "Pro oznámení škody si připravte číslo smlouvy nebo údaje o pojištěné osobě, datum, místo a popis události.",
+          "requirement_type": "recommended",
+          "evidence_level": "official_insurer",
+          "source_ids": [
+            "CSOB_CLAIM"
+          ],
+          "condition": null
+        },
+        {
+          "text": "Škodu lze nahlásit přes oficiální online formulář ČSOB Pojišťovny nebo telefonicky na +420 466 100 777.",
+          "requirement_type": "recommended",
+          "evidence_level": "official_insurer",
+          "source_ids": [
+            "CSOB_CLAIM"
+          ],
+          "condition": null
+        }
+      ],
+      "required_documents": [],
+      "recommended_documents": [],
+      "police_involvement": {
+        "status": "not_established",
+        "guidance": "Z dostupných zdrojů nevyplývá jednotná povinnost pořídit policejní protokol právě pro tento scénář.",
+        "source_ids": [],
+        "needs_expert_review": true
+      },
+      "clarifying_questions": [
+        "O jaký typ škody a jaké datum události jde?",
+        "Byla už událost nahlášena a máte její evidenční číslo?"
+      ],
+      "coverage_considerations": [
+        "Proces přijetí hlášení není rozhodnutím o pojistném krytí; rozhodují konkrétní smlouva a zjištěné okolnosti.",
+        "U aktuálních webových doporučení je nutné ověřit soulad s verzí pojistných podmínek použitelnou pro smlouvu."
+      ],
+      "escalation_conditions": [
+        "Pokud potřebujete závazné rozhodnutí o krytí, přesný seznam povinných dokladů nebo výjimku z postupu, předejte dotaz pracovníkovi pojišťovny."
+      ],
+      "open_questions_for_expert": [
+        "Potvrdit pro scénář „Současný nárok u aerolinky a pojišťovny“ přesné doklady, použitelné výluky, rozsah asistence a případné povinnosti vůči ČSOB podle sjednaného produktu."
+      ],
+      "sources": [
+        {
+          "source_id": "CSOB_BAG",
+          "url": "https://www.csobpoj.cz/skody-a-pojistne-udalosti/ztraceny-nebo-zpozdeny-kufr",
+          "section": "Co dělat hned na letišti; Náhradní věci; Oznámení škody",
+          "last_checked_at": "2026-11-26",
+          "effective_from": null
+        },
+        {
+          "source_id": "CSOB_CLAIM",
+          "url": "https://www.csobpoj.cz/oznameni-pojistne-udalosti-cestovni-pojisteni",
+          "section": "Oznámení online, telefonicky a doplnění dokladů",
+          "last_checked_at": "2026-11-26",
+          "effective_from": null
+        }
+      ],
+      "source_ids": [
+        "CSOB_BAG",
+        "CSOB_CLAIM"
+      ],
+      "evidence_level": "needs_expert_review",
+      "official_scenario_specific_evidence": false,
+      "procedure_completeness": "unresolved",
+      "priority": "P1",
+      "policy_version_check_required": true,
+      "applicable_policy_versions": [],
+      "review_status": "DRAFT",
+      "reviewed_by": null,
+      "last_verified_at": null,
+      "last_public_source_checked_at": "2026-11-26",
+      "approved_at": null,
+      "publication_status": "REVIEW_ONLY",
+      "retrieval_eligible": false,
+      "notes_for_reviewer": "Obecné pokyny od jiných institucí nejsou požadavky ČSOB. Ověřit každou povinnost a datum platnosti."
+    },
+    {
+      "id": "SUP_CLAIMS_018",
+      "document_type": "support_procedure",
+      "schema_version": "1.0",
+      "language": "cs",
+      "category": "claims_procedures",
+      "title": "Škoda jiného pojištěného z rodinné smlouvy",
+      "scenario": "Klient řeší situaci: škoda jiného pojištěného z rodinné smlouvy. Potřebuje praktický, ověřený postup bez předčasného příslibu plnění.",
+      "intent_tag": "claim_other_person",
+      "question_variations": [
+        "Škoda se stala mé ženě, ne mně.",
+        "Můžu nahlásit škodu za dceru?",
+        "Čí údaje mám vyplnit?"
+      ],
+      "conditions": [
+        "Postup posuzovat podle země události, konkrétního dopravce nebo poskytovatele služby a verze smlouvy."
+      ],
+      "immediate_steps": [
+        {
+          "text": "Pro oznámení škody si připravte číslo smlouvy nebo údaje o pojištěné osobě, datum, místo a popis události.",
+          "requirement_type": "recommended",
+          "evidence_level": "official_insurer",
+          "source_ids": [
+            "CSOB_CLAIM"
+          ],
+          "condition": null
+        },
+        {
+          "text": "Škodu lze nahlásit přes oficiální online formulář ČSOB Pojišťovny nebo telefonicky na +420 466 100 777.",
+          "requirement_type": "recommended",
+          "evidence_level": "official_insurer",
+          "source_ids": [
+            "CSOB_CLAIM"
+          ],
+          "condition": null
+        },
+        {
+          "text": "ČSOB umožňuje online oznámení jedné události týkající se více pojištěných osob ze stejné smlouvy.",
+          "requirement_type": "recommended",
+          "evidence_level": "official_insurer",
+          "source_ids": [
+            "CSOB_CLAIM"
+          ],
+          "condition": "Pokud jde o stejnou příčinu škody a společnou smlouvu."
+        }
+      ],
+      "required_documents": [],
+      "recommended_documents": [],
+      "police_involvement": {
+        "status": "not_established",
+        "guidance": "Z dostupných zdrojů nevyplývá jednotná povinnost pořídit policejní protokol právě pro tento scénář.",
+        "source_ids": [],
+        "needs_expert_review": true
+      },
+      "clarifying_questions": [
+        "O jaký typ škody a jaké datum události jde?",
+        "Byla už událost nahlášena a máte její evidenční číslo?"
+      ],
+      "coverage_considerations": [
+        "Proces přijetí hlášení není rozhodnutím o pojistném krytí; rozhodují konkrétní smlouva a zjištěné okolnosti.",
+        "U aktuálních webových doporučení je nutné ověřit soulad s verzí pojistných podmínek použitelnou pro smlouvu."
+      ],
+      "escalation_conditions": [
+        "Pokud potřebujete závazné rozhodnutí o krytí, přesný seznam povinných dokladů nebo výjimku z postupu, předejte dotaz pracovníkovi pojišťovny."
+      ],
+      "open_questions_for_expert": [
+        "Potvrdit pro scénář „Škoda jiného pojištěného z rodinné smlouvy“ přesné doklady, použitelné výluky, rozsah asistence a případné povinnosti vůči ČSOB podle sjednaného produktu."
+      ],
+      "sources": [
+        {
+          "source_id": "CSOB_CLAIM",
+          "url": "https://www.csobpoj.cz/oznameni-pojistne-udalosti-cestovni-pojisteni",
+          "section": "Oznámení online, telefonicky a doplnění dokladů",
+          "last_checked_at": "2026-11-26",
+          "effective_from": null
+        }
+      ],
+      "source_ids": [
+        "CSOB_CLAIM"
+      ],
+      "evidence_level": "needs_expert_review",
+      "official_scenario_specific_evidence": false,
+      "procedure_completeness": "unresolved",
+      "priority": "P1",
+      "policy_version_check_required": true,
+      "applicable_policy_versions": [],
+      "review_status": "DRAFT",
+      "reviewed_by": null,
+      "last_verified_at": null,
+      "last_public_source_checked_at": "2026-11-26",
+      "approved_at": null,
+      "publication_status": "REVIEW_ONLY",
+      "retrieval_eligible": false,
+      "notes_for_reviewer": "Obecné pokyny od jiných institucí nejsou požadavky ČSOB. Ověřit každou povinnost a datum platnosti."
+    },
+    {
+      "id": "SUP_CLAIMS_019",
+      "document_type": "support_procedure",
+      "schema_version": "1.0",
+      "language": "cs",
+      "category": "claims_procedures",
+      "title": "Událost v jiném období platnosti smlouvy",
+      "scenario": "Klient řeší situaci: událost v jiném období platnosti smlouvy. Potřebuje praktický, ověřený postup bez předčasného příslibu plnění.",
+      "intent_tag": "claim_outside_dates",
+      "question_variations": [
+        "Stalo se to těsně před začátkem pojištění.",
+        "Škoda vznikla až po skončení pojistky.",
+        "Podle kterého data se to posuzuje?"
+      ],
+      "conditions": [
+        "Postup posuzovat podle země události, konkrétního dopravce nebo poskytovatele služby a verze smlouvy."
+      ],
+      "immediate_steps": [
+        {
+          "text": "Pro oznámení škody si připravte číslo smlouvy nebo údaje o pojištěné osobě, datum, místo a popis události.",
+          "requirement_type": "recommended",
+          "evidence_level": "official_insurer",
+          "source_ids": [
+            "CSOB_CLAIM"
+          ],
+          "condition": null
+        },
+        {
+          "text": "Škodu lze nahlásit přes oficiální online formulář ČSOB Pojišťovny nebo telefonicky na +420 466 100 777.",
+          "requirement_type": "recommended",
+          "evidence_level": "official_insurer",
+          "source_ids": [
+            "CSOB_CLAIM"
+          ],
+          "condition": null
+        }
+      ],
+      "required_documents": [],
+      "recommended_documents": [],
+      "police_involvement": {
+        "status": "not_established",
+        "guidance": "Z dostupných zdrojů nevyplývá jednotná povinnost pořídit policejní protokol právě pro tento scénář.",
+        "source_ids": [],
+        "needs_expert_review": true
+      },
+      "clarifying_questions": [
+        "O jaký typ škody a jaké datum události jde?",
+        "Byla už událost nahlášena a máte její evidenční číslo?"
+      ],
+      "coverage_considerations": [
+        "Proces přijetí hlášení není rozhodnutím o pojistném krytí; rozhodují konkrétní smlouva a zjištěné okolnosti.",
+        "U aktuálních webových doporučení je nutné ověřit soulad s verzí pojistných podmínek použitelnou pro smlouvu."
+      ],
+      "escalation_conditions": [
+        "Pokud potřebujete závazné rozhodnutí o krytí, přesný seznam povinných dokladů nebo výjimku z postupu, předejte dotaz pracovníkovi pojišťovny."
+      ],
+      "open_questions_for_expert": [
+        "Potvrdit pro scénář „Událost v jiném období platnosti smlouvy“ přesné doklady, použitelné výluky, rozsah asistence a případné povinnosti vůči ČSOB podle sjednaného produktu."
+      ],
+      "sources": [
+        {
+          "source_id": "CSOB_VPP2021",
+          "url": "https://www.csobpoj.cz/documents/10332/5083102/11N9393%2BVPP%2BCP%2B2021_form%C3%A1t%2BA4_CZ_v%C4%8Detn%C4%9B%2Boce%C5%88ovac%C3%ADch%2Btabulek_final_PDF-A.pdf/91a13cf6-8af5-00b8-784b-2f4f65ab34d0?t=1714117917863",
+          "section": "Pokyny pro klienta (strana 2) a jednotlivá ustanovení VPP CP 2021",
+          "last_checked_at": "2026-11-26",
+          "effective_from": "2021-04-01"
+        },
+        {
+          "source_id": "CSOB_CLAIM",
+          "url": "https://www.csobpoj.cz/oznameni-pojistne-udalosti-cestovni-pojisteni",
+          "section": "Oznámení online, telefonicky a doplnění dokladů",
+          "last_checked_at": "2026-11-26",
+          "effective_from": null
+        }
+      ],
+      "source_ids": [
+        "CSOB_VPP2021",
+        "CSOB_CLAIM"
+      ],
+      "evidence_level": "needs_expert_review",
+      "official_scenario_specific_evidence": false,
+      "procedure_completeness": "unresolved",
+      "priority": "P1",
+      "policy_version_check_required": true,
+      "applicable_policy_versions": [],
+      "review_status": "DRAFT",
+      "reviewed_by": null,
+      "last_verified_at": null,
+      "last_public_source_checked_at": "2026-11-26",
+      "approved_at": null,
+      "publication_status": "REVIEW_ONLY",
+      "retrieval_eligible": false,
+      "notes_for_reviewer": "Obecné pokyny od jiných institucí nejsou požadavky ČSOB. Ověřit každou povinnost a datum platnosti."
+    },
+    {
+      "id": "SUP_CLAIMS_020",
+      "document_type": "support_procedure",
+      "schema_version": "1.0",
+      "language": "cs",
+      "category": "claims_procedures",
+      "title": "Určení použitelné verze pojistných podmínek",
+      "scenario": "Klient řeší situaci: určení použitelné verze pojistných podmínek. Potřebuje praktický, ověřený postup bez předčasného příslibu plnění.",
+      "intent_tag": "claim_version",
+      "question_variations": [
+        "Mám smlouvu z roku 2021.",
+        "Platí pro moji škodu staré nebo nové podmínky?",
+        "Jak zjistím verzi VPP?"
+      ],
+      "conditions": [
+        "Postup posuzovat podle země události, konkrétního dopravce nebo poskytovatele služby a verze smlouvy."
+      ],
+      "immediate_steps": [
+        {
+          "text": "Pro oznámení škody si připravte číslo smlouvy nebo údaje o pojištěné osobě, datum, místo a popis události.",
+          "requirement_type": "recommended",
+          "evidence_level": "official_insurer",
+          "source_ids": [
+            "CSOB_CLAIM"
+          ],
+          "condition": null
+        },
+        {
+          "text": "Škodu lze nahlásit přes oficiální online formulář ČSOB Pojišťovny nebo telefonicky na +420 466 100 777.",
+          "requirement_type": "recommended",
+          "evidence_level": "official_insurer",
+          "source_ids": [
+            "CSOB_CLAIM"
+          ],
+          "condition": null
+        },
+        {
+          "text": "Rozsah, osoby, datum a územní platnost pojištění posuzujte podle konkrétní smlouvy a jejího znění podmínek; samotný obecný webový popis nestačí.",
+          "requirement_type": "recommended",
+          "evidence_level": "official_insurer",
+          "source_ids": [
+            "CSOB_VPP2021"
+          ],
+          "condition": null
+        }
+      ],
+      "required_documents": [],
+      "recommended_documents": [],
+      "police_involvement": {
+        "status": "not_established",
+        "guidance": "Z dostupných zdrojů nevyplývá jednotná povinnost pořídit policejní protokol právě pro tento scénář.",
+        "source_ids": [],
+        "needs_expert_review": true
+      },
+      "clarifying_questions": [
+        "O jaký typ škody a jaké datum události jde?",
+        "Byla už událost nahlášena a máte její evidenční číslo?",
+        "Kdy byla smlouva uzavřena a jaké dokumenty byly její součástí?"
+      ],
+      "coverage_considerations": [
+        "Proces přijetí hlášení není rozhodnutím o pojistném krytí; rozhodují konkrétní smlouva a zjištěné okolnosti.",
+        "U aktuálních webových doporučení je nutné ověřit soulad s verzí pojistných podmínek použitelnou pro smlouvu."
+      ],
+      "escalation_conditions": [
+        "Pokud potřebujete závazné rozhodnutí o krytí, přesný seznam povinných dokladů nebo výjimku z postupu, předejte dotaz pracovníkovi pojišťovny."
+      ],
+      "open_questions_for_expert": [
+        "Potvrdit pro scénář „Určení použitelné verze pojistných podmínek“ přesné doklady, použitelné výluky, rozsah asistence a případné povinnosti vůči ČSOB podle sjednaného produktu."
+      ],
+      "sources": [
+        {
+          "source_id": "CSOB_VPP2021",
+          "url": "https://www.csobpoj.cz/documents/10332/5083102/11N9393%2BVPP%2BCP%2B2021_form%C3%A1t%2BA4_CZ_v%C4%8Detn%C4%9B%2Boce%C5%88ovac%C3%ADch%2Btabulek_final_PDF-A.pdf/91a13cf6-8af5-00b8-784b-2f4f65ab34d0?t=1714117917863",
+          "section": "Pokyny pro klienta (strana 2) a jednotlivá ustanovení VPP CP 2021",
+          "last_checked_at": "2026-11-26",
+          "effective_from": "2021-04-01"
+        },
+        {
+          "source_id": "CSOB_CLAIM",
+          "url": "https://www.csobpoj.cz/oznameni-pojistne-udalosti-cestovni-pojisteni",
+          "section": "Oznámení online, telefonicky a doplnění dokladů",
+          "last_checked_at": "2026-11-26",
+          "effective_from": null
+        }
+      ],
+      "source_ids": [
+        "CSOB_VPP2021",
+        "CSOB_CLAIM"
+      ],
+      "evidence_level": "needs_expert_review",
+      "official_scenario_specific_evidence": false,
+      "procedure_completeness": "unresolved",
+      "priority": "P1",
+      "policy_version_check_required": true,
+      "applicable_policy_versions": [],
+      "review_status": "DRAFT",
+      "reviewed_by": null,
+      "last_verified_at": null,
+      "last_public_source_checked_at": "2026-11-26",
+      "approved_at": null,
+      "publication_status": "REVIEW_ONLY",
+      "retrieval_eligible": false,
+      "notes_for_reviewer": "Obecné pokyny od jiných institucí nejsou požadavky ČSOB. Ověřit každou povinnost a datum platnosti."
+    },
+    {
+      "id": "SUP_CLAIMS_021",
+      "document_type": "support_procedure",
+      "schema_version": "1.0",
+      "language": "cs",
+      "category": "claims_procedures",
+      "title": "Stornopoplatky po zrušení cesty",
+      "scenario": "Klient řeší situaci: stornopoplatky po zrušení cesty. Potřebuje praktický, ověřený postup bez předčasného příslibu plnění.",
+      "intent_tag": "claim_storno",
+      "question_variations": [
+        "Musel jsem zrušit zaplacený zájezd.",
+        "Cestovka účtuje storno.",
+        "Co po mně bude pojišťovna chtít?"
+      ],
+      "conditions": [
+        "Postup posuzovat podle země události, konkrétního dopravce nebo poskytovatele služby a verze smlouvy."
+      ],
+      "immediate_steps": [
+        {
+          "text": "Pro oznámení škody si připravte číslo smlouvy nebo údaje o pojištěné osobě, datum, místo a popis události.",
+          "requirement_type": "recommended",
+          "evidence_level": "official_insurer",
+          "source_ids": [
+            "CSOB_CLAIM"
+          ],
+          "condition": null
+        },
+        {
+          "text": "Škodu lze nahlásit přes oficiální online formulář ČSOB Pojišťovny nebo telefonicky na +420 466 100 777.",
+          "requirement_type": "recommended",
+          "evidence_level": "official_insurer",
+          "source_ids": [
+            "CSOB_CLAIM"
+          ],
+          "condition": null
+        },
+        {
+          "text": "Pokyny VPP CP 2021 ke stornu uvádějí neprodlené písemné odstoupení od příslušné smlouvy o zájezdu nebo cestovní službě a doložení důvodu.",
+          "requirement_type": "contractual_version_specific",
+          "evidence_level": "official_insurer",
+          "source_ids": [
+            "CSOB_VPP2021"
+          ],
+          "condition": null
+        }
+      ],
+      "required_documents": [],
+      "recommended_documents": [
+        {
+          "name": "Doklad o odstoupení od cestovní služby a potvrzení důvodu storna podle použitelné pojistné smlouvy.",
+          "requirement_type": "recommended",
+          "source_ids": [
+            "CSOB_VPP2021"
+          ]
+        }
+      ],
+      "police_involvement": {
+        "status": "not_established",
+        "guidance": "Z dostupných zdrojů nevyplývá jednotná povinnost pořídit policejní protokol právě pro tento scénář.",
+        "source_ids": [],
+        "needs_expert_review": true
+      },
+      "clarifying_questions": [
+        "O jaký typ škody a jaké datum události jde?",
+        "Byla už událost nahlášena a máte její evidenční číslo?"
+      ],
+      "coverage_considerations": [
+        "Proces přijetí hlášení není rozhodnutím o pojistném krytí; rozhodují konkrétní smlouva a zjištěné okolnosti.",
+        "U aktuálních webových doporučení je nutné ověřit soulad s verzí pojistných podmínek použitelnou pro smlouvu."
+      ],
+      "escalation_conditions": [
+        "Pokud potřebujete závazné rozhodnutí o krytí, přesný seznam povinných dokladů nebo výjimku z postupu, předejte dotaz pracovníkovi pojišťovny."
+      ],
+      "open_questions_for_expert": [
+        "Potvrdit pro scénář „Stornopoplatky po zrušení cesty“ přesné doklady, použitelné výluky, rozsah asistence a případné povinnosti vůči ČSOB podle sjednaného produktu."
+      ],
+      "sources": [
+        {
+          "source_id": "CSOB_VPP2021",
+          "url": "https://www.csobpoj.cz/documents/10332/5083102/11N9393%2BVPP%2BCP%2B2021_form%C3%A1t%2BA4_CZ_v%C4%8Detn%C4%9B%2Boce%C5%88ovac%C3%ADch%2Btabulek_final_PDF-A.pdf/91a13cf6-8af5-00b8-784b-2f4f65ab34d0?t=1714117917863",
+          "section": "Pokyny pro klienta (strana 2) a jednotlivá ustanovení VPP CP 2021",
+          "last_checked_at": "2026-11-26",
+          "effective_from": "2021-04-01"
+        },
+        {
+          "source_id": "CSOB_CLAIM",
+          "url": "https://www.csobpoj.cz/oznameni-pojistne-udalosti-cestovni-pojisteni",
+          "section": "Oznámení online, telefonicky a doplnění dokladů",
+          "last_checked_at": "2026-11-26",
+          "effective_from": null
+        }
+      ],
+      "source_ids": [
+        "CSOB_VPP2021",
+        "CSOB_CLAIM"
+      ],
+      "evidence_level": "official_insurer",
+      "official_scenario_specific_evidence": true,
+      "procedure_completeness": "partial",
+      "priority": "P1",
+      "policy_version_check_required": true,
+      "applicable_policy_versions": [],
+      "review_status": "DRAFT",
+      "reviewed_by": null,
+      "last_verified_at": null,
+      "last_public_source_checked_at": "2026-11-26",
+      "approved_at": null,
+      "publication_status": "REVIEW_ONLY",
+      "retrieval_eligible": false,
+      "notes_for_reviewer": "Obecné pokyny od jiných institucí nejsou požadavky ČSOB. Ověřit každou povinnost a datum platnosti."
+    },
+    {
+      "id": "SUP_CLAIMS_022",
+      "document_type": "support_procedure",
+      "schema_version": "1.0",
+      "language": "cs",
+      "category": "claims_procedures",
+      "title": "Více účtenek a faktur k jedné škodě",
+      "scenario": "Klient řeší situaci: více účtenek a faktur k jedné škodě. Potřebuje praktický, ověřený postup bez předčasného příslibu plnění.",
+      "intent_tag": "claim_many_docs",
+      "question_variations": [
+        "Mám k ošetření pět různých účtenek.",
+        "Platila jsem doktora i léky několikrát.",
+        "Mám doložit všechny doklady?"
+      ],
+      "conditions": [
+        "Postup posuzovat podle země události, konkrétního dopravce nebo poskytovatele služby a verze smlouvy."
+      ],
+      "immediate_steps": [
+        {
+          "text": "Pro oznámení škody si připravte číslo smlouvy nebo údaje o pojištěné osobě, datum, místo a popis události.",
+          "requirement_type": "recommended",
+          "evidence_level": "official_insurer",
+          "source_ids": [
+            "CSOB_CLAIM"
+          ],
+          "condition": null
+        },
+        {
+          "text": "Škodu lze nahlásit přes oficiální online formulář ČSOB Pojišťovny nebo telefonicky na +420 466 100 777.",
+          "requirement_type": "recommended",
+          "evidence_level": "official_insurer",
+          "source_ids": [
+            "CSOB_CLAIM"
+          ],
+          "condition": null
+        },
+        {
+          "text": "Oznámení události neodkládejte jen kvůli chybějícím lékařským dokladům; podle ČSOB je možné je přiložit později.",
+          "requirement_type": "recommended",
+          "evidence_level": "official_insurer",
+          "source_ids": [
+            "CSOB_MED"
+          ],
+          "condition": "Pokud jde o škodu z úrazu nebo nemoci v zahraničí."
+        }
+      ],
+      "required_documents": [],
+      "recommended_documents": [
+        {
+          "name": "Lékařská zpráva, případně propouštěcí zpráva.",
+          "requirement_type": "recommended",
+          "source_ids": [
+            "CSOB_MED"
+          ]
+        },
+        {
+          "name": "Vyúčtování a doklady o úhradě léčby a léků.",
+          "requirement_type": "recommended",
+          "source_ids": [
+            "CSOB_MED"
+          ]
+        }
+      ],
+      "police_involvement": {
+        "status": "not_established",
+        "guidance": "Z dostupných zdrojů nevyplývá jednotná povinnost pořídit policejní protokol právě pro tento scénář.",
+        "source_ids": [],
+        "needs_expert_review": true
+      },
+      "clarifying_questions": [
+        "O jaký typ škody a jaké datum události jde?",
+        "Byla už událost nahlášena a máte její evidenční číslo?"
+      ],
+      "coverage_considerations": [
+        "Proces přijetí hlášení není rozhodnutím o pojistném krytí; rozhodují konkrétní smlouva a zjištěné okolnosti.",
+        "U aktuálních webových doporučení je nutné ověřit soulad s verzí pojistných podmínek použitelnou pro smlouvu."
+      ],
+      "escalation_conditions": [
+        "Pokud potřebujete závazné rozhodnutí o krytí, přesný seznam povinných dokladů nebo výjimku z postupu, předejte dotaz pracovníkovi pojišťovny."
+      ],
+      "open_questions_for_expert": [
+        "Potvrdit pro scénář „Více účtenek a faktur k jedné škodě“ přesné doklady, použitelné výluky, rozsah asistence a případné povinnosti vůči ČSOB podle sjednaného produktu."
+      ],
+      "sources": [
+        {
+          "source_id": "CSOB_MED",
+          "url": "https://www.csobpoj.cz/skody-a-pojistne-udalosti/co-delat-pri-urazu-nebo-nemoci-v-zahranici",
+          "section": "Záchrana života; Asistence; Dokumentace; Oznámení",
+          "last_checked_at": "2026-11-26",
+          "effective_from": null
+        },
+        {
+          "source_id": "CSOB_CLAIM",
+          "url": "https://www.csobpoj.cz/oznameni-pojistne-udalosti-cestovni-pojisteni",
+          "section": "Oznámení online, telefonicky a doplnění dokladů",
+          "last_checked_at": "2026-11-26",
+          "effective_from": null
+        }
+      ],
+      "source_ids": [
+        "CSOB_MED",
+        "CSOB_CLAIM"
+      ],
+      "evidence_level": "needs_expert_review",
+      "official_scenario_specific_evidence": false,
+      "procedure_completeness": "unresolved",
+      "priority": "P1",
+      "policy_version_check_required": true,
+      "applicable_policy_versions": [],
+      "review_status": "DRAFT",
+      "reviewed_by": null,
+      "last_verified_at": null,
+      "last_public_source_checked_at": "2026-11-26",
+      "approved_at": null,
+      "publication_status": "REVIEW_ONLY",
+      "retrieval_eligible": false,
+      "notes_for_reviewer": "Obecné pokyny od jiných institucí nejsou požadavky ČSOB. Ověřit každou povinnost a datum platnosti."
+    },
+    {
+      "id": "SUP_CLAIMS_023",
+      "document_type": "support_procedure",
+      "schema_version": "1.0",
+      "language": "cs",
+      "category": "claims_procedures",
+      "title": "Oznámení škody po návratu z dovolené",
+      "scenario": "Klient řeší situaci: oznámení škody po návratu z dovolené. Potřebuje praktický, ověřený postup bez předčasného příslibu plnění.",
+      "intent_tag": "claim_after_return",
+      "question_variations": [
+        "Zahraniční úraz jsem vůbec nehlásil.",
+        "Jsem už doma, můžu škodu nahlásit teď?",
+        "Potřebuju nejprve kontaktovat asistenci?"
+      ],
+      "conditions": [
+        "Postup posuzovat podle země události, konkrétního dopravce nebo poskytovatele služby a verze smlouvy."
+      ],
+      "immediate_steps": [
+        {
+          "text": "Pro oznámení škody si připravte číslo smlouvy nebo údaje o pojištěné osobě, datum, místo a popis události.",
+          "requirement_type": "recommended",
+          "evidence_level": "official_insurer",
+          "source_ids": [
+            "CSOB_CLAIM"
+          ],
+          "condition": null
+        },
+        {
+          "text": "Škodu lze nahlásit přes oficiální online formulář ČSOB Pojišťovny nebo telefonicky na +420 466 100 777.",
+          "requirement_type": "recommended",
+          "evidence_level": "official_insurer",
+          "source_ids": [
+            "CSOB_CLAIM"
+          ],
+          "condition": null
+        }
+      ],
+      "required_documents": [],
+      "recommended_documents": [],
+      "police_involvement": {
+        "status": "not_established",
+        "guidance": "Z dostupných zdrojů nevyplývá jednotná povinnost pořídit policejní protokol právě pro tento scénář.",
+        "source_ids": [],
+        "needs_expert_review": true
+      },
+      "clarifying_questions": [
+        "O jaký typ škody a jaké datum události jde?",
+        "Byla už událost nahlášena a máte její evidenční číslo?"
+      ],
+      "coverage_considerations": [
+        "Proces přijetí hlášení není rozhodnutím o pojistném krytí; rozhodují konkrétní smlouva a zjištěné okolnosti.",
+        "U aktuálních webových doporučení je nutné ověřit soulad s verzí pojistných podmínek použitelnou pro smlouvu."
+      ],
+      "escalation_conditions": [
+        "Pokud potřebujete závazné rozhodnutí o krytí, přesný seznam povinných dokladů nebo výjimku z postupu, předejte dotaz pracovníkovi pojišťovny."
+      ],
+      "open_questions_for_expert": [
+        "Potvrdit pro scénář „Oznámení škody po návratu z dovolené“ přesné doklady, použitelné výluky, rozsah asistence a případné povinnosti vůči ČSOB podle sjednaného produktu."
+      ],
+      "sources": [
+        {
+          "source_id": "CSOB_MED",
+          "url": "https://www.csobpoj.cz/skody-a-pojistne-udalosti/co-delat-pri-urazu-nebo-nemoci-v-zahranici",
+          "section": "Záchrana života; Asistence; Dokumentace; Oznámení",
+          "last_checked_at": "2026-11-26",
+          "effective_from": null
+        },
+        {
+          "source_id": "CSOB_CLAIM",
+          "url": "https://www.csobpoj.cz/oznameni-pojistne-udalosti-cestovni-pojisteni",
+          "section": "Oznámení online, telefonicky a doplnění dokladů",
+          "last_checked_at": "2026-11-26",
+          "effective_from": null
+        }
+      ],
+      "source_ids": [
+        "CSOB_MED",
+        "CSOB_CLAIM"
+      ],
+      "evidence_level": "official_insurer",
+      "official_scenario_specific_evidence": true,
+      "procedure_completeness": "partial",
+      "priority": "P1",
+      "policy_version_check_required": true,
+      "applicable_policy_versions": [],
+      "review_status": "DRAFT",
+      "reviewed_by": null,
+      "last_verified_at": null,
+      "last_public_source_checked_at": "2026-11-26",
+      "approved_at": null,
+      "publication_status": "REVIEW_ONLY",
+      "retrieval_eligible": false,
+      "notes_for_reviewer": "Obecné pokyny od jiných institucí nejsou požadavky ČSOB. Ověřit každou povinnost a datum platnosti."
+    },
+    {
+      "id": "SUP_CLAIMS_024",
+      "document_type": "support_procedure",
+      "schema_version": "1.0",
+      "language": "cs",
+      "category": "claims_procedures",
+      "title": "Změna osobních údajů při řešení škody",
+      "scenario": "Klient řeší situaci: změna osobních údajů při řešení škody. Potřebuje praktický, ověřený postup bez předčasného příslibu plnění.",
+      "intent_tag": "claim_personal_data",
+      "question_variations": [
+        "Mám nové telefonní číslo během vyřizování škody.",
+        "Změnil se mi bankovní účet.",
+        "Kde upravím údaje u škodní události?"
+      ],
+      "conditions": [
+        "Postup posuzovat podle země události, konkrétního dopravce nebo poskytovatele služby a verze smlouvy."
+      ],
+      "immediate_steps": [
+        {
+          "text": "Pro oznámení škody si připravte číslo smlouvy nebo údaje o pojištěné osobě, datum, místo a popis události.",
+          "requirement_type": "recommended",
+          "evidence_level": "official_insurer",
+          "source_ids": [
+            "CSOB_CLAIM"
+          ],
+          "condition": null
+        },
+        {
+          "text": "Škodu lze nahlásit přes oficiální online formulář ČSOB Pojišťovny nebo telefonicky na +420 466 100 777.",
+          "requirement_type": "recommended",
+          "evidence_level": "official_insurer",
+          "source_ids": [
+            "CSOB_CLAIM"
+          ],
+          "condition": null
+        }
+      ],
+      "required_documents": [],
+      "recommended_documents": [],
+      "police_involvement": {
+        "status": "not_established",
+        "guidance": "Z dostupných zdrojů nevyplývá jednotná povinnost pořídit policejní protokol právě pro tento scénář.",
+        "source_ids": [],
+        "needs_expert_review": true
+      },
+      "clarifying_questions": [
+        "O jaký typ škody a jaké datum události jde?",
+        "Byla už událost nahlášena a máte její evidenční číslo?"
+      ],
+      "coverage_considerations": [
+        "Proces přijetí hlášení není rozhodnutím o pojistném krytí; rozhodují konkrétní smlouva a zjištěné okolnosti.",
+        "U aktuálních webových doporučení je nutné ověřit soulad s verzí pojistných podmínek použitelnou pro smlouvu."
+      ],
+      "escalation_conditions": [
+        "Pokud potřebujete závazné rozhodnutí o krytí, přesný seznam povinných dokladů nebo výjimku z postupu, předejte dotaz pracovníkovi pojišťovny."
+      ],
+      "open_questions_for_expert": [
+        "Potvrdit pro scénář „Změna osobních údajů při řešení škody“ přesné doklady, použitelné výluky, rozsah asistence a případné povinnosti vůči ČSOB podle sjednaného produktu."
+      ],
+      "sources": [
+        {
+          "source_id": "CSOB_CLAIM",
+          "url": "https://www.csobpoj.cz/oznameni-pojistne-udalosti-cestovni-pojisteni",
+          "section": "Oznámení online, telefonicky a doplnění dokladů",
+          "last_checked_at": "2026-11-26",
+          "effective_from": null
+        }
+      ],
+      "source_ids": [
+        "CSOB_CLAIM"
+      ],
+      "evidence_level": "needs_expert_review",
+      "official_scenario_specific_evidence": false,
+      "procedure_completeness": "unresolved",
+      "priority": "P1",
+      "policy_version_check_required": true,
+      "applicable_policy_versions": [],
+      "review_status": "DRAFT",
+      "reviewed_by": null,
+      "last_verified_at": null,
+      "last_public_source_checked_at": "2026-11-26",
+      "approved_at": null,
+      "publication_status": "REVIEW_ONLY",
+      "retrieval_eligible": false,
+      "notes_for_reviewer": "Obecné pokyny od jiných institucí nejsou požadavky ČSOB. Ověřit každou povinnost a datum platnosti."
+    }
+  ]
+}

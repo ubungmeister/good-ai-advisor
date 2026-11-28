@@ -1,0 +1,2916 @@
+{
+  "schema_version": "1.0",
+  "document_type": "support_knowledge_collection",
+  "language": "cs",
+  "dataset_status": "DRAFT_EXPERT_REVIEW_REQUIRED",
+  "generated_at": "2026-11-26",
+  "title": "Pomoc při ztrátě a poškození zavazadel",
+  "articles": [
+    {
+      "id": "SUP_BAGGAGE_001",
+      "document_type": "support_procedure",
+      "schema_version": "1.0",
+      "language": "cs",
+      "category": "baggage",
+      "title": "Zapomenutý kufr ve vlaku",
+      "scenario": "Klient řeší situaci: zapomenutý kufr ve vlaku. Potřebuje praktický, ověřený postup bez předčasného příslibu plnění.",
+      "intent_tag": "train_forgot",
+      "question_variations": [
+        "Zapomněl jsem kufr ve vlaku. Co teď?",
+        "Vlak už odjel a moje taška v něm zůstala.",
+        "Mám kvůli tomu jít na policii?"
+      ],
+      "conditions": [
+        "Postup posuzovat podle země události, konkrétního dopravce nebo poskytovatele služby a verze smlouvy."
+      ],
+      "immediate_steps": [
+        {
+          "text": "Zaznamenejte čas, místo a okolnosti události a uchovejte dostupné doklady.",
+          "requirement_type": "recommended",
+          "evidence_level": "official_insurer",
+          "source_ids": [
+            "CSOB_GUIDE"
+          ],
+          "condition": null
+        },
+        {
+          "text": "Pokud chcete událost řešit z cestovního pojištění, připravte si údaje o pojištěném, popis a datum události a využijte oficiální hlášení ČSOB Pojišťovny.",
+          "requirement_type": "recommended",
+          "evidence_level": "official_insurer",
+          "source_ids": [
+            "CSOB_CLAIM"
+          ],
+          "condition": null
+        },
+        {
+          "text": "Pokud šlo o vlak Českých drah, obraťte se co nejdříve na zákaznický servis ČD; dopravce eviduje nálezy také v systému eZtráty.",
+          "requirement_type": "recommended",
+          "evidence_level": "general_guidance",
+          "source_ids": [
+            "CD_LOST"
+          ],
+          "condition": null
+        }
+      ],
+      "required_documents": [],
+      "recommended_documents": [],
+      "police_involvement": {
+        "status": "not_established_for_accidental_loss",
+        "guidance": "U pouhého zapomenutí věci nebyla doložena povinnost hlášení místní policii stanovená ČSOB; povinnost pro krádež nelze automaticky převzít.",
+        "source_ids": [
+          "CSOB_VPP2021"
+        ],
+        "needs_expert_review": true
+      },
+      "clarifying_questions": [
+        "Kdy a kde jste věc naposledy viděl(a)?",
+        "Jde o zapomenutí, ztrátu při přepravě, krádež, nebo poškození?",
+        "Byl to vlak Českých drah, nebo jiného dopravce?"
+      ],
+      "coverage_considerations": [
+        "Ověřit, zda je sjednáno pojištění zavazadel, jak je definována daná událost a jaké platí výluky a limity.",
+        "U aktuálních webových doporučení je nutné ověřit soulad s verzí pojistných podmínek použitelnou pro smlouvu."
+      ],
+      "escalation_conditions": [
+        "Pokud potřebujete závazné rozhodnutí o krytí, přesný seznam povinných dokladů nebo výjimku z postupu, předejte dotaz pracovníkovi pojišťovny."
+      ],
+      "open_questions_for_expert": [
+        "Potvrdit, zda ČSOB vyžaduje u zapomenuté věci ve vlaku doklad dopravce, policejní potvrzení či jiný podklad; ověřit, zda vůbec jde o pojištěné riziko."
+      ],
+      "sources": [
+        {
+          "source_id": "CD_LOST",
+          "url": "https://www.cd.cz/caste-otazky-a-odpovedi/__default.php",
+          "section": "Zapomněl / ztratil jsem ve vlaku své osobní věci",
+          "last_checked_at": "2026-11-26",
+          "effective_from": null
+        },
+        {
+          "source_id": "CSOB_GUIDE",
+          "url": "https://www.csobpoj.cz/jak-postupovat-pri-skode-cestovni-pojisteni",
+          "section": "Událost v zahraničí",
+          "last_checked_at": "2026-11-26",
+          "effective_from": null
+        },
+        {
+          "source_id": "CSOB_CLAIM",
+          "url": "https://www.csobpoj.cz/oznameni-pojistne-udalosti-cestovni-pojisteni",
+          "section": "Oznámení online, telefonicky a doplnění dokladů",
+          "last_checked_at": "2026-11-26",
+          "effective_from": null
+        },
+        {
+          "source_id": "CSOB_VPP2021",
+          "url": "https://www.csobpoj.cz/documents/10332/5083102/11N9393%2BVPP%2BCP%2B2021_form%C3%A1t%2BA4_CZ_v%C4%8Detn%C4%9B%2Boce%C5%88ovac%C3%ADch%2Btabulek_final_PDF-A.pdf/91a13cf6-8af5-00b8-784b-2f4f65ab34d0?t=1714117917863",
+          "section": "Pokyny pro klienta (strana 2) a jednotlivá ustanovení VPP CP 2021",
+          "last_checked_at": "2026-11-26",
+          "effective_from": "2021-04-01"
+        }
+      ],
+      "source_ids": [
+        "CD_LOST",
+        "CSOB_GUIDE",
+        "CSOB_CLAIM",
+        "CSOB_VPP2021"
+      ],
+      "evidence_level": "general_guidance",
+      "official_scenario_specific_evidence": false,
+      "procedure_completeness": "unresolved",
+      "priority": "P1",
+      "policy_version_check_required": true,
+      "applicable_policy_versions": [],
+      "review_status": "DRAFT",
+      "reviewed_by": null,
+      "last_verified_at": null,
+      "last_public_source_checked_at": "2026-11-26",
+      "approved_at": null,
+      "publication_status": "REVIEW_ONLY",
+      "retrieval_eligible": false,
+      "notes_for_reviewer": "Obecné pokyny od jiných institucí nejsou požadavky ČSOB. Ověřit každou povinnost a datum platnosti."
+    },
+    {
+      "id": "SUP_BAGGAGE_002",
+      "document_type": "support_procedure",
+      "schema_version": "1.0",
+      "language": "cs",
+      "category": "baggage",
+      "title": "Zapomenuté zavazadlo ve vlaku se nenašlo",
+      "scenario": "Klient řeší situaci: zapomenuté zavazadlo ve vlaku se nenašlo. Potřebuje praktický, ověřený postup bez předčasného příslibu plnění.",
+      "intent_tag": "train_missing",
+      "question_variations": [
+        "České dráhy můj batoh nenašly. Co dál?",
+        "Kufr se ani po několika dnech neobjevil.",
+        "Můžu to dát na pojišťovnu?"
+      ],
+      "conditions": [
+        "Postup posuzovat podle země události, konkrétního dopravce nebo poskytovatele služby a verze smlouvy."
+      ],
+      "immediate_steps": [
+        {
+          "text": "Zaznamenejte čas, místo a okolnosti události a uchovejte dostupné doklady.",
+          "requirement_type": "recommended",
+          "evidence_level": "official_insurer",
+          "source_ids": [
+            "CSOB_GUIDE"
+          ],
+          "condition": null
+        },
+        {
+          "text": "Pokud chcete událost řešit z cestovního pojištění, připravte si údaje o pojištěném, popis a datum události a využijte oficiální hlášení ČSOB Pojišťovny.",
+          "requirement_type": "recommended",
+          "evidence_level": "official_insurer",
+          "source_ids": [
+            "CSOB_CLAIM"
+          ],
+          "condition": null
+        },
+        {
+          "text": "Pokud šlo o vlak Českých drah, obraťte se co nejdříve na zákaznický servis ČD; dopravce eviduje nálezy také v systému eZtráty.",
+          "requirement_type": "recommended",
+          "evidence_level": "general_guidance",
+          "source_ids": [
+            "CD_LOST"
+          ],
+          "condition": null
+        }
+      ],
+      "required_documents": [],
+      "recommended_documents": [],
+      "police_involvement": {
+        "status": "not_established_for_accidental_loss",
+        "guidance": "U pouhého zapomenutí věci nebyla doložena povinnost hlášení místní policii stanovená ČSOB; povinnost pro krádež nelze automaticky převzít.",
+        "source_ids": [
+          "CSOB_VPP2021"
+        ],
+        "needs_expert_review": true
+      },
+      "clarifying_questions": [
+        "Kdy a kde jste věc naposledy viděl(a)?",
+        "Jde o zapomenutí, ztrátu při přepravě, krádež, nebo poškození?",
+        "Máte potvrzení o komunikaci s dopravcem a číslo hlášení nálezu?"
+      ],
+      "coverage_considerations": [
+        "Ověřit, zda je sjednáno pojištění zavazadel, jak je definována daná událost a jaké platí výluky a limity.",
+        "U aktuálních webových doporučení je nutné ověřit soulad s verzí pojistných podmínek použitelnou pro smlouvu."
+      ],
+      "escalation_conditions": [
+        "Situace vyžaduje individuální posouzení odborným pracovníkem; neslibujte pojistné plnění ani konkrétní výjimku.",
+        "Pokud potřebujete závazné rozhodnutí o krytí, přesný seznam povinných dokladů nebo výjimku z postupu, předejte dotaz pracovníkovi pojišťovny."
+      ],
+      "open_questions_for_expert": [
+        "Potvrdit, zda ČSOB vyžaduje u zapomenuté věci ve vlaku doklad dopravce, policejní potvrzení či jiný podklad; ověřit, zda vůbec jde o pojištěné riziko."
+      ],
+      "sources": [
+        {
+          "source_id": "CD_LOST",
+          "url": "https://www.cd.cz/caste-otazky-a-odpovedi/__default.php",
+          "section": "Zapomněl / ztratil jsem ve vlaku své osobní věci",
+          "last_checked_at": "2026-11-26",
+          "effective_from": null
+        },
+        {
+          "source_id": "CSOB_GUIDE",
+          "url": "https://www.csobpoj.cz/jak-postupovat-pri-skode-cestovni-pojisteni",
+          "section": "Událost v zahraničí",
+          "last_checked_at": "2026-11-26",
+          "effective_from": null
+        },
+        {
+          "source_id": "CSOB_CLAIM",
+          "url": "https://www.csobpoj.cz/oznameni-pojistne-udalosti-cestovni-pojisteni",
+          "section": "Oznámení online, telefonicky a doplnění dokladů",
+          "last_checked_at": "2026-11-26",
+          "effective_from": null
+        },
+        {
+          "source_id": "CSOB_VPP2021",
+          "url": "https://www.csobpoj.cz/documents/10332/5083102/11N9393%2BVPP%2BCP%2B2021_form%C3%A1t%2BA4_CZ_v%C4%8Detn%C4%9B%2Boce%C5%88ovac%C3%ADch%2Btabulek_final_PDF-A.pdf/91a13cf6-8af5-00b8-784b-2f4f65ab34d0?t=1714117917863",
+          "section": "Pokyny pro klienta (strana 2) a jednotlivá ustanovení VPP CP 2021",
+          "last_checked_at": "2026-11-26",
+          "effective_from": "2021-04-01"
+        }
+      ],
+      "source_ids": [
+        "CD_LOST",
+        "CSOB_GUIDE",
+        "CSOB_CLAIM",
+        "CSOB_VPP2021"
+      ],
+      "evidence_level": "general_guidance",
+      "official_scenario_specific_evidence": false,
+      "procedure_completeness": "unresolved",
+      "priority": "P1",
+      "policy_version_check_required": true,
+      "applicable_policy_versions": [],
+      "review_status": "DRAFT",
+      "reviewed_by": null,
+      "last_verified_at": null,
+      "last_public_source_checked_at": "2026-11-26",
+      "approved_at": null,
+      "publication_status": "REVIEW_ONLY",
+      "retrieval_eligible": false,
+      "notes_for_reviewer": "Obecné pokyny od jiných institucí nejsou požadavky ČSOB. Ověřit každou povinnost a datum platnosti."
+    },
+    {
+      "id": "SUP_BAGGAGE_003",
+      "document_type": "support_procedure",
+      "schema_version": "1.0",
+      "language": "cs",
+      "category": "baggage",
+      "title": "Zapomenutá taška v autobusu",
+      "scenario": "Klient řeší situaci: zapomenutá taška v autobusu. Potřebuje praktický, ověřený postup bez předčasného příslibu plnění.",
+      "intent_tag": "forgotten_general",
+      "question_variations": [
+        "Nechal jsem tašku v autobusu, kde ji hledat?",
+        "Řidič odjel a nemám svý věci.",
+        "Dá se to řešit přes pojištění?"
+      ],
+      "conditions": [
+        "Postup posuzovat podle země události, konkrétního dopravce nebo poskytovatele služby a verze smlouvy."
+      ],
+      "immediate_steps": [
+        {
+          "text": "Zaznamenejte čas, místo a okolnosti události a uchovejte dostupné doklady.",
+          "requirement_type": "recommended",
+          "evidence_level": "official_insurer",
+          "source_ids": [
+            "CSOB_GUIDE"
+          ],
+          "condition": null
+        },
+        {
+          "text": "Pokud chcete událost řešit z cestovního pojištění, připravte si údaje o pojištěném, popis a datum události a využijte oficiální hlášení ČSOB Pojišťovny.",
+          "requirement_type": "recommended",
+          "evidence_level": "official_insurer",
+          "source_ids": [
+            "CSOB_CLAIM"
+          ],
+          "condition": null
+        }
+      ],
+      "required_documents": [],
+      "recommended_documents": [],
+      "police_involvement": {
+        "status": "not_established",
+        "guidance": "Z dostupných zdrojů nevyplývá jednotná povinnost pořídit policejní protokol právě pro tento scénář.",
+        "source_ids": [],
+        "needs_expert_review": true
+      },
+      "clarifying_questions": [
+        "Kdy a kde jste věc naposledy viděl(a)?",
+        "Jde o zapomenutí, ztrátu při přepravě, krádež, nebo poškození?"
+      ],
+      "coverage_considerations": [
+        "Ověřit, zda je sjednáno pojištění zavazadel, jak je definována daná událost a jaké platí výluky a limity.",
+        "U aktuálních webových doporučení je nutné ověřit soulad s verzí pojistných podmínek použitelnou pro smlouvu."
+      ],
+      "escalation_conditions": [
+        "Pokud potřebujete závazné rozhodnutí o krytí, přesný seznam povinných dokladů nebo výjimku z postupu, předejte dotaz pracovníkovi pojišťovny."
+      ],
+      "open_questions_for_expert": [
+        "Potvrdit pro scénář „Zapomenutá taška v autobusu“ přesné doklady, použitelné výluky, rozsah asistence a případné povinnosti vůči ČSOB podle sjednaného produktu."
+      ],
+      "sources": [
+        {
+          "source_id": "EU_BUS",
+          "url": "https://europa.eu/youreurope/citizens/travel/passenger-rights/bus-and-coach/index_cs.htm",
+          "section": "Zrušení a zpoždění autobusové dopravy",
+          "last_checked_at": "2026-11-26",
+          "effective_from": null
+        },
+        {
+          "source_id": "CSOB_GUIDE",
+          "url": "https://www.csobpoj.cz/jak-postupovat-pri-skode-cestovni-pojisteni",
+          "section": "Událost v zahraničí",
+          "last_checked_at": "2026-11-26",
+          "effective_from": null
+        },
+        {
+          "source_id": "CSOB_CLAIM",
+          "url": "https://www.csobpoj.cz/oznameni-pojistne-udalosti-cestovni-pojisteni",
+          "section": "Oznámení online, telefonicky a doplnění dokladů",
+          "last_checked_at": "2026-11-26",
+          "effective_from": null
+        }
+      ],
+      "source_ids": [
+        "EU_BUS",
+        "CSOB_GUIDE",
+        "CSOB_CLAIM"
+      ],
+      "evidence_level": "needs_expert_review",
+      "official_scenario_specific_evidence": false,
+      "procedure_completeness": "unresolved",
+      "priority": "P1",
+      "policy_version_check_required": true,
+      "applicable_policy_versions": [],
+      "review_status": "DRAFT",
+      "reviewed_by": null,
+      "last_verified_at": null,
+      "last_public_source_checked_at": "2026-11-26",
+      "approved_at": null,
+      "publication_status": "REVIEW_ONLY",
+      "retrieval_eligible": false,
+      "notes_for_reviewer": "Obecné pokyny od jiných institucí nejsou požadavky ČSOB. Ověřit každou povinnost a datum platnosti."
+    },
+    {
+      "id": "SUP_BAGGAGE_004",
+      "document_type": "support_procedure",
+      "schema_version": "1.0",
+      "language": "cs",
+      "category": "baggage",
+      "title": "Věci ponechané v taxíku",
+      "scenario": "Klient řeší situaci: věci ponechané v taxíku. Potřebuje praktický, ověřený postup bez předčasného příslibu plnění.",
+      "intent_tag": "forgotten_general",
+      "question_variations": [
+        "V taxíku jsem zapomněl mobil.",
+        "Odjel mi taxik a zůstal v něm batoh.",
+        "Komu mám ztrátu nahlásit?"
+      ],
+      "conditions": [
+        "Postup posuzovat podle země události, konkrétního dopravce nebo poskytovatele služby a verze smlouvy."
+      ],
+      "immediate_steps": [
+        {
+          "text": "Zaznamenejte čas, místo a okolnosti události a uchovejte dostupné doklady.",
+          "requirement_type": "recommended",
+          "evidence_level": "official_insurer",
+          "source_ids": [
+            "CSOB_GUIDE"
+          ],
+          "condition": null
+        },
+        {
+          "text": "Pokud chcete událost řešit z cestovního pojištění, připravte si údaje o pojištěném, popis a datum události a využijte oficiální hlášení ČSOB Pojišťovny.",
+          "requirement_type": "recommended",
+          "evidence_level": "official_insurer",
+          "source_ids": [
+            "CSOB_CLAIM"
+          ],
+          "condition": null
+        }
+      ],
+      "required_documents": [],
+      "recommended_documents": [],
+      "police_involvement": {
+        "status": "not_established",
+        "guidance": "Z dostupných zdrojů nevyplývá jednotná povinnost pořídit policejní protokol právě pro tento scénář.",
+        "source_ids": [],
+        "needs_expert_review": true
+      },
+      "clarifying_questions": [
+        "Kdy a kde jste věc naposledy viděl(a)?",
+        "Jde o zapomenutí, ztrátu při přepravě, krádež, nebo poškození?"
+      ],
+      "coverage_considerations": [
+        "Ověřit, zda je sjednáno pojištění zavazadel, jak je definována daná událost a jaké platí výluky a limity.",
+        "U aktuálních webových doporučení je nutné ověřit soulad s verzí pojistných podmínek použitelnou pro smlouvu."
+      ],
+      "escalation_conditions": [
+        "Pokud potřebujete závazné rozhodnutí o krytí, přesný seznam povinných dokladů nebo výjimku z postupu, předejte dotaz pracovníkovi pojišťovny."
+      ],
+      "open_questions_for_expert": [
+        "Potvrdit pro scénář „Věci ponechané v taxíku“ přesné doklady, použitelné výluky, rozsah asistence a případné povinnosti vůči ČSOB podle sjednaného produktu."
+      ],
+      "sources": [
+        {
+          "source_id": "CSOB_GUIDE",
+          "url": "https://www.csobpoj.cz/jak-postupovat-pri-skode-cestovni-pojisteni",
+          "section": "Událost v zahraničí",
+          "last_checked_at": "2026-11-26",
+          "effective_from": null
+        },
+        {
+          "source_id": "CSOB_CLAIM",
+          "url": "https://www.csobpoj.cz/oznameni-pojistne-udalosti-cestovni-pojisteni",
+          "section": "Oznámení online, telefonicky a doplnění dokladů",
+          "last_checked_at": "2026-11-26",
+          "effective_from": null
+        }
+      ],
+      "source_ids": [
+        "CSOB_GUIDE",
+        "CSOB_CLAIM"
+      ],
+      "evidence_level": "needs_expert_review",
+      "official_scenario_specific_evidence": false,
+      "procedure_completeness": "unresolved",
+      "priority": "P1",
+      "policy_version_check_required": true,
+      "applicable_policy_versions": [],
+      "review_status": "DRAFT",
+      "reviewed_by": null,
+      "last_verified_at": null,
+      "last_public_source_checked_at": "2026-11-26",
+      "approved_at": null,
+      "publication_status": "REVIEW_ONLY",
+      "retrieval_eligible": false,
+      "notes_for_reviewer": "Obecné pokyny od jiných institucí nejsou požadavky ČSOB. Ověřit každou povinnost a datum platnosti."
+    },
+    {
+      "id": "SUP_BAGGAGE_005",
+      "document_type": "support_procedure",
+      "schema_version": "1.0",
+      "language": "cs",
+      "category": "baggage",
+      "title": "Odbavený kufr nedorazil na letiště",
+      "scenario": "Klient řeší situaci: odbavený kufr nedorazil na letiště. Potřebuje praktický, ověřený postup bez předčasného příslibu plnění.",
+      "intent_tag": "air_lost",
+      "question_variations": [
+        "Na pásu se neobjevil můj kufr, co mám dělat?",
+        "Přiletěl jsem bez zavazadla.",
+        "Kde dostanu PIR protokol?"
+      ],
+      "conditions": [
+        "Postup posuzovat podle země události, konkrétního dopravce nebo poskytovatele služby a verze smlouvy."
+      ],
+      "immediate_steps": [
+        {
+          "text": "Zaznamenejte čas, místo a okolnosti události a uchovejte dostupné doklady.",
+          "requirement_type": "recommended",
+          "evidence_level": "official_insurer",
+          "source_ids": [
+            "CSOB_GUIDE"
+          ],
+          "condition": null
+        },
+        {
+          "text": "Pokud chcete událost řešit z cestovního pojištění, připravte si údaje o pojištěném, popis a datum události a využijte oficiální hlášení ČSOB Pojišťovny.",
+          "requirement_type": "recommended",
+          "evidence_level": "official_insurer",
+          "source_ids": [
+            "CSOB_CLAIM"
+          ],
+          "condition": null
+        },
+        {
+          "text": "U leteckého dopravce nebo na přepážce reklamace zavazadel nahlaste problém a vyžádejte si potvrzení PIR.",
+          "requirement_type": "recommended",
+          "evidence_level": "official_insurer",
+          "source_ids": [
+            "CSOB_BAG"
+          ],
+          "condition": null
+        },
+        {
+          "text": "Uschovejte si letenku, zavazadlový lístek a související potvrzení.",
+          "requirement_type": "recommended",
+          "evidence_level": "official_insurer",
+          "source_ids": [
+            "CSOB_BAG"
+          ],
+          "condition": null
+        },
+        {
+          "text": "Vedle řešení u ČSOB se informujte o samostatných právech vůči leteckému dopravci; reklamace dopravci není totéž co hlášení pojišťovně.",
+          "requirement_type": "recommended",
+          "evidence_level": "general_guidance",
+          "source_ids": [
+            "EU_AIR"
+          ],
+          "condition": null
+        }
+      ],
+      "required_documents": [],
+      "recommended_documents": [
+        {
+          "name": "PIR nebo jiné potvrzení o nahlášení nedoručeného zavazadla.",
+          "requirement_type": "recommended",
+          "source_ids": [
+            "CSOB_BAG"
+          ]
+        },
+        {
+          "name": "Letenka a zavazadlový lístek.",
+          "requirement_type": "recommended",
+          "source_ids": [
+            "CSOB_BAG"
+          ]
+        }
+      ],
+      "police_involvement": {
+        "status": "not_established",
+        "guidance": "Z dostupných zdrojů nevyplývá jednotná povinnost pořídit policejní protokol právě pro tento scénář.",
+        "source_ids": [],
+        "needs_expert_review": true
+      },
+      "clarifying_questions": [
+        "Kdy a kde jste věc naposledy viděl(a)?",
+        "Jde o zapomenutí, ztrátu při přepravě, krádež, nebo poškození?",
+        "Máte PIR a zavazadlový lístek?"
+      ],
+      "coverage_considerations": [
+        "Ověřit, zda je sjednáno pojištění zavazadel, jak je definována daná událost a jaké platí výluky a limity.",
+        "U aktuálních webových doporučení je nutné ověřit soulad s verzí pojistných podmínek použitelnou pro smlouvu."
+      ],
+      "escalation_conditions": [
+        "Pokud potřebujete závazné rozhodnutí o krytí, přesný seznam povinných dokladů nebo výjimku z postupu, předejte dotaz pracovníkovi pojišťovny."
+      ],
+      "open_questions_for_expert": [
+        "Potvrdit pro scénář „Odbavený kufr nedorazil na letiště“ přesné doklady, použitelné výluky, rozsah asistence a případné povinnosti vůči ČSOB podle sjednaného produktu."
+      ],
+      "sources": [
+        {
+          "source_id": "CSOB_BAG",
+          "url": "https://www.csobpoj.cz/skody-a-pojistne-udalosti/ztraceny-nebo-zpozdeny-kufr",
+          "section": "Co dělat hned na letišti; Náhradní věci; Oznámení škody",
+          "last_checked_at": "2026-11-26",
+          "effective_from": null
+        },
+        {
+          "source_id": "CSOB_GUIDE",
+          "url": "https://www.csobpoj.cz/jak-postupovat-pri-skode-cestovni-pojisteni",
+          "section": "Událost v zahraničí",
+          "last_checked_at": "2026-11-26",
+          "effective_from": null
+        },
+        {
+          "source_id": "CSOB_CLAIM",
+          "url": "https://www.csobpoj.cz/oznameni-pojistne-udalosti-cestovni-pojisteni",
+          "section": "Oznámení online, telefonicky a doplnění dokladů",
+          "last_checked_at": "2026-11-26",
+          "effective_from": null
+        },
+        {
+          "source_id": "EU_AIR",
+          "url": "https://europa.eu/youreurope/citizens/travel/passenger-rights/air/index_cs.htm",
+          "section": "Práva cestujících; Zpoždění, zrušení a zavazadla",
+          "last_checked_at": "2026-11-26",
+          "effective_from": null
+        }
+      ],
+      "source_ids": [
+        "CSOB_BAG",
+        "CSOB_GUIDE",
+        "CSOB_CLAIM",
+        "EU_AIR"
+      ],
+      "evidence_level": "official_insurer",
+      "official_scenario_specific_evidence": true,
+      "procedure_completeness": "partial",
+      "priority": "P1",
+      "policy_version_check_required": true,
+      "applicable_policy_versions": [],
+      "review_status": "DRAFT",
+      "reviewed_by": null,
+      "last_verified_at": null,
+      "last_public_source_checked_at": "2026-11-26",
+      "approved_at": null,
+      "publication_status": "REVIEW_ONLY",
+      "retrieval_eligible": false,
+      "notes_for_reviewer": "Obecné pokyny od jiných institucí nejsou požadavky ČSOB. Ověřit každou povinnost a datum platnosti."
+    },
+    {
+      "id": "SUP_BAGGAGE_006",
+      "document_type": "support_procedure",
+      "schema_version": "1.0",
+      "language": "cs",
+      "category": "baggage",
+      "title": "Odbavené zavazadlo dorazilo opožděně",
+      "scenario": "Klient řeší situaci: odbavené zavazadlo dorazilo opožděně. Potřebuje praktický, ověřený postup bez předčasného příslibu plnění.",
+      "intent_tag": "air_delay",
+      "question_variations": [
+        "Kufr mi přivezli až další den.",
+        "Zavazadlo se zpozdilo a kupoval jsem oblečení.",
+        "Mám schovávat účtenky?"
+      ],
+      "conditions": [
+        "Postup posuzovat podle země události, konkrétního dopravce nebo poskytovatele služby a verze smlouvy."
+      ],
+      "immediate_steps": [
+        {
+          "text": "Zaznamenejte čas, místo a okolnosti události a uchovejte dostupné doklady.",
+          "requirement_type": "recommended",
+          "evidence_level": "official_insurer",
+          "source_ids": [
+            "CSOB_GUIDE"
+          ],
+          "condition": null
+        },
+        {
+          "text": "Pokud chcete událost řešit z cestovního pojištění, připravte si údaje o pojištěném, popis a datum události a využijte oficiální hlášení ČSOB Pojišťovny.",
+          "requirement_type": "recommended",
+          "evidence_level": "official_insurer",
+          "source_ids": [
+            "CSOB_CLAIM"
+          ],
+          "condition": null
+        },
+        {
+          "text": "U leteckého dopravce nebo na přepážce reklamace zavazadel nahlaste problém a vyžádejte si potvrzení PIR.",
+          "requirement_type": "recommended",
+          "evidence_level": "official_insurer",
+          "source_ids": [
+            "CSOB_BAG"
+          ],
+          "condition": null
+        },
+        {
+          "text": "Uschovejte si letenku, zavazadlový lístek a související potvrzení.",
+          "requirement_type": "recommended",
+          "evidence_level": "official_insurer",
+          "source_ids": [
+            "CSOB_BAG"
+          ],
+          "condition": null
+        },
+        {
+          "text": "Pokud musíte koupit nezbytné náhradní věci, uschovejte účtenky a kupujte jen skutečně potřebné položky.",
+          "requirement_type": "recommended",
+          "evidence_level": "official_insurer",
+          "source_ids": [
+            "CSOB_BAG"
+          ],
+          "condition": null
+        },
+        {
+          "text": "Vedle řešení u ČSOB se informujte o samostatných právech vůči leteckému dopravci; reklamace dopravci není totéž co hlášení pojišťovně.",
+          "requirement_type": "recommended",
+          "evidence_level": "general_guidance",
+          "source_ids": [
+            "EU_AIR"
+          ],
+          "condition": null
+        }
+      ],
+      "required_documents": [],
+      "recommended_documents": [
+        {
+          "name": "PIR nebo jiné potvrzení o nahlášení nedoručeného zavazadla.",
+          "requirement_type": "recommended",
+          "source_ids": [
+            "CSOB_BAG"
+          ]
+        },
+        {
+          "name": "Letenka a zavazadlový lístek.",
+          "requirement_type": "recommended",
+          "source_ids": [
+            "CSOB_BAG"
+          ]
+        },
+        {
+          "name": "Účtenky za nezbytné náhradní věci.",
+          "requirement_type": "recommended",
+          "source_ids": [
+            "CSOB_BAG"
+          ]
+        }
+      ],
+      "police_involvement": {
+        "status": "not_established",
+        "guidance": "Z dostupných zdrojů nevyplývá jednotná povinnost pořídit policejní protokol právě pro tento scénář.",
+        "source_ids": [],
+        "needs_expert_review": true
+      },
+      "clarifying_questions": [
+        "Kdy a kde jste věc naposledy viděl(a)?",
+        "Jde o zapomenutí, ztrátu při přepravě, krádež, nebo poškození?",
+        "Jak dlouho se zavazadlo zpozdilo a kde jste ho měl(a) převzít?"
+      ],
+      "coverage_considerations": [
+        "Ověřit, zda je sjednáno pojištění zavazadel, jak je definována daná událost a jaké platí výluky a limity.",
+        "U aktuálních webových doporučení je nutné ověřit soulad s verzí pojistných podmínek použitelnou pro smlouvu."
+      ],
+      "escalation_conditions": [
+        "Pokud potřebujete závazné rozhodnutí o krytí, přesný seznam povinných dokladů nebo výjimku z postupu, předejte dotaz pracovníkovi pojišťovny."
+      ],
+      "open_questions_for_expert": [
+        "Potvrdit pro scénář „Odbavené zavazadlo dorazilo opožděně“ přesné doklady, použitelné výluky, rozsah asistence a případné povinnosti vůči ČSOB podle sjednaného produktu."
+      ],
+      "sources": [
+        {
+          "source_id": "CSOB_BAG",
+          "url": "https://www.csobpoj.cz/skody-a-pojistne-udalosti/ztraceny-nebo-zpozdeny-kufr",
+          "section": "Co dělat hned na letišti; Náhradní věci; Oznámení škody",
+          "last_checked_at": "2026-11-26",
+          "effective_from": null
+        },
+        {
+          "source_id": "CSOB_GUIDE",
+          "url": "https://www.csobpoj.cz/jak-postupovat-pri-skode-cestovni-pojisteni",
+          "section": "Událost v zahraničí",
+          "last_checked_at": "2026-11-26",
+          "effective_from": null
+        },
+        {
+          "source_id": "CSOB_CLAIM",
+          "url": "https://www.csobpoj.cz/oznameni-pojistne-udalosti-cestovni-pojisteni",
+          "section": "Oznámení online, telefonicky a doplnění dokladů",
+          "last_checked_at": "2026-11-26",
+          "effective_from": null
+        },
+        {
+          "source_id": "EU_AIR",
+          "url": "https://europa.eu/youreurope/citizens/travel/passenger-rights/air/index_cs.htm",
+          "section": "Práva cestujících; Zpoždění, zrušení a zavazadla",
+          "last_checked_at": "2026-11-26",
+          "effective_from": null
+        }
+      ],
+      "source_ids": [
+        "CSOB_BAG",
+        "CSOB_GUIDE",
+        "CSOB_CLAIM",
+        "EU_AIR"
+      ],
+      "evidence_level": "official_insurer",
+      "official_scenario_specific_evidence": true,
+      "procedure_completeness": "partial",
+      "priority": "P1",
+      "policy_version_check_required": true,
+      "applicable_policy_versions": [],
+      "review_status": "DRAFT",
+      "reviewed_by": null,
+      "last_verified_at": null,
+      "last_public_source_checked_at": "2026-11-26",
+      "approved_at": null,
+      "publication_status": "REVIEW_ONLY",
+      "retrieval_eligible": false,
+      "notes_for_reviewer": "Obecné pokyny od jiných institucí nejsou požadavky ČSOB. Ověřit každou povinnost a datum platnosti."
+    },
+    {
+      "id": "SUP_BAGGAGE_007",
+      "document_type": "support_procedure",
+      "schema_version": "1.0",
+      "language": "cs",
+      "category": "baggage",
+      "title": "Zpoždění zavazadla kratší než šest hodin",
+      "scenario": "Klient řeší situaci: zpoždění zavazadla kratší než šest hodin. Potřebuje praktický, ověřený postup bez předčasného příslibu plnění.",
+      "intent_tag": "air_delay_short",
+      "question_variations": [
+        "Na kufr čekám teprve čtyři hodiny.",
+        "Zpoždění bagáže je zatím jen pár hodin.",
+        "Dostanu něco už teď?"
+      ],
+      "conditions": [
+        "Postup posuzovat podle země události, konkrétního dopravce nebo poskytovatele služby a verze smlouvy."
+      ],
+      "immediate_steps": [
+        {
+          "text": "Zaznamenejte čas, místo a okolnosti události a uchovejte dostupné doklady.",
+          "requirement_type": "recommended",
+          "evidence_level": "official_insurer",
+          "source_ids": [
+            "CSOB_GUIDE"
+          ],
+          "condition": null
+        },
+        {
+          "text": "Pokud chcete událost řešit z cestovního pojištění, připravte si údaje o pojištěném, popis a datum události a využijte oficiální hlášení ČSOB Pojišťovny.",
+          "requirement_type": "recommended",
+          "evidence_level": "official_insurer",
+          "source_ids": [
+            "CSOB_CLAIM"
+          ],
+          "condition": null
+        },
+        {
+          "text": "U leteckého dopravce nebo na přepážce reklamace zavazadel nahlaste problém a vyžádejte si potvrzení PIR.",
+          "requirement_type": "recommended",
+          "evidence_level": "official_insurer",
+          "source_ids": [
+            "CSOB_BAG"
+          ],
+          "condition": null
+        },
+        {
+          "text": "Uschovejte si letenku, zavazadlový lístek a související potvrzení.",
+          "requirement_type": "recommended",
+          "evidence_level": "official_insurer",
+          "source_ids": [
+            "CSOB_BAG"
+          ],
+          "condition": null
+        },
+        {
+          "text": "Pokud musíte koupit nezbytné náhradní věci, uschovejte účtenky a kupujte jen skutečně potřebné položky.",
+          "requirement_type": "recommended",
+          "evidence_level": "official_insurer",
+          "source_ids": [
+            "CSOB_BAG"
+          ],
+          "condition": null
+        },
+        {
+          "text": "Informace ČSOB Pojišťovny uvádějí u zpoždění zavazadel hranici delší než šest hodin; použitelnost konkrétního ujednání ověřte podle vaší smlouvy.",
+          "requirement_type": "recommended",
+          "evidence_level": "official_insurer",
+          "source_ids": [
+            "CSOB_BAG"
+          ],
+          "condition": null
+        },
+        {
+          "text": "Vedle řešení u ČSOB se informujte o samostatných právech vůči leteckému dopravci; reklamace dopravci není totéž co hlášení pojišťovně.",
+          "requirement_type": "recommended",
+          "evidence_level": "general_guidance",
+          "source_ids": [
+            "EU_AIR"
+          ],
+          "condition": null
+        }
+      ],
+      "required_documents": [],
+      "recommended_documents": [
+        {
+          "name": "PIR nebo jiné potvrzení o nahlášení nedoručeného zavazadla.",
+          "requirement_type": "recommended",
+          "source_ids": [
+            "CSOB_BAG"
+          ]
+        },
+        {
+          "name": "Letenka a zavazadlový lístek.",
+          "requirement_type": "recommended",
+          "source_ids": [
+            "CSOB_BAG"
+          ]
+        },
+        {
+          "name": "Účtenky za nezbytné náhradní věci.",
+          "requirement_type": "recommended",
+          "source_ids": [
+            "CSOB_BAG"
+          ]
+        }
+      ],
+      "police_involvement": {
+        "status": "not_established",
+        "guidance": "Z dostupných zdrojů nevyplývá jednotná povinnost pořídit policejní protokol právě pro tento scénář.",
+        "source_ids": [],
+        "needs_expert_review": true
+      },
+      "clarifying_questions": [
+        "Kdy a kde jste věc naposledy viděl(a)?",
+        "Jde o zapomenutí, ztrátu při přepravě, krádež, nebo poškození?",
+        "Jaká je dosavadní přesná délka zpoždění?"
+      ],
+      "coverage_considerations": [
+        "Ověřit, zda je sjednáno pojištění zavazadel, jak je definována daná událost a jaké platí výluky a limity.",
+        "U aktuálních webových doporučení je nutné ověřit soulad s verzí pojistných podmínek použitelnou pro smlouvu."
+      ],
+      "escalation_conditions": [
+        "Pokud potřebujete závazné rozhodnutí o krytí, přesný seznam povinných dokladů nebo výjimku z postupu, předejte dotaz pracovníkovi pojišťovny."
+      ],
+      "open_questions_for_expert": [
+        "Ověřit hranici zpoždění a její platnost pro variantu a ročník konkrétní smlouvy."
+      ],
+      "sources": [
+        {
+          "source_id": "CSOB_BAG",
+          "url": "https://www.csobpoj.cz/skody-a-pojistne-udalosti/ztraceny-nebo-zpozdeny-kufr",
+          "section": "Co dělat hned na letišti; Náhradní věci; Oznámení škody",
+          "last_checked_at": "2026-11-26",
+          "effective_from": null
+        },
+        {
+          "source_id": "CSOB_GUIDE",
+          "url": "https://www.csobpoj.cz/jak-postupovat-pri-skode-cestovni-pojisteni",
+          "section": "Událost v zahraničí",
+          "last_checked_at": "2026-11-26",
+          "effective_from": null
+        },
+        {
+          "source_id": "CSOB_CLAIM",
+          "url": "https://www.csobpoj.cz/oznameni-pojistne-udalosti-cestovni-pojisteni",
+          "section": "Oznámení online, telefonicky a doplnění dokladů",
+          "last_checked_at": "2026-11-26",
+          "effective_from": null
+        },
+        {
+          "source_id": "EU_AIR",
+          "url": "https://europa.eu/youreurope/citizens/travel/passenger-rights/air/index_cs.htm",
+          "section": "Práva cestujících; Zpoždění, zrušení a zavazadla",
+          "last_checked_at": "2026-11-26",
+          "effective_from": null
+        }
+      ],
+      "source_ids": [
+        "CSOB_BAG",
+        "CSOB_GUIDE",
+        "CSOB_CLAIM",
+        "EU_AIR"
+      ],
+      "evidence_level": "official_insurer",
+      "official_scenario_specific_evidence": true,
+      "procedure_completeness": "partial",
+      "priority": "P1",
+      "policy_version_check_required": true,
+      "applicable_policy_versions": [],
+      "review_status": "DRAFT",
+      "reviewed_by": null,
+      "last_verified_at": null,
+      "last_public_source_checked_at": "2026-11-26",
+      "approved_at": null,
+      "publication_status": "REVIEW_ONLY",
+      "retrieval_eligible": false,
+      "notes_for_reviewer": "Obecné pokyny od jiných institucí nejsou požadavky ČSOB. Ověřit každou povinnost a datum platnosti."
+    },
+    {
+      "id": "SUP_BAGGAGE_008",
+      "document_type": "support_procedure",
+      "schema_version": "1.0",
+      "language": "cs",
+      "category": "baggage",
+      "title": "Poškozený kufr po letu",
+      "scenario": "Klient řeší situaci: poškozený kufr po letu. Potřebuje praktický, ověřený postup bez předčasného příslibu plnění.",
+      "intent_tag": "air_damaged",
+      "question_variations": [
+        "Kufr dorazil rozbitý.",
+        "Zavazadlo je po příletu prasklé a chybí kolečko.",
+        "Mám to řešit na letišti?"
+      ],
+      "conditions": [
+        "Postup posuzovat podle země události, konkrétního dopravce nebo poskytovatele služby a verze smlouvy."
+      ],
+      "immediate_steps": [
+        {
+          "text": "Zaznamenejte čas, místo a okolnosti události a uchovejte dostupné doklady.",
+          "requirement_type": "recommended",
+          "evidence_level": "official_insurer",
+          "source_ids": [
+            "CSOB_GUIDE"
+          ],
+          "condition": null
+        },
+        {
+          "text": "Pokud chcete událost řešit z cestovního pojištění, připravte si údaje o pojištěném, popis a datum události a využijte oficiální hlášení ČSOB Pojišťovny.",
+          "requirement_type": "recommended",
+          "evidence_level": "official_insurer",
+          "source_ids": [
+            "CSOB_CLAIM"
+          ],
+          "condition": null
+        },
+        {
+          "text": "Poškození zavazadla oznamte leteckému dopravci co nejdříve a uchovejte potvrzení o reklamaci.",
+          "requirement_type": "recommended",
+          "evidence_level": "general_guidance",
+          "source_ids": [
+            "EU_AIR"
+          ],
+          "condition": null
+        },
+        {
+          "text": "Vedle řešení u ČSOB se informujte o samostatných právech vůči leteckému dopravci; reklamace dopravci není totéž co hlášení pojišťovně.",
+          "requirement_type": "recommended",
+          "evidence_level": "general_guidance",
+          "source_ids": [
+            "EU_AIR"
+          ],
+          "condition": null
+        }
+      ],
+      "required_documents": [],
+      "recommended_documents": [],
+      "police_involvement": {
+        "status": "not_established",
+        "guidance": "Z dostupných zdrojů nevyplývá jednotná povinnost pořídit policejní protokol právě pro tento scénář.",
+        "source_ids": [],
+        "needs_expert_review": true
+      },
+      "clarifying_questions": [
+        "Kdy a kde jste věc naposledy viděl(a)?",
+        "Jde o zapomenutí, ztrátu při přepravě, krádež, nebo poškození?"
+      ],
+      "coverage_considerations": [
+        "Ověřit, zda je sjednáno pojištění zavazadel, jak je definována daná událost a jaké platí výluky a limity.",
+        "U aktuálních webových doporučení je nutné ověřit soulad s verzí pojistných podmínek použitelnou pro smlouvu."
+      ],
+      "escalation_conditions": [
+        "Pokud potřebujete závazné rozhodnutí o krytí, přesný seznam povinných dokladů nebo výjimku z postupu, předejte dotaz pracovníkovi pojišťovny."
+      ],
+      "open_questions_for_expert": [
+        "Potvrdit pro scénář „Poškozený kufr po letu“ přesné doklady, použitelné výluky, rozsah asistence a případné povinnosti vůči ČSOB podle sjednaného produktu."
+      ],
+      "sources": [
+        {
+          "source_id": "EU_AIR",
+          "url": "https://europa.eu/youreurope/citizens/travel/passenger-rights/air/index_cs.htm",
+          "section": "Práva cestujících; Zpoždění, zrušení a zavazadla",
+          "last_checked_at": "2026-11-26",
+          "effective_from": null
+        },
+        {
+          "source_id": "CSOB_GUIDE",
+          "url": "https://www.csobpoj.cz/jak-postupovat-pri-skode-cestovni-pojisteni",
+          "section": "Událost v zahraničí",
+          "last_checked_at": "2026-11-26",
+          "effective_from": null
+        },
+        {
+          "source_id": "CSOB_CLAIM",
+          "url": "https://www.csobpoj.cz/oznameni-pojistne-udalosti-cestovni-pojisteni",
+          "section": "Oznámení online, telefonicky a doplnění dokladů",
+          "last_checked_at": "2026-11-26",
+          "effective_from": null
+        }
+      ],
+      "source_ids": [
+        "EU_AIR",
+        "CSOB_GUIDE",
+        "CSOB_CLAIM"
+      ],
+      "evidence_level": "general_guidance",
+      "official_scenario_specific_evidence": false,
+      "procedure_completeness": "unresolved",
+      "priority": "P1",
+      "policy_version_check_required": true,
+      "applicable_policy_versions": [],
+      "review_status": "DRAFT",
+      "reviewed_by": null,
+      "last_verified_at": null,
+      "last_public_source_checked_at": "2026-11-26",
+      "approved_at": null,
+      "publication_status": "REVIEW_ONLY",
+      "retrieval_eligible": false,
+      "notes_for_reviewer": "Obecné pokyny od jiných institucí nejsou požadavky ČSOB. Ověřit každou povinnost a datum platnosti."
+    },
+    {
+      "id": "SUP_BAGGAGE_009",
+      "document_type": "support_procedure",
+      "schema_version": "1.0",
+      "language": "cs",
+      "category": "baggage",
+      "title": "Krádež zavazadla na ulici",
+      "scenario": "Klient řeší situaci: krádež zavazadla na ulici. Potřebuje praktický, ověřený postup bez předčasného příslibu plnění.",
+      "intent_tag": "theft_baggage",
+      "question_variations": [
+        "Někdo mi ukradl batoh na ulici.",
+        "Okradli mě na dovolené a nemám kufr.",
+        "Musím na policii?"
+      ],
+      "conditions": [
+        "Postup posuzovat podle země události, konkrétního dopravce nebo poskytovatele služby a verze smlouvy."
+      ],
+      "immediate_steps": [
+        {
+          "text": "Zaznamenejte čas, místo a okolnosti události a uchovejte dostupné doklady.",
+          "requirement_type": "recommended",
+          "evidence_level": "official_insurer",
+          "source_ids": [
+            "CSOB_GUIDE"
+          ],
+          "condition": null
+        },
+        {
+          "text": "Pokud chcete událost řešit z cestovního pojištění, připravte si údaje o pojištěném, popis a datum události a využijte oficiální hlášení ČSOB Pojišťovny.",
+          "requirement_type": "recommended",
+          "evidence_level": "official_insurer",
+          "source_ids": [
+            "CSOB_CLAIM"
+          ],
+          "condition": null
+        },
+        {
+          "text": "Při krádeži zavazadel VPP CP 2021 stanovují neprodlené ohlášení místní policii a vyžádání policejního protokolu; ověřte verzi podmínek pro vaši smlouvu.",
+          "requirement_type": "contractual_version_specific",
+          "evidence_level": "official_insurer",
+          "source_ids": [
+            "CSOB_VPP2021"
+          ],
+          "condition": null
+        }
+      ],
+      "required_documents": [
+        {
+          "name": "Policejní protokol o krádeži zavazadel podle VPP CP 2021.",
+          "requirement_type": "contractual_version_specific",
+          "source_ids": [
+            "CSOB_VPP2021"
+          ]
+        }
+      ],
+      "recommended_documents": [],
+      "police_involvement": {
+        "status": "required_by_VPP_CP_2021_for_baggage_theft",
+        "guidance": "VPP CP 2021 u krádeže zavazadel stanovují ohlášení místní policii a policejní protokol; ověřte použitelnost dané verze.",
+        "source_ids": [
+          "CSOB_VPP2021"
+        ],
+        "needs_expert_review": true
+      },
+      "clarifying_questions": [
+        "Kdy a kde jste věc naposledy viděl(a)?",
+        "Jde o zapomenutí, ztrátu při přepravě, krádež, nebo poškození?",
+        "Máte policejní protokol a je podezření na násilné odcizení?"
+      ],
+      "coverage_considerations": [
+        "Ověřit, zda je sjednáno pojištění zavazadel, jak je definována daná událost a jaké platí výluky a limity.",
+        "U aktuálních webových doporučení je nutné ověřit soulad s verzí pojistných podmínek použitelnou pro smlouvu."
+      ],
+      "escalation_conditions": [
+        "Pokud potřebujete závazné rozhodnutí o krytí, přesný seznam povinných dokladů nebo výjimku z postupu, předejte dotaz pracovníkovi pojišťovny."
+      ],
+      "open_questions_for_expert": [
+        "Potvrdit pro scénář „Krádež zavazadla na ulici“ přesné doklady, použitelné výluky, rozsah asistence a případné povinnosti vůči ČSOB podle sjednaného produktu."
+      ],
+      "sources": [
+        {
+          "source_id": "CSOB_VPP2021",
+          "url": "https://www.csobpoj.cz/documents/10332/5083102/11N9393%2BVPP%2BCP%2B2021_form%C3%A1t%2BA4_CZ_v%C4%8Detn%C4%9B%2Boce%C5%88ovac%C3%ADch%2Btabulek_final_PDF-A.pdf/91a13cf6-8af5-00b8-784b-2f4f65ab34d0?t=1714117917863",
+          "section": "Pokyny pro klienta (strana 2) a jednotlivá ustanovení VPP CP 2021",
+          "last_checked_at": "2026-11-26",
+          "effective_from": "2021-04-01"
+        },
+        {
+          "source_id": "CSOB_GUIDE",
+          "url": "https://www.csobpoj.cz/jak-postupovat-pri-skode-cestovni-pojisteni",
+          "section": "Událost v zahraničí",
+          "last_checked_at": "2026-11-26",
+          "effective_from": null
+        },
+        {
+          "source_id": "CSOB_CLAIM",
+          "url": "https://www.csobpoj.cz/oznameni-pojistne-udalosti-cestovni-pojisteni",
+          "section": "Oznámení online, telefonicky a doplnění dokladů",
+          "last_checked_at": "2026-11-26",
+          "effective_from": null
+        }
+      ],
+      "source_ids": [
+        "CSOB_VPP2021",
+        "CSOB_GUIDE",
+        "CSOB_CLAIM"
+      ],
+      "evidence_level": "official_insurer",
+      "official_scenario_specific_evidence": true,
+      "procedure_completeness": "partial",
+      "priority": "P1",
+      "policy_version_check_required": true,
+      "applicable_policy_versions": [],
+      "review_status": "DRAFT",
+      "reviewed_by": null,
+      "last_verified_at": null,
+      "last_public_source_checked_at": "2026-11-26",
+      "approved_at": null,
+      "publication_status": "REVIEW_ONLY",
+      "retrieval_eligible": false,
+      "notes_for_reviewer": "Obecné pokyny od jiných institucí nejsou požadavky ČSOB. Ověřit každou povinnost a datum platnosti."
+    },
+    {
+      "id": "SUP_BAGGAGE_010",
+      "document_type": "support_procedure",
+      "schema_version": "1.0",
+      "language": "cs",
+      "category": "baggage",
+      "title": "Ukradený mobilní telefon",
+      "scenario": "Klient řeší situaci: ukradený mobilní telefon. Potřebuje praktický, ověřený postup bez předčasného příslibu plnění.",
+      "intent_tag": "theft_other",
+      "question_variations": [
+        "V zahraničí mi ukradli telefon.",
+        "Někdo mi sebral mobil v metru.",
+        "Stačí nahlášení pojišťovně?"
+      ],
+      "conditions": [
+        "Postup posuzovat podle země události, konkrétního dopravce nebo poskytovatele služby a verze smlouvy."
+      ],
+      "immediate_steps": [
+        {
+          "text": "Zaznamenejte čas, místo a okolnosti události a uchovejte dostupné doklady.",
+          "requirement_type": "recommended",
+          "evidence_level": "official_insurer",
+          "source_ids": [
+            "CSOB_GUIDE"
+          ],
+          "condition": null
+        },
+        {
+          "text": "Pokud chcete událost řešit z cestovního pojištění, připravte si údaje o pojištěném, popis a datum události a využijte oficiální hlášení ČSOB Pojišťovny.",
+          "requirement_type": "recommended",
+          "evidence_level": "official_insurer",
+          "source_ids": [
+            "CSOB_CLAIM"
+          ],
+          "condition": null
+        },
+        {
+          "text": "Při podezření na trestný čin kontaktujte místní policii a pořiďte si dostupnou dokumentaci o události.",
+          "requirement_type": "recommended",
+          "evidence_level": "official_insurer",
+          "source_ids": [
+            "CSOB_GUIDE"
+          ],
+          "condition": null
+        }
+      ],
+      "required_documents": [],
+      "recommended_documents": [],
+      "police_involvement": {
+        "status": "recommended_for_suspected_crime",
+        "guidance": "ČSOB uvádí přivolání místní policie při podezření na trestný čin; konkrétní požadavky na dokumentaci dané věci je třeba ověřit.",
+        "source_ids": [
+          "CSOB_GUIDE"
+        ],
+        "needs_expert_review": true
+      },
+      "clarifying_questions": [
+        "Kdy a kde jste věc naposledy viděl(a)?",
+        "Jde o zapomenutí, ztrátu při přepravě, krádež, nebo poškození?"
+      ],
+      "coverage_considerations": [
+        "Ověřit, zda je sjednáno pojištění zavazadel, jak je definována daná událost a jaké platí výluky a limity.",
+        "U aktuálních webových doporučení je nutné ověřit soulad s verzí pojistných podmínek použitelnou pro smlouvu."
+      ],
+      "escalation_conditions": [
+        "Pokud potřebujete závazné rozhodnutí o krytí, přesný seznam povinných dokladů nebo výjimku z postupu, předejte dotaz pracovníkovi pojišťovny."
+      ],
+      "open_questions_for_expert": [
+        "Potvrdit pro scénář „Ukradený mobilní telefon“ přesné doklady, použitelné výluky, rozsah asistence a případné povinnosti vůči ČSOB podle sjednaného produktu."
+      ],
+      "sources": [
+        {
+          "source_id": "CSOB_GUIDE",
+          "url": "https://www.csobpoj.cz/jak-postupovat-pri-skode-cestovni-pojisteni",
+          "section": "Událost v zahraničí",
+          "last_checked_at": "2026-11-26",
+          "effective_from": null
+        },
+        {
+          "source_id": "CSOB_CLAIM",
+          "url": "https://www.csobpoj.cz/oznameni-pojistne-udalosti-cestovni-pojisteni",
+          "section": "Oznámení online, telefonicky a doplnění dokladů",
+          "last_checked_at": "2026-11-26",
+          "effective_from": null
+        }
+      ],
+      "source_ids": [
+        "CSOB_GUIDE",
+        "CSOB_CLAIM"
+      ],
+      "evidence_level": "needs_expert_review",
+      "official_scenario_specific_evidence": false,
+      "procedure_completeness": "unresolved",
+      "priority": "P1",
+      "policy_version_check_required": true,
+      "applicable_policy_versions": [],
+      "review_status": "DRAFT",
+      "reviewed_by": null,
+      "last_verified_at": null,
+      "last_public_source_checked_at": "2026-11-26",
+      "approved_at": null,
+      "publication_status": "REVIEW_ONLY",
+      "retrieval_eligible": false,
+      "notes_for_reviewer": "Obecné pokyny od jiných institucí nejsou požadavky ČSOB. Ověřit každou povinnost a datum platnosti."
+    },
+    {
+      "id": "SUP_BAGGAGE_011",
+      "document_type": "support_procedure",
+      "schema_version": "1.0",
+      "language": "cs",
+      "category": "baggage",
+      "title": "Krádež notebooku na cestě",
+      "scenario": "Klient řeší situaci: krádež notebooku na cestě. Potřebuje praktický, ověřený postup bez předčasného příslibu plnění.",
+      "intent_tag": "theft_other",
+      "question_variations": [
+        "Někdo mi vzal notebook z batohu.",
+        "Ukradli mi pracovní laptop na dovolené.",
+        "Je potřeba policejní zápis?"
+      ],
+      "conditions": [
+        "Postup posuzovat podle země události, konkrétního dopravce nebo poskytovatele služby a verze smlouvy."
+      ],
+      "immediate_steps": [
+        {
+          "text": "Zaznamenejte čas, místo a okolnosti události a uchovejte dostupné doklady.",
+          "requirement_type": "recommended",
+          "evidence_level": "official_insurer",
+          "source_ids": [
+            "CSOB_GUIDE"
+          ],
+          "condition": null
+        },
+        {
+          "text": "Pokud chcete událost řešit z cestovního pojištění, připravte si údaje o pojištěném, popis a datum události a využijte oficiální hlášení ČSOB Pojišťovny.",
+          "requirement_type": "recommended",
+          "evidence_level": "official_insurer",
+          "source_ids": [
+            "CSOB_CLAIM"
+          ],
+          "condition": null
+        },
+        {
+          "text": "Při podezření na trestný čin kontaktujte místní policii a pořiďte si dostupnou dokumentaci o události.",
+          "requirement_type": "recommended",
+          "evidence_level": "official_insurer",
+          "source_ids": [
+            "CSOB_GUIDE"
+          ],
+          "condition": null
+        }
+      ],
+      "required_documents": [],
+      "recommended_documents": [],
+      "police_involvement": {
+        "status": "recommended_for_suspected_crime",
+        "guidance": "ČSOB uvádí přivolání místní policie při podezření na trestný čin; konkrétní požadavky na dokumentaci dané věci je třeba ověřit.",
+        "source_ids": [
+          "CSOB_GUIDE"
+        ],
+        "needs_expert_review": true
+      },
+      "clarifying_questions": [
+        "Kdy a kde jste věc naposledy viděl(a)?",
+        "Jde o zapomenutí, ztrátu při přepravě, krádež, nebo poškození?"
+      ],
+      "coverage_considerations": [
+        "Ověřit, zda je sjednáno pojištění zavazadel, jak je definována daná událost a jaké platí výluky a limity.",
+        "U aktuálních webových doporučení je nutné ověřit soulad s verzí pojistných podmínek použitelnou pro smlouvu."
+      ],
+      "escalation_conditions": [
+        "Pokud potřebujete závazné rozhodnutí o krytí, přesný seznam povinných dokladů nebo výjimku z postupu, předejte dotaz pracovníkovi pojišťovny."
+      ],
+      "open_questions_for_expert": [
+        "Potvrdit pro scénář „Krádež notebooku na cestě“ přesné doklady, použitelné výluky, rozsah asistence a případné povinnosti vůči ČSOB podle sjednaného produktu."
+      ],
+      "sources": [
+        {
+          "source_id": "CSOB_GUIDE",
+          "url": "https://www.csobpoj.cz/jak-postupovat-pri-skode-cestovni-pojisteni",
+          "section": "Událost v zahraničí",
+          "last_checked_at": "2026-11-26",
+          "effective_from": null
+        },
+        {
+          "source_id": "CSOB_CLAIM",
+          "url": "https://www.csobpoj.cz/oznameni-pojistne-udalosti-cestovni-pojisteni",
+          "section": "Oznámení online, telefonicky a doplnění dokladů",
+          "last_checked_at": "2026-11-26",
+          "effective_from": null
+        }
+      ],
+      "source_ids": [
+        "CSOB_GUIDE",
+        "CSOB_CLAIM"
+      ],
+      "evidence_level": "needs_expert_review",
+      "official_scenario_specific_evidence": false,
+      "procedure_completeness": "unresolved",
+      "priority": "P1",
+      "policy_version_check_required": true,
+      "applicable_policy_versions": [],
+      "review_status": "DRAFT",
+      "reviewed_by": null,
+      "last_verified_at": null,
+      "last_public_source_checked_at": "2026-11-26",
+      "approved_at": null,
+      "publication_status": "REVIEW_ONLY",
+      "retrieval_eligible": false,
+      "notes_for_reviewer": "Obecné pokyny od jiných institucí nejsou požadavky ČSOB. Ověřit každou povinnost a datum platnosti."
+    },
+    {
+      "id": "SUP_BAGGAGE_012",
+      "document_type": "support_procedure",
+      "schema_version": "1.0",
+      "language": "cs",
+      "category": "baggage",
+      "title": "Krádež věcí z hotelového pokoje",
+      "scenario": "Klient řeší situaci: krádež věcí z hotelového pokoje. Potřebuje praktický, ověřený postup bez předčasného příslibu plnění.",
+      "intent_tag": "theft_other",
+      "question_variations": [
+        "Z hotelového pokoje mi zmizely peníze a věci.",
+        "Někdo se dostal do mého pokoje a něco ukradl.",
+        "Mám volat hotel nebo policii?"
+      ],
+      "conditions": [
+        "Postup posuzovat podle země události, konkrétního dopravce nebo poskytovatele služby a verze smlouvy."
+      ],
+      "immediate_steps": [
+        {
+          "text": "Zaznamenejte čas, místo a okolnosti události a uchovejte dostupné doklady.",
+          "requirement_type": "recommended",
+          "evidence_level": "official_insurer",
+          "source_ids": [
+            "CSOB_GUIDE"
+          ],
+          "condition": null
+        },
+        {
+          "text": "Pokud chcete událost řešit z cestovního pojištění, připravte si údaje o pojištěném, popis a datum události a využijte oficiální hlášení ČSOB Pojišťovny.",
+          "requirement_type": "recommended",
+          "evidence_level": "official_insurer",
+          "source_ids": [
+            "CSOB_CLAIM"
+          ],
+          "condition": null
+        },
+        {
+          "text": "Při podezření na trestný čin kontaktujte místní policii a pořiďte si dostupnou dokumentaci o události.",
+          "requirement_type": "recommended",
+          "evidence_level": "official_insurer",
+          "source_ids": [
+            "CSOB_GUIDE"
+          ],
+          "condition": null
+        }
+      ],
+      "required_documents": [],
+      "recommended_documents": [],
+      "police_involvement": {
+        "status": "recommended_for_suspected_crime",
+        "guidance": "ČSOB uvádí přivolání místní policie při podezření na trestný čin; konkrétní požadavky na dokumentaci dané věci je třeba ověřit.",
+        "source_ids": [
+          "CSOB_GUIDE"
+        ],
+        "needs_expert_review": true
+      },
+      "clarifying_questions": [
+        "Kdy a kde jste věc naposledy viděl(a)?",
+        "Jde o zapomenutí, ztrátu při přepravě, krádež, nebo poškození?"
+      ],
+      "coverage_considerations": [
+        "Ověřit, zda je sjednáno pojištění zavazadel, jak je definována daná událost a jaké platí výluky a limity.",
+        "U aktuálních webových doporučení je nutné ověřit soulad s verzí pojistných podmínek použitelnou pro smlouvu."
+      ],
+      "escalation_conditions": [
+        "Pokud potřebujete závazné rozhodnutí o krytí, přesný seznam povinných dokladů nebo výjimku z postupu, předejte dotaz pracovníkovi pojišťovny."
+      ],
+      "open_questions_for_expert": [
+        "Potvrdit pro scénář „Krádež věcí z hotelového pokoje“ přesné doklady, použitelné výluky, rozsah asistence a případné povinnosti vůči ČSOB podle sjednaného produktu."
+      ],
+      "sources": [
+        {
+          "source_id": "CSOB_GUIDE",
+          "url": "https://www.csobpoj.cz/jak-postupovat-pri-skode-cestovni-pojisteni",
+          "section": "Událost v zahraničí",
+          "last_checked_at": "2026-11-26",
+          "effective_from": null
+        },
+        {
+          "source_id": "CSOB_CLAIM",
+          "url": "https://www.csobpoj.cz/oznameni-pojistne-udalosti-cestovni-pojisteni",
+          "section": "Oznámení online, telefonicky a doplnění dokladů",
+          "last_checked_at": "2026-11-26",
+          "effective_from": null
+        }
+      ],
+      "source_ids": [
+        "CSOB_GUIDE",
+        "CSOB_CLAIM"
+      ],
+      "evidence_level": "needs_expert_review",
+      "official_scenario_specific_evidence": false,
+      "procedure_completeness": "unresolved",
+      "priority": "P1",
+      "policy_version_check_required": true,
+      "applicable_policy_versions": [],
+      "review_status": "DRAFT",
+      "reviewed_by": null,
+      "last_verified_at": null,
+      "last_public_source_checked_at": "2026-11-26",
+      "approved_at": null,
+      "publication_status": "REVIEW_ONLY",
+      "retrieval_eligible": false,
+      "notes_for_reviewer": "Obecné pokyny od jiných institucí nejsou požadavky ČSOB. Ověřit každou povinnost a datum platnosti."
+    },
+    {
+      "id": "SUP_BAGGAGE_013",
+      "document_type": "support_procedure",
+      "schema_version": "1.0",
+      "language": "cs",
+      "category": "baggage",
+      "title": "Věci chybí z hotelového trezoru",
+      "scenario": "Klient řeší situaci: věci chybí z hotelového trezoru. Potřebuje praktický, ověřený postup bez předčasného příslibu plnění.",
+      "intent_tag": "theft_other",
+      "question_variations": [
+        "V hotelovém trezoru mi chybí šperky.",
+        "Vzal někdo věci z hotelového sejfu?",
+        "Jak to mám doložit?"
+      ],
+      "conditions": [
+        "Postup posuzovat podle země události, konkrétního dopravce nebo poskytovatele služby a verze smlouvy."
+      ],
+      "immediate_steps": [
+        {
+          "text": "Zaznamenejte čas, místo a okolnosti události a uchovejte dostupné doklady.",
+          "requirement_type": "recommended",
+          "evidence_level": "official_insurer",
+          "source_ids": [
+            "CSOB_GUIDE"
+          ],
+          "condition": null
+        },
+        {
+          "text": "Pokud chcete událost řešit z cestovního pojištění, připravte si údaje o pojištěném, popis a datum události a využijte oficiální hlášení ČSOB Pojišťovny.",
+          "requirement_type": "recommended",
+          "evidence_level": "official_insurer",
+          "source_ids": [
+            "CSOB_CLAIM"
+          ],
+          "condition": null
+        },
+        {
+          "text": "Při podezření na trestný čin kontaktujte místní policii a pořiďte si dostupnou dokumentaci o události.",
+          "requirement_type": "recommended",
+          "evidence_level": "official_insurer",
+          "source_ids": [
+            "CSOB_GUIDE"
+          ],
+          "condition": null
+        }
+      ],
+      "required_documents": [],
+      "recommended_documents": [],
+      "police_involvement": {
+        "status": "recommended_for_suspected_crime",
+        "guidance": "ČSOB uvádí přivolání místní policie při podezření na trestný čin; konkrétní požadavky na dokumentaci dané věci je třeba ověřit.",
+        "source_ids": [
+          "CSOB_GUIDE"
+        ],
+        "needs_expert_review": true
+      },
+      "clarifying_questions": [
+        "Kdy a kde jste věc naposledy viděl(a)?",
+        "Jde o zapomenutí, ztrátu při přepravě, krádež, nebo poškození?"
+      ],
+      "coverage_considerations": [
+        "Ověřit, zda je sjednáno pojištění zavazadel, jak je definována daná událost a jaké platí výluky a limity.",
+        "U aktuálních webových doporučení je nutné ověřit soulad s verzí pojistných podmínek použitelnou pro smlouvu."
+      ],
+      "escalation_conditions": [
+        "Pokud potřebujete závazné rozhodnutí o krytí, přesný seznam povinných dokladů nebo výjimku z postupu, předejte dotaz pracovníkovi pojišťovny."
+      ],
+      "open_questions_for_expert": [
+        "Potvrdit pro scénář „Věci chybí z hotelového trezoru“ přesné doklady, použitelné výluky, rozsah asistence a případné povinnosti vůči ČSOB podle sjednaného produktu."
+      ],
+      "sources": [
+        {
+          "source_id": "CSOB_GUIDE",
+          "url": "https://www.csobpoj.cz/jak-postupovat-pri-skode-cestovni-pojisteni",
+          "section": "Událost v zahraničí",
+          "last_checked_at": "2026-11-26",
+          "effective_from": null
+        },
+        {
+          "source_id": "CSOB_CLAIM",
+          "url": "https://www.csobpoj.cz/oznameni-pojistne-udalosti-cestovni-pojisteni",
+          "section": "Oznámení online, telefonicky a doplnění dokladů",
+          "last_checked_at": "2026-11-26",
+          "effective_from": null
+        }
+      ],
+      "source_ids": [
+        "CSOB_GUIDE",
+        "CSOB_CLAIM"
+      ],
+      "evidence_level": "needs_expert_review",
+      "official_scenario_specific_evidence": false,
+      "procedure_completeness": "unresolved",
+      "priority": "P1",
+      "policy_version_check_required": true,
+      "applicable_policy_versions": [],
+      "review_status": "DRAFT",
+      "reviewed_by": null,
+      "last_verified_at": null,
+      "last_public_source_checked_at": "2026-11-26",
+      "approved_at": null,
+      "publication_status": "REVIEW_ONLY",
+      "retrieval_eligible": false,
+      "notes_for_reviewer": "Obecné pokyny od jiných institucí nejsou požadavky ČSOB. Ověřit každou povinnost a datum platnosti."
+    },
+    {
+      "id": "SUP_BAGGAGE_014",
+      "document_type": "support_procedure",
+      "schema_version": "1.0",
+      "language": "cs",
+      "category": "baggage",
+      "title": "Krádež kufru ze zaparkovaného auta",
+      "scenario": "Klient řeší situaci: krádež kufru ze zaparkovaného auta. Potřebuje praktický, ověřený postup bez předčasného příslibu plnění.",
+      "intent_tag": "theft_baggage",
+      "question_variations": [
+        "Někdo nám vykradl auto a vzal kufr.",
+        "Zavazadla zmizela z auta na parkovišti.",
+        "Mám to nahlásit místní policii?"
+      ],
+      "conditions": [
+        "Postup posuzovat podle země události, konkrétního dopravce nebo poskytovatele služby a verze smlouvy."
+      ],
+      "immediate_steps": [
+        {
+          "text": "Zaznamenejte čas, místo a okolnosti události a uchovejte dostupné doklady.",
+          "requirement_type": "recommended",
+          "evidence_level": "official_insurer",
+          "source_ids": [
+            "CSOB_GUIDE"
+          ],
+          "condition": null
+        },
+        {
+          "text": "Pokud chcete událost řešit z cestovního pojištění, připravte si údaje o pojištěném, popis a datum události a využijte oficiální hlášení ČSOB Pojišťovny.",
+          "requirement_type": "recommended",
+          "evidence_level": "official_insurer",
+          "source_ids": [
+            "CSOB_CLAIM"
+          ],
+          "condition": null
+        },
+        {
+          "text": "Při krádeži zavazadel VPP CP 2021 stanovují neprodlené ohlášení místní policii a vyžádání policejního protokolu; ověřte verzi podmínek pro vaši smlouvu.",
+          "requirement_type": "contractual_version_specific",
+          "evidence_level": "official_insurer",
+          "source_ids": [
+            "CSOB_VPP2021"
+          ],
+          "condition": null
+        }
+      ],
+      "required_documents": [
+        {
+          "name": "Policejní protokol o krádeži zavazadel podle VPP CP 2021.",
+          "requirement_type": "contractual_version_specific",
+          "source_ids": [
+            "CSOB_VPP2021"
+          ]
+        }
+      ],
+      "recommended_documents": [],
+      "police_involvement": {
+        "status": "required_by_VPP_CP_2021_for_baggage_theft",
+        "guidance": "VPP CP 2021 u krádeže zavazadel stanovují ohlášení místní policii a policejní protokol; ověřte použitelnost dané verze.",
+        "source_ids": [
+          "CSOB_VPP2021"
+        ],
+        "needs_expert_review": true
+      },
+      "clarifying_questions": [
+        "Kdy a kde jste věc naposledy viděl(a)?",
+        "Jde o zapomenutí, ztrátu při přepravě, krádež, nebo poškození?",
+        "Máte policejní protokol a je podezření na násilné odcizení?"
+      ],
+      "coverage_considerations": [
+        "Ověřit, zda je sjednáno pojištění zavazadel, jak je definována daná událost a jaké platí výluky a limity.",
+        "U aktuálních webových doporučení je nutné ověřit soulad s verzí pojistných podmínek použitelnou pro smlouvu."
+      ],
+      "escalation_conditions": [
+        "Pokud potřebujete závazné rozhodnutí o krytí, přesný seznam povinných dokladů nebo výjimku z postupu, předejte dotaz pracovníkovi pojišťovny."
+      ],
+      "open_questions_for_expert": [
+        "Potvrdit pro scénář „Krádež kufru ze zaparkovaného auta“ přesné doklady, použitelné výluky, rozsah asistence a případné povinnosti vůči ČSOB podle sjednaného produktu."
+      ],
+      "sources": [
+        {
+          "source_id": "CSOB_VPP2021",
+          "url": "https://www.csobpoj.cz/documents/10332/5083102/11N9393%2BVPP%2BCP%2B2021_form%C3%A1t%2BA4_CZ_v%C4%8Detn%C4%9B%2Boce%C5%88ovac%C3%ADch%2Btabulek_final_PDF-A.pdf/91a13cf6-8af5-00b8-784b-2f4f65ab34d0?t=1714117917863",
+          "section": "Pokyny pro klienta (strana 2) a jednotlivá ustanovení VPP CP 2021",
+          "last_checked_at": "2026-11-26",
+          "effective_from": "2021-04-01"
+        },
+        {
+          "source_id": "CSOB_GUIDE",
+          "url": "https://www.csobpoj.cz/jak-postupovat-pri-skode-cestovni-pojisteni",
+          "section": "Událost v zahraničí",
+          "last_checked_at": "2026-11-26",
+          "effective_from": null
+        },
+        {
+          "source_id": "CSOB_CLAIM",
+          "url": "https://www.csobpoj.cz/oznameni-pojistne-udalosti-cestovni-pojisteni",
+          "section": "Oznámení online, telefonicky a doplnění dokladů",
+          "last_checked_at": "2026-11-26",
+          "effective_from": null
+        }
+      ],
+      "source_ids": [
+        "CSOB_VPP2021",
+        "CSOB_GUIDE",
+        "CSOB_CLAIM"
+      ],
+      "evidence_level": "official_insurer",
+      "official_scenario_specific_evidence": true,
+      "procedure_completeness": "partial",
+      "priority": "P1",
+      "policy_version_check_required": true,
+      "applicable_policy_versions": [],
+      "review_status": "DRAFT",
+      "reviewed_by": null,
+      "last_verified_at": null,
+      "last_public_source_checked_at": "2026-11-26",
+      "approved_at": null,
+      "publication_status": "REVIEW_ONLY",
+      "retrieval_eligible": false,
+      "notes_for_reviewer": "Obecné pokyny od jiných institucí nejsou požadavky ČSOB. Ověřit každou povinnost a datum platnosti."
+    },
+    {
+      "id": "SUP_BAGGAGE_015",
+      "document_type": "support_procedure",
+      "schema_version": "1.0",
+      "language": "cs",
+      "category": "baggage",
+      "title": "Loupežné přepadení během cesty",
+      "scenario": "Klient řeší situaci: loupežné přepadení během cesty. Potřebuje praktický, ověřený postup bez předčasného příslibu plnění.",
+      "intent_tag": "robbery",
+      "question_variations": [
+        "Přepadli mě a vzali mi batoh.",
+        "Okradli mě násilím, nevím co dělat.",
+        "Mám nejdřív volat policii?"
+      ],
+      "conditions": [
+        "Postup posuzovat podle země události, konkrétního dopravce nebo poskytovatele služby a verze smlouvy."
+      ],
+      "immediate_steps": [
+        {
+          "text": "Zaznamenejte čas, místo a okolnosti události a uchovejte dostupné doklady.",
+          "requirement_type": "recommended",
+          "evidence_level": "official_insurer",
+          "source_ids": [
+            "CSOB_GUIDE"
+          ],
+          "condition": null
+        },
+        {
+          "text": "Pokud chcete událost řešit z cestovního pojištění, připravte si údaje o pojištěném, popis a datum události a využijte oficiální hlášení ČSOB Pojišťovny.",
+          "requirement_type": "recommended",
+          "evidence_level": "official_insurer",
+          "source_ids": [
+            "CSOB_CLAIM"
+          ],
+          "condition": null
+        },
+        {
+          "text": "Při podezření na trestný čin kontaktujte místní policii a pořiďte si dostupnou dokumentaci o události.",
+          "requirement_type": "recommended",
+          "evidence_level": "official_insurer",
+          "source_ids": [
+            "CSOB_GUIDE"
+          ],
+          "condition": null
+        }
+      ],
+      "required_documents": [],
+      "recommended_documents": [],
+      "police_involvement": {
+        "status": "recommended_for_suspected_crime",
+        "guidance": "ČSOB uvádí přivolání místní policie při podezření na trestný čin; konkrétní požadavky na dokumentaci dané věci je třeba ověřit.",
+        "source_ids": [
+          "CSOB_GUIDE"
+        ],
+        "needs_expert_review": true
+      },
+      "clarifying_questions": [
+        "Kdy a kde jste věc naposledy viděl(a)?",
+        "Jde o zapomenutí, ztrátu při přepravě, krádež, nebo poškození?"
+      ],
+      "coverage_considerations": [
+        "Ověřit, zda je sjednáno pojištění zavazadel, jak je definována daná událost a jaké platí výluky a limity.",
+        "U aktuálních webových doporučení je nutné ověřit soulad s verzí pojistných podmínek použitelnou pro smlouvu."
+      ],
+      "escalation_conditions": [
+        "Při bezprostředním nebezpečí nebo závažném zdravotním stavu má přednost přivolání místní pomoci.",
+        "Pokud potřebujete závazné rozhodnutí o krytí, přesný seznam povinných dokladů nebo výjimku z postupu, předejte dotaz pracovníkovi pojišťovny."
+      ],
+      "open_questions_for_expert": [
+        "Potvrdit pro scénář „Loupežné přepadení během cesty“ přesné doklady, použitelné výluky, rozsah asistence a případné povinnosti vůči ČSOB podle sjednaného produktu."
+      ],
+      "sources": [
+        {
+          "source_id": "CSOB_GUIDE",
+          "url": "https://www.csobpoj.cz/jak-postupovat-pri-skode-cestovni-pojisteni",
+          "section": "Událost v zahraničí",
+          "last_checked_at": "2026-11-26",
+          "effective_from": null
+        },
+        {
+          "source_id": "CSOB_CLAIM",
+          "url": "https://www.csobpoj.cz/oznameni-pojistne-udalosti-cestovni-pojisteni",
+          "section": "Oznámení online, telefonicky a doplnění dokladů",
+          "last_checked_at": "2026-11-26",
+          "effective_from": null
+        }
+      ],
+      "source_ids": [
+        "CSOB_GUIDE",
+        "CSOB_CLAIM"
+      ],
+      "evidence_level": "needs_expert_review",
+      "official_scenario_specific_evidence": false,
+      "procedure_completeness": "unresolved",
+      "priority": "P0",
+      "policy_version_check_required": true,
+      "applicable_policy_versions": [],
+      "review_status": "DRAFT",
+      "reviewed_by": null,
+      "last_verified_at": null,
+      "last_public_source_checked_at": "2026-11-26",
+      "approved_at": null,
+      "publication_status": "REVIEW_ONLY",
+      "retrieval_eligible": false,
+      "notes_for_reviewer": "Obecné pokyny od jiných institucí nejsou požadavky ČSOB. Ověřit každou povinnost a datum platnosti."
+    },
+    {
+      "id": "SUP_BAGGAGE_016",
+      "document_type": "support_procedure",
+      "schema_version": "1.0",
+      "language": "cs",
+      "category": "baggage",
+      "title": "Ztracená peněženka bez podezření na krádež",
+      "scenario": "Klient řeší situaci: ztracená peněženka bez podezření na krádež. Potřebuje praktický, ověřený postup bez předčasného příslibu plnění.",
+      "intent_tag": "forgotten_general",
+      "question_variations": [
+        "Nemůžu najít peněženku.",
+        "Asi jsem ztratil peněženku v cizině.",
+        "Je to krádež nebo ztráta?"
+      ],
+      "conditions": [
+        "Postup posuzovat podle země události, konkrétního dopravce nebo poskytovatele služby a verze smlouvy."
+      ],
+      "immediate_steps": [
+        {
+          "text": "Zaznamenejte čas, místo a okolnosti události a uchovejte dostupné doklady.",
+          "requirement_type": "recommended",
+          "evidence_level": "official_insurer",
+          "source_ids": [
+            "CSOB_GUIDE"
+          ],
+          "condition": null
+        },
+        {
+          "text": "Pokud chcete událost řešit z cestovního pojištění, připravte si údaje o pojištěném, popis a datum události a využijte oficiální hlášení ČSOB Pojišťovny.",
+          "requirement_type": "recommended",
+          "evidence_level": "official_insurer",
+          "source_ids": [
+            "CSOB_CLAIM"
+          ],
+          "condition": null
+        }
+      ],
+      "required_documents": [],
+      "recommended_documents": [],
+      "police_involvement": {
+        "status": "not_established",
+        "guidance": "Z dostupných zdrojů nevyplývá jednotná povinnost pořídit policejní protokol právě pro tento scénář.",
+        "source_ids": [],
+        "needs_expert_review": true
+      },
+      "clarifying_questions": [
+        "Kdy a kde jste věc naposledy viděl(a)?",
+        "Jde o zapomenutí, ztrátu při přepravě, krádež, nebo poškození?"
+      ],
+      "coverage_considerations": [
+        "Ověřit, zda je sjednáno pojištění zavazadel, jak je definována daná událost a jaké platí výluky a limity.",
+        "U aktuálních webových doporučení je nutné ověřit soulad s verzí pojistných podmínek použitelnou pro smlouvu."
+      ],
+      "escalation_conditions": [
+        "Pokud potřebujete závazné rozhodnutí o krytí, přesný seznam povinných dokladů nebo výjimku z postupu, předejte dotaz pracovníkovi pojišťovny."
+      ],
+      "open_questions_for_expert": [
+        "Potvrdit pro scénář „Ztracená peněženka bez podezření na krádež“ přesné doklady, použitelné výluky, rozsah asistence a případné povinnosti vůči ČSOB podle sjednaného produktu."
+      ],
+      "sources": [
+        {
+          "source_id": "CSOB_GUIDE",
+          "url": "https://www.csobpoj.cz/jak-postupovat-pri-skode-cestovni-pojisteni",
+          "section": "Událost v zahraničí",
+          "last_checked_at": "2026-11-26",
+          "effective_from": null
+        },
+        {
+          "source_id": "CSOB_CLAIM",
+          "url": "https://www.csobpoj.cz/oznameni-pojistne-udalosti-cestovni-pojisteni",
+          "section": "Oznámení online, telefonicky a doplnění dokladů",
+          "last_checked_at": "2026-11-26",
+          "effective_from": null
+        }
+      ],
+      "source_ids": [
+        "CSOB_GUIDE",
+        "CSOB_CLAIM"
+      ],
+      "evidence_level": "needs_expert_review",
+      "official_scenario_specific_evidence": false,
+      "procedure_completeness": "unresolved",
+      "priority": "P1",
+      "policy_version_check_required": true,
+      "applicable_policy_versions": [],
+      "review_status": "DRAFT",
+      "reviewed_by": null,
+      "last_verified_at": null,
+      "last_public_source_checked_at": "2026-11-26",
+      "approved_at": null,
+      "publication_status": "REVIEW_ONLY",
+      "retrieval_eligible": false,
+      "notes_for_reviewer": "Obecné pokyny od jiných institucí nejsou požadavky ČSOB. Ověřit každou povinnost a datum platnosti."
+    },
+    {
+      "id": "SUP_BAGGAGE_017",
+      "document_type": "support_procedure",
+      "schema_version": "1.0",
+      "language": "cs",
+      "category": "baggage",
+      "title": "Chybějící PIR protokol",
+      "scenario": "Klient řeší situaci: chybějící pir protokol. Potřebuje praktický, ověřený postup bez předčasného příslibu plnění.",
+      "intent_tag": "air_no_pir",
+      "question_variations": [
+        "Opustil jsem letiště bez PIR.",
+        "Nedali mi protokol na ztracené zavazadlo.",
+        "Dá se PIR doplnit později?"
+      ],
+      "conditions": [
+        "Postup posuzovat podle země události, konkrétního dopravce nebo poskytovatele služby a verze smlouvy."
+      ],
+      "immediate_steps": [
+        {
+          "text": "Zaznamenejte čas, místo a okolnosti události a uchovejte dostupné doklady.",
+          "requirement_type": "recommended",
+          "evidence_level": "official_insurer",
+          "source_ids": [
+            "CSOB_GUIDE"
+          ],
+          "condition": null
+        },
+        {
+          "text": "Pokud chcete událost řešit z cestovního pojištění, připravte si údaje o pojištěném, popis a datum události a využijte oficiální hlášení ČSOB Pojišťovny.",
+          "requirement_type": "recommended",
+          "evidence_level": "official_insurer",
+          "source_ids": [
+            "CSOB_CLAIM"
+          ],
+          "condition": null
+        },
+        {
+          "text": "U leteckého dopravce nebo na přepážce reklamace zavazadel nahlaste problém a vyžádejte si potvrzení PIR.",
+          "requirement_type": "recommended",
+          "evidence_level": "official_insurer",
+          "source_ids": [
+            "CSOB_BAG"
+          ],
+          "condition": null
+        },
+        {
+          "text": "Uschovejte si letenku, zavazadlový lístek a související potvrzení.",
+          "requirement_type": "recommended",
+          "evidence_level": "official_insurer",
+          "source_ids": [
+            "CSOB_BAG"
+          ],
+          "condition": null
+        },
+        {
+          "text": "Vedle řešení u ČSOB se informujte o samostatných právech vůči leteckému dopravci; reklamace dopravci není totéž co hlášení pojišťovně.",
+          "requirement_type": "recommended",
+          "evidence_level": "general_guidance",
+          "source_ids": [
+            "EU_AIR"
+          ],
+          "condition": null
+        }
+      ],
+      "required_documents": [],
+      "recommended_documents": [
+        {
+          "name": "PIR nebo jiné potvrzení o nahlášení nedoručeného zavazadla.",
+          "requirement_type": "recommended",
+          "source_ids": [
+            "CSOB_BAG"
+          ]
+        },
+        {
+          "name": "Letenka a zavazadlový lístek.",
+          "requirement_type": "recommended",
+          "source_ids": [
+            "CSOB_BAG"
+          ]
+        }
+      ],
+      "police_involvement": {
+        "status": "not_established",
+        "guidance": "Z dostupných zdrojů nevyplývá jednotná povinnost pořídit policejní protokol právě pro tento scénář.",
+        "source_ids": [],
+        "needs_expert_review": true
+      },
+      "clarifying_questions": [
+        "Kdy a kde jste věc naposledy viděl(a)?",
+        "Jde o zapomenutí, ztrátu při přepravě, krádež, nebo poškození?",
+        "Kdy jste opustil(a) letiště a komunikoval(a) jste s dopravcem?"
+      ],
+      "coverage_considerations": [
+        "Ověřit, zda je sjednáno pojištění zavazadel, jak je definována daná událost a jaké platí výluky a limity.",
+        "U aktuálních webových doporučení je nutné ověřit soulad s verzí pojistných podmínek použitelnou pro smlouvu."
+      ],
+      "escalation_conditions": [
+        "Pokud potřebujete závazné rozhodnutí o krytí, přesný seznam povinných dokladů nebo výjimku z postupu, předejte dotaz pracovníkovi pojišťovny."
+      ],
+      "open_questions_for_expert": [
+        "Potvrdit pro scénář „Chybějící PIR protokol“ přesné doklady, použitelné výluky, rozsah asistence a případné povinnosti vůči ČSOB podle sjednaného produktu."
+      ],
+      "sources": [
+        {
+          "source_id": "CSOB_BAG",
+          "url": "https://www.csobpoj.cz/skody-a-pojistne-udalosti/ztraceny-nebo-zpozdeny-kufr",
+          "section": "Co dělat hned na letišti; Náhradní věci; Oznámení škody",
+          "last_checked_at": "2026-11-26",
+          "effective_from": null
+        },
+        {
+          "source_id": "CSOB_GUIDE",
+          "url": "https://www.csobpoj.cz/jak-postupovat-pri-skode-cestovni-pojisteni",
+          "section": "Událost v zahraničí",
+          "last_checked_at": "2026-11-26",
+          "effective_from": null
+        },
+        {
+          "source_id": "CSOB_CLAIM",
+          "url": "https://www.csobpoj.cz/oznameni-pojistne-udalosti-cestovni-pojisteni",
+          "section": "Oznámení online, telefonicky a doplnění dokladů",
+          "last_checked_at": "2026-11-26",
+          "effective_from": null
+        },
+        {
+          "source_id": "EU_AIR",
+          "url": "https://europa.eu/youreurope/citizens/travel/passenger-rights/air/index_cs.htm",
+          "section": "Práva cestujících; Zpoždění, zrušení a zavazadla",
+          "last_checked_at": "2026-11-26",
+          "effective_from": null
+        }
+      ],
+      "source_ids": [
+        "CSOB_BAG",
+        "CSOB_GUIDE",
+        "CSOB_CLAIM",
+        "EU_AIR"
+      ],
+      "evidence_level": "official_insurer",
+      "official_scenario_specific_evidence": true,
+      "procedure_completeness": "partial",
+      "priority": "P1",
+      "policy_version_check_required": true,
+      "applicable_policy_versions": [],
+      "review_status": "DRAFT",
+      "reviewed_by": null,
+      "last_verified_at": null,
+      "last_public_source_checked_at": "2026-11-26",
+      "approved_at": null,
+      "publication_status": "REVIEW_ONLY",
+      "retrieval_eligible": false,
+      "notes_for_reviewer": "Obecné pokyny od jiných institucí nejsou požadavky ČSOB. Ověřit každou povinnost a datum platnosti."
+    },
+    {
+      "id": "SUP_BAGGAGE_018",
+      "document_type": "support_procedure",
+      "schema_version": "1.0",
+      "language": "cs",
+      "category": "baggage",
+      "title": "Chybějící zavazadlový lístek",
+      "scenario": "Klient řeší situaci: chybějící zavazadlový lístek. Potřebuje praktický, ověřený postup bez předčasného příslibu plnění.",
+      "intent_tag": "air_missing_tag",
+      "question_variations": [
+        "Ztratil jsem štítek od kufru.",
+        "Nemám baggage tag, ale kufr nedorazil.",
+        "Jak škodu prokážu?"
+      ],
+      "conditions": [
+        "Postup posuzovat podle země události, konkrétního dopravce nebo poskytovatele služby a verze smlouvy."
+      ],
+      "immediate_steps": [
+        {
+          "text": "Zaznamenejte čas, místo a okolnosti události a uchovejte dostupné doklady.",
+          "requirement_type": "recommended",
+          "evidence_level": "official_insurer",
+          "source_ids": [
+            "CSOB_GUIDE"
+          ],
+          "condition": null
+        },
+        {
+          "text": "Pokud chcete událost řešit z cestovního pojištění, připravte si údaje o pojištěném, popis a datum události a využijte oficiální hlášení ČSOB Pojišťovny.",
+          "requirement_type": "recommended",
+          "evidence_level": "official_insurer",
+          "source_ids": [
+            "CSOB_CLAIM"
+          ],
+          "condition": null
+        },
+        {
+          "text": "U leteckého dopravce nebo na přepážce reklamace zavazadel nahlaste problém a vyžádejte si potvrzení PIR.",
+          "requirement_type": "recommended",
+          "evidence_level": "official_insurer",
+          "source_ids": [
+            "CSOB_BAG"
+          ],
+          "condition": null
+        },
+        {
+          "text": "Uschovejte si letenku, zavazadlový lístek a související potvrzení.",
+          "requirement_type": "recommended",
+          "evidence_level": "official_insurer",
+          "source_ids": [
+            "CSOB_BAG"
+          ],
+          "condition": null
+        }
+      ],
+      "required_documents": [],
+      "recommended_documents": [
+        {
+          "name": "PIR nebo jiné potvrzení o nahlášení nedoručeného zavazadla.",
+          "requirement_type": "recommended",
+          "source_ids": [
+            "CSOB_BAG"
+          ]
+        },
+        {
+          "name": "Letenka a zavazadlový lístek.",
+          "requirement_type": "recommended",
+          "source_ids": [
+            "CSOB_BAG"
+          ]
+        }
+      ],
+      "police_involvement": {
+        "status": "not_established",
+        "guidance": "Z dostupných zdrojů nevyplývá jednotná povinnost pořídit policejní protokol právě pro tento scénář.",
+        "source_ids": [],
+        "needs_expert_review": true
+      },
+      "clarifying_questions": [
+        "Kdy a kde jste věc naposledy viděl(a)?",
+        "Jde o zapomenutí, ztrátu při přepravě, krádež, nebo poškození?"
+      ],
+      "coverage_considerations": [
+        "Ověřit, zda je sjednáno pojištění zavazadel, jak je definována daná událost a jaké platí výluky a limity.",
+        "U aktuálních webových doporučení je nutné ověřit soulad s verzí pojistných podmínek použitelnou pro smlouvu."
+      ],
+      "escalation_conditions": [
+        "Pokud potřebujete závazné rozhodnutí o krytí, přesný seznam povinných dokladů nebo výjimku z postupu, předejte dotaz pracovníkovi pojišťovny."
+      ],
+      "open_questions_for_expert": [
+        "Potvrdit pro scénář „Chybějící zavazadlový lístek“ přesné doklady, použitelné výluky, rozsah asistence a případné povinnosti vůči ČSOB podle sjednaného produktu."
+      ],
+      "sources": [
+        {
+          "source_id": "CSOB_BAG",
+          "url": "https://www.csobpoj.cz/skody-a-pojistne-udalosti/ztraceny-nebo-zpozdeny-kufr",
+          "section": "Co dělat hned na letišti; Náhradní věci; Oznámení škody",
+          "last_checked_at": "2026-11-26",
+          "effective_from": null
+        },
+        {
+          "source_id": "CSOB_GUIDE",
+          "url": "https://www.csobpoj.cz/jak-postupovat-pri-skode-cestovni-pojisteni",
+          "section": "Událost v zahraničí",
+          "last_checked_at": "2026-11-26",
+          "effective_from": null
+        },
+        {
+          "source_id": "CSOB_CLAIM",
+          "url": "https://www.csobpoj.cz/oznameni-pojistne-udalosti-cestovni-pojisteni",
+          "section": "Oznámení online, telefonicky a doplnění dokladů",
+          "last_checked_at": "2026-11-26",
+          "effective_from": null
+        }
+      ],
+      "source_ids": [
+        "CSOB_BAG",
+        "CSOB_GUIDE",
+        "CSOB_CLAIM"
+      ],
+      "evidence_level": "official_insurer",
+      "official_scenario_specific_evidence": true,
+      "procedure_completeness": "partial",
+      "priority": "P1",
+      "policy_version_check_required": true,
+      "applicable_policy_versions": [],
+      "review_status": "DRAFT",
+      "reviewed_by": null,
+      "last_verified_at": null,
+      "last_public_source_checked_at": "2026-11-26",
+      "approved_at": null,
+      "publication_status": "REVIEW_ONLY",
+      "retrieval_eligible": false,
+      "notes_for_reviewer": "Obecné pokyny od jiných institucí nejsou požadavky ČSOB. Ověřit každou povinnost a datum platnosti."
+    },
+    {
+      "id": "SUP_BAGGAGE_019",
+      "document_type": "support_procedure",
+      "schema_version": "1.0",
+      "language": "cs",
+      "category": "baggage",
+      "title": "Chybějící účtenka ke ztracené věci",
+      "scenario": "Klient řeší situaci: chybějící účtenka ke ztracené věci. Potřebuje praktický, ověřený postup bez předčasného příslibu plnění.",
+      "intent_tag": "no_purchase",
+      "question_variations": [
+        "Nemám fakturu za ukradený kufr.",
+        "K věcem v batohu nemám účtenky.",
+        "Můžu doložit jejich hodnotu jinak?"
+      ],
+      "conditions": [
+        "Postup posuzovat podle země události, konkrétního dopravce nebo poskytovatele služby a verze smlouvy."
+      ],
+      "immediate_steps": [
+        {
+          "text": "Zaznamenejte čas, místo a okolnosti události a uchovejte dostupné doklady.",
+          "requirement_type": "recommended",
+          "evidence_level": "official_insurer",
+          "source_ids": [
+            "CSOB_GUIDE"
+          ],
+          "condition": null
+        },
+        {
+          "text": "Pokud chcete událost řešit z cestovního pojištění, připravte si údaje o pojištěném, popis a datum události a využijte oficiální hlášení ČSOB Pojišťovny.",
+          "requirement_type": "recommended",
+          "evidence_level": "official_insurer",
+          "source_ids": [
+            "CSOB_CLAIM"
+          ],
+          "condition": null
+        }
+      ],
+      "required_documents": [],
+      "recommended_documents": [],
+      "police_involvement": {
+        "status": "not_established",
+        "guidance": "Z dostupných zdrojů nevyplývá jednotná povinnost pořídit policejní protokol právě pro tento scénář.",
+        "source_ids": [],
+        "needs_expert_review": true
+      },
+      "clarifying_questions": [
+        "Kdy a kde jste věc naposledy viděl(a)?",
+        "Jde o zapomenutí, ztrátu při přepravě, krádež, nebo poškození?"
+      ],
+      "coverage_considerations": [
+        "Ověřit, zda je sjednáno pojištění zavazadel, jak je definována daná událost a jaké platí výluky a limity.",
+        "U aktuálních webových doporučení je nutné ověřit soulad s verzí pojistných podmínek použitelnou pro smlouvu."
+      ],
+      "escalation_conditions": [
+        "Pokud potřebujete závazné rozhodnutí o krytí, přesný seznam povinných dokladů nebo výjimku z postupu, předejte dotaz pracovníkovi pojišťovny."
+      ],
+      "open_questions_for_expert": [
+        "Potvrdit pro scénář „Chybějící účtenka ke ztracené věci“ přesné doklady, použitelné výluky, rozsah asistence a případné povinnosti vůči ČSOB podle sjednaného produktu."
+      ],
+      "sources": [
+        {
+          "source_id": "CSOB_CLAIM_GENERAL",
+          "url": "https://www.csobpoj.cz/skody-a-pojistne-udalosti/jak-oznamit-skodu",
+          "section": "Šetření škody; Stav škodní události",
+          "last_checked_at": "2026-11-26",
+          "effective_from": null
+        },
+        {
+          "source_id": "CSOB_GUIDE",
+          "url": "https://www.csobpoj.cz/jak-postupovat-pri-skode-cestovni-pojisteni",
+          "section": "Událost v zahraničí",
+          "last_checked_at": "2026-11-26",
+          "effective_from": null
+        },
+        {
+          "source_id": "CSOB_CLAIM",
+          "url": "https://www.csobpoj.cz/oznameni-pojistne-udalosti-cestovni-pojisteni",
+          "section": "Oznámení online, telefonicky a doplnění dokladů",
+          "last_checked_at": "2026-11-26",
+          "effective_from": null
+        }
+      ],
+      "source_ids": [
+        "CSOB_CLAIM_GENERAL",
+        "CSOB_GUIDE",
+        "CSOB_CLAIM"
+      ],
+      "evidence_level": "needs_expert_review",
+      "official_scenario_specific_evidence": false,
+      "procedure_completeness": "unresolved",
+      "priority": "P1",
+      "policy_version_check_required": true,
+      "applicable_policy_versions": [],
+      "review_status": "DRAFT",
+      "reviewed_by": null,
+      "last_verified_at": null,
+      "last_public_source_checked_at": "2026-11-26",
+      "approved_at": null,
+      "publication_status": "REVIEW_ONLY",
+      "retrieval_eligible": false,
+      "notes_for_reviewer": "Obecné pokyny od jiných institucí nejsou požadavky ČSOB. Ověřit každou povinnost a datum platnosti."
+    },
+    {
+      "id": "SUP_BAGGAGE_020",
+      "document_type": "support_procedure",
+      "schema_version": "1.0",
+      "language": "cs",
+      "category": "baggage",
+      "title": "Policie odmítla sepsat protokol o krádeži",
+      "scenario": "Klient řeší situaci: policie odmítla sepsat protokol o krádeži. Potřebuje praktický, ověřený postup bez předčasného příslibu plnění.",
+      "intent_tag": "theft_no_report",
+      "question_variations": [
+        "Policie mi nechce dát protokol.",
+        "Na služebně mi odmítli potvrdit krádež.",
+        "Co po mně bude chtít pojišťovna?"
+      ],
+      "conditions": [
+        "Postup posuzovat podle země události, konkrétního dopravce nebo poskytovatele služby a verze smlouvy."
+      ],
+      "immediate_steps": [
+        {
+          "text": "Zaznamenejte čas, místo a okolnosti události a uchovejte dostupné doklady.",
+          "requirement_type": "recommended",
+          "evidence_level": "official_insurer",
+          "source_ids": [
+            "CSOB_GUIDE"
+          ],
+          "condition": null
+        },
+        {
+          "text": "Pokud chcete událost řešit z cestovního pojištění, připravte si údaje o pojištěném, popis a datum události a využijte oficiální hlášení ČSOB Pojišťovny.",
+          "requirement_type": "recommended",
+          "evidence_level": "official_insurer",
+          "source_ids": [
+            "CSOB_CLAIM"
+          ],
+          "condition": null
+        },
+        {
+          "text": "Při krádeži zavazadel VPP CP 2021 stanovují neprodlené ohlášení místní policii a vyžádání policejního protokolu; ověřte verzi podmínek pro vaši smlouvu.",
+          "requirement_type": "contractual_version_specific",
+          "evidence_level": "official_insurer",
+          "source_ids": [
+            "CSOB_VPP2021"
+          ],
+          "condition": null
+        }
+      ],
+      "required_documents": [
+        {
+          "name": "Policejní protokol o krádeži zavazadel podle VPP CP 2021.",
+          "requirement_type": "contractual_version_specific",
+          "source_ids": [
+            "CSOB_VPP2021"
+          ]
+        }
+      ],
+      "recommended_documents": [],
+      "police_involvement": {
+        "status": "required_by_VPP_CP_2021_for_baggage_theft",
+        "guidance": "VPP CP 2021 u krádeže zavazadel stanovují ohlášení místní policii a policejní protokol; ověřte použitelnost dané verze.",
+        "source_ids": [
+          "CSOB_VPP2021"
+        ],
+        "needs_expert_review": true
+      },
+      "clarifying_questions": [
+        "Kdy a kde jste věc naposledy viděl(a)?",
+        "Jde o zapomenutí, ztrátu při přepravě, krádež, nebo poškození?",
+        "Proč nebylo možné získat policejní potvrzení?"
+      ],
+      "coverage_considerations": [
+        "Ověřit, zda je sjednáno pojištění zavazadel, jak je definována daná událost a jaké platí výluky a limity.",
+        "U aktuálních webových doporučení je nutné ověřit soulad s verzí pojistných podmínek použitelnou pro smlouvu."
+      ],
+      "escalation_conditions": [
+        "Situace vyžaduje individuální posouzení odborným pracovníkem; neslibujte pojistné plnění ani konkrétní výjimku.",
+        "Při bezprostředním nebezpečí nebo závažném zdravotním stavu má přednost přivolání místní pomoci.",
+        "Pokud potřebujete závazné rozhodnutí o krytí, přesný seznam povinných dokladů nebo výjimku z postupu, předejte dotaz pracovníkovi pojišťovny."
+      ],
+      "open_questions_for_expert": [
+        "Zjistit, jak ČSOB posuzuje prokazatelnou nemožnost získat policejní protokol po krádeži."
+      ],
+      "sources": [
+        {
+          "source_id": "CSOB_VPP2021",
+          "url": "https://www.csobpoj.cz/documents/10332/5083102/11N9393%2BVPP%2BCP%2B2021_form%C3%A1t%2BA4_CZ_v%C4%8Detn%C4%9B%2Boce%C5%88ovac%C3%ADch%2Btabulek_final_PDF-A.pdf/91a13cf6-8af5-00b8-784b-2f4f65ab34d0?t=1714117917863",
+          "section": "Pokyny pro klienta (strana 2) a jednotlivá ustanovení VPP CP 2021",
+          "last_checked_at": "2026-11-26",
+          "effective_from": "2021-04-01"
+        },
+        {
+          "source_id": "CSOB_GUIDE",
+          "url": "https://www.csobpoj.cz/jak-postupovat-pri-skode-cestovni-pojisteni",
+          "section": "Událost v zahraničí",
+          "last_checked_at": "2026-11-26",
+          "effective_from": null
+        },
+        {
+          "source_id": "CSOB_CLAIM",
+          "url": "https://www.csobpoj.cz/oznameni-pojistne-udalosti-cestovni-pojisteni",
+          "section": "Oznámení online, telefonicky a doplnění dokladů",
+          "last_checked_at": "2026-11-26",
+          "effective_from": null
+        }
+      ],
+      "source_ids": [
+        "CSOB_VPP2021",
+        "CSOB_GUIDE",
+        "CSOB_CLAIM"
+      ],
+      "evidence_level": "needs_expert_review",
+      "official_scenario_specific_evidence": false,
+      "procedure_completeness": "unresolved",
+      "priority": "P0",
+      "policy_version_check_required": true,
+      "applicable_policy_versions": [],
+      "review_status": "DRAFT",
+      "reviewed_by": null,
+      "last_verified_at": null,
+      "last_public_source_checked_at": "2026-11-26",
+      "approved_at": null,
+      "publication_status": "REVIEW_ONLY",
+      "retrieval_eligible": false,
+      "notes_for_reviewer": "Obecné pokyny od jiných institucí nejsou požadavky ČSOB. Ověřit každou povinnost a datum platnosti."
+    },
+    {
+      "id": "SUP_BAGGAGE_021",
+      "document_type": "support_procedure",
+      "schema_version": "1.0",
+      "language": "cs",
+      "category": "baggage",
+      "title": "Nalezení původně ztraceného zavazadla",
+      "scenario": "Klient řeší situaci: nalezení původně ztraceného zavazadla. Potřebuje praktický, ověřený postup bez předčasného příslibu plnění.",
+      "intent_tag": "found_after",
+      "question_variations": [
+        "Můj kufr se nakonec našel.",
+        "Nahlásil jsem ztrátu, ale tašku už mám.",
+        "Musím to pojišťovně říct?"
+      ],
+      "conditions": [
+        "Postup posuzovat podle země události, konkrétního dopravce nebo poskytovatele služby a verze smlouvy."
+      ],
+      "immediate_steps": [
+        {
+          "text": "Zaznamenejte čas, místo a okolnosti události a uchovejte dostupné doklady.",
+          "requirement_type": "recommended",
+          "evidence_level": "official_insurer",
+          "source_ids": [
+            "CSOB_GUIDE"
+          ],
+          "condition": null
+        },
+        {
+          "text": "Pokud chcete událost řešit z cestovního pojištění, připravte si údaje o pojištěném, popis a datum události a využijte oficiální hlášení ČSOB Pojišťovny.",
+          "requirement_type": "recommended",
+          "evidence_level": "official_insurer",
+          "source_ids": [
+            "CSOB_CLAIM"
+          ],
+          "condition": null
+        }
+      ],
+      "required_documents": [],
+      "recommended_documents": [],
+      "police_involvement": {
+        "status": "not_established",
+        "guidance": "Z dostupných zdrojů nevyplývá jednotná povinnost pořídit policejní protokol právě pro tento scénář.",
+        "source_ids": [],
+        "needs_expert_review": true
+      },
+      "clarifying_questions": [
+        "Kdy a kde jste věc naposledy viděl(a)?",
+        "Jde o zapomenutí, ztrátu při přepravě, krádež, nebo poškození?"
+      ],
+      "coverage_considerations": [
+        "Ověřit, zda je sjednáno pojištění zavazadel, jak je definována daná událost a jaké platí výluky a limity.",
+        "U aktuálních webových doporučení je nutné ověřit soulad s verzí pojistných podmínek použitelnou pro smlouvu."
+      ],
+      "escalation_conditions": [
+        "Pokud potřebujete závazné rozhodnutí o krytí, přesný seznam povinných dokladů nebo výjimku z postupu, předejte dotaz pracovníkovi pojišťovny."
+      ],
+      "open_questions_for_expert": [
+        "Potvrdit pro scénář „Nalezení původně ztraceného zavazadla“ přesné doklady, použitelné výluky, rozsah asistence a případné povinnosti vůči ČSOB podle sjednaného produktu."
+      ],
+      "sources": [
+        {
+          "source_id": "CSOB_CLAIM",
+          "url": "https://www.csobpoj.cz/oznameni-pojistne-udalosti-cestovni-pojisteni",
+          "section": "Oznámení online, telefonicky a doplnění dokladů",
+          "last_checked_at": "2026-11-26",
+          "effective_from": null
+        },
+        {
+          "source_id": "CSOB_GUIDE",
+          "url": "https://www.csobpoj.cz/jak-postupovat-pri-skode-cestovni-pojisteni",
+          "section": "Událost v zahraničí",
+          "last_checked_at": "2026-11-26",
+          "effective_from": null
+        }
+      ],
+      "source_ids": [
+        "CSOB_CLAIM",
+        "CSOB_GUIDE"
+      ],
+      "evidence_level": "needs_expert_review",
+      "official_scenario_specific_evidence": false,
+      "procedure_completeness": "unresolved",
+      "priority": "P1",
+      "policy_version_check_required": true,
+      "applicable_policy_versions": [],
+      "review_status": "DRAFT",
+      "reviewed_by": null,
+      "last_verified_at": null,
+      "last_public_source_checked_at": "2026-11-26",
+      "approved_at": null,
+      "publication_status": "REVIEW_ONLY",
+      "retrieval_eligible": false,
+      "notes_for_reviewer": "Obecné pokyny od jiných institucí nejsou požadavky ČSOB. Ověřit každou povinnost a datum platnosti."
+    },
+    {
+      "id": "SUP_BAGGAGE_022",
+      "document_type": "support_procedure",
+      "schema_version": "1.0",
+      "language": "cs",
+      "category": "baggage",
+      "title": "Nezbytné léky ve zpožděném kufru",
+      "scenario": "Klient řeší situaci: nezbytné léky ve zpožděném kufru. Potřebuje praktický, ověřený postup bez předčasného příslibu plnění.",
+      "intent_tag": "air_meds",
+      "question_variations": [
+        "V nedoručeném kufru mám léky.",
+        "Bez léků v zavazadle nevím co dělat.",
+        "Můžu si koupit náhradní léky?"
+      ],
+      "conditions": [
+        "Postup posuzovat podle země události, konkrétního dopravce nebo poskytovatele služby a verze smlouvy."
+      ],
+      "immediate_steps": [
+        {
+          "text": "Zaznamenejte čas, místo a okolnosti události a uchovejte dostupné doklady.",
+          "requirement_type": "recommended",
+          "evidence_level": "official_insurer",
+          "source_ids": [
+            "CSOB_GUIDE"
+          ],
+          "condition": null
+        },
+        {
+          "text": "Pokud chcete událost řešit z cestovního pojištění, připravte si údaje o pojištěném, popis a datum události a využijte oficiální hlášení ČSOB Pojišťovny.",
+          "requirement_type": "recommended",
+          "evidence_level": "official_insurer",
+          "source_ids": [
+            "CSOB_CLAIM"
+          ],
+          "condition": null
+        },
+        {
+          "text": "U leteckého dopravce nebo na přepážce reklamace zavazadel nahlaste problém a vyžádejte si potvrzení PIR.",
+          "requirement_type": "recommended",
+          "evidence_level": "official_insurer",
+          "source_ids": [
+            "CSOB_BAG"
+          ],
+          "condition": null
+        },
+        {
+          "text": "Uschovejte si letenku, zavazadlový lístek a související potvrzení.",
+          "requirement_type": "recommended",
+          "evidence_level": "official_insurer",
+          "source_ids": [
+            "CSOB_BAG"
+          ],
+          "condition": null
+        },
+        {
+          "text": "Pokud musíte koupit nezbytné náhradní věci, uschovejte účtenky a kupujte jen skutečně potřebné položky.",
+          "requirement_type": "recommended",
+          "evidence_level": "official_insurer",
+          "source_ids": [
+            "CSOB_BAG"
+          ],
+          "condition": null
+        }
+      ],
+      "required_documents": [],
+      "recommended_documents": [
+        {
+          "name": "PIR nebo jiné potvrzení o nahlášení nedoručeného zavazadla.",
+          "requirement_type": "recommended",
+          "source_ids": [
+            "CSOB_BAG"
+          ]
+        },
+        {
+          "name": "Letenka a zavazadlový lístek.",
+          "requirement_type": "recommended",
+          "source_ids": [
+            "CSOB_BAG"
+          ]
+        },
+        {
+          "name": "Účtenky za nezbytné náhradní věci.",
+          "requirement_type": "recommended",
+          "source_ids": [
+            "CSOB_BAG"
+          ]
+        }
+      ],
+      "police_involvement": {
+        "status": "not_established",
+        "guidance": "Z dostupných zdrojů nevyplývá jednotná povinnost pořídit policejní protokol právě pro tento scénář.",
+        "source_ids": [],
+        "needs_expert_review": true
+      },
+      "clarifying_questions": [
+        "Kdy a kde jste věc naposledy viděl(a)?",
+        "Jde o zapomenutí, ztrátu při přepravě, krádež, nebo poškození?"
+      ],
+      "coverage_considerations": [
+        "Ověřit, zda je sjednáno pojištění zavazadel, jak je definována daná událost a jaké platí výluky a limity.",
+        "U aktuálních webových doporučení je nutné ověřit soulad s verzí pojistných podmínek použitelnou pro smlouvu."
+      ],
+      "escalation_conditions": [
+        "Pokud potřebujete závazné rozhodnutí o krytí, přesný seznam povinných dokladů nebo výjimku z postupu, předejte dotaz pracovníkovi pojišťovny."
+      ],
+      "open_questions_for_expert": [
+        "Potvrdit pro scénář „Nezbytné léky ve zpožděném kufru“ přesné doklady, použitelné výluky, rozsah asistence a případné povinnosti vůči ČSOB podle sjednaného produktu."
+      ],
+      "sources": [
+        {
+          "source_id": "CSOB_BAG",
+          "url": "https://www.csobpoj.cz/skody-a-pojistne-udalosti/ztraceny-nebo-zpozdeny-kufr",
+          "section": "Co dělat hned na letišti; Náhradní věci; Oznámení škody",
+          "last_checked_at": "2026-11-26",
+          "effective_from": null
+        },
+        {
+          "source_id": "CSOB_GUIDE",
+          "url": "https://www.csobpoj.cz/jak-postupovat-pri-skode-cestovni-pojisteni",
+          "section": "Událost v zahraničí",
+          "last_checked_at": "2026-11-26",
+          "effective_from": null
+        },
+        {
+          "source_id": "CSOB_CLAIM",
+          "url": "https://www.csobpoj.cz/oznameni-pojistne-udalosti-cestovni-pojisteni",
+          "section": "Oznámení online, telefonicky a doplnění dokladů",
+          "last_checked_at": "2026-11-26",
+          "effective_from": null
+        }
+      ],
+      "source_ids": [
+        "CSOB_BAG",
+        "CSOB_GUIDE",
+        "CSOB_CLAIM"
+      ],
+      "evidence_level": "official_insurer",
+      "official_scenario_specific_evidence": true,
+      "procedure_completeness": "partial",
+      "priority": "P1",
+      "policy_version_check_required": true,
+      "applicable_policy_versions": [],
+      "review_status": "DRAFT",
+      "reviewed_by": null,
+      "last_verified_at": null,
+      "last_public_source_checked_at": "2026-11-26",
+      "approved_at": null,
+      "publication_status": "REVIEW_ONLY",
+      "retrieval_eligible": false,
+      "notes_for_reviewer": "Obecné pokyny od jiných institucí nejsou požadavky ČSOB. Ověřit každou povinnost a datum platnosti."
+    },
+    {
+      "id": "SUP_BAGGAGE_023",
+      "document_type": "support_procedure",
+      "schema_version": "1.0",
+      "language": "cs",
+      "category": "baggage",
+      "title": "Zavazadlo zmizelo při autobusovém zájezdu",
+      "scenario": "Klient řeší situaci: zavazadlo zmizelo při autobusovém zájezdu. Potřebuje praktický, ověřený postup bez předčasného příslibu plnění.",
+      "intent_tag": "bus_baggage",
+      "question_variations": [
+        "Kufr se ztratil z autobusu cestovky.",
+        "Po příjezdu chybí moje taška v zavazadlovém prostoru.",
+        "Komu to mám ohlásit?"
+      ],
+      "conditions": [
+        "Postup posuzovat podle země události, konkrétního dopravce nebo poskytovatele služby a verze smlouvy."
+      ],
+      "immediate_steps": [
+        {
+          "text": "Zaznamenejte čas, místo a okolnosti události a uchovejte dostupné doklady.",
+          "requirement_type": "recommended",
+          "evidence_level": "official_insurer",
+          "source_ids": [
+            "CSOB_GUIDE"
+          ],
+          "condition": null
+        },
+        {
+          "text": "Pokud chcete událost řešit z cestovního pojištění, připravte si údaje o pojištěném, popis a datum události a využijte oficiální hlášení ČSOB Pojišťovny.",
+          "requirement_type": "recommended",
+          "evidence_level": "official_insurer",
+          "source_ids": [
+            "CSOB_CLAIM"
+          ],
+          "condition": null
+        }
+      ],
+      "required_documents": [],
+      "recommended_documents": [],
+      "police_involvement": {
+        "status": "not_established",
+        "guidance": "Z dostupných zdrojů nevyplývá jednotná povinnost pořídit policejní protokol právě pro tento scénář.",
+        "source_ids": [],
+        "needs_expert_review": true
+      },
+      "clarifying_questions": [
+        "Kdy a kde jste věc naposledy viděl(a)?",
+        "Jde o zapomenutí, ztrátu při přepravě, krádež, nebo poškození?"
+      ],
+      "coverage_considerations": [
+        "Ověřit, zda je sjednáno pojištění zavazadel, jak je definována daná událost a jaké platí výluky a limity.",
+        "U aktuálních webových doporučení je nutné ověřit soulad s verzí pojistných podmínek použitelnou pro smlouvu."
+      ],
+      "escalation_conditions": [
+        "Pokud potřebujete závazné rozhodnutí o krytí, přesný seznam povinných dokladů nebo výjimku z postupu, předejte dotaz pracovníkovi pojišťovny."
+      ],
+      "open_questions_for_expert": [
+        "Potvrdit pro scénář „Zavazadlo zmizelo při autobusovém zájezdu“ přesné doklady, použitelné výluky, rozsah asistence a případné povinnosti vůči ČSOB podle sjednaného produktu."
+      ],
+      "sources": [
+        {
+          "source_id": "EU_BUS",
+          "url": "https://europa.eu/youreurope/citizens/travel/passenger-rights/bus-and-coach/index_cs.htm",
+          "section": "Zrušení a zpoždění autobusové dopravy",
+          "last_checked_at": "2026-11-26",
+          "effective_from": null
+        },
+        {
+          "source_id": "CSOB_GUIDE",
+          "url": "https://www.csobpoj.cz/jak-postupovat-pri-skode-cestovni-pojisteni",
+          "section": "Událost v zahraničí",
+          "last_checked_at": "2026-11-26",
+          "effective_from": null
+        },
+        {
+          "source_id": "CSOB_CLAIM",
+          "url": "https://www.csobpoj.cz/oznameni-pojistne-udalosti-cestovni-pojisteni",
+          "section": "Oznámení online, telefonicky a doplnění dokladů",
+          "last_checked_at": "2026-11-26",
+          "effective_from": null
+        }
+      ],
+      "source_ids": [
+        "EU_BUS",
+        "CSOB_GUIDE",
+        "CSOB_CLAIM"
+      ],
+      "evidence_level": "needs_expert_review",
+      "official_scenario_specific_evidence": false,
+      "procedure_completeness": "unresolved",
+      "priority": "P1",
+      "policy_version_check_required": true,
+      "applicable_policy_versions": [],
+      "review_status": "DRAFT",
+      "reviewed_by": null,
+      "last_verified_at": null,
+      "last_public_source_checked_at": "2026-11-26",
+      "approved_at": null,
+      "publication_status": "REVIEW_ONLY",
+      "retrieval_eligible": false,
+      "notes_for_reviewer": "Obecné pokyny od jiných institucí nejsou požadavky ČSOB. Ověřit každou povinnost a datum platnosti."
+    },
+    {
+      "id": "SUP_BAGGAGE_024",
+      "document_type": "support_procedure",
+      "schema_version": "1.0",
+      "language": "cs",
+      "category": "baggage",
+      "title": "Poškozené sportovní vybavení při přepravě",
+      "scenario": "Klient řeší situaci: poškozené sportovní vybavení při přepravě. Potřebuje praktický, ověřený postup bez předčasného příslibu plnění.",
+      "intent_tag": "air_damaged",
+      "question_variations": [
+        "Lyže dorazily z letecké přepravy rozbité.",
+        "Po letu mám poškozené kolo v obalu.",
+        "Jak mám škodu zdokumentovat?"
+      ],
+      "conditions": [
+        "Postup posuzovat podle země události, konkrétního dopravce nebo poskytovatele služby a verze smlouvy."
+      ],
+      "immediate_steps": [
+        {
+          "text": "Zaznamenejte čas, místo a okolnosti události a uchovejte dostupné doklady.",
+          "requirement_type": "recommended",
+          "evidence_level": "official_insurer",
+          "source_ids": [
+            "CSOB_GUIDE"
+          ],
+          "condition": null
+        },
+        {
+          "text": "Pokud chcete událost řešit z cestovního pojištění, připravte si údaje o pojištěném, popis a datum události a využijte oficiální hlášení ČSOB Pojišťovny.",
+          "requirement_type": "recommended",
+          "evidence_level": "official_insurer",
+          "source_ids": [
+            "CSOB_CLAIM"
+          ],
+          "condition": null
+        },
+        {
+          "text": "Poškození zavazadla oznamte leteckému dopravci co nejdříve a uchovejte potvrzení o reklamaci.",
+          "requirement_type": "recommended",
+          "evidence_level": "general_guidance",
+          "source_ids": [
+            "EU_AIR"
+          ],
+          "condition": null
+        },
+        {
+          "text": "Vedle řešení u ČSOB se informujte o samostatných právech vůči leteckému dopravci; reklamace dopravci není totéž co hlášení pojišťovně.",
+          "requirement_type": "recommended",
+          "evidence_level": "general_guidance",
+          "source_ids": [
+            "EU_AIR"
+          ],
+          "condition": null
+        }
+      ],
+      "required_documents": [],
+      "recommended_documents": [],
+      "police_involvement": {
+        "status": "not_established",
+        "guidance": "Z dostupných zdrojů nevyplývá jednotná povinnost pořídit policejní protokol právě pro tento scénář.",
+        "source_ids": [],
+        "needs_expert_review": true
+      },
+      "clarifying_questions": [
+        "Kdy a kde jste věc naposledy viděl(a)?",
+        "Jde o zapomenutí, ztrátu při přepravě, krádež, nebo poškození?"
+      ],
+      "coverage_considerations": [
+        "Ověřit, zda je sjednáno pojištění zavazadel, jak je definována daná událost a jaké platí výluky a limity.",
+        "U aktuálních webových doporučení je nutné ověřit soulad s verzí pojistných podmínek použitelnou pro smlouvu."
+      ],
+      "escalation_conditions": [
+        "Pokud potřebujete závazné rozhodnutí o krytí, přesný seznam povinných dokladů nebo výjimku z postupu, předejte dotaz pracovníkovi pojišťovny."
+      ],
+      "open_questions_for_expert": [
+        "Potvrdit pro scénář „Poškozené sportovní vybavení při přepravě“ přesné doklady, použitelné výluky, rozsah asistence a případné povinnosti vůči ČSOB podle sjednaného produktu."
+      ],
+      "sources": [
+        {
+          "source_id": "EU_AIR",
+          "url": "https://europa.eu/youreurope/citizens/travel/passenger-rights/air/index_cs.htm",
+          "section": "Práva cestujících; Zpoždění, zrušení a zavazadla",
+          "last_checked_at": "2026-11-26",
+          "effective_from": null
+        },
+        {
+          "source_id": "CSOB_GUIDE",
+          "url": "https://www.csobpoj.cz/jak-postupovat-pri-skode-cestovni-pojisteni",
+          "section": "Událost v zahraničí",
+          "last_checked_at": "2026-11-26",
+          "effective_from": null
+        },
+        {
+          "source_id": "CSOB_CLAIM",
+          "url": "https://www.csobpoj.cz/oznameni-pojistne-udalosti-cestovni-pojisteni",
+          "section": "Oznámení online, telefonicky a doplnění dokladů",
+          "last_checked_at": "2026-11-26",
+          "effective_from": null
+        }
+      ],
+      "source_ids": [
+        "EU_AIR",
+        "CSOB_GUIDE",
+        "CSOB_CLAIM"
+      ],
+      "evidence_level": "general_guidance",
+      "official_scenario_specific_evidence": false,
+      "procedure_completeness": "unresolved",
+      "priority": "P1",
+      "policy_version_check_required": true,
+      "applicable_policy_versions": [],
+      "review_status": "DRAFT",
+      "reviewed_by": null,
+      "last_verified_at": null,
+      "last_public_source_checked_at": "2026-11-26",
+      "approved_at": null,
+      "publication_status": "REVIEW_ONLY",
+      "retrieval_eligible": false,
+      "notes_for_reviewer": "Obecné pokyny od jiných institucí nejsou požadavky ČSOB. Ověřit každou povinnost a datum platnosti."
+    }
+  ]
+}

@@ -5,6 +5,7 @@ from pydantic import BaseModel, Field, model_validator
 from app.schemas.policy import PolicyDetailsResponse
 from app.schemas.query_plan import TaskType
 from app.schemas.task_routing import TaskTarget
+from app.schemas.support_knowledge import SupportDocumentItem, SupportStep, SupportSource
 
 
 # ============================================================
@@ -67,6 +68,31 @@ class RetrievalTaskContent(BaseModel):
     )
 
 
+class SupportEvidenceUnit(BaseModel):
+    procedure_id: str = Field(min_length=1)
+    title: str = Field(min_length=1)
+    scenario: str = Field(min_length=1)
+    conditions: list[str] = Field(default_factory=list)
+    immediate_steps: list[str] = Field(default_factory=list)
+    required_documents: list[str] = Field(default_factory=list)
+    recommended_documents: list[str] = Field(default_factory=list)
+    applicability: list[str] = Field(default_factory=list)
+    provenance: list[str] = Field(default_factory=list)
+    escalation_guidance: list[str] = Field(default_factory=list)
+    clarifying_questions: list[str] = Field(default_factory=list)
+    coverage_considerations: list[str] = Field(default_factory=list)
+    review_status: str | None = None
+    steps: list[SupportStep] = Field(default_factory=list)
+    sources: list[SupportSource] = Field(default_factory=list)
+    police_involvement: object | None = None
+    required_document_details: list[SupportDocumentItem] = Field(default_factory=list)
+    recommended_document_details: list[SupportDocumentItem] = Field(default_factory=list)
+
+
+class SupportTaskContent(BaseModel):
+    units: list[SupportEvidenceUnit] = Field(default_factory=list, max_length=5)
+
+
 # ============================================================
 # TASK RESULT
 # ============================================================
@@ -89,6 +115,7 @@ class TaskResult(BaseModel):
     content: (
         PolicyTaskContent
         | RetrievalTaskContent
+        | SupportTaskContent
     )
 
     @model_validator(mode="after")
@@ -124,6 +151,14 @@ class TaskResult(BaseModel):
             raise ValueError(
                 "RETRIEVAL target requires "
                 "RetrievalTaskContent."
+            )
+
+        if (
+            self.target == TaskTarget.SUPPORT
+            and not isinstance(self.content, SupportTaskContent)
+        ):
+            raise ValueError(
+                "SUPPORT target requires SupportTaskContent."
             )
 
         return self

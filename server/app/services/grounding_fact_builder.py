@@ -5,6 +5,7 @@ from app.schemas.response_validation import GroundingFact
 from app.schemas.task_result import (
     PolicyTaskContent,
     RetrievalTaskContent,
+    SupportTaskContent,
     TaskResult,
 )
 from app.schemas.task_routing import TaskTarget
@@ -55,6 +56,29 @@ class GroundingFactBuilder:
                     content=result.content,
                     facts=facts,
                 )
+
+            elif (
+                    result.target == TaskTarget.SUPPORT
+                    and isinstance(result.content, SupportTaskContent)
+            ):
+                for unit in result.content.units:
+                    self._add_fact(
+                        facts=facts,
+                        fact_id=f"support:{unit.procedure_id}:procedure",
+                        label="Support procedure",
+                        value=(
+                            f"{unit.title}. {unit.scenario}. "
+                            + " ".join(
+                                unit.conditions
+                                + [step.text + (f" Only when {step.condition}." if step.condition else "") for step in unit.steps]
+                                + unit.required_documents
+                                + unit.recommended_documents
+                                + unit.escalation_guidance
+                                + unit.coverage_considerations
+                                + ["Source IDs: " + ", ".join(unit.provenance)]
+                            )
+                        ),
+                    )
 
             else:
                 raise ValueError(

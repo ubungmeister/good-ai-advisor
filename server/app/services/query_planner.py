@@ -50,6 +50,11 @@ class QueryPlanner:
                   "For specific limits, dates, premiums, people, procedures, claim eligibility, unclear "
                   "follow-ups or other reply languages, leave policy_overview_language null. "
                   "Never set it on COVERAGE_CHECK, PROCEDURE or GENERAL_QUESTION tasks."
+                  "\n# EVIDENCE ROUTE"
+                  "Set evidence_route to POLICY for customer policy or contractual facts, SUPPORT for "
+                  "approved practical guidance, BOTH when both evidence obligations are needed, and NONE "
+                  "for clearly non-insurance requests. When an insurance question is ambiguous, choose BOTH. "
+                  "A support route never replaces policy evidence for coverage or customer-specific conclusions."
             ),
             user_message=message,
             context=planning_context,

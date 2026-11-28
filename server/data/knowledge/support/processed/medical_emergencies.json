@@ -1,0 +1,2845 @@
+{
+  "schema_version": "1.0",
+  "document_type": "support_knowledge_collection",
+  "language": "cs",
+  "dataset_status": "DRAFT_EXPERT_REVIEW_REQUIRED",
+  "generated_at": "2026-11-26",
+  "title": "Pomoc při zdravotních událostech",
+  "articles": [
+    {
+      "id": "SUP_MEDICAL_001",
+      "document_type": "support_procedure",
+      "schema_version": "1.0",
+      "language": "cs",
+      "category": "medical",
+      "title": "Vážný úraz v zahraničí",
+      "scenario": "Klient řeší situaci: vážný úraz v zahraničí. Potřebuje praktický, ověřený postup bez předčasného příslibu plnění.",
+      "intent_tag": "emergency",
+      "question_variations": [
+        "Zlomil jsem si nohu na dovolené.",
+        "Mám vážný úraz a nevím kam jet.",
+        "Mám nejdřív zavolat pojišťovně?"
+      ],
+      "conditions": [
+        "Postup posuzovat podle země události, konkrétního dopravce nebo poskytovatele služby a verze smlouvy."
+      ],
+      "immediate_steps": [
+        {
+          "text": "Při vážném úrazu nebo ohrožení života nejprve přivolejte místní záchrannou službu.",
+          "requirement_type": "recommended",
+          "evidence_level": "official_insurer",
+          "source_ids": [
+            "CSOB_MED"
+          ],
+          "condition": "Při závažném nebo život ohrožujícím stavu."
+        },
+        {
+          "text": "Jakmile to zdravotní stav dovolí, kontaktujte asistenční službu ČSOB Pojišťovny na +420 466 100 777.",
+          "requirement_type": "recommended",
+          "evidence_level": "official_insurer",
+          "source_ids": [
+            "CSOB_MED"
+          ],
+          "condition": null
+        },
+        {
+          "text": "Uschovejte zdravotnické zprávy, recepty, vyúčtování a doklady o zaplacení péče.",
+          "requirement_type": "recommended",
+          "evidence_level": "official_insurer",
+          "source_ids": [
+            "CSOB_MED"
+          ],
+          "condition": null
+        },
+        {
+          "text": "V zemích Evropské unie lze pro naléhavou pomoc použít jednotné tísňové číslo 112.",
+          "requirement_type": "recommended",
+          "evidence_level": "general_guidance",
+          "source_ids": [
+            "EU_EMERGENCY"
+          ],
+          "condition": "Pokud se nacházíte v EU."
+        }
+      ],
+      "required_documents": [],
+      "recommended_documents": [
+        {
+          "name": "Lékařská zpráva, případně propouštěcí zpráva.",
+          "requirement_type": "recommended",
+          "source_ids": [
+            "CSOB_MED"
+          ]
+        },
+        {
+          "name": "Vyúčtování a doklady o úhradě léčby a léků.",
+          "requirement_type": "recommended",
+          "source_ids": [
+            "CSOB_MED"
+          ]
+        }
+      ],
+      "police_involvement": {
+        "status": "not_established",
+        "guidance": "Z dostupných zdrojů nevyplývá jednotná povinnost pořídit policejní protokol právě pro tento scénář.",
+        "source_ids": [],
+        "needs_expert_review": true
+      },
+      "clarifying_questions": [
+        "V jaké zemi se nacházíte a potřebujete nyní akutní pomoc?",
+        "Jaké ošetření proběhlo a jaké doklady máte?",
+        "Je záchranná služba již na místě?"
+      ],
+      "coverage_considerations": [
+        "Ověřit sjednané léčebné výlohy, časovou a územní platnost a případná omezení dané zdravotní situace.",
+        "U aktuálních webových doporučení je nutné ověřit soulad s verzí pojistných podmínek použitelnou pro smlouvu."
+      ],
+      "escalation_conditions": [
+        "Při bezprostředním nebezpečí nebo závažném zdravotním stavu má přednost přivolání místní pomoci.",
+        "Pokud potřebujete závazné rozhodnutí o krytí, přesný seznam povinných dokladů nebo výjimku z postupu, předejte dotaz pracovníkovi pojišťovny."
+      ],
+      "open_questions_for_expert": [
+        "Potvrdit pro scénář „Vážný úraz v zahraničí“ přesné doklady, použitelné výluky, rozsah asistence a případné povinnosti vůči ČSOB podle sjednaného produktu."
+      ],
+      "sources": [
+        {
+          "source_id": "CSOB_MED",
+          "url": "https://www.csobpoj.cz/skody-a-pojistne-udalosti/co-delat-pri-urazu-nebo-nemoci-v-zahranici",
+          "section": "Záchrana života; Asistence; Dokumentace; Oznámení",
+          "last_checked_at": "2026-11-26",
+          "effective_from": null
+        },
+        {
+          "source_id": "EU_EMERGENCY",
+          "url": "https://europa.eu/youreurope/citizens/travel/security-and-emergencies/emergency/index_en.htm",
+          "section": "Tísňové číslo 112",
+          "last_checked_at": "2026-11-26",
+          "effective_from": null
+        }
+      ],
+      "source_ids": [
+        "CSOB_MED",
+        "EU_EMERGENCY"
+      ],
+      "evidence_level": "official_insurer",
+      "official_scenario_specific_evidence": true,
+      "procedure_completeness": "partial",
+      "priority": "P0",
+      "policy_version_check_required": true,
+      "applicable_policy_versions": [],
+      "review_status": "DRAFT",
+      "reviewed_by": null,
+      "last_verified_at": null,
+      "last_public_source_checked_at": "2026-11-26",
+      "approved_at": null,
+      "publication_status": "REVIEW_ONLY",
+      "retrieval_eligible": false,
+      "notes_for_reviewer": "Obecné pokyny od jiných institucí nejsou požadavky ČSOB. Ověřit každou povinnost a datum platnosti."
+    },
+    {
+      "id": "SUP_MEDICAL_002",
+      "document_type": "support_procedure",
+      "schema_version": "1.0",
+      "language": "cs",
+      "category": "medical",
+      "title": "Hospitalizace v zahraniční nemocnici",
+      "scenario": "Klient řeší situaci: hospitalizace v zahraniční nemocnici. Potřebuje praktický, ověřený postup bez předčasného příslibu plnění.",
+      "intent_tag": "hospital",
+      "question_variations": [
+        "Ležím v nemocnici v zahraničí.",
+        "Doktor si mě nechává přes noc.",
+        "Kdo bude řešit zaplacení nemocnice?"
+      ],
+      "conditions": [
+        "Postup posuzovat podle země události, konkrétního dopravce nebo poskytovatele služby a verze smlouvy."
+      ],
+      "immediate_steps": [
+        {
+          "text": "Při vážném úrazu nebo ohrožení života nejprve přivolejte místní záchrannou službu.",
+          "requirement_type": "recommended",
+          "evidence_level": "official_insurer",
+          "source_ids": [
+            "CSOB_MED"
+          ],
+          "condition": "Při závažném nebo život ohrožujícím stavu."
+        },
+        {
+          "text": "Jakmile to zdravotní stav dovolí, kontaktujte asistenční službu ČSOB Pojišťovny na +420 466 100 777.",
+          "requirement_type": "recommended",
+          "evidence_level": "official_insurer",
+          "source_ids": [
+            "CSOB_MED"
+          ],
+          "condition": null
+        },
+        {
+          "text": "Uschovejte zdravotnické zprávy, recepty, vyúčtování a doklady o zaplacení péče.",
+          "requirement_type": "recommended",
+          "evidence_level": "official_insurer",
+          "source_ids": [
+            "CSOB_MED"
+          ],
+          "condition": null
+        }
+      ],
+      "required_documents": [],
+      "recommended_documents": [
+        {
+          "name": "Lékařská zpráva, případně propouštěcí zpráva.",
+          "requirement_type": "recommended",
+          "source_ids": [
+            "CSOB_MED"
+          ]
+        },
+        {
+          "name": "Vyúčtování a doklady o úhradě léčby a léků.",
+          "requirement_type": "recommended",
+          "source_ids": [
+            "CSOB_MED"
+          ]
+        }
+      ],
+      "police_involvement": {
+        "status": "not_established",
+        "guidance": "Z dostupných zdrojů nevyplývá jednotná povinnost pořídit policejní protokol právě pro tento scénář.",
+        "source_ids": [],
+        "needs_expert_review": true
+      },
+      "clarifying_questions": [
+        "V jaké zemi se nacházíte a potřebujete nyní akutní pomoc?",
+        "Jaké ošetření proběhlo a jaké doklady máte?"
+      ],
+      "coverage_considerations": [
+        "Ověřit sjednané léčebné výlohy, časovou a územní platnost a případná omezení dané zdravotní situace.",
+        "U aktuálních webových doporučení je nutné ověřit soulad s verzí pojistných podmínek použitelnou pro smlouvu."
+      ],
+      "escalation_conditions": [
+        "Při bezprostředním nebezpečí nebo závažném zdravotním stavu má přednost přivolání místní pomoci.",
+        "Pokud potřebujete závazné rozhodnutí o krytí, přesný seznam povinných dokladů nebo výjimku z postupu, předejte dotaz pracovníkovi pojišťovny."
+      ],
+      "open_questions_for_expert": [
+        "Potvrdit pro scénář „Hospitalizace v zahraniční nemocnici“ přesné doklady, použitelné výluky, rozsah asistence a případné povinnosti vůči ČSOB podle sjednaného produktu."
+      ],
+      "sources": [
+        {
+          "source_id": "CSOB_MED",
+          "url": "https://www.csobpoj.cz/skody-a-pojistne-udalosti/co-delat-pri-urazu-nebo-nemoci-v-zahranici",
+          "section": "Záchrana života; Asistence; Dokumentace; Oznámení",
+          "last_checked_at": "2026-11-26",
+          "effective_from": null
+        }
+      ],
+      "source_ids": [
+        "CSOB_MED"
+      ],
+      "evidence_level": "official_insurer",
+      "official_scenario_specific_evidence": true,
+      "procedure_completeness": "partial",
+      "priority": "P0",
+      "policy_version_check_required": true,
+      "applicable_policy_versions": [],
+      "review_status": "DRAFT",
+      "reviewed_by": null,
+      "last_verified_at": null,
+      "last_public_source_checked_at": "2026-11-26",
+      "approved_at": null,
+      "publication_status": "REVIEW_ONLY",
+      "retrieval_eligible": false,
+      "notes_for_reviewer": "Obecné pokyny od jiných institucí nejsou požadavky ČSOB. Ověřit každou povinnost a datum platnosti."
+    },
+    {
+      "id": "SUP_MEDICAL_003",
+      "document_type": "support_procedure",
+      "schema_version": "1.0",
+      "language": "cs",
+      "category": "medical",
+      "title": "Náhlá nemoc během dovolené",
+      "scenario": "Klient řeší situaci: náhlá nemoc během dovolené. Potřebuje praktický, ověřený postup bez předčasného příslibu plnění.",
+      "intent_tag": "medical_general",
+      "question_variations": [
+        "Je mi špatně a potřebuju lékaře.",
+        "Na dovolené jsem onemocněl.",
+        "Mám volat asistenci i s obyčejnou nemocí?"
+      ],
+      "conditions": [
+        "Postup posuzovat podle země události, konkrétního dopravce nebo poskytovatele služby a verze smlouvy."
+      ],
+      "immediate_steps": [
+        {
+          "text": "Při vážném úrazu nebo ohrožení života nejprve přivolejte místní záchrannou službu.",
+          "requirement_type": "recommended",
+          "evidence_level": "official_insurer",
+          "source_ids": [
+            "CSOB_MED"
+          ],
+          "condition": "Při závažném nebo život ohrožujícím stavu."
+        },
+        {
+          "text": "Jakmile to zdravotní stav dovolí, kontaktujte asistenční službu ČSOB Pojišťovny na +420 466 100 777.",
+          "requirement_type": "recommended",
+          "evidence_level": "official_insurer",
+          "source_ids": [
+            "CSOB_MED"
+          ],
+          "condition": null
+        },
+        {
+          "text": "Uschovejte zdravotnické zprávy, recepty, vyúčtování a doklady o zaplacení péče.",
+          "requirement_type": "recommended",
+          "evidence_level": "official_insurer",
+          "source_ids": [
+            "CSOB_MED"
+          ],
+          "condition": null
+        }
+      ],
+      "required_documents": [],
+      "recommended_documents": [
+        {
+          "name": "Lékařská zpráva, případně propouštěcí zpráva.",
+          "requirement_type": "recommended",
+          "source_ids": [
+            "CSOB_MED"
+          ]
+        },
+        {
+          "name": "Vyúčtování a doklady o úhradě léčby a léků.",
+          "requirement_type": "recommended",
+          "source_ids": [
+            "CSOB_MED"
+          ]
+        }
+      ],
+      "police_involvement": {
+        "status": "not_established",
+        "guidance": "Z dostupných zdrojů nevyplývá jednotná povinnost pořídit policejní protokol právě pro tento scénář.",
+        "source_ids": [],
+        "needs_expert_review": true
+      },
+      "clarifying_questions": [
+        "V jaké zemi se nacházíte a potřebujete nyní akutní pomoc?",
+        "Jaké ošetření proběhlo a jaké doklady máte?"
+      ],
+      "coverage_considerations": [
+        "Ověřit sjednané léčebné výlohy, časovou a územní platnost a případná omezení dané zdravotní situace.",
+        "U aktuálních webových doporučení je nutné ověřit soulad s verzí pojistných podmínek použitelnou pro smlouvu."
+      ],
+      "escalation_conditions": [
+        "Pokud potřebujete závazné rozhodnutí o krytí, přesný seznam povinných dokladů nebo výjimku z postupu, předejte dotaz pracovníkovi pojišťovny."
+      ],
+      "open_questions_for_expert": [
+        "Potvrdit pro scénář „Náhlá nemoc během dovolené“ přesné doklady, použitelné výluky, rozsah asistence a případné povinnosti vůči ČSOB podle sjednaného produktu."
+      ],
+      "sources": [
+        {
+          "source_id": "CSOB_MED",
+          "url": "https://www.csobpoj.cz/skody-a-pojistne-udalosti/co-delat-pri-urazu-nebo-nemoci-v-zahranici",
+          "section": "Záchrana života; Asistence; Dokumentace; Oznámení",
+          "last_checked_at": "2026-11-26",
+          "effective_from": null
+        }
+      ],
+      "source_ids": [
+        "CSOB_MED"
+      ],
+      "evidence_level": "official_insurer",
+      "official_scenario_specific_evidence": true,
+      "procedure_completeness": "partial",
+      "priority": "P1",
+      "policy_version_check_required": true,
+      "applicable_policy_versions": [],
+      "review_status": "DRAFT",
+      "reviewed_by": null,
+      "last_verified_at": null,
+      "last_public_source_checked_at": "2026-11-26",
+      "approved_at": null,
+      "publication_status": "REVIEW_ONLY",
+      "retrieval_eligible": false,
+      "notes_for_reviewer": "Obecné pokyny od jiných institucí nejsou požadavky ČSOB. Ověřit každou povinnost a datum platnosti."
+    },
+    {
+      "id": "SUP_MEDICAL_004",
+      "document_type": "support_procedure",
+      "schema_version": "1.0",
+      "language": "cs",
+      "category": "medical",
+      "title": "Otrava jídlem na dovolené",
+      "scenario": "Klient řeší situaci: otrava jídlem na dovolené. Potřebuje praktický, ověřený postup bez předčasného příslibu plnění.",
+      "intent_tag": "medical_general",
+      "question_variations": [
+        "Mám otravu jídlem v zahraničí.",
+        "Po večeři v hotelu je mi hodně zle.",
+        "Kam se obrátit kvůli lékaři?"
+      ],
+      "conditions": [
+        "Postup posuzovat podle země události, konkrétního dopravce nebo poskytovatele služby a verze smlouvy."
+      ],
+      "immediate_steps": [
+        {
+          "text": "Při vážném úrazu nebo ohrožení života nejprve přivolejte místní záchrannou službu.",
+          "requirement_type": "recommended",
+          "evidence_level": "official_insurer",
+          "source_ids": [
+            "CSOB_MED"
+          ],
+          "condition": "Při závažném nebo život ohrožujícím stavu."
+        },
+        {
+          "text": "Jakmile to zdravotní stav dovolí, kontaktujte asistenční službu ČSOB Pojišťovny na +420 466 100 777.",
+          "requirement_type": "recommended",
+          "evidence_level": "official_insurer",
+          "source_ids": [
+            "CSOB_MED"
+          ],
+          "condition": null
+        },
+        {
+          "text": "Uschovejte zdravotnické zprávy, recepty, vyúčtování a doklady o zaplacení péče.",
+          "requirement_type": "recommended",
+          "evidence_level": "official_insurer",
+          "source_ids": [
+            "CSOB_MED"
+          ],
+          "condition": null
+        }
+      ],
+      "required_documents": [],
+      "recommended_documents": [
+        {
+          "name": "Lékařská zpráva, případně propouštěcí zpráva.",
+          "requirement_type": "recommended",
+          "source_ids": [
+            "CSOB_MED"
+          ]
+        },
+        {
+          "name": "Vyúčtování a doklady o úhradě léčby a léků.",
+          "requirement_type": "recommended",
+          "source_ids": [
+            "CSOB_MED"
+          ]
+        }
+      ],
+      "police_involvement": {
+        "status": "not_established",
+        "guidance": "Z dostupných zdrojů nevyplývá jednotná povinnost pořídit policejní protokol právě pro tento scénář.",
+        "source_ids": [],
+        "needs_expert_review": true
+      },
+      "clarifying_questions": [
+        "V jaké zemi se nacházíte a potřebujete nyní akutní pomoc?",
+        "Jaké ošetření proběhlo a jaké doklady máte?"
+      ],
+      "coverage_considerations": [
+        "Ověřit sjednané léčebné výlohy, časovou a územní platnost a případná omezení dané zdravotní situace.",
+        "U aktuálních webových doporučení je nutné ověřit soulad s verzí pojistných podmínek použitelnou pro smlouvu."
+      ],
+      "escalation_conditions": [
+        "Pokud potřebujete závazné rozhodnutí o krytí, přesný seznam povinných dokladů nebo výjimku z postupu, předejte dotaz pracovníkovi pojišťovny."
+      ],
+      "open_questions_for_expert": [
+        "Potvrdit pro scénář „Otrava jídlem na dovolené“ přesné doklady, použitelné výluky, rozsah asistence a případné povinnosti vůči ČSOB podle sjednaného produktu."
+      ],
+      "sources": [
+        {
+          "source_id": "CSOB_MED",
+          "url": "https://www.csobpoj.cz/skody-a-pojistne-udalosti/co-delat-pri-urazu-nebo-nemoci-v-zahranici",
+          "section": "Záchrana života; Asistence; Dokumentace; Oznámení",
+          "last_checked_at": "2026-11-26",
+          "effective_from": null
+        }
+      ],
+      "source_ids": [
+        "CSOB_MED"
+      ],
+      "evidence_level": "official_insurer",
+      "official_scenario_specific_evidence": true,
+      "procedure_completeness": "partial",
+      "priority": "P1",
+      "policy_version_check_required": true,
+      "applicable_policy_versions": [],
+      "review_status": "DRAFT",
+      "reviewed_by": null,
+      "last_verified_at": null,
+      "last_public_source_checked_at": "2026-11-26",
+      "approved_at": null,
+      "publication_status": "REVIEW_ONLY",
+      "retrieval_eligible": false,
+      "notes_for_reviewer": "Obecné pokyny od jiných institucí nejsou požadavky ČSOB. Ověřit každou povinnost a datum platnosti."
+    },
+    {
+      "id": "SUP_MEDICAL_005",
+      "document_type": "support_procedure",
+      "schema_version": "1.0",
+      "language": "cs",
+      "category": "medical",
+      "title": "Akutní bolest zubu",
+      "scenario": "Klient řeší situaci: akutní bolest zubu. Potřebuje praktický, ověřený postup bez předčasného příslibu plnění.",
+      "intent_tag": "dental",
+      "question_variations": [
+        "Na dovolené mě šíleně bolí zub.",
+        "Potřebuju akutně zubaře v cizině.",
+        "Pomůže mi asistence najít zubaře?"
+      ],
+      "conditions": [
+        "Postup posuzovat podle země události, konkrétního dopravce nebo poskytovatele služby a verze smlouvy."
+      ],
+      "immediate_steps": [
+        {
+          "text": "Při vážném úrazu nebo ohrožení života nejprve přivolejte místní záchrannou službu.",
+          "requirement_type": "recommended",
+          "evidence_level": "official_insurer",
+          "source_ids": [
+            "CSOB_MED"
+          ],
+          "condition": "Při závažném nebo život ohrožujícím stavu."
+        },
+        {
+          "text": "Jakmile to zdravotní stav dovolí, kontaktujte asistenční službu ČSOB Pojišťovny na +420 466 100 777.",
+          "requirement_type": "recommended",
+          "evidence_level": "official_insurer",
+          "source_ids": [
+            "CSOB_MED"
+          ],
+          "condition": null
+        },
+        {
+          "text": "Uschovejte zdravotnické zprávy, recepty, vyúčtování a doklady o zaplacení péče.",
+          "requirement_type": "recommended",
+          "evidence_level": "official_insurer",
+          "source_ids": [
+            "CSOB_MED"
+          ],
+          "condition": null
+        },
+        {
+          "text": "Asistenční služba podle ČSOB zajišťuje organizaci akutního zubního ošetření v rámci sjednaného limitu.",
+          "requirement_type": "recommended",
+          "evidence_level": "official_insurer",
+          "source_ids": [
+            "CSOB_ASSIST"
+          ],
+          "condition": null
+        }
+      ],
+      "required_documents": [],
+      "recommended_documents": [
+        {
+          "name": "Lékařská zpráva, případně propouštěcí zpráva.",
+          "requirement_type": "recommended",
+          "source_ids": [
+            "CSOB_MED"
+          ]
+        },
+        {
+          "name": "Vyúčtování a doklady o úhradě léčby a léků.",
+          "requirement_type": "recommended",
+          "source_ids": [
+            "CSOB_MED"
+          ]
+        }
+      ],
+      "police_involvement": {
+        "status": "not_established",
+        "guidance": "Z dostupných zdrojů nevyplývá jednotná povinnost pořídit policejní protokol právě pro tento scénář.",
+        "source_ids": [],
+        "needs_expert_review": true
+      },
+      "clarifying_questions": [
+        "V jaké zemi se nacházíte a potřebujete nyní akutní pomoc?",
+        "Jaké ošetření proběhlo a jaké doklady máte?"
+      ],
+      "coverage_considerations": [
+        "Ověřit sjednané léčebné výlohy, časovou a územní platnost a případná omezení dané zdravotní situace.",
+        "U aktuálních webových doporučení je nutné ověřit soulad s verzí pojistných podmínek použitelnou pro smlouvu."
+      ],
+      "escalation_conditions": [
+        "Pokud potřebujete závazné rozhodnutí o krytí, přesný seznam povinných dokladů nebo výjimku z postupu, předejte dotaz pracovníkovi pojišťovny."
+      ],
+      "open_questions_for_expert": [
+        "Ověřit sjednaný limit akutního stomatologického ošetření a případnou předchozí autorizaci."
+      ],
+      "sources": [
+        {
+          "source_id": "CSOB_ASSIST",
+          "url": "https://www.csobpoj.cz/skody-a-pojistne-udalosti/vse-o-asistencnich-sluzbach",
+          "section": "Asistenční služby k cestovnímu pojištění",
+          "last_checked_at": "2026-11-26",
+          "effective_from": null
+        },
+        {
+          "source_id": "CSOB_MED",
+          "url": "https://www.csobpoj.cz/skody-a-pojistne-udalosti/co-delat-pri-urazu-nebo-nemoci-v-zahranici",
+          "section": "Záchrana života; Asistence; Dokumentace; Oznámení",
+          "last_checked_at": "2026-11-26",
+          "effective_from": null
+        }
+      ],
+      "source_ids": [
+        "CSOB_ASSIST",
+        "CSOB_MED"
+      ],
+      "evidence_level": "official_insurer",
+      "official_scenario_specific_evidence": true,
+      "procedure_completeness": "partial",
+      "priority": "P1",
+      "policy_version_check_required": true,
+      "applicable_policy_versions": [],
+      "review_status": "DRAFT",
+      "reviewed_by": null,
+      "last_verified_at": null,
+      "last_public_source_checked_at": "2026-11-26",
+      "approved_at": null,
+      "publication_status": "REVIEW_ONLY",
+      "retrieval_eligible": false,
+      "notes_for_reviewer": "Obecné pokyny od jiných institucí nejsou požadavky ČSOB. Ověřit každou povinnost a datum platnosti."
+    },
+    {
+      "id": "SUP_MEDICAL_006",
+      "document_type": "support_procedure",
+      "schema_version": "1.0",
+      "language": "cs",
+      "category": "medical",
+      "title": "Nemocnice požaduje zálohu",
+      "scenario": "Klient řeší situaci: nemocnice požaduje zálohu. Potřebuje praktický, ověřený postup bez předčasného příslibu plnění.",
+      "intent_tag": "deposit",
+      "question_variations": [
+        "Nemocnice chce před ošetřením zálohu.",
+        "Doktor chce zaplatit hned a je to drahé.",
+        "Může platbu vyřešit asistence?"
+      ],
+      "conditions": [
+        "Postup posuzovat podle země události, konkrétního dopravce nebo poskytovatele služby a verze smlouvy."
+      ],
+      "immediate_steps": [
+        {
+          "text": "Při vážném úrazu nebo ohrožení života nejprve přivolejte místní záchrannou službu.",
+          "requirement_type": "recommended",
+          "evidence_level": "official_insurer",
+          "source_ids": [
+            "CSOB_MED"
+          ],
+          "condition": "Při závažném nebo život ohrožujícím stavu."
+        },
+        {
+          "text": "Jakmile to zdravotní stav dovolí, kontaktujte asistenční službu ČSOB Pojišťovny na +420 466 100 777.",
+          "requirement_type": "recommended",
+          "evidence_level": "official_insurer",
+          "source_ids": [
+            "CSOB_MED"
+          ],
+          "condition": null
+        },
+        {
+          "text": "Uschovejte zdravotnické zprávy, recepty, vyúčtování a doklady o zaplacení péče.",
+          "requirement_type": "recommended",
+          "evidence_level": "official_insurer",
+          "source_ids": [
+            "CSOB_MED"
+          ],
+          "condition": null
+        },
+        {
+          "text": "O úhradě vyšších léčebných nákladů se co nejdříve poraďte s asistencí; v řadě případů může zajistit garanci úhrady zdravotnickému zařízení.",
+          "requirement_type": "recommended",
+          "evidence_level": "official_insurer",
+          "source_ids": [
+            "CSOB_MED"
+          ],
+          "condition": null
+        }
+      ],
+      "required_documents": [],
+      "recommended_documents": [
+        {
+          "name": "Lékařská zpráva, případně propouštěcí zpráva.",
+          "requirement_type": "recommended",
+          "source_ids": [
+            "CSOB_MED"
+          ]
+        },
+        {
+          "name": "Vyúčtování a doklady o úhradě léčby a léků.",
+          "requirement_type": "recommended",
+          "source_ids": [
+            "CSOB_MED"
+          ]
+        }
+      ],
+      "police_involvement": {
+        "status": "not_established",
+        "guidance": "Z dostupných zdrojů nevyplývá jednotná povinnost pořídit policejní protokol právě pro tento scénář.",
+        "source_ids": [],
+        "needs_expert_review": true
+      },
+      "clarifying_questions": [
+        "V jaké zemi se nacházíte a potřebujete nyní akutní pomoc?",
+        "Jaké ošetření proběhlo a jaké doklady máte?",
+        "Požaduje zařízení konkrétní částku a lze se s ním domluvit na ověření asistencí?"
+      ],
+      "coverage_considerations": [
+        "Ověřit sjednané léčebné výlohy, časovou a územní platnost a případná omezení dané zdravotní situace.",
+        "U aktuálních webových doporučení je nutné ověřit soulad s verzí pojistných podmínek použitelnou pro smlouvu."
+      ],
+      "escalation_conditions": [
+        "Při bezprostředním nebezpečí nebo závažném zdravotním stavu má přednost přivolání místní pomoci.",
+        "Pokud potřebujete závazné rozhodnutí o krytí, přesný seznam povinných dokladů nebo výjimku z postupu, předejte dotaz pracovníkovi pojišťovny."
+      ],
+      "open_questions_for_expert": [
+        "Potvrdit pro scénář „Nemocnice požaduje zálohu“ přesné doklady, použitelné výluky, rozsah asistence a případné povinnosti vůči ČSOB podle sjednaného produktu."
+      ],
+      "sources": [
+        {
+          "source_id": "CSOB_MED",
+          "url": "https://www.csobpoj.cz/skody-a-pojistne-udalosti/co-delat-pri-urazu-nebo-nemoci-v-zahranici",
+          "section": "Záchrana života; Asistence; Dokumentace; Oznámení",
+          "last_checked_at": "2026-11-26",
+          "effective_from": null
+        }
+      ],
+      "source_ids": [
+        "CSOB_MED"
+      ],
+      "evidence_level": "official_insurer",
+      "official_scenario_specific_evidence": true,
+      "procedure_completeness": "partial",
+      "priority": "P0",
+      "policy_version_check_required": true,
+      "applicable_policy_versions": [],
+      "review_status": "DRAFT",
+      "reviewed_by": null,
+      "last_verified_at": null,
+      "last_public_source_checked_at": "2026-11-26",
+      "approved_at": null,
+      "publication_status": "REVIEW_ONLY",
+      "retrieval_eligible": false,
+      "notes_for_reviewer": "Obecné pokyny od jiných institucí nejsou požadavky ČSOB. Ověřit každou povinnost a datum platnosti."
+    },
+    {
+      "id": "SUP_MEDICAL_007",
+      "document_type": "support_procedure",
+      "schema_version": "1.0",
+      "language": "cs",
+      "category": "medical",
+      "title": "Lékař nepřijímá kartičku pojištění",
+      "scenario": "Klient řeší situaci: lékař nepřijímá kartičku pojištění. Potřebuje praktický, ověřený postup bez předčasného příslibu plnění.",
+      "intent_tag": "deposit",
+      "question_variations": [
+        "U doktora nechtějí moji kartičku.",
+        "Řekli mi, že moje pojištění neuznávají.",
+        "Mám to uhradit ze svého?"
+      ],
+      "conditions": [
+        "Postup posuzovat podle země události, konkrétního dopravce nebo poskytovatele služby a verze smlouvy."
+      ],
+      "immediate_steps": [
+        {
+          "text": "Při vážném úrazu nebo ohrožení života nejprve přivolejte místní záchrannou službu.",
+          "requirement_type": "recommended",
+          "evidence_level": "official_insurer",
+          "source_ids": [
+            "CSOB_MED"
+          ],
+          "condition": "Při závažném nebo život ohrožujícím stavu."
+        },
+        {
+          "text": "Jakmile to zdravotní stav dovolí, kontaktujte asistenční službu ČSOB Pojišťovny na +420 466 100 777.",
+          "requirement_type": "recommended",
+          "evidence_level": "official_insurer",
+          "source_ids": [
+            "CSOB_MED"
+          ],
+          "condition": null
+        },
+        {
+          "text": "Uschovejte zdravotnické zprávy, recepty, vyúčtování a doklady o zaplacení péče.",
+          "requirement_type": "recommended",
+          "evidence_level": "official_insurer",
+          "source_ids": [
+            "CSOB_MED"
+          ],
+          "condition": null
+        },
+        {
+          "text": "O úhradě vyšších léčebných nákladů se co nejdříve poraďte s asistencí; v řadě případů může zajistit garanci úhrady zdravotnickému zařízení.",
+          "requirement_type": "recommended",
+          "evidence_level": "official_insurer",
+          "source_ids": [
+            "CSOB_MED"
+          ],
+          "condition": null
+        }
+      ],
+      "required_documents": [],
+      "recommended_documents": [
+        {
+          "name": "Lékařská zpráva, případně propouštěcí zpráva.",
+          "requirement_type": "recommended",
+          "source_ids": [
+            "CSOB_MED"
+          ]
+        },
+        {
+          "name": "Vyúčtování a doklady o úhradě léčby a léků.",
+          "requirement_type": "recommended",
+          "source_ids": [
+            "CSOB_MED"
+          ]
+        }
+      ],
+      "police_involvement": {
+        "status": "not_established",
+        "guidance": "Z dostupných zdrojů nevyplývá jednotná povinnost pořídit policejní protokol právě pro tento scénář.",
+        "source_ids": [],
+        "needs_expert_review": true
+      },
+      "clarifying_questions": [
+        "V jaké zemi se nacházíte a potřebujete nyní akutní pomoc?",
+        "Jaké ošetření proběhlo a jaké doklady máte?",
+        "Požaduje zařízení konkrétní částku a lze se s ním domluvit na ověření asistencí?"
+      ],
+      "coverage_considerations": [
+        "Ověřit sjednané léčebné výlohy, časovou a územní platnost a případná omezení dané zdravotní situace.",
+        "U aktuálních webových doporučení je nutné ověřit soulad s verzí pojistných podmínek použitelnou pro smlouvu."
+      ],
+      "escalation_conditions": [
+        "Při bezprostředním nebezpečí nebo závažném zdravotním stavu má přednost přivolání místní pomoci.",
+        "Pokud potřebujete závazné rozhodnutí o krytí, přesný seznam povinných dokladů nebo výjimku z postupu, předejte dotaz pracovníkovi pojišťovny."
+      ],
+      "open_questions_for_expert": [
+        "Potvrdit pro scénář „Lékař nepřijímá kartičku pojištění“ přesné doklady, použitelné výluky, rozsah asistence a případné povinnosti vůči ČSOB podle sjednaného produktu."
+      ],
+      "sources": [
+        {
+          "source_id": "CSOB_MED",
+          "url": "https://www.csobpoj.cz/skody-a-pojistne-udalosti/co-delat-pri-urazu-nebo-nemoci-v-zahranici",
+          "section": "Záchrana života; Asistence; Dokumentace; Oznámení",
+          "last_checked_at": "2026-11-26",
+          "effective_from": null
+        }
+      ],
+      "source_ids": [
+        "CSOB_MED"
+      ],
+      "evidence_level": "official_insurer",
+      "official_scenario_specific_evidence": true,
+      "procedure_completeness": "partial",
+      "priority": "P0",
+      "policy_version_check_required": true,
+      "applicable_policy_versions": [],
+      "review_status": "DRAFT",
+      "reviewed_by": null,
+      "last_verified_at": null,
+      "last_public_source_checked_at": "2026-11-26",
+      "approved_at": null,
+      "publication_status": "REVIEW_ONLY",
+      "retrieval_eligible": false,
+      "notes_for_reviewer": "Obecné pokyny od jiných institucí nejsou požadavky ČSOB. Ověřit každou povinnost a datum platnosti."
+    },
+    {
+      "id": "SUP_MEDICAL_008",
+      "document_type": "support_procedure",
+      "schema_version": "1.0",
+      "language": "cs",
+      "category": "medical",
+      "title": "Nedaří se dovolat asistenční službě",
+      "scenario": "Klient řeší situaci: nedaří se dovolat asistenční službě. Potřebuje praktický, ověřený postup bez předčasného příslibu plnění.",
+      "intent_tag": "no_assist",
+      "question_variations": [
+        "Nikdo mi na asistenci nebere telefon.",
+        "Volám na pojišťovnu ze zahraničí a nemůžu se spojit.",
+        "Co dělat, když je to akutní?"
+      ],
+      "conditions": [
+        "Postup posuzovat podle země události, konkrétního dopravce nebo poskytovatele služby a verze smlouvy."
+      ],
+      "immediate_steps": [
+        {
+          "text": "Při vážném úrazu nebo ohrožení života nejprve přivolejte místní záchrannou službu.",
+          "requirement_type": "recommended",
+          "evidence_level": "official_insurer",
+          "source_ids": [
+            "CSOB_MED"
+          ],
+          "condition": "Při závažném nebo život ohrožujícím stavu."
+        },
+        {
+          "text": "Jakmile to zdravotní stav dovolí, kontaktujte asistenční službu ČSOB Pojišťovny na +420 466 100 777.",
+          "requirement_type": "recommended",
+          "evidence_level": "official_insurer",
+          "source_ids": [
+            "CSOB_MED"
+          ],
+          "condition": null
+        },
+        {
+          "text": "Uschovejte zdravotnické zprávy, recepty, vyúčtování a doklady o zaplacení péče.",
+          "requirement_type": "recommended",
+          "evidence_level": "official_insurer",
+          "source_ids": [
+            "CSOB_MED"
+          ],
+          "condition": null
+        },
+        {
+          "text": "Pokud je zdravotní stav vážný, na spojení s pojišťovnou nečekejte a zajistěte akutní pomoc.",
+          "requirement_type": "recommended",
+          "evidence_level": "official_insurer",
+          "source_ids": [
+            "CSOB_MED"
+          ],
+          "condition": null
+        },
+        {
+          "text": "VPP CP 2021 uvádějí, že při spojení se záznamníkem lze zanechat iniciály a číslo pro zpětné zavolání.",
+          "requirement_type": "recommended",
+          "evidence_level": "official_insurer",
+          "source_ids": [
+            "CSOB_VPP2021"
+          ],
+          "condition": null
+        }
+      ],
+      "required_documents": [],
+      "recommended_documents": [
+        {
+          "name": "Lékařská zpráva, případně propouštěcí zpráva.",
+          "requirement_type": "recommended",
+          "source_ids": [
+            "CSOB_MED"
+          ]
+        },
+        {
+          "name": "Vyúčtování a doklady o úhradě léčby a léků.",
+          "requirement_type": "recommended",
+          "source_ids": [
+            "CSOB_MED"
+          ]
+        }
+      ],
+      "police_involvement": {
+        "status": "not_established",
+        "guidance": "Z dostupných zdrojů nevyplývá jednotná povinnost pořídit policejní protokol právě pro tento scénář.",
+        "source_ids": [],
+        "needs_expert_review": true
+      },
+      "clarifying_questions": [
+        "V jaké zemi se nacházíte a potřebujete nyní akutní pomoc?",
+        "Jaké ošetření proběhlo a jaké doklady máte?",
+        "Jak naléhavé jsou potíže a jaké způsoby kontaktu jste vyzkoušel(a)?"
+      ],
+      "coverage_considerations": [
+        "Ověřit sjednané léčebné výlohy, časovou a územní platnost a případná omezení dané zdravotní situace.",
+        "U aktuálních webových doporučení je nutné ověřit soulad s verzí pojistných podmínek použitelnou pro smlouvu."
+      ],
+      "escalation_conditions": [
+        "Při bezprostředním nebezpečí nebo závažném zdravotním stavu má přednost přivolání místní pomoci.",
+        "Pokud potřebujete závazné rozhodnutí o krytí, přesný seznam povinných dokladů nebo výjimku z postupu, předejte dotaz pracovníkovi pojišťovny."
+      ],
+      "open_questions_for_expert": [
+        "Potvrdit pro scénář „Nedaří se dovolat asistenční službě“ přesné doklady, použitelné výluky, rozsah asistence a případné povinnosti vůči ČSOB podle sjednaného produktu."
+      ],
+      "sources": [
+        {
+          "source_id": "CSOB_VPP2021",
+          "url": "https://www.csobpoj.cz/documents/10332/5083102/11N9393%2BVPP%2BCP%2B2021_form%C3%A1t%2BA4_CZ_v%C4%8Detn%C4%9B%2Boce%C5%88ovac%C3%ADch%2Btabulek_final_PDF-A.pdf/91a13cf6-8af5-00b8-784b-2f4f65ab34d0?t=1714117917863",
+          "section": "Pokyny pro klienta (strana 2) a jednotlivá ustanovení VPP CP 2021",
+          "last_checked_at": "2026-11-26",
+          "effective_from": "2021-04-01"
+        },
+        {
+          "source_id": "CSOB_MED",
+          "url": "https://www.csobpoj.cz/skody-a-pojistne-udalosti/co-delat-pri-urazu-nebo-nemoci-v-zahranici",
+          "section": "Záchrana života; Asistence; Dokumentace; Oznámení",
+          "last_checked_at": "2026-11-26",
+          "effective_from": null
+        }
+      ],
+      "source_ids": [
+        "CSOB_VPP2021",
+        "CSOB_MED"
+      ],
+      "evidence_level": "needs_expert_review",
+      "official_scenario_specific_evidence": false,
+      "procedure_completeness": "unresolved",
+      "priority": "P0",
+      "policy_version_check_required": true,
+      "applicable_policy_versions": [],
+      "review_status": "DRAFT",
+      "reviewed_by": null,
+      "last_verified_at": null,
+      "last_public_source_checked_at": "2026-11-26",
+      "approved_at": null,
+      "publication_status": "REVIEW_ONLY",
+      "retrieval_eligible": false,
+      "notes_for_reviewer": "Obecné pokyny od jiných institucí nejsou požadavky ČSOB. Ověřit každou povinnost a datum platnosti."
+    },
+    {
+      "id": "SUP_MEDICAL_009",
+      "document_type": "support_procedure",
+      "schema_version": "1.0",
+      "language": "cs",
+      "category": "medical",
+      "title": "Lékař nerozumí česky",
+      "scenario": "Klient řeší situaci: lékař nerozumí česky. Potřebuje praktický, ověřený postup bez předčasného příslibu plnění.",
+      "intent_tag": "language",
+      "question_variations": [
+        "V nemocnici se nedorozumím.",
+        "Doktor mluví jen místním jazykem.",
+        "Může mi někdo tlumočit?"
+      ],
+      "conditions": [
+        "Postup posuzovat podle země události, konkrétního dopravce nebo poskytovatele služby a verze smlouvy."
+      ],
+      "immediate_steps": [
+        {
+          "text": "Při vážném úrazu nebo ohrožení života nejprve přivolejte místní záchrannou službu.",
+          "requirement_type": "recommended",
+          "evidence_level": "official_insurer",
+          "source_ids": [
+            "CSOB_MED"
+          ],
+          "condition": "Při závažném nebo život ohrožujícím stavu."
+        },
+        {
+          "text": "Jakmile to zdravotní stav dovolí, kontaktujte asistenční službu ČSOB Pojišťovny na +420 466 100 777.",
+          "requirement_type": "recommended",
+          "evidence_level": "official_insurer",
+          "source_ids": [
+            "CSOB_MED"
+          ],
+          "condition": null
+        },
+        {
+          "text": "Uschovejte zdravotnické zprávy, recepty, vyúčtování a doklady o zaplacení péče.",
+          "requirement_type": "recommended",
+          "evidence_level": "official_insurer",
+          "source_ids": [
+            "CSOB_MED"
+          ],
+          "condition": null
+        },
+        {
+          "text": "Asistenční služba ČSOB může pomoci s komunikací v cizím jazyce.",
+          "requirement_type": "recommended",
+          "evidence_level": "official_insurer",
+          "source_ids": [
+            "CSOB_ASSIST"
+          ],
+          "condition": null
+        }
+      ],
+      "required_documents": [],
+      "recommended_documents": [
+        {
+          "name": "Lékařská zpráva, případně propouštěcí zpráva.",
+          "requirement_type": "recommended",
+          "source_ids": [
+            "CSOB_MED"
+          ]
+        },
+        {
+          "name": "Vyúčtování a doklady o úhradě léčby a léků.",
+          "requirement_type": "recommended",
+          "source_ids": [
+            "CSOB_MED"
+          ]
+        }
+      ],
+      "police_involvement": {
+        "status": "not_established",
+        "guidance": "Z dostupných zdrojů nevyplývá jednotná povinnost pořídit policejní protokol právě pro tento scénář.",
+        "source_ids": [],
+        "needs_expert_review": true
+      },
+      "clarifying_questions": [
+        "V jaké zemi se nacházíte a potřebujete nyní akutní pomoc?",
+        "Jaké ošetření proběhlo a jaké doklady máte?"
+      ],
+      "coverage_considerations": [
+        "Ověřit sjednané léčebné výlohy, časovou a územní platnost a případná omezení dané zdravotní situace.",
+        "U aktuálních webových doporučení je nutné ověřit soulad s verzí pojistných podmínek použitelnou pro smlouvu."
+      ],
+      "escalation_conditions": [
+        "Pokud potřebujete závazné rozhodnutí o krytí, přesný seznam povinných dokladů nebo výjimku z postupu, předejte dotaz pracovníkovi pojišťovny."
+      ],
+      "open_questions_for_expert": [
+        "Potvrdit pro scénář „Lékař nerozumí česky“ přesné doklady, použitelné výluky, rozsah asistence a případné povinnosti vůči ČSOB podle sjednaného produktu."
+      ],
+      "sources": [
+        {
+          "source_id": "CSOB_ASSIST",
+          "url": "https://www.csobpoj.cz/skody-a-pojistne-udalosti/vse-o-asistencnich-sluzbach",
+          "section": "Asistenční služby k cestovnímu pojištění",
+          "last_checked_at": "2026-11-26",
+          "effective_from": null
+        },
+        {
+          "source_id": "CSOB_MED",
+          "url": "https://www.csobpoj.cz/skody-a-pojistne-udalosti/co-delat-pri-urazu-nebo-nemoci-v-zahranici",
+          "section": "Záchrana života; Asistence; Dokumentace; Oznámení",
+          "last_checked_at": "2026-11-26",
+          "effective_from": null
+        }
+      ],
+      "source_ids": [
+        "CSOB_ASSIST",
+        "CSOB_MED"
+      ],
+      "evidence_level": "official_insurer",
+      "official_scenario_specific_evidence": true,
+      "procedure_completeness": "partial",
+      "priority": "P1",
+      "policy_version_check_required": true,
+      "applicable_policy_versions": [],
+      "review_status": "DRAFT",
+      "reviewed_by": null,
+      "last_verified_at": null,
+      "last_public_source_checked_at": "2026-11-26",
+      "approved_at": null,
+      "publication_status": "REVIEW_ONLY",
+      "retrieval_eligible": false,
+      "notes_for_reviewer": "Obecné pokyny od jiných institucí nejsou požadavky ČSOB. Ověřit každou povinnost a datum platnosti."
+    },
+    {
+      "id": "SUP_MEDICAL_010",
+      "document_type": "support_procedure",
+      "schema_version": "1.0",
+      "language": "cs",
+      "category": "medical",
+      "title": "Chybí lékařská zpráva",
+      "scenario": "Klient řeší situaci: chybí lékařská zpráva. Potřebuje praktický, ověřený postup bez předčasného příslibu plnění.",
+      "intent_tag": "med_missing_report",
+      "question_variations": [
+        "Doktor mi nedal žádnou zprávu.",
+        "Ošetřili mě, ale nemám lékařský protokol.",
+        "Co si mám vyžádat?"
+      ],
+      "conditions": [
+        "Postup posuzovat podle země události, konkrétního dopravce nebo poskytovatele služby a verze smlouvy."
+      ],
+      "immediate_steps": [
+        {
+          "text": "Při vážném úrazu nebo ohrožení života nejprve přivolejte místní záchrannou službu.",
+          "requirement_type": "recommended",
+          "evidence_level": "official_insurer",
+          "source_ids": [
+            "CSOB_MED"
+          ],
+          "condition": "Při závažném nebo život ohrožujícím stavu."
+        },
+        {
+          "text": "Jakmile to zdravotní stav dovolí, kontaktujte asistenční službu ČSOB Pojišťovny na +420 466 100 777.",
+          "requirement_type": "recommended",
+          "evidence_level": "official_insurer",
+          "source_ids": [
+            "CSOB_MED"
+          ],
+          "condition": null
+        },
+        {
+          "text": "Uschovejte zdravotnické zprávy, recepty, vyúčtování a doklady o zaplacení péče.",
+          "requirement_type": "recommended",
+          "evidence_level": "official_insurer",
+          "source_ids": [
+            "CSOB_MED"
+          ],
+          "condition": null
+        }
+      ],
+      "required_documents": [],
+      "recommended_documents": [
+        {
+          "name": "Lékařská zpráva, případně propouštěcí zpráva.",
+          "requirement_type": "recommended",
+          "source_ids": [
+            "CSOB_MED"
+          ]
+        },
+        {
+          "name": "Vyúčtování a doklady o úhradě léčby a léků.",
+          "requirement_type": "recommended",
+          "source_ids": [
+            "CSOB_MED"
+          ]
+        }
+      ],
+      "police_involvement": {
+        "status": "not_established",
+        "guidance": "Z dostupných zdrojů nevyplývá jednotná povinnost pořídit policejní protokol právě pro tento scénář.",
+        "source_ids": [],
+        "needs_expert_review": true
+      },
+      "clarifying_questions": [
+        "V jaké zemi se nacházíte a potřebujete nyní akutní pomoc?",
+        "Jaké ošetření proběhlo a jaké doklady máte?"
+      ],
+      "coverage_considerations": [
+        "Ověřit sjednané léčebné výlohy, časovou a územní platnost a případná omezení dané zdravotní situace.",
+        "U aktuálních webových doporučení je nutné ověřit soulad s verzí pojistných podmínek použitelnou pro smlouvu."
+      ],
+      "escalation_conditions": [
+        "Pokud potřebujete závazné rozhodnutí o krytí, přesný seznam povinných dokladů nebo výjimku z postupu, předejte dotaz pracovníkovi pojišťovny."
+      ],
+      "open_questions_for_expert": [
+        "Potvrdit pro scénář „Chybí lékařská zpráva“ přesné doklady, použitelné výluky, rozsah asistence a případné povinnosti vůči ČSOB podle sjednaného produktu."
+      ],
+      "sources": [
+        {
+          "source_id": "CSOB_MED",
+          "url": "https://www.csobpoj.cz/skody-a-pojistne-udalosti/co-delat-pri-urazu-nebo-nemoci-v-zahranici",
+          "section": "Záchrana života; Asistence; Dokumentace; Oznámení",
+          "last_checked_at": "2026-11-26",
+          "effective_from": null
+        }
+      ],
+      "source_ids": [
+        "CSOB_MED"
+      ],
+      "evidence_level": "needs_expert_review",
+      "official_scenario_specific_evidence": false,
+      "procedure_completeness": "unresolved",
+      "priority": "P1",
+      "policy_version_check_required": true,
+      "applicable_policy_versions": [],
+      "review_status": "DRAFT",
+      "reviewed_by": null,
+      "last_verified_at": null,
+      "last_public_source_checked_at": "2026-11-26",
+      "approved_at": null,
+      "publication_status": "REVIEW_ONLY",
+      "retrieval_eligible": false,
+      "notes_for_reviewer": "Obecné pokyny od jiných institucí nejsou požadavky ČSOB. Ověřit každou povinnost a datum platnosti."
+    },
+    {
+      "id": "SUP_MEDICAL_011",
+      "document_type": "support_procedure",
+      "schema_version": "1.0",
+      "language": "cs",
+      "category": "medical",
+      "title": "Chybí účtenka za léky",
+      "scenario": "Klient řeší situaci: chybí účtenka za léky. Potřebuje praktický, ověřený postup bez předčasného příslibu plnění.",
+      "intent_tag": "med_no_receipt",
+      "question_variations": [
+        "Lékárna mi nedala doklad.",
+        "Platila jsem léky a nemám účtenku.",
+        "Jak prokážu výdaj?"
+      ],
+      "conditions": [
+        "Postup posuzovat podle země události, konkrétního dopravce nebo poskytovatele služby a verze smlouvy."
+      ],
+      "immediate_steps": [
+        {
+          "text": "Při vážném úrazu nebo ohrožení života nejprve přivolejte místní záchrannou službu.",
+          "requirement_type": "recommended",
+          "evidence_level": "official_insurer",
+          "source_ids": [
+            "CSOB_MED"
+          ],
+          "condition": "Při závažném nebo život ohrožujícím stavu."
+        },
+        {
+          "text": "Jakmile to zdravotní stav dovolí, kontaktujte asistenční službu ČSOB Pojišťovny na +420 466 100 777.",
+          "requirement_type": "recommended",
+          "evidence_level": "official_insurer",
+          "source_ids": [
+            "CSOB_MED"
+          ],
+          "condition": null
+        },
+        {
+          "text": "Uschovejte zdravotnické zprávy, recepty, vyúčtování a doklady o zaplacení péče.",
+          "requirement_type": "recommended",
+          "evidence_level": "official_insurer",
+          "source_ids": [
+            "CSOB_MED"
+          ],
+          "condition": null
+        }
+      ],
+      "required_documents": [],
+      "recommended_documents": [
+        {
+          "name": "Lékařská zpráva, případně propouštěcí zpráva.",
+          "requirement_type": "recommended",
+          "source_ids": [
+            "CSOB_MED"
+          ]
+        },
+        {
+          "name": "Vyúčtování a doklady o úhradě léčby a léků.",
+          "requirement_type": "recommended",
+          "source_ids": [
+            "CSOB_MED"
+          ]
+        }
+      ],
+      "police_involvement": {
+        "status": "not_established",
+        "guidance": "Z dostupných zdrojů nevyplývá jednotná povinnost pořídit policejní protokol právě pro tento scénář.",
+        "source_ids": [],
+        "needs_expert_review": true
+      },
+      "clarifying_questions": [
+        "V jaké zemi se nacházíte a potřebujete nyní akutní pomoc?",
+        "Jaké ošetření proběhlo a jaké doklady máte?"
+      ],
+      "coverage_considerations": [
+        "Ověřit sjednané léčebné výlohy, časovou a územní platnost a případná omezení dané zdravotní situace.",
+        "U aktuálních webových doporučení je nutné ověřit soulad s verzí pojistných podmínek použitelnou pro smlouvu."
+      ],
+      "escalation_conditions": [
+        "Pokud potřebujete závazné rozhodnutí o krytí, přesný seznam povinných dokladů nebo výjimku z postupu, předejte dotaz pracovníkovi pojišťovny."
+      ],
+      "open_questions_for_expert": [
+        "Potvrdit pro scénář „Chybí účtenka za léky“ přesné doklady, použitelné výluky, rozsah asistence a případné povinnosti vůči ČSOB podle sjednaného produktu."
+      ],
+      "sources": [
+        {
+          "source_id": "CSOB_MED",
+          "url": "https://www.csobpoj.cz/skody-a-pojistne-udalosti/co-delat-pri-urazu-nebo-nemoci-v-zahranici",
+          "section": "Záchrana života; Asistence; Dokumentace; Oznámení",
+          "last_checked_at": "2026-11-26",
+          "effective_from": null
+        }
+      ],
+      "source_ids": [
+        "CSOB_MED"
+      ],
+      "evidence_level": "needs_expert_review",
+      "official_scenario_specific_evidence": false,
+      "procedure_completeness": "unresolved",
+      "priority": "P1",
+      "policy_version_check_required": true,
+      "applicable_policy_versions": [],
+      "review_status": "DRAFT",
+      "reviewed_by": null,
+      "last_verified_at": null,
+      "last_public_source_checked_at": "2026-11-26",
+      "approved_at": null,
+      "publication_status": "REVIEW_ONLY",
+      "retrieval_eligible": false,
+      "notes_for_reviewer": "Obecné pokyny od jiných institucí nejsou požadavky ČSOB. Ověřit každou povinnost a datum platnosti."
+    },
+    {
+      "id": "SUP_MEDICAL_012",
+      "document_type": "support_procedure",
+      "schema_version": "1.0",
+      "language": "cs",
+      "category": "medical",
+      "title": "Převoz nemocného do České republiky",
+      "scenario": "Klient řeší situaci: převoz nemocného do české republiky. Potřebuje praktický, ověřený postup bez předčasného příslibu plnění.",
+      "intent_tag": "repatriation",
+      "question_variations": [
+        "Potřebuju se s úrazem dostat domů.",
+        "Doktor říká, že se musím vrátit do ČR.",
+        "Kdo rozhodne o převozu?"
+      ],
+      "conditions": [
+        "Postup posuzovat podle země události, konkrétního dopravce nebo poskytovatele služby a verze smlouvy."
+      ],
+      "immediate_steps": [
+        {
+          "text": "Při vážném úrazu nebo ohrožení života nejprve přivolejte místní záchrannou službu.",
+          "requirement_type": "recommended",
+          "evidence_level": "official_insurer",
+          "source_ids": [
+            "CSOB_MED"
+          ],
+          "condition": "Při závažném nebo život ohrožujícím stavu."
+        },
+        {
+          "text": "Jakmile to zdravotní stav dovolí, kontaktujte asistenční službu ČSOB Pojišťovny na +420 466 100 777.",
+          "requirement_type": "recommended",
+          "evidence_level": "official_insurer",
+          "source_ids": [
+            "CSOB_MED"
+          ],
+          "condition": null
+        },
+        {
+          "text": "Uschovejte zdravotnické zprávy, recepty, vyúčtování a doklady o zaplacení péče.",
+          "requirement_type": "recommended",
+          "evidence_level": "official_insurer",
+          "source_ids": [
+            "CSOB_MED"
+          ],
+          "condition": null
+        },
+        {
+          "text": "Potřebu převozu do ČR konzultujte s asistenční službou, která může pomoci s jeho organizací.",
+          "requirement_type": "recommended",
+          "evidence_level": "official_insurer",
+          "source_ids": [
+            "CSOB_ASSIST"
+          ],
+          "condition": null
+        }
+      ],
+      "required_documents": [],
+      "recommended_documents": [
+        {
+          "name": "Lékařská zpráva, případně propouštěcí zpráva.",
+          "requirement_type": "recommended",
+          "source_ids": [
+            "CSOB_MED"
+          ]
+        },
+        {
+          "name": "Vyúčtování a doklady o úhradě léčby a léků.",
+          "requirement_type": "recommended",
+          "source_ids": [
+            "CSOB_MED"
+          ]
+        }
+      ],
+      "police_involvement": {
+        "status": "not_established",
+        "guidance": "Z dostupných zdrojů nevyplývá jednotná povinnost pořídit policejní protokol právě pro tento scénář.",
+        "source_ids": [],
+        "needs_expert_review": true
+      },
+      "clarifying_questions": [
+        "V jaké zemi se nacházíte a potřebujete nyní akutní pomoc?",
+        "Jaké ošetření proběhlo a jaké doklady máte?"
+      ],
+      "coverage_considerations": [
+        "Ověřit sjednané léčebné výlohy, časovou a územní platnost a případná omezení dané zdravotní situace.",
+        "U aktuálních webových doporučení je nutné ověřit soulad s verzí pojistných podmínek použitelnou pro smlouvu."
+      ],
+      "escalation_conditions": [
+        "Pokud potřebujete závazné rozhodnutí o krytí, přesný seznam povinných dokladů nebo výjimku z postupu, předejte dotaz pracovníkovi pojišťovny."
+      ],
+      "open_questions_for_expert": [
+        "Potvrdit pro scénář „Převoz nemocného do České republiky“ přesné doklady, použitelné výluky, rozsah asistence a případné povinnosti vůči ČSOB podle sjednaného produktu."
+      ],
+      "sources": [
+        {
+          "source_id": "CSOB_ASSIST",
+          "url": "https://www.csobpoj.cz/skody-a-pojistne-udalosti/vse-o-asistencnich-sluzbach",
+          "section": "Asistenční služby k cestovnímu pojištění",
+          "last_checked_at": "2026-11-26",
+          "effective_from": null
+        },
+        {
+          "source_id": "CSOB_MED",
+          "url": "https://www.csobpoj.cz/skody-a-pojistne-udalosti/co-delat-pri-urazu-nebo-nemoci-v-zahranici",
+          "section": "Záchrana života; Asistence; Dokumentace; Oznámení",
+          "last_checked_at": "2026-11-26",
+          "effective_from": null
+        }
+      ],
+      "source_ids": [
+        "CSOB_ASSIST",
+        "CSOB_MED"
+      ],
+      "evidence_level": "official_insurer",
+      "official_scenario_specific_evidence": true,
+      "procedure_completeness": "partial",
+      "priority": "P1",
+      "policy_version_check_required": true,
+      "applicable_policy_versions": [],
+      "review_status": "DRAFT",
+      "reviewed_by": null,
+      "last_verified_at": null,
+      "last_public_source_checked_at": "2026-11-26",
+      "approved_at": null,
+      "publication_status": "REVIEW_ONLY",
+      "retrieval_eligible": false,
+      "notes_for_reviewer": "Obecné pokyny od jiných institucí nejsou požadavky ČSOB. Ověřit každou povinnost a datum platnosti."
+    },
+    {
+      "id": "SUP_MEDICAL_013",
+      "document_type": "support_procedure",
+      "schema_version": "1.0",
+      "language": "cs",
+      "category": "medical",
+      "title": "Přivolání záchranky v zahraničí",
+      "scenario": "Klient řeší situaci: přivolání záchranky v zahraničí. Potřebuje praktický, ověřený postup bez předčasného příslibu plnění.",
+      "intent_tag": "emergency",
+      "question_variations": [
+        "Můj kamarád je v bezvědomí.",
+        "Je tu vážný úraz a potřebujeme sanitku.",
+        "Mám čekat na odpověď asistence?"
+      ],
+      "conditions": [
+        "Postup posuzovat podle země události, konkrétního dopravce nebo poskytovatele služby a verze smlouvy."
+      ],
+      "immediate_steps": [
+        {
+          "text": "Při vážném úrazu nebo ohrožení života nejprve přivolejte místní záchrannou službu.",
+          "requirement_type": "recommended",
+          "evidence_level": "official_insurer",
+          "source_ids": [
+            "CSOB_MED"
+          ],
+          "condition": "Při závažném nebo život ohrožujícím stavu."
+        },
+        {
+          "text": "Jakmile to zdravotní stav dovolí, kontaktujte asistenční službu ČSOB Pojišťovny na +420 466 100 777.",
+          "requirement_type": "recommended",
+          "evidence_level": "official_insurer",
+          "source_ids": [
+            "CSOB_MED"
+          ],
+          "condition": null
+        },
+        {
+          "text": "Uschovejte zdravotnické zprávy, recepty, vyúčtování a doklady o zaplacení péče.",
+          "requirement_type": "recommended",
+          "evidence_level": "official_insurer",
+          "source_ids": [
+            "CSOB_MED"
+          ],
+          "condition": null
+        },
+        {
+          "text": "V zemích Evropské unie lze pro naléhavou pomoc použít jednotné tísňové číslo 112.",
+          "requirement_type": "recommended",
+          "evidence_level": "general_guidance",
+          "source_ids": [
+            "EU_EMERGENCY"
+          ],
+          "condition": "Pokud se nacházíte v EU."
+        }
+      ],
+      "required_documents": [],
+      "recommended_documents": [
+        {
+          "name": "Lékařská zpráva, případně propouštěcí zpráva.",
+          "requirement_type": "recommended",
+          "source_ids": [
+            "CSOB_MED"
+          ]
+        },
+        {
+          "name": "Vyúčtování a doklady o úhradě léčby a léků.",
+          "requirement_type": "recommended",
+          "source_ids": [
+            "CSOB_MED"
+          ]
+        }
+      ],
+      "police_involvement": {
+        "status": "not_established",
+        "guidance": "Z dostupných zdrojů nevyplývá jednotná povinnost pořídit policejní protokol právě pro tento scénář.",
+        "source_ids": [],
+        "needs_expert_review": true
+      },
+      "clarifying_questions": [
+        "V jaké zemi se nacházíte a potřebujete nyní akutní pomoc?",
+        "Jaké ošetření proběhlo a jaké doklady máte?",
+        "Je záchranná služba již na místě?"
+      ],
+      "coverage_considerations": [
+        "Ověřit sjednané léčebné výlohy, časovou a územní platnost a případná omezení dané zdravotní situace.",
+        "U aktuálních webových doporučení je nutné ověřit soulad s verzí pojistných podmínek použitelnou pro smlouvu."
+      ],
+      "escalation_conditions": [
+        "Při bezprostředním nebezpečí nebo závažném zdravotním stavu má přednost přivolání místní pomoci.",
+        "Pokud potřebujete závazné rozhodnutí o krytí, přesný seznam povinných dokladů nebo výjimku z postupu, předejte dotaz pracovníkovi pojišťovny."
+      ],
+      "open_questions_for_expert": [
+        "Potvrdit pro scénář „Přivolání záchranky v zahraničí“ přesné doklady, použitelné výluky, rozsah asistence a případné povinnosti vůči ČSOB podle sjednaného produktu."
+      ],
+      "sources": [
+        {
+          "source_id": "CSOB_MED",
+          "url": "https://www.csobpoj.cz/skody-a-pojistne-udalosti/co-delat-pri-urazu-nebo-nemoci-v-zahranici",
+          "section": "Záchrana života; Asistence; Dokumentace; Oznámení",
+          "last_checked_at": "2026-11-26",
+          "effective_from": null
+        },
+        {
+          "source_id": "EU_EMERGENCY",
+          "url": "https://europa.eu/youreurope/citizens/travel/security-and-emergencies/emergency/index_en.htm",
+          "section": "Tísňové číslo 112",
+          "last_checked_at": "2026-11-26",
+          "effective_from": null
+        }
+      ],
+      "source_ids": [
+        "CSOB_MED",
+        "EU_EMERGENCY"
+      ],
+      "evidence_level": "official_insurer",
+      "official_scenario_specific_evidence": true,
+      "procedure_completeness": "partial",
+      "priority": "P0",
+      "policy_version_check_required": true,
+      "applicable_policy_versions": [],
+      "review_status": "DRAFT",
+      "reviewed_by": null,
+      "last_verified_at": null,
+      "last_public_source_checked_at": "2026-11-26",
+      "approved_at": null,
+      "publication_status": "REVIEW_ONLY",
+      "retrieval_eligible": false,
+      "notes_for_reviewer": "Obecné pokyny od jiných institucí nejsou požadavky ČSOB. Ověřit každou povinnost a datum platnosti."
+    },
+    {
+      "id": "SUP_MEDICAL_014",
+      "document_type": "support_procedure",
+      "schema_version": "1.0",
+      "language": "cs",
+      "category": "medical",
+      "title": "Nemocné dítě na dovolené",
+      "scenario": "Klient řeší situaci: nemocné dítě na dovolené. Potřebuje praktický, ověřený postup bez předčasného příslibu plnění.",
+      "intent_tag": "child_ill",
+      "question_variations": [
+        "Dítě má vysokou horečku v cizině.",
+        "Synovi je na dovolené hodně špatně.",
+        "Kde nám pomůžou s lékařem?"
+      ],
+      "conditions": [
+        "Postup posuzovat podle země události, konkrétního dopravce nebo poskytovatele služby a verze smlouvy."
+      ],
+      "immediate_steps": [
+        {
+          "text": "Při vážném úrazu nebo ohrožení života nejprve přivolejte místní záchrannou službu.",
+          "requirement_type": "recommended",
+          "evidence_level": "official_insurer",
+          "source_ids": [
+            "CSOB_MED"
+          ],
+          "condition": "Při závažném nebo život ohrožujícím stavu."
+        },
+        {
+          "text": "Jakmile to zdravotní stav dovolí, kontaktujte asistenční službu ČSOB Pojišťovny na +420 466 100 777.",
+          "requirement_type": "recommended",
+          "evidence_level": "official_insurer",
+          "source_ids": [
+            "CSOB_MED"
+          ],
+          "condition": null
+        },
+        {
+          "text": "Uschovejte zdravotnické zprávy, recepty, vyúčtování a doklady o zaplacení péče.",
+          "requirement_type": "recommended",
+          "evidence_level": "official_insurer",
+          "source_ids": [
+            "CSOB_MED"
+          ],
+          "condition": null
+        }
+      ],
+      "required_documents": [],
+      "recommended_documents": [
+        {
+          "name": "Lékařská zpráva, případně propouštěcí zpráva.",
+          "requirement_type": "recommended",
+          "source_ids": [
+            "CSOB_MED"
+          ]
+        },
+        {
+          "name": "Vyúčtování a doklady o úhradě léčby a léků.",
+          "requirement_type": "recommended",
+          "source_ids": [
+            "CSOB_MED"
+          ]
+        }
+      ],
+      "police_involvement": {
+        "status": "not_established",
+        "guidance": "Z dostupných zdrojů nevyplývá jednotná povinnost pořídit policejní protokol právě pro tento scénář.",
+        "source_ids": [],
+        "needs_expert_review": true
+      },
+      "clarifying_questions": [
+        "V jaké zemi se nacházíte a potřebujete nyní akutní pomoc?",
+        "Jaké ošetření proběhlo a jaké doklady máte?"
+      ],
+      "coverage_considerations": [
+        "Ověřit sjednané léčebné výlohy, časovou a územní platnost a případná omezení dané zdravotní situace.",
+        "U aktuálních webových doporučení je nutné ověřit soulad s verzí pojistných podmínek použitelnou pro smlouvu."
+      ],
+      "escalation_conditions": [
+        "Při bezprostředním nebezpečí nebo závažném zdravotním stavu má přednost přivolání místní pomoci.",
+        "Pokud potřebujete závazné rozhodnutí o krytí, přesný seznam povinných dokladů nebo výjimku z postupu, předejte dotaz pracovníkovi pojišťovny."
+      ],
+      "open_questions_for_expert": [
+        "Potvrdit pro scénář „Nemocné dítě na dovolené“ přesné doklady, použitelné výluky, rozsah asistence a případné povinnosti vůči ČSOB podle sjednaného produktu."
+      ],
+      "sources": [
+        {
+          "source_id": "CSOB_MED",
+          "url": "https://www.csobpoj.cz/skody-a-pojistne-udalosti/co-delat-pri-urazu-nebo-nemoci-v-zahranici",
+          "section": "Záchrana života; Asistence; Dokumentace; Oznámení",
+          "last_checked_at": "2026-11-26",
+          "effective_from": null
+        }
+      ],
+      "source_ids": [
+        "CSOB_MED"
+      ],
+      "evidence_level": "needs_expert_review",
+      "official_scenario_specific_evidence": false,
+      "procedure_completeness": "unresolved",
+      "priority": "P0",
+      "policy_version_check_required": true,
+      "applicable_policy_versions": [],
+      "review_status": "DRAFT",
+      "reviewed_by": null,
+      "last_verified_at": null,
+      "last_public_source_checked_at": "2026-11-26",
+      "approved_at": null,
+      "publication_status": "REVIEW_ONLY",
+      "retrieval_eligible": false,
+      "notes_for_reviewer": "Obecné pokyny od jiných institucí nejsou požadavky ČSOB. Ověřit každou povinnost a datum platnosti."
+    },
+    {
+      "id": "SUP_MEDICAL_015",
+      "document_type": "support_procedure",
+      "schema_version": "1.0",
+      "language": "cs",
+      "category": "medical",
+      "title": "Zhoršení chronického onemocnění",
+      "scenario": "Klient řeší situaci: zhoršení chronického onemocnění. Potřebuje praktický, ověřený postup bez předčasného příslibu plnění.",
+      "intent_tag": "chronic",
+      "question_variations": [
+        "V cizině se mi zhoršila dlouhodobá nemoc.",
+        "Mám chronickou diagnózu a teď mám potíže.",
+        "Vztahuje se na to pojistka?"
+      ],
+      "conditions": [
+        "Postup posuzovat podle země události, konkrétního dopravce nebo poskytovatele služby a verze smlouvy."
+      ],
+      "immediate_steps": [
+        {
+          "text": "Při vážném úrazu nebo ohrožení života nejprve přivolejte místní záchrannou službu.",
+          "requirement_type": "recommended",
+          "evidence_level": "official_insurer",
+          "source_ids": [
+            "CSOB_MED"
+          ],
+          "condition": "Při závažném nebo život ohrožujícím stavu."
+        },
+        {
+          "text": "Jakmile to zdravotní stav dovolí, kontaktujte asistenční službu ČSOB Pojišťovny na +420 466 100 777.",
+          "requirement_type": "recommended",
+          "evidence_level": "official_insurer",
+          "source_ids": [
+            "CSOB_MED"
+          ],
+          "condition": null
+        },
+        {
+          "text": "Uschovejte zdravotnické zprávy, recepty, vyúčtování a doklady o zaplacení péče.",
+          "requirement_type": "recommended",
+          "evidence_level": "official_insurer",
+          "source_ids": [
+            "CSOB_MED"
+          ],
+          "condition": null
+        }
+      ],
+      "required_documents": [],
+      "recommended_documents": [
+        {
+          "name": "Lékařská zpráva, případně propouštěcí zpráva.",
+          "requirement_type": "recommended",
+          "source_ids": [
+            "CSOB_MED"
+          ]
+        },
+        {
+          "name": "Vyúčtování a doklady o úhradě léčby a léků.",
+          "requirement_type": "recommended",
+          "source_ids": [
+            "CSOB_MED"
+          ]
+        }
+      ],
+      "police_involvement": {
+        "status": "not_established",
+        "guidance": "Z dostupných zdrojů nevyplývá jednotná povinnost pořídit policejní protokol právě pro tento scénář.",
+        "source_ids": [],
+        "needs_expert_review": true
+      },
+      "clarifying_questions": [
+        "V jaké zemi se nacházíte a potřebujete nyní akutní pomoc?",
+        "Jaké ošetření proběhlo a jaké doklady máte?"
+      ],
+      "coverage_considerations": [
+        "Ověřit sjednané léčebné výlohy, časovou a územní platnost a případná omezení dané zdravotní situace.",
+        "U aktuálních webových doporučení je nutné ověřit soulad s verzí pojistných podmínek použitelnou pro smlouvu."
+      ],
+      "escalation_conditions": [
+        "Pokud potřebujete závazné rozhodnutí o krytí, přesný seznam povinných dokladů nebo výjimku z postupu, předejte dotaz pracovníkovi pojišťovny."
+      ],
+      "open_questions_for_expert": [
+        "Potvrdit pro scénář „Zhoršení chronického onemocnění“ přesné doklady, použitelné výluky, rozsah asistence a případné povinnosti vůči ČSOB podle sjednaného produktu."
+      ],
+      "sources": [
+        {
+          "source_id": "CSOB_MED",
+          "url": "https://www.csobpoj.cz/skody-a-pojistne-udalosti/co-delat-pri-urazu-nebo-nemoci-v-zahranici",
+          "section": "Záchrana života; Asistence; Dokumentace; Oznámení",
+          "last_checked_at": "2026-11-26",
+          "effective_from": null
+        }
+      ],
+      "source_ids": [
+        "CSOB_MED"
+      ],
+      "evidence_level": "needs_expert_review",
+      "official_scenario_specific_evidence": false,
+      "procedure_completeness": "unresolved",
+      "priority": "P1",
+      "policy_version_check_required": true,
+      "applicable_policy_versions": [],
+      "review_status": "DRAFT",
+      "reviewed_by": null,
+      "last_verified_at": null,
+      "last_public_source_checked_at": "2026-11-26",
+      "approved_at": null,
+      "publication_status": "REVIEW_ONLY",
+      "retrieval_eligible": false,
+      "notes_for_reviewer": "Obecné pokyny od jiných institucí nejsou požadavky ČSOB. Ověřit každou povinnost a datum platnosti."
+    },
+    {
+      "id": "SUP_MEDICAL_016",
+      "document_type": "support_procedure",
+      "schema_version": "1.0",
+      "language": "cs",
+      "category": "medical",
+      "title": "Komplikace v těhotenství",
+      "scenario": "Klient řeší situaci: komplikace v těhotenství. Potřebuje praktický, ověřený postup bez předčasného příslibu plnění.",
+      "intent_tag": "pregnancy",
+      "question_variations": [
+        "Na dovolené mám těhotenské komplikace.",
+        "Potřebuju v zahraničí gynekologii.",
+        "Kryje moje pojistka vyšetření?"
+      ],
+      "conditions": [
+        "Postup posuzovat podle země události, konkrétního dopravce nebo poskytovatele služby a verze smlouvy."
+      ],
+      "immediate_steps": [
+        {
+          "text": "Při vážném úrazu nebo ohrožení života nejprve přivolejte místní záchrannou službu.",
+          "requirement_type": "recommended",
+          "evidence_level": "official_insurer",
+          "source_ids": [
+            "CSOB_MED"
+          ],
+          "condition": "Při závažném nebo život ohrožujícím stavu."
+        },
+        {
+          "text": "Jakmile to zdravotní stav dovolí, kontaktujte asistenční službu ČSOB Pojišťovny na +420 466 100 777.",
+          "requirement_type": "recommended",
+          "evidence_level": "official_insurer",
+          "source_ids": [
+            "CSOB_MED"
+          ],
+          "condition": null
+        },
+        {
+          "text": "Uschovejte zdravotnické zprávy, recepty, vyúčtování a doklady o zaplacení péče.",
+          "requirement_type": "recommended",
+          "evidence_level": "official_insurer",
+          "source_ids": [
+            "CSOB_MED"
+          ],
+          "condition": null
+        }
+      ],
+      "required_documents": [],
+      "recommended_documents": [
+        {
+          "name": "Lékařská zpráva, případně propouštěcí zpráva.",
+          "requirement_type": "recommended",
+          "source_ids": [
+            "CSOB_MED"
+          ]
+        },
+        {
+          "name": "Vyúčtování a doklady o úhradě léčby a léků.",
+          "requirement_type": "recommended",
+          "source_ids": [
+            "CSOB_MED"
+          ]
+        }
+      ],
+      "police_involvement": {
+        "status": "not_established",
+        "guidance": "Z dostupných zdrojů nevyplývá jednotná povinnost pořídit policejní protokol právě pro tento scénář.",
+        "source_ids": [],
+        "needs_expert_review": true
+      },
+      "clarifying_questions": [
+        "V jaké zemi se nacházíte a potřebujete nyní akutní pomoc?",
+        "Jaké ošetření proběhlo a jaké doklady máte?"
+      ],
+      "coverage_considerations": [
+        "Ověřit sjednané léčebné výlohy, časovou a územní platnost a případná omezení dané zdravotní situace.",
+        "U aktuálních webových doporučení je nutné ověřit soulad s verzí pojistných podmínek použitelnou pro smlouvu."
+      ],
+      "escalation_conditions": [
+        "Při bezprostředním nebezpečí nebo závažném zdravotním stavu má přednost přivolání místní pomoci.",
+        "Pokud potřebujete závazné rozhodnutí o krytí, přesný seznam povinných dokladů nebo výjimku z postupu, předejte dotaz pracovníkovi pojišťovny."
+      ],
+      "open_questions_for_expert": [
+        "Potvrdit pro scénář „Komplikace v těhotenství“ přesné doklady, použitelné výluky, rozsah asistence a případné povinnosti vůči ČSOB podle sjednaného produktu."
+      ],
+      "sources": [
+        {
+          "source_id": "CSOB_MED",
+          "url": "https://www.csobpoj.cz/skody-a-pojistne-udalosti/co-delat-pri-urazu-nebo-nemoci-v-zahranici",
+          "section": "Záchrana života; Asistence; Dokumentace; Oznámení",
+          "last_checked_at": "2026-11-26",
+          "effective_from": null
+        }
+      ],
+      "source_ids": [
+        "CSOB_MED"
+      ],
+      "evidence_level": "needs_expert_review",
+      "official_scenario_specific_evidence": false,
+      "procedure_completeness": "unresolved",
+      "priority": "P0",
+      "policy_version_check_required": true,
+      "applicable_policy_versions": [],
+      "review_status": "DRAFT",
+      "reviewed_by": null,
+      "last_verified_at": null,
+      "last_public_source_checked_at": "2026-11-26",
+      "approved_at": null,
+      "publication_status": "REVIEW_ONLY",
+      "retrieval_eligible": false,
+      "notes_for_reviewer": "Obecné pokyny od jiných institucí nejsou požadavky ČSOB. Ověřit každou povinnost a datum platnosti."
+    },
+    {
+      "id": "SUP_MEDICAL_017",
+      "document_type": "support_procedure",
+      "schema_version": "1.0",
+      "language": "cs",
+      "category": "medical",
+      "title": "Alergická reakce v zahraničí",
+      "scenario": "Klient řeší situaci: alergická reakce v zahraničí. Potřebuje praktický, ověřený postup bez předčasného příslibu plnění.",
+      "intent_tag": "emergency",
+      "question_variations": [
+        "Mám silnou alergickou reakci.",
+        "Po jídle mi otéká krk.",
+        "Mám hned volat záchranku?"
+      ],
+      "conditions": [
+        "Postup posuzovat podle země události, konkrétního dopravce nebo poskytovatele služby a verze smlouvy."
+      ],
+      "immediate_steps": [
+        {
+          "text": "Při vážném úrazu nebo ohrožení života nejprve přivolejte místní záchrannou službu.",
+          "requirement_type": "recommended",
+          "evidence_level": "official_insurer",
+          "source_ids": [
+            "CSOB_MED"
+          ],
+          "condition": "Při závažném nebo život ohrožujícím stavu."
+        },
+        {
+          "text": "Jakmile to zdravotní stav dovolí, kontaktujte asistenční službu ČSOB Pojišťovny na +420 466 100 777.",
+          "requirement_type": "recommended",
+          "evidence_level": "official_insurer",
+          "source_ids": [
+            "CSOB_MED"
+          ],
+          "condition": null
+        },
+        {
+          "text": "Uschovejte zdravotnické zprávy, recepty, vyúčtování a doklady o zaplacení péče.",
+          "requirement_type": "recommended",
+          "evidence_level": "official_insurer",
+          "source_ids": [
+            "CSOB_MED"
+          ],
+          "condition": null
+        },
+        {
+          "text": "V zemích Evropské unie lze pro naléhavou pomoc použít jednotné tísňové číslo 112.",
+          "requirement_type": "recommended",
+          "evidence_level": "general_guidance",
+          "source_ids": [
+            "EU_EMERGENCY"
+          ],
+          "condition": "Pokud se nacházíte v EU."
+        }
+      ],
+      "required_documents": [],
+      "recommended_documents": [
+        {
+          "name": "Lékařská zpráva, případně propouštěcí zpráva.",
+          "requirement_type": "recommended",
+          "source_ids": [
+            "CSOB_MED"
+          ]
+        },
+        {
+          "name": "Vyúčtování a doklady o úhradě léčby a léků.",
+          "requirement_type": "recommended",
+          "source_ids": [
+            "CSOB_MED"
+          ]
+        }
+      ],
+      "police_involvement": {
+        "status": "not_established",
+        "guidance": "Z dostupných zdrojů nevyplývá jednotná povinnost pořídit policejní protokol právě pro tento scénář.",
+        "source_ids": [],
+        "needs_expert_review": true
+      },
+      "clarifying_questions": [
+        "V jaké zemi se nacházíte a potřebujete nyní akutní pomoc?",
+        "Jaké ošetření proběhlo a jaké doklady máte?",
+        "Je záchranná služba již na místě?"
+      ],
+      "coverage_considerations": [
+        "Ověřit sjednané léčebné výlohy, časovou a územní platnost a případná omezení dané zdravotní situace.",
+        "U aktuálních webových doporučení je nutné ověřit soulad s verzí pojistných podmínek použitelnou pro smlouvu."
+      ],
+      "escalation_conditions": [
+        "Při bezprostředním nebezpečí nebo závažném zdravotním stavu má přednost přivolání místní pomoci.",
+        "Pokud potřebujete závazné rozhodnutí o krytí, přesný seznam povinných dokladů nebo výjimku z postupu, předejte dotaz pracovníkovi pojišťovny."
+      ],
+      "open_questions_for_expert": [
+        "Potvrdit pro scénář „Alergická reakce v zahraničí“ přesné doklady, použitelné výluky, rozsah asistence a případné povinnosti vůči ČSOB podle sjednaného produktu."
+      ],
+      "sources": [
+        {
+          "source_id": "CSOB_MED",
+          "url": "https://www.csobpoj.cz/skody-a-pojistne-udalosti/co-delat-pri-urazu-nebo-nemoci-v-zahranici",
+          "section": "Záchrana života; Asistence; Dokumentace; Oznámení",
+          "last_checked_at": "2026-11-26",
+          "effective_from": null
+        },
+        {
+          "source_id": "EU_EMERGENCY",
+          "url": "https://europa.eu/youreurope/citizens/travel/security-and-emergencies/emergency/index_en.htm",
+          "section": "Tísňové číslo 112",
+          "last_checked_at": "2026-11-26",
+          "effective_from": null
+        }
+      ],
+      "source_ids": [
+        "CSOB_MED",
+        "EU_EMERGENCY"
+      ],
+      "evidence_level": "official_insurer",
+      "official_scenario_specific_evidence": true,
+      "procedure_completeness": "partial",
+      "priority": "P0",
+      "policy_version_check_required": true,
+      "applicable_policy_versions": [],
+      "review_status": "DRAFT",
+      "reviewed_by": null,
+      "last_verified_at": null,
+      "last_public_source_checked_at": "2026-11-26",
+      "approved_at": null,
+      "publication_status": "REVIEW_ONLY",
+      "retrieval_eligible": false,
+      "notes_for_reviewer": "Obecné pokyny od jiných institucí nejsou požadavky ČSOB. Ověřit každou povinnost a datum platnosti."
+    },
+    {
+      "id": "SUP_MEDICAL_018",
+      "document_type": "support_procedure",
+      "schema_version": "1.0",
+      "language": "cs",
+      "category": "medical",
+      "title": "Infekční nemoc během cesty",
+      "scenario": "Klient řeší situaci: infekční nemoc během cesty. Potřebuje praktický, ověřený postup bez předčasného příslibu plnění.",
+      "intent_tag": "medical_general",
+      "question_variations": [
+        "Mám na dovolené infekci.",
+        "Na cestách jsem dostal horečku a kašel.",
+        "Jak řešit návštěvu doktora?"
+      ],
+      "conditions": [
+        "Postup posuzovat podle země události, konkrétního dopravce nebo poskytovatele služby a verze smlouvy."
+      ],
+      "immediate_steps": [
+        {
+          "text": "Při vážném úrazu nebo ohrožení života nejprve přivolejte místní záchrannou službu.",
+          "requirement_type": "recommended",
+          "evidence_level": "official_insurer",
+          "source_ids": [
+            "CSOB_MED"
+          ],
+          "condition": "Při závažném nebo život ohrožujícím stavu."
+        },
+        {
+          "text": "Jakmile to zdravotní stav dovolí, kontaktujte asistenční službu ČSOB Pojišťovny na +420 466 100 777.",
+          "requirement_type": "recommended",
+          "evidence_level": "official_insurer",
+          "source_ids": [
+            "CSOB_MED"
+          ],
+          "condition": null
+        },
+        {
+          "text": "Uschovejte zdravotnické zprávy, recepty, vyúčtování a doklady o zaplacení péče.",
+          "requirement_type": "recommended",
+          "evidence_level": "official_insurer",
+          "source_ids": [
+            "CSOB_MED"
+          ],
+          "condition": null
+        }
+      ],
+      "required_documents": [],
+      "recommended_documents": [
+        {
+          "name": "Lékařská zpráva, případně propouštěcí zpráva.",
+          "requirement_type": "recommended",
+          "source_ids": [
+            "CSOB_MED"
+          ]
+        },
+        {
+          "name": "Vyúčtování a doklady o úhradě léčby a léků.",
+          "requirement_type": "recommended",
+          "source_ids": [
+            "CSOB_MED"
+          ]
+        }
+      ],
+      "police_involvement": {
+        "status": "not_established",
+        "guidance": "Z dostupných zdrojů nevyplývá jednotná povinnost pořídit policejní protokol právě pro tento scénář.",
+        "source_ids": [],
+        "needs_expert_review": true
+      },
+      "clarifying_questions": [
+        "V jaké zemi se nacházíte a potřebujete nyní akutní pomoc?",
+        "Jaké ošetření proběhlo a jaké doklady máte?"
+      ],
+      "coverage_considerations": [
+        "Ověřit sjednané léčebné výlohy, časovou a územní platnost a případná omezení dané zdravotní situace.",
+        "U aktuálních webových doporučení je nutné ověřit soulad s verzí pojistných podmínek použitelnou pro smlouvu."
+      ],
+      "escalation_conditions": [
+        "Pokud potřebujete závazné rozhodnutí o krytí, přesný seznam povinných dokladů nebo výjimku z postupu, předejte dotaz pracovníkovi pojišťovny."
+      ],
+      "open_questions_for_expert": [
+        "Potvrdit pro scénář „Infekční nemoc během cesty“ přesné doklady, použitelné výluky, rozsah asistence a případné povinnosti vůči ČSOB podle sjednaného produktu."
+      ],
+      "sources": [
+        {
+          "source_id": "CSOB_MED",
+          "url": "https://www.csobpoj.cz/skody-a-pojistne-udalosti/co-delat-pri-urazu-nebo-nemoci-v-zahranici",
+          "section": "Záchrana života; Asistence; Dokumentace; Oznámení",
+          "last_checked_at": "2026-11-26",
+          "effective_from": null
+        }
+      ],
+      "source_ids": [
+        "CSOB_MED"
+      ],
+      "evidence_level": "official_insurer",
+      "official_scenario_specific_evidence": true,
+      "procedure_completeness": "partial",
+      "priority": "P1",
+      "policy_version_check_required": true,
+      "applicable_policy_versions": [],
+      "review_status": "DRAFT",
+      "reviewed_by": null,
+      "last_verified_at": null,
+      "last_public_source_checked_at": "2026-11-26",
+      "approved_at": null,
+      "publication_status": "REVIEW_ONLY",
+      "retrieval_eligible": false,
+      "notes_for_reviewer": "Obecné pokyny od jiných institucí nejsou požadavky ČSOB. Ověřit každou povinnost a datum platnosti."
+    },
+    {
+      "id": "SUP_MEDICAL_019",
+      "document_type": "support_procedure",
+      "schema_version": "1.0",
+      "language": "cs",
+      "category": "medical",
+      "title": "Pokousání zvířetem",
+      "scenario": "Klient řeší situaci: pokousání zvířetem. Potřebuje praktický, ověřený postup bez předčasného příslibu plnění.",
+      "intent_tag": "medical_general",
+      "question_variations": [
+        "Kousl mě pes v zahraničí.",
+        "Pokousalo mě neznámé zvíře.",
+        "Mám radši hned k lékaři?"
+      ],
+      "conditions": [
+        "Postup posuzovat podle země události, konkrétního dopravce nebo poskytovatele služby a verze smlouvy."
+      ],
+      "immediate_steps": [
+        {
+          "text": "Při vážném úrazu nebo ohrožení života nejprve přivolejte místní záchrannou službu.",
+          "requirement_type": "recommended",
+          "evidence_level": "official_insurer",
+          "source_ids": [
+            "CSOB_MED"
+          ],
+          "condition": "Při závažném nebo život ohrožujícím stavu."
+        },
+        {
+          "text": "Jakmile to zdravotní stav dovolí, kontaktujte asistenční službu ČSOB Pojišťovny na +420 466 100 777.",
+          "requirement_type": "recommended",
+          "evidence_level": "official_insurer",
+          "source_ids": [
+            "CSOB_MED"
+          ],
+          "condition": null
+        },
+        {
+          "text": "Uschovejte zdravotnické zprávy, recepty, vyúčtování a doklady o zaplacení péče.",
+          "requirement_type": "recommended",
+          "evidence_level": "official_insurer",
+          "source_ids": [
+            "CSOB_MED"
+          ],
+          "condition": null
+        }
+      ],
+      "required_documents": [],
+      "recommended_documents": [
+        {
+          "name": "Lékařská zpráva, případně propouštěcí zpráva.",
+          "requirement_type": "recommended",
+          "source_ids": [
+            "CSOB_MED"
+          ]
+        },
+        {
+          "name": "Vyúčtování a doklady o úhradě léčby a léků.",
+          "requirement_type": "recommended",
+          "source_ids": [
+            "CSOB_MED"
+          ]
+        }
+      ],
+      "police_involvement": {
+        "status": "not_established",
+        "guidance": "Z dostupných zdrojů nevyplývá jednotná povinnost pořídit policejní protokol právě pro tento scénář.",
+        "source_ids": [],
+        "needs_expert_review": true
+      },
+      "clarifying_questions": [
+        "V jaké zemi se nacházíte a potřebujete nyní akutní pomoc?",
+        "Jaké ošetření proběhlo a jaké doklady máte?"
+      ],
+      "coverage_considerations": [
+        "Ověřit sjednané léčebné výlohy, časovou a územní platnost a případná omezení dané zdravotní situace.",
+        "U aktuálních webových doporučení je nutné ověřit soulad s verzí pojistných podmínek použitelnou pro smlouvu."
+      ],
+      "escalation_conditions": [
+        "Pokud potřebujete závazné rozhodnutí o krytí, přesný seznam povinných dokladů nebo výjimku z postupu, předejte dotaz pracovníkovi pojišťovny."
+      ],
+      "open_questions_for_expert": [
+        "Potvrdit pro scénář „Pokousání zvířetem“ přesné doklady, použitelné výluky, rozsah asistence a případné povinnosti vůči ČSOB podle sjednaného produktu."
+      ],
+      "sources": [
+        {
+          "source_id": "CSOB_MED",
+          "url": "https://www.csobpoj.cz/skody-a-pojistne-udalosti/co-delat-pri-urazu-nebo-nemoci-v-zahranici",
+          "section": "Záchrana života; Asistence; Dokumentace; Oznámení",
+          "last_checked_at": "2026-11-26",
+          "effective_from": null
+        }
+      ],
+      "source_ids": [
+        "CSOB_MED"
+      ],
+      "evidence_level": "official_insurer",
+      "official_scenario_specific_evidence": true,
+      "procedure_completeness": "partial",
+      "priority": "P1",
+      "policy_version_check_required": true,
+      "applicable_policy_versions": [],
+      "review_status": "DRAFT",
+      "reviewed_by": null,
+      "last_verified_at": null,
+      "last_public_source_checked_at": "2026-11-26",
+      "approved_at": null,
+      "publication_status": "REVIEW_ONLY",
+      "retrieval_eligible": false,
+      "notes_for_reviewer": "Obecné pokyny od jiných institucí nejsou požadavky ČSOB. Ověřit každou povinnost a datum platnosti."
+    },
+    {
+      "id": "SUP_MEDICAL_020",
+      "document_type": "support_procedure",
+      "schema_version": "1.0",
+      "language": "cs",
+      "category": "medical",
+      "title": "Ztracené pravidelně užívané léky",
+      "scenario": "Klient řeší situaci: ztracené pravidelně užívané léky. Potřebuje praktický, ověřený postup bez předčasného příslibu plnění.",
+      "intent_tag": "meds_lost",
+      "question_variations": [
+        "Došly mi léky a jsem v cizině.",
+        "Ztratil jsem svoje léky na dovolené.",
+        "Může mi asistenční linka poradit?"
+      ],
+      "conditions": [
+        "Postup posuzovat podle země události, konkrétního dopravce nebo poskytovatele služby a verze smlouvy."
+      ],
+      "immediate_steps": [
+        {
+          "text": "Při vážném úrazu nebo ohrožení života nejprve přivolejte místní záchrannou službu.",
+          "requirement_type": "recommended",
+          "evidence_level": "official_insurer",
+          "source_ids": [
+            "CSOB_MED"
+          ],
+          "condition": "Při závažném nebo život ohrožujícím stavu."
+        },
+        {
+          "text": "Jakmile to zdravotní stav dovolí, kontaktujte asistenční službu ČSOB Pojišťovny na +420 466 100 777.",
+          "requirement_type": "recommended",
+          "evidence_level": "official_insurer",
+          "source_ids": [
+            "CSOB_MED"
+          ],
+          "condition": null
+        },
+        {
+          "text": "Uschovejte zdravotnické zprávy, recepty, vyúčtování a doklady o zaplacení péče.",
+          "requirement_type": "recommended",
+          "evidence_level": "official_insurer",
+          "source_ids": [
+            "CSOB_MED"
+          ],
+          "condition": null
+        }
+      ],
+      "required_documents": [],
+      "recommended_documents": [
+        {
+          "name": "Lékařská zpráva, případně propouštěcí zpráva.",
+          "requirement_type": "recommended",
+          "source_ids": [
+            "CSOB_MED"
+          ]
+        },
+        {
+          "name": "Vyúčtování a doklady o úhradě léčby a léků.",
+          "requirement_type": "recommended",
+          "source_ids": [
+            "CSOB_MED"
+          ]
+        }
+      ],
+      "police_involvement": {
+        "status": "not_established",
+        "guidance": "Z dostupných zdrojů nevyplývá jednotná povinnost pořídit policejní protokol právě pro tento scénář.",
+        "source_ids": [],
+        "needs_expert_review": true
+      },
+      "clarifying_questions": [
+        "V jaké zemi se nacházíte a potřebujete nyní akutní pomoc?",
+        "Jaké ošetření proběhlo a jaké doklady máte?"
+      ],
+      "coverage_considerations": [
+        "Ověřit sjednané léčebné výlohy, časovou a územní platnost a případná omezení dané zdravotní situace.",
+        "U aktuálních webových doporučení je nutné ověřit soulad s verzí pojistných podmínek použitelnou pro smlouvu."
+      ],
+      "escalation_conditions": [
+        "Pokud potřebujete závazné rozhodnutí o krytí, přesný seznam povinných dokladů nebo výjimku z postupu, předejte dotaz pracovníkovi pojišťovny."
+      ],
+      "open_questions_for_expert": [
+        "Potvrdit pro scénář „Ztracené pravidelně užívané léky“ přesné doklady, použitelné výluky, rozsah asistence a případné povinnosti vůči ČSOB podle sjednaného produktu."
+      ],
+      "sources": [
+        {
+          "source_id": "CSOB_MED",
+          "url": "https://www.csobpoj.cz/skody-a-pojistne-udalosti/co-delat-pri-urazu-nebo-nemoci-v-zahranici",
+          "section": "Záchrana života; Asistence; Dokumentace; Oznámení",
+          "last_checked_at": "2026-11-26",
+          "effective_from": null
+        }
+      ],
+      "source_ids": [
+        "CSOB_MED"
+      ],
+      "evidence_level": "needs_expert_review",
+      "official_scenario_specific_evidence": false,
+      "procedure_completeness": "unresolved",
+      "priority": "P1",
+      "policy_version_check_required": true,
+      "applicable_policy_versions": [],
+      "review_status": "DRAFT",
+      "reviewed_by": null,
+      "last_verified_at": null,
+      "last_public_source_checked_at": "2026-11-26",
+      "approved_at": null,
+      "publication_status": "REVIEW_ONLY",
+      "retrieval_eligible": false,
+      "notes_for_reviewer": "Obecné pokyny od jiných institucí nejsou požadavky ČSOB. Ověřit každou povinnost a datum platnosti."
+    },
+    {
+      "id": "SUP_MEDICAL_021",
+      "document_type": "support_procedure",
+      "schema_version": "1.0",
+      "language": "cs",
+      "category": "medical",
+      "title": "Zdravotní konzultace na dálku",
+      "scenario": "Klient řeší situaci: zdravotní konzultace na dálku. Potřebuje praktický, ověřený postup bez předčasného příslibu plnění.",
+      "intent_tag": "telemedicine",
+      "question_variations": [
+        "Můžu to nejdřív konzultovat telefonicky?",
+        "Nevím, jestli kvůli potížím musím k lékaři.",
+        "Má pojišťovna lékaře na telefonu?"
+      ],
+      "conditions": [
+        "Postup posuzovat podle země události, konkrétního dopravce nebo poskytovatele služby a verze smlouvy."
+      ],
+      "immediate_steps": [
+        {
+          "text": "Při vážném úrazu nebo ohrožení života nejprve přivolejte místní záchrannou službu.",
+          "requirement_type": "recommended",
+          "evidence_level": "official_insurer",
+          "source_ids": [
+            "CSOB_MED"
+          ],
+          "condition": "Při závažném nebo život ohrožujícím stavu."
+        },
+        {
+          "text": "Jakmile to zdravotní stav dovolí, kontaktujte asistenční službu ČSOB Pojišťovny na +420 466 100 777.",
+          "requirement_type": "recommended",
+          "evidence_level": "official_insurer",
+          "source_ids": [
+            "CSOB_MED"
+          ],
+          "condition": null
+        },
+        {
+          "text": "Uschovejte zdravotnické zprávy, recepty, vyúčtování a doklady o zaplacení péče.",
+          "requirement_type": "recommended",
+          "evidence_level": "official_insurer",
+          "source_ids": [
+            "CSOB_MED"
+          ],
+          "condition": null
+        },
+        {
+          "text": "Při zdravotních komplikacích se můžete obrátit na cestovní asistenční službu, která poskytuje zdravotní a organizační pomoc; samostatnou službu telemedicíny tato citace pro cestovní pojištění nepotvrzuje.",
+          "requirement_type": "recommended",
+          "evidence_level": "official_insurer",
+          "source_ids": [
+            "CSOB_ASSIST"
+          ],
+          "condition": null
+        }
+      ],
+      "required_documents": [],
+      "recommended_documents": [
+        {
+          "name": "Lékařská zpráva, případně propouštěcí zpráva.",
+          "requirement_type": "recommended",
+          "source_ids": [
+            "CSOB_MED"
+          ]
+        },
+        {
+          "name": "Vyúčtování a doklady o úhradě léčby a léků.",
+          "requirement_type": "recommended",
+          "source_ids": [
+            "CSOB_MED"
+          ]
+        }
+      ],
+      "police_involvement": {
+        "status": "not_established",
+        "guidance": "Z dostupných zdrojů nevyplývá jednotná povinnost pořídit policejní protokol právě pro tento scénář.",
+        "source_ids": [],
+        "needs_expert_review": true
+      },
+      "clarifying_questions": [
+        "V jaké zemi se nacházíte a potřebujete nyní akutní pomoc?",
+        "Jaké ošetření proběhlo a jaké doklady máte?"
+      ],
+      "coverage_considerations": [
+        "Ověřit sjednané léčebné výlohy, časovou a územní platnost a případná omezení dané zdravotní situace.",
+        "U aktuálních webových doporučení je nutné ověřit soulad s verzí pojistných podmínek použitelnou pro smlouvu."
+      ],
+      "escalation_conditions": [
+        "Pokud potřebujete závazné rozhodnutí o krytí, přesný seznam povinných dokladů nebo výjimku z postupu, předejte dotaz pracovníkovi pojišťovny."
+      ],
+      "open_questions_for_expert": [
+        "Potvrdit pro scénář „Zdravotní konzultace na dálku“ přesné doklady, použitelné výluky, rozsah asistence a případné povinnosti vůči ČSOB podle sjednaného produktu."
+      ],
+      "sources": [
+        {
+          "source_id": "CSOB_ASSIST",
+          "url": "https://www.csobpoj.cz/skody-a-pojistne-udalosti/vse-o-asistencnich-sluzbach",
+          "section": "Asistenční služby k cestovnímu pojištění",
+          "last_checked_at": "2026-11-26",
+          "effective_from": null
+        },
+        {
+          "source_id": "CSOB_MED",
+          "url": "https://www.csobpoj.cz/skody-a-pojistne-udalosti/co-delat-pri-urazu-nebo-nemoci-v-zahranici",
+          "section": "Záchrana života; Asistence; Dokumentace; Oznámení",
+          "last_checked_at": "2026-11-26",
+          "effective_from": null
+        }
+      ],
+      "source_ids": [
+        "CSOB_ASSIST",
+        "CSOB_MED"
+      ],
+      "evidence_level": "needs_expert_review",
+      "official_scenario_specific_evidence": false,
+      "procedure_completeness": "unresolved",
+      "priority": "P1",
+      "policy_version_check_required": true,
+      "applicable_policy_versions": [],
+      "review_status": "DRAFT",
+      "reviewed_by": null,
+      "last_verified_at": null,
+      "last_public_source_checked_at": "2026-11-26",
+      "approved_at": null,
+      "publication_status": "REVIEW_ONLY",
+      "retrieval_eligible": false,
+      "notes_for_reviewer": "Obecné pokyny od jiných institucí nejsou požadavky ČSOB. Ověřit každou povinnost a datum platnosti."
+    },
+    {
+      "id": "SUP_MEDICAL_022",
+      "document_type": "support_procedure",
+      "schema_version": "1.0",
+      "language": "cs",
+      "category": "medical",
+      "title": "Příjezd rodinného příslušníka do nemocnice",
+      "scenario": "Klient řeší situaci: příjezd rodinného příslušníka do nemocnice. Potřebuje praktický, ověřený postup bez předčasného příslibu plnění.",
+      "intent_tag": "family_visit",
+      "question_variations": [
+        "Jsem hospitalizovaný a potřebuji přítomnost blízkého.",
+        "Může za mnou do zahraniční nemocnice přijet manželka?",
+        "Pomůže asistence s cestou rodiny?"
+      ],
+      "conditions": [
+        "Postup posuzovat podle země události, konkrétního dopravce nebo poskytovatele služby a verze smlouvy."
+      ],
+      "immediate_steps": [
+        {
+          "text": "Při vážném úrazu nebo ohrožení života nejprve přivolejte místní záchrannou službu.",
+          "requirement_type": "recommended",
+          "evidence_level": "official_insurer",
+          "source_ids": [
+            "CSOB_MED"
+          ],
+          "condition": "Při závažném nebo život ohrožujícím stavu."
+        },
+        {
+          "text": "Jakmile to zdravotní stav dovolí, kontaktujte asistenční službu ČSOB Pojišťovny na +420 466 100 777.",
+          "requirement_type": "recommended",
+          "evidence_level": "official_insurer",
+          "source_ids": [
+            "CSOB_MED"
+          ],
+          "condition": null
+        },
+        {
+          "text": "Uschovejte zdravotnické zprávy, recepty, vyúčtování a doklady o zaplacení péče.",
+          "requirement_type": "recommended",
+          "evidence_level": "official_insurer",
+          "source_ids": [
+            "CSOB_MED"
+          ],
+          "condition": null
+        },
+        {
+          "text": "U závažného onemocnění či úrazu může asistence po telefonické dohodě zajistit dopravu a ubytování blízké osoby, pokud je to nezbytné.",
+          "requirement_type": "recommended",
+          "evidence_level": "official_insurer",
+          "source_ids": [
+            "CSOB_ASSIST"
+          ],
+          "condition": null
+        }
+      ],
+      "required_documents": [],
+      "recommended_documents": [
+        {
+          "name": "Lékařská zpráva, případně propouštěcí zpráva.",
+          "requirement_type": "recommended",
+          "source_ids": [
+            "CSOB_MED"
+          ]
+        },
+        {
+          "name": "Vyúčtování a doklady o úhradě léčby a léků.",
+          "requirement_type": "recommended",
+          "source_ids": [
+            "CSOB_MED"
+          ]
+        }
+      ],
+      "police_involvement": {
+        "status": "not_established",
+        "guidance": "Z dostupných zdrojů nevyplývá jednotná povinnost pořídit policejní protokol právě pro tento scénář.",
+        "source_ids": [],
+        "needs_expert_review": true
+      },
+      "clarifying_questions": [
+        "V jaké zemi se nacházíte a potřebujete nyní akutní pomoc?",
+        "Jaké ošetření proběhlo a jaké doklady máte?"
+      ],
+      "coverage_considerations": [
+        "Ověřit sjednané léčebné výlohy, časovou a územní platnost a případná omezení dané zdravotní situace.",
+        "U aktuálních webových doporučení je nutné ověřit soulad s verzí pojistných podmínek použitelnou pro smlouvu."
+      ],
+      "escalation_conditions": [
+        "Pokud potřebujete závazné rozhodnutí o krytí, přesný seznam povinných dokladů nebo výjimku z postupu, předejte dotaz pracovníkovi pojišťovny."
+      ],
+      "open_questions_for_expert": [
+        "Potvrdit pro scénář „Příjezd rodinného příslušníka do nemocnice“ přesné doklady, použitelné výluky, rozsah asistence a případné povinnosti vůči ČSOB podle sjednaného produktu."
+      ],
+      "sources": [
+        {
+          "source_id": "CSOB_ASSIST",
+          "url": "https://www.csobpoj.cz/skody-a-pojistne-udalosti/vse-o-asistencnich-sluzbach",
+          "section": "Asistenční služby k cestovnímu pojištění",
+          "last_checked_at": "2026-11-26",
+          "effective_from": null
+        },
+        {
+          "source_id": "CSOB_MED",
+          "url": "https://www.csobpoj.cz/skody-a-pojistne-udalosti/co-delat-pri-urazu-nebo-nemoci-v-zahranici",
+          "section": "Záchrana života; Asistence; Dokumentace; Oznámení",
+          "last_checked_at": "2026-11-26",
+          "effective_from": null
+        }
+      ],
+      "source_ids": [
+        "CSOB_ASSIST",
+        "CSOB_MED"
+      ],
+      "evidence_level": "official_insurer",
+      "official_scenario_specific_evidence": true,
+      "procedure_completeness": "partial",
+      "priority": "P1",
+      "policy_version_check_required": true,
+      "applicable_policy_versions": [],
+      "review_status": "DRAFT",
+      "reviewed_by": null,
+      "last_verified_at": null,
+      "last_public_source_checked_at": "2026-11-26",
+      "approved_at": null,
+      "publication_status": "REVIEW_ONLY",
+      "retrieval_eligible": false,
+      "notes_for_reviewer": "Obecné pokyny od jiných institucí nejsou požadavky ČSOB. Ověřit každou povinnost a datum platnosti."
+    },
+    {
+      "id": "SUP_MEDICAL_023",
+      "document_type": "support_procedure",
+      "schema_version": "1.0",
+      "language": "cs",
+      "category": "medical",
+      "title": "Léčba pokračuje po návratu domů",
+      "scenario": "Klient řeší situaci: léčba pokračuje po návratu domů. Potřebuje praktický, ověřený postup bez předčasného příslibu plnění.",
+      "intent_tag": "after_return",
+      "question_variations": [
+        "Po návratu z dovolené stále chodím na kontroly.",
+        "Ošetření začalo v zahraničí a pokračuje v ČR.",
+        "Co mám nahlásit pojišťovně?"
+      ],
+      "conditions": [
+        "Postup posuzovat podle země události, konkrétního dopravce nebo poskytovatele služby a verze smlouvy."
+      ],
+      "immediate_steps": [
+        {
+          "text": "Při vážném úrazu nebo ohrožení života nejprve přivolejte místní záchrannou službu.",
+          "requirement_type": "recommended",
+          "evidence_level": "official_insurer",
+          "source_ids": [
+            "CSOB_MED"
+          ],
+          "condition": "Při závažném nebo život ohrožujícím stavu."
+        },
+        {
+          "text": "Jakmile to zdravotní stav dovolí, kontaktujte asistenční službu ČSOB Pojišťovny na +420 466 100 777.",
+          "requirement_type": "recommended",
+          "evidence_level": "official_insurer",
+          "source_ids": [
+            "CSOB_MED"
+          ],
+          "condition": null
+        },
+        {
+          "text": "Uschovejte zdravotnické zprávy, recepty, vyúčtování a doklady o zaplacení péče.",
+          "requirement_type": "recommended",
+          "evidence_level": "official_insurer",
+          "source_ids": [
+            "CSOB_MED"
+          ],
+          "condition": null
+        }
+      ],
+      "required_documents": [],
+      "recommended_documents": [
+        {
+          "name": "Lékařská zpráva, případně propouštěcí zpráva.",
+          "requirement_type": "recommended",
+          "source_ids": [
+            "CSOB_MED"
+          ]
+        },
+        {
+          "name": "Vyúčtování a doklady o úhradě léčby a léků.",
+          "requirement_type": "recommended",
+          "source_ids": [
+            "CSOB_MED"
+          ]
+        }
+      ],
+      "police_involvement": {
+        "status": "not_established",
+        "guidance": "Z dostupných zdrojů nevyplývá jednotná povinnost pořídit policejní protokol právě pro tento scénář.",
+        "source_ids": [],
+        "needs_expert_review": true
+      },
+      "clarifying_questions": [
+        "V jaké zemi se nacházíte a potřebujete nyní akutní pomoc?",
+        "Jaké ošetření proběhlo a jaké doklady máte?"
+      ],
+      "coverage_considerations": [
+        "Ověřit sjednané léčebné výlohy, časovou a územní platnost a případná omezení dané zdravotní situace.",
+        "U aktuálních webových doporučení je nutné ověřit soulad s verzí pojistných podmínek použitelnou pro smlouvu."
+      ],
+      "escalation_conditions": [
+        "Pokud potřebujete závazné rozhodnutí o krytí, přesný seznam povinných dokladů nebo výjimku z postupu, předejte dotaz pracovníkovi pojišťovny."
+      ],
+      "open_questions_for_expert": [
+        "Potvrdit pro scénář „Léčba pokračuje po návratu domů“ přesné doklady, použitelné výluky, rozsah asistence a případné povinnosti vůči ČSOB podle sjednaného produktu."
+      ],
+      "sources": [
+        {
+          "source_id": "CSOB_MED",
+          "url": "https://www.csobpoj.cz/skody-a-pojistne-udalosti/co-delat-pri-urazu-nebo-nemoci-v-zahranici",
+          "section": "Záchrana života; Asistence; Dokumentace; Oznámení",
+          "last_checked_at": "2026-11-26",
+          "effective_from": null
+        }
+      ],
+      "source_ids": [
+        "CSOB_MED"
+      ],
+      "evidence_level": "needs_expert_review",
+      "official_scenario_specific_evidence": false,
+      "procedure_completeness": "unresolved",
+      "priority": "P1",
+      "policy_version_check_required": true,
+      "applicable_policy_versions": [],
+      "review_status": "DRAFT",
+      "reviewed_by": null,
+      "last_verified_at": null,
+      "last_public_source_checked_at": "2026-11-26",
+      "approved_at": null,
+      "publication_status": "REVIEW_ONLY",
+      "retrieval_eligible": false,
+      "notes_for_reviewer": "Obecné pokyny od jiných institucí nejsou požadavky ČSOB. Ověřit každou povinnost a datum platnosti."
+    },
+    {
+      "id": "SUP_MEDICAL_024",
+      "document_type": "support_procedure",
+      "schema_version": "1.0",
+      "language": "cs",
+      "category": "medical",
+      "title": "Ztracená zpráva o převozu sanitkou",
+      "scenario": "Klient řeší situaci: ztracená zpráva o převozu sanitkou. Potřebuje praktický, ověřený postup bez předčasného příslibu plnění.",
+      "intent_tag": "med_missing_report",
+      "question_variations": [
+        "Nemám doklad od zahraniční záchranky.",
+        "Převezli mě sanitkou a potvrzení se ztratilo.",
+        "Mám si ho vyžádat dodatečně?"
+      ],
+      "conditions": [
+        "Postup posuzovat podle země události, konkrétního dopravce nebo poskytovatele služby a verze smlouvy."
+      ],
+      "immediate_steps": [
+        {
+          "text": "Při vážném úrazu nebo ohrožení života nejprve přivolejte místní záchrannou službu.",
+          "requirement_type": "recommended",
+          "evidence_level": "official_insurer",
+          "source_ids": [
+            "CSOB_MED"
+          ],
+          "condition": "Při závažném nebo život ohrožujícím stavu."
+        },
+        {
+          "text": "Jakmile to zdravotní stav dovolí, kontaktujte asistenční službu ČSOB Pojišťovny na +420 466 100 777.",
+          "requirement_type": "recommended",
+          "evidence_level": "official_insurer",
+          "source_ids": [
+            "CSOB_MED"
+          ],
+          "condition": null
+        },
+        {
+          "text": "Uschovejte zdravotnické zprávy, recepty, vyúčtování a doklady o zaplacení péče.",
+          "requirement_type": "recommended",
+          "evidence_level": "official_insurer",
+          "source_ids": [
+            "CSOB_MED"
+          ],
+          "condition": null
+        }
+      ],
+      "required_documents": [],
+      "recommended_documents": [
+        {
+          "name": "Lékařská zpráva, případně propouštěcí zpráva.",
+          "requirement_type": "recommended",
+          "source_ids": [
+            "CSOB_MED"
+          ]
+        },
+        {
+          "name": "Vyúčtování a doklady o úhradě léčby a léků.",
+          "requirement_type": "recommended",
+          "source_ids": [
+            "CSOB_MED"
+          ]
+        }
+      ],
+      "police_involvement": {
+        "status": "not_established",
+        "guidance": "Z dostupných zdrojů nevyplývá jednotná povinnost pořídit policejní protokol právě pro tento scénář.",
+        "source_ids": [],
+        "needs_expert_review": true
+      },
+      "clarifying_questions": [
+        "V jaké zemi se nacházíte a potřebujete nyní akutní pomoc?",
+        "Jaké ošetření proběhlo a jaké doklady máte?"
+      ],
+      "coverage_considerations": [
+        "Ověřit sjednané léčebné výlohy, časovou a územní platnost a případná omezení dané zdravotní situace.",
+        "U aktuálních webových doporučení je nutné ověřit soulad s verzí pojistných podmínek použitelnou pro smlouvu."
+      ],
+      "escalation_conditions": [
+        "Pokud potřebujete závazné rozhodnutí o krytí, přesný seznam povinných dokladů nebo výjimku z postupu, předejte dotaz pracovníkovi pojišťovny."
+      ],
+      "open_questions_for_expert": [
+        "Potvrdit pro scénář „Ztracená zpráva o převozu sanitkou“ přesné doklady, použitelné výluky, rozsah asistence a případné povinnosti vůči ČSOB podle sjednaného produktu."
+      ],
+      "sources": [
+        {
+          "source_id": "CSOB_MED",
+          "url": "https://www.csobpoj.cz/skody-a-pojistne-udalosti/co-delat-pri-urazu-nebo-nemoci-v-zahranici",
+          "section": "Záchrana života; Asistence; Dokumentace; Oznámení",
+          "last_checked_at": "2026-11-26",
+          "effective_from": null
+        }
+      ],
+      "source_ids": [
+        "CSOB_MED"
+      ],
+      "evidence_level": "needs_expert_review",
+      "official_scenario_specific_evidence": false,
+      "procedure_completeness": "unresolved",
+      "priority": "P1",
+      "policy_version_check_required": true,
+      "applicable_policy_versions": [],
+      "review_status": "DRAFT",
+      "reviewed_by": null,
+      "last_verified_at": null,
+      "last_public_source_checked_at": "2026-11-26",
+      "approved_at": null,
+      "publication_status": "REVIEW_ONLY",
+      "retrieval_eligible": false,
+      "notes_for_reviewer": "Obecné pokyny od jiných institucí nejsou požadavky ČSOB. Ověřit každou povinnost a datum platnosti."
+    }
+  ]
+}

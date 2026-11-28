@@ -16,6 +16,11 @@ from app.models.policy_coverage import PolicyCoverage
 from app.models.policy_option import PolicyOption
 from app.models.policy_document import PolicyDocument
 from app.models.document_chunk import DocumentChunk
+from app.models.support_knowledge_document import (
+    SupportKnowledgeChunk,
+    SupportKnowledgeDocument,
+    SupportPublicationStatus,
+)
 from app.models.message import (
     ConversationRole,
     Message,
@@ -37,6 +42,9 @@ __all__ = [
     "PolicyDocument",
     "KnowledgeDocument",
     "DocumentChunk",
+    "SupportKnowledgeDocument",
+    "SupportKnowledgeChunk",
+    "SupportPublicationStatus",
     "Conversation",
     "Message",
     "ConversationRole",

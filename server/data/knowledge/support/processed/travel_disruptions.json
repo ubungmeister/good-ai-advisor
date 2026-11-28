@@ -1,0 +1,2593 @@
+{
+  "schema_version": "1.0",
+  "document_type": "support_knowledge_collection",
+  "language": "cs",
+  "dataset_status": "DRAFT_EXPERT_REVIEW_REQUIRED",
+  "generated_at": "2026-11-26",
+  "title": "Pomoc při narušení cestování",
+  "articles": [
+    {
+      "id": "SUP_TRAVEL_001",
+      "document_type": "support_procedure",
+      "schema_version": "1.0",
+      "language": "cs",
+      "category": "travel_disruptions",
+      "title": "Zrušený let",
+      "scenario": "Klient řeší situaci: zrušený let. Potřebuje praktický, ověřený postup bez předčasného příslibu plnění.",
+      "intent_tag": "air_cancel",
+      "question_variations": [
+        "Letecká společnost mi zrušila let.",
+        "Dneska nám neletí letadlo, co teď?",
+        "Mám řešit dopravce nebo pojišťovnu?"
+      ],
+      "conditions": [
+        "Postup posuzovat podle země události, konkrétního dopravce nebo poskytovatele služby a verze smlouvy."
+      ],
+      "immediate_steps": [
+        {
+          "text": "Uchovejte rezervaci, jízdenku nebo letenku a zaznamenejte okolnosti narušení cesty.",
+          "requirement_type": "recommended",
+          "evidence_level": "official_insurer",
+          "source_ids": [
+            "CSOB_VPP2021"
+          ],
+          "condition": null
+        },
+        {
+          "text": "Při uplatnění škody z cestovního pojištění doložte podle druhu události důvod zmeškání, dobu zpoždění nebo cenu nevyčerpané služby.",
+          "requirement_type": "recommended",
+          "evidence_level": "official_insurer",
+          "source_ids": [
+            "CSOB_VPP2021"
+          ],
+          "condition": "Pokud podle příslušných podmínek uplatňujete pojištění narušení cesty."
+        },
+        {
+          "text": "Obraťte se na provozující leteckou společnost a požádejte o informace o náhradním spojení či pomoci podle příslušných pravidel.",
+          "requirement_type": "recommended",
+          "evidence_level": "general_guidance",
+          "source_ids": [
+            "EU_AIR"
+          ],
+          "condition": null
+        }
+      ],
+      "required_documents": [],
+      "recommended_documents": [
+        {
+          "name": "Potvrzení od dopravce nebo poskytovatele služby o narušení cesty, pokud jej lze získat.",
+          "requirement_type": "recommended",
+          "source_ids": [
+            "CSOB_VPP2021"
+          ]
+        }
+      ],
+      "police_involvement": {
+        "status": "not_established",
+        "guidance": "Z dostupných zdrojů nevyplývá jednotná povinnost pořídit policejní protokol právě pro tento scénář.",
+        "source_ids": [],
+        "needs_expert_review": true
+      },
+      "clarifying_questions": [
+        "O jaký druh dopravy a jakého dopravce se jedná?",
+        "Jaké byly plánované a skutečné termíny a co již dopravce potvrdil?"
+      ],
+      "coverage_considerations": [
+        "Ověřit, zda je sjednáno příslušné riziko přerušení cesty, zmeškání odjezdu, storna nebo zpoždění letu.",
+        "U aktuálních webových doporučení je nutné ověřit soulad s verzí pojistných podmínek použitelnou pro smlouvu."
+      ],
+      "escalation_conditions": [
+        "Pokud potřebujete závazné rozhodnutí o krytí, přesný seznam povinných dokladů nebo výjimku z postupu, předejte dotaz pracovníkovi pojišťovny."
+      ],
+      "open_questions_for_expert": [
+        "Potvrdit pro scénář „Zrušený let“ přesné doklady, použitelné výluky, rozsah asistence a případné povinnosti vůči ČSOB podle sjednaného produktu."
+      ],
+      "sources": [
+        {
+          "source_id": "EU_AIR",
+          "url": "https://europa.eu/youreurope/citizens/travel/passenger-rights/air/index_cs.htm",
+          "section": "Práva cestujících; Zpoždění, zrušení a zavazadla",
+          "last_checked_at": "2026-11-26",
+          "effective_from": null
+        },
+        {
+          "source_id": "CSOB_VPP2021",
+          "url": "https://www.csobpoj.cz/documents/10332/5083102/11N9393%2BVPP%2BCP%2B2021_form%C3%A1t%2BA4_CZ_v%C4%8Detn%C4%9B%2Boce%C5%88ovac%C3%ADch%2Btabulek_final_PDF-A.pdf/91a13cf6-8af5-00b8-784b-2f4f65ab34d0?t=1714117917863",
+          "section": "Pokyny pro klienta (strana 2) a jednotlivá ustanovení VPP CP 2021",
+          "last_checked_at": "2026-11-26",
+          "effective_from": "2021-04-01"
+        }
+      ],
+      "source_ids": [
+        "EU_AIR",
+        "CSOB_VPP2021"
+      ],
+      "evidence_level": "general_guidance",
+      "official_scenario_specific_evidence": false,
+      "procedure_completeness": "unresolved",
+      "priority": "P1",
+      "policy_version_check_required": true,
+      "applicable_policy_versions": [],
+      "review_status": "DRAFT",
+      "reviewed_by": null,
+      "last_verified_at": null,
+      "last_public_source_checked_at": "2026-11-26",
+      "approved_at": null,
+      "publication_status": "REVIEW_ONLY",
+      "retrieval_eligible": false,
+      "notes_for_reviewer": "Obecné pokyny od jiných institucí nejsou požadavky ČSOB. Ověřit každou povinnost a datum platnosti."
+    },
+    {
+      "id": "SUP_TRAVEL_002",
+      "document_type": "support_procedure",
+      "schema_version": "1.0",
+      "language": "cs",
+      "category": "travel_disruptions",
+      "title": "Výrazně zpožděný let",
+      "scenario": "Klient řeší situaci: výrazně zpožděný let. Potřebuje praktický, ověřený postup bez předčasného příslibu plnění.",
+      "intent_tag": "air_delay_flight",
+      "question_variations": [
+        "Let má několik hodin zpoždění.",
+        "Sedíme na letišti a odlet se stále posouvá.",
+        "Potřebuju potvrzení od dopravce?"
+      ],
+      "conditions": [
+        "Postup posuzovat podle země události, konkrétního dopravce nebo poskytovatele služby a verze smlouvy."
+      ],
+      "immediate_steps": [
+        {
+          "text": "Uchovejte rezervaci, jízdenku nebo letenku a zaznamenejte okolnosti narušení cesty.",
+          "requirement_type": "recommended",
+          "evidence_level": "official_insurer",
+          "source_ids": [
+            "CSOB_VPP2021"
+          ],
+          "condition": null
+        },
+        {
+          "text": "Při uplatnění škody z cestovního pojištění doložte podle druhu události důvod zmeškání, dobu zpoždění nebo cenu nevyčerpané služby.",
+          "requirement_type": "recommended",
+          "evidence_level": "official_insurer",
+          "source_ids": [
+            "CSOB_VPP2021"
+          ],
+          "condition": "Pokud podle příslušných podmínek uplatňujete pojištění narušení cesty."
+        },
+        {
+          "text": "Obraťte se na provozující leteckou společnost a požádejte o informace o náhradním spojení či pomoci podle příslušných pravidel.",
+          "requirement_type": "recommended",
+          "evidence_level": "general_guidance",
+          "source_ids": [
+            "EU_AIR"
+          ],
+          "condition": null
+        }
+      ],
+      "required_documents": [],
+      "recommended_documents": [
+        {
+          "name": "Potvrzení od dopravce nebo poskytovatele služby o narušení cesty, pokud jej lze získat.",
+          "requirement_type": "recommended",
+          "source_ids": [
+            "CSOB_VPP2021"
+          ]
+        }
+      ],
+      "police_involvement": {
+        "status": "not_established",
+        "guidance": "Z dostupných zdrojů nevyplývá jednotná povinnost pořídit policejní protokol právě pro tento scénář.",
+        "source_ids": [],
+        "needs_expert_review": true
+      },
+      "clarifying_questions": [
+        "O jaký druh dopravy a jakého dopravce se jedná?",
+        "Jaké byly plánované a skutečné termíny a co již dopravce potvrdil?"
+      ],
+      "coverage_considerations": [
+        "Ověřit, zda je sjednáno příslušné riziko přerušení cesty, zmeškání odjezdu, storna nebo zpoždění letu.",
+        "U aktuálních webových doporučení je nutné ověřit soulad s verzí pojistných podmínek použitelnou pro smlouvu."
+      ],
+      "escalation_conditions": [
+        "Pokud potřebujete závazné rozhodnutí o krytí, přesný seznam povinných dokladů nebo výjimku z postupu, předejte dotaz pracovníkovi pojišťovny."
+      ],
+      "open_questions_for_expert": [
+        "Potvrdit pro scénář „Výrazně zpožděný let“ přesné doklady, použitelné výluky, rozsah asistence a případné povinnosti vůči ČSOB podle sjednaného produktu."
+      ],
+      "sources": [
+        {
+          "source_id": "EU_AIR",
+          "url": "https://europa.eu/youreurope/citizens/travel/passenger-rights/air/index_cs.htm",
+          "section": "Práva cestujících; Zpoždění, zrušení a zavazadla",
+          "last_checked_at": "2026-11-26",
+          "effective_from": null
+        },
+        {
+          "source_id": "CSOB_VPP2021",
+          "url": "https://www.csobpoj.cz/documents/10332/5083102/11N9393%2BVPP%2BCP%2B2021_form%C3%A1t%2BA4_CZ_v%C4%8Detn%C4%9B%2Boce%C5%88ovac%C3%ADch%2Btabulek_final_PDF-A.pdf/91a13cf6-8af5-00b8-784b-2f4f65ab34d0?t=1714117917863",
+          "section": "Pokyny pro klienta (strana 2) a jednotlivá ustanovení VPP CP 2021",
+          "last_checked_at": "2026-11-26",
+          "effective_from": "2021-04-01"
+        }
+      ],
+      "source_ids": [
+        "EU_AIR",
+        "CSOB_VPP2021"
+      ],
+      "evidence_level": "general_guidance",
+      "official_scenario_specific_evidence": false,
+      "procedure_completeness": "unresolved",
+      "priority": "P1",
+      "policy_version_check_required": true,
+      "applicable_policy_versions": [],
+      "review_status": "DRAFT",
+      "reviewed_by": null,
+      "last_verified_at": null,
+      "last_public_source_checked_at": "2026-11-26",
+      "approved_at": null,
+      "publication_status": "REVIEW_ONLY",
+      "retrieval_eligible": false,
+      "notes_for_reviewer": "Obecné pokyny od jiných institucí nejsou požadavky ČSOB. Ověřit každou povinnost a datum platnosti."
+    },
+    {
+      "id": "SUP_TRAVEL_003",
+      "document_type": "support_procedure",
+      "schema_version": "1.0",
+      "language": "cs",
+      "category": "travel_disruptions",
+      "title": "Zmeškaný let vlastní vinou",
+      "scenario": "Klient řeší situaci: zmeškaný let vlastní vinou. Potřebuje praktický, ověřený postup bez předčasného příslibu plnění.",
+      "intent_tag": "missed_own",
+      "question_variations": [
+        "Nestihl jsem odlet, přijel jsem pozdě.",
+        "Uletělo mi letadlo, co můžu dělat?",
+        "Proplatí mi pojištění novou letenku?"
+      ],
+      "conditions": [
+        "Postup posuzovat podle země události, konkrétního dopravce nebo poskytovatele služby a verze smlouvy."
+      ],
+      "immediate_steps": [
+        {
+          "text": "Uchovejte rezervaci, jízdenku nebo letenku a zaznamenejte okolnosti narušení cesty.",
+          "requirement_type": "recommended",
+          "evidence_level": "official_insurer",
+          "source_ids": [
+            "CSOB_VPP2021"
+          ],
+          "condition": null
+        },
+        {
+          "text": "Při uplatnění škody z cestovního pojištění doložte podle druhu události důvod zmeškání, dobu zpoždění nebo cenu nevyčerpané služby.",
+          "requirement_type": "recommended",
+          "evidence_level": "official_insurer",
+          "source_ids": [
+            "CSOB_VPP2021"
+          ],
+          "condition": "Pokud podle příslušných podmínek uplatňujete pojištění narušení cesty."
+        }
+      ],
+      "required_documents": [],
+      "recommended_documents": [
+        {
+          "name": "Potvrzení od dopravce nebo poskytovatele služby o narušení cesty, pokud jej lze získat.",
+          "requirement_type": "recommended",
+          "source_ids": [
+            "CSOB_VPP2021"
+          ]
+        }
+      ],
+      "police_involvement": {
+        "status": "not_established",
+        "guidance": "Z dostupných zdrojů nevyplývá jednotná povinnost pořídit policejní protokol právě pro tento scénář.",
+        "source_ids": [],
+        "needs_expert_review": true
+      },
+      "clarifying_questions": [
+        "O jaký druh dopravy a jakého dopravce se jedná?",
+        "Jaké byly plánované a skutečné termíny a co již dopravce potvrdil?"
+      ],
+      "coverage_considerations": [
+        "Ověřit, zda je sjednáno příslušné riziko přerušení cesty, zmeškání odjezdu, storna nebo zpoždění letu.",
+        "U aktuálních webových doporučení je nutné ověřit soulad s verzí pojistných podmínek použitelnou pro smlouvu."
+      ],
+      "escalation_conditions": [
+        "Pokud potřebujete závazné rozhodnutí o krytí, přesný seznam povinných dokladů nebo výjimku z postupu, předejte dotaz pracovníkovi pojišťovny."
+      ],
+      "open_questions_for_expert": [
+        "Potvrdit pro scénář „Zmeškaný let vlastní vinou“ přesné doklady, použitelné výluky, rozsah asistence a případné povinnosti vůči ČSOB podle sjednaného produktu."
+      ],
+      "sources": [
+        {
+          "source_id": "CSOB_VPP2021",
+          "url": "https://www.csobpoj.cz/documents/10332/5083102/11N9393%2BVPP%2BCP%2B2021_form%C3%A1t%2BA4_CZ_v%C4%8Detn%C4%9B%2Boce%C5%88ovac%C3%ADch%2Btabulek_final_PDF-A.pdf/91a13cf6-8af5-00b8-784b-2f4f65ab34d0?t=1714117917863",
+          "section": "Pokyny pro klienta (strana 2) a jednotlivá ustanovení VPP CP 2021",
+          "last_checked_at": "2026-11-26",
+          "effective_from": "2021-04-01"
+        }
+      ],
+      "source_ids": [
+        "CSOB_VPP2021"
+      ],
+      "evidence_level": "needs_expert_review",
+      "official_scenario_specific_evidence": false,
+      "procedure_completeness": "unresolved",
+      "priority": "P1",
+      "policy_version_check_required": true,
+      "applicable_policy_versions": [],
+      "review_status": "DRAFT",
+      "reviewed_by": null,
+      "last_verified_at": null,
+      "last_public_source_checked_at": "2026-11-26",
+      "approved_at": null,
+      "publication_status": "REVIEW_ONLY",
+      "retrieval_eligible": false,
+      "notes_for_reviewer": "Obecné pokyny od jiných institucí nejsou požadavky ČSOB. Ověřit každou povinnost a datum platnosti."
+    },
+    {
+      "id": "SUP_TRAVEL_004",
+      "document_type": "support_procedure",
+      "schema_version": "1.0",
+      "language": "cs",
+      "category": "travel_disruptions",
+      "title": "Zmeškaný přestup při jedné rezervaci",
+      "scenario": "Klient řeší situaci: zmeškaný přestup při jedné rezervaci. Potřebuje praktický, ověřený postup bez předčasného příslibu plnění.",
+      "intent_tag": "air_connection",
+      "question_variations": [
+        "Kvůli zpoždění prvního letu nestíhám navazující.",
+        "Mám oba lety na jedné letence a uletěl mi přípoj.",
+        "Kdo zajistí další let?"
+      ],
+      "conditions": [
+        "Postup posuzovat podle země události, konkrétního dopravce nebo poskytovatele služby a verze smlouvy."
+      ],
+      "immediate_steps": [
+        {
+          "text": "Uchovejte rezervaci, jízdenku nebo letenku a zaznamenejte okolnosti narušení cesty.",
+          "requirement_type": "recommended",
+          "evidence_level": "official_insurer",
+          "source_ids": [
+            "CSOB_VPP2021"
+          ],
+          "condition": null
+        },
+        {
+          "text": "Při uplatnění škody z cestovního pojištění doložte podle druhu události důvod zmeškání, dobu zpoždění nebo cenu nevyčerpané služby.",
+          "requirement_type": "recommended",
+          "evidence_level": "official_insurer",
+          "source_ids": [
+            "CSOB_VPP2021"
+          ],
+          "condition": "Pokud podle příslušných podmínek uplatňujete pojištění narušení cesty."
+        },
+        {
+          "text": "Obraťte se na provozující leteckou společnost a požádejte o informace o náhradním spojení či pomoci podle příslušných pravidel.",
+          "requirement_type": "recommended",
+          "evidence_level": "general_guidance",
+          "source_ids": [
+            "EU_AIR"
+          ],
+          "condition": null
+        }
+      ],
+      "required_documents": [],
+      "recommended_documents": [
+        {
+          "name": "Potvrzení od dopravce nebo poskytovatele služby o narušení cesty, pokud jej lze získat.",
+          "requirement_type": "recommended",
+          "source_ids": [
+            "CSOB_VPP2021"
+          ]
+        }
+      ],
+      "police_involvement": {
+        "status": "not_established",
+        "guidance": "Z dostupných zdrojů nevyplývá jednotná povinnost pořídit policejní protokol právě pro tento scénář.",
+        "source_ids": [],
+        "needs_expert_review": true
+      },
+      "clarifying_questions": [
+        "O jaký druh dopravy a jakého dopravce se jedná?",
+        "Jaké byly plánované a skutečné termíny a co již dopravce potvrdil?",
+        "Jsou lety na jedné rezervaci?"
+      ],
+      "coverage_considerations": [
+        "Ověřit, zda je sjednáno příslušné riziko přerušení cesty, zmeškání odjezdu, storna nebo zpoždění letu.",
+        "U aktuálních webových doporučení je nutné ověřit soulad s verzí pojistných podmínek použitelnou pro smlouvu."
+      ],
+      "escalation_conditions": [
+        "Pokud potřebujete závazné rozhodnutí o krytí, přesný seznam povinných dokladů nebo výjimku z postupu, předejte dotaz pracovníkovi pojišťovny."
+      ],
+      "open_questions_for_expert": [
+        "Potvrdit pro scénář „Zmeškaný přestup při jedné rezervaci“ přesné doklady, použitelné výluky, rozsah asistence a případné povinnosti vůči ČSOB podle sjednaného produktu."
+      ],
+      "sources": [
+        {
+          "source_id": "EU_AIR",
+          "url": "https://europa.eu/youreurope/citizens/travel/passenger-rights/air/index_cs.htm",
+          "section": "Práva cestujících; Zpoždění, zrušení a zavazadla",
+          "last_checked_at": "2026-11-26",
+          "effective_from": null
+        },
+        {
+          "source_id": "CSOB_VPP2021",
+          "url": "https://www.csobpoj.cz/documents/10332/5083102/11N9393%2BVPP%2BCP%2B2021_form%C3%A1t%2BA4_CZ_v%C4%8Detn%C4%9B%2Boce%C5%88ovac%C3%ADch%2Btabulek_final_PDF-A.pdf/91a13cf6-8af5-00b8-784b-2f4f65ab34d0?t=1714117917863",
+          "section": "Pokyny pro klienta (strana 2) a jednotlivá ustanovení VPP CP 2021",
+          "last_checked_at": "2026-11-26",
+          "effective_from": "2021-04-01"
+        }
+      ],
+      "source_ids": [
+        "EU_AIR",
+        "CSOB_VPP2021"
+      ],
+      "evidence_level": "general_guidance",
+      "official_scenario_specific_evidence": false,
+      "procedure_completeness": "unresolved",
+      "priority": "P1",
+      "policy_version_check_required": true,
+      "applicable_policy_versions": [],
+      "review_status": "DRAFT",
+      "reviewed_by": null,
+      "last_verified_at": null,
+      "last_public_source_checked_at": "2026-11-26",
+      "approved_at": null,
+      "publication_status": "REVIEW_ONLY",
+      "retrieval_eligible": false,
+      "notes_for_reviewer": "Obecné pokyny od jiných institucí nejsou požadavky ČSOB. Ověřit každou povinnost a datum platnosti."
+    },
+    {
+      "id": "SUP_TRAVEL_005",
+      "document_type": "support_procedure",
+      "schema_version": "1.0",
+      "language": "cs",
+      "category": "travel_disruptions",
+      "title": "Zmeškaný přestup při oddělených rezervacích",
+      "scenario": "Klient řeší situaci: zmeškaný přestup při oddělených rezervacích. Potřebuje praktický, ověřený postup bez předčasného příslibu plnění.",
+      "intent_tag": "separate_ticket",
+      "question_variations": [
+        "První let měl zpoždění a druhý jsem zmeškal.",
+        "Měl jsem dvě samostatné letenky.",
+        "Mám nárok na náhradu nové letenky?"
+      ],
+      "conditions": [
+        "Postup posuzovat podle země události, konkrétního dopravce nebo poskytovatele služby a verze smlouvy."
+      ],
+      "immediate_steps": [
+        {
+          "text": "Uchovejte rezervaci, jízdenku nebo letenku a zaznamenejte okolnosti narušení cesty.",
+          "requirement_type": "recommended",
+          "evidence_level": "official_insurer",
+          "source_ids": [
+            "CSOB_VPP2021"
+          ],
+          "condition": null
+        },
+        {
+          "text": "Při uplatnění škody z cestovního pojištění doložte podle druhu události důvod zmeškání, dobu zpoždění nebo cenu nevyčerpané služby.",
+          "requirement_type": "recommended",
+          "evidence_level": "official_insurer",
+          "source_ids": [
+            "CSOB_VPP2021"
+          ],
+          "condition": "Pokud podle příslušných podmínek uplatňujete pojištění narušení cesty."
+        },
+        {
+          "text": "Obraťte se na provozující leteckou společnost a požádejte o informace o náhradním spojení či pomoci podle příslušných pravidel.",
+          "requirement_type": "recommended",
+          "evidence_level": "general_guidance",
+          "source_ids": [
+            "EU_AIR"
+          ],
+          "condition": null
+        }
+      ],
+      "required_documents": [],
+      "recommended_documents": [
+        {
+          "name": "Potvrzení od dopravce nebo poskytovatele služby o narušení cesty, pokud jej lze získat.",
+          "requirement_type": "recommended",
+          "source_ids": [
+            "CSOB_VPP2021"
+          ]
+        }
+      ],
+      "police_involvement": {
+        "status": "not_established",
+        "guidance": "Z dostupných zdrojů nevyplývá jednotná povinnost pořídit policejní protokol právě pro tento scénář.",
+        "source_ids": [],
+        "needs_expert_review": true
+      },
+      "clarifying_questions": [
+        "O jaký druh dopravy a jakého dopravce se jedná?",
+        "Jaké byly plánované a skutečné termíny a co již dopravce potvrdil?"
+      ],
+      "coverage_considerations": [
+        "Ověřit, zda je sjednáno příslušné riziko přerušení cesty, zmeškání odjezdu, storna nebo zpoždění letu.",
+        "U aktuálních webových doporučení je nutné ověřit soulad s verzí pojistných podmínek použitelnou pro smlouvu."
+      ],
+      "escalation_conditions": [
+        "Pokud potřebujete závazné rozhodnutí o krytí, přesný seznam povinných dokladů nebo výjimku z postupu, předejte dotaz pracovníkovi pojišťovny."
+      ],
+      "open_questions_for_expert": [
+        "Potvrdit pro scénář „Zmeškaný přestup při oddělených rezervacích“ přesné doklady, použitelné výluky, rozsah asistence a případné povinnosti vůči ČSOB podle sjednaného produktu."
+      ],
+      "sources": [
+        {
+          "source_id": "EU_AIR",
+          "url": "https://europa.eu/youreurope/citizens/travel/passenger-rights/air/index_cs.htm",
+          "section": "Práva cestujících; Zpoždění, zrušení a zavazadla",
+          "last_checked_at": "2026-11-26",
+          "effective_from": null
+        },
+        {
+          "source_id": "CSOB_VPP2021",
+          "url": "https://www.csobpoj.cz/documents/10332/5083102/11N9393%2BVPP%2BCP%2B2021_form%C3%A1t%2BA4_CZ_v%C4%8Detn%C4%9B%2Boce%C5%88ovac%C3%ADch%2Btabulek_final_PDF-A.pdf/91a13cf6-8af5-00b8-784b-2f4f65ab34d0?t=1714117917863",
+          "section": "Pokyny pro klienta (strana 2) a jednotlivá ustanovení VPP CP 2021",
+          "last_checked_at": "2026-11-26",
+          "effective_from": "2021-04-01"
+        }
+      ],
+      "source_ids": [
+        "EU_AIR",
+        "CSOB_VPP2021"
+      ],
+      "evidence_level": "general_guidance",
+      "official_scenario_specific_evidence": false,
+      "procedure_completeness": "unresolved",
+      "priority": "P1",
+      "policy_version_check_required": true,
+      "applicable_policy_versions": [],
+      "review_status": "DRAFT",
+      "reviewed_by": null,
+      "last_verified_at": null,
+      "last_public_source_checked_at": "2026-11-26",
+      "approved_at": null,
+      "publication_status": "REVIEW_ONLY",
+      "retrieval_eligible": false,
+      "notes_for_reviewer": "Obecné pokyny od jiných institucí nejsou požadavky ČSOB. Ověřit každou povinnost a datum platnosti."
+    },
+    {
+      "id": "SUP_TRAVEL_006",
+      "document_type": "support_procedure",
+      "schema_version": "1.0",
+      "language": "cs",
+      "category": "travel_disruptions",
+      "title": "Zrušený vlak v zahraničí",
+      "scenario": "Klient řeší situaci: zrušený vlak v zahraničí. Potřebuje praktický, ověřený postup bez předčasného příslibu plnění.",
+      "intent_tag": "rail_cancel",
+      "question_variations": [
+        "V zahraničí nám zrušili vlak.",
+        "Náš spoj vůbec nepojede.",
+        "Dostanu náhradní spoj?"
+      ],
+      "conditions": [
+        "Postup posuzovat podle země události, konkrétního dopravce nebo poskytovatele služby a verze smlouvy."
+      ],
+      "immediate_steps": [
+        {
+          "text": "Uchovejte rezervaci, jízdenku nebo letenku a zaznamenejte okolnosti narušení cesty.",
+          "requirement_type": "recommended",
+          "evidence_level": "official_insurer",
+          "source_ids": [
+            "CSOB_VPP2021"
+          ],
+          "condition": null
+        },
+        {
+          "text": "Při uplatnění škody z cestovního pojištění doložte podle druhu události důvod zmeškání, dobu zpoždění nebo cenu nevyčerpané služby.",
+          "requirement_type": "recommended",
+          "evidence_level": "official_insurer",
+          "source_ids": [
+            "CSOB_VPP2021"
+          ],
+          "condition": "Pokud podle příslušných podmínek uplatňujete pojištění narušení cesty."
+        },
+        {
+          "text": "Informujte se u železničního dopravce o náhradním spojení a o uplatnění práv při zrušení nebo zpoždění vlaku.",
+          "requirement_type": "recommended",
+          "evidence_level": "general_guidance",
+          "source_ids": [
+            "EU_RAIL"
+          ],
+          "condition": null
+        }
+      ],
+      "required_documents": [],
+      "recommended_documents": [
+        {
+          "name": "Potvrzení od dopravce nebo poskytovatele služby o narušení cesty, pokud jej lze získat.",
+          "requirement_type": "recommended",
+          "source_ids": [
+            "CSOB_VPP2021"
+          ]
+        }
+      ],
+      "police_involvement": {
+        "status": "not_established",
+        "guidance": "Z dostupných zdrojů nevyplývá jednotná povinnost pořídit policejní protokol právě pro tento scénář.",
+        "source_ids": [],
+        "needs_expert_review": true
+      },
+      "clarifying_questions": [
+        "O jaký druh dopravy a jakého dopravce se jedná?",
+        "Jaké byly plánované a skutečné termíny a co již dopravce potvrdil?"
+      ],
+      "coverage_considerations": [
+        "Ověřit, zda je sjednáno příslušné riziko přerušení cesty, zmeškání odjezdu, storna nebo zpoždění letu.",
+        "U aktuálních webových doporučení je nutné ověřit soulad s verzí pojistných podmínek použitelnou pro smlouvu."
+      ],
+      "escalation_conditions": [
+        "Pokud potřebujete závazné rozhodnutí o krytí, přesný seznam povinných dokladů nebo výjimku z postupu, předejte dotaz pracovníkovi pojišťovny."
+      ],
+      "open_questions_for_expert": [
+        "Potvrdit pro scénář „Zrušený vlak v zahraničí“ přesné doklady, použitelné výluky, rozsah asistence a případné povinnosti vůči ČSOB podle sjednaného produktu."
+      ],
+      "sources": [
+        {
+          "source_id": "EU_RAIL",
+          "url": "https://europa.eu/youreurope/citizens/travel/passenger-rights/rail/index_cs.htm",
+          "section": "Zrušení a zpoždění železničního spoje",
+          "last_checked_at": "2026-11-26",
+          "effective_from": null
+        },
+        {
+          "source_id": "CSOB_VPP2021",
+          "url": "https://www.csobpoj.cz/documents/10332/5083102/11N9393%2BVPP%2BCP%2B2021_form%C3%A1t%2BA4_CZ_v%C4%8Detn%C4%9B%2Boce%C5%88ovac%C3%ADch%2Btabulek_final_PDF-A.pdf/91a13cf6-8af5-00b8-784b-2f4f65ab34d0?t=1714117917863",
+          "section": "Pokyny pro klienta (strana 2) a jednotlivá ustanovení VPP CP 2021",
+          "last_checked_at": "2026-11-26",
+          "effective_from": "2021-04-01"
+        }
+      ],
+      "source_ids": [
+        "EU_RAIL",
+        "CSOB_VPP2021"
+      ],
+      "evidence_level": "general_guidance",
+      "official_scenario_specific_evidence": false,
+      "procedure_completeness": "unresolved",
+      "priority": "P1",
+      "policy_version_check_required": true,
+      "applicable_policy_versions": [],
+      "review_status": "DRAFT",
+      "reviewed_by": null,
+      "last_verified_at": null,
+      "last_public_source_checked_at": "2026-11-26",
+      "approved_at": null,
+      "publication_status": "REVIEW_ONLY",
+      "retrieval_eligible": false,
+      "notes_for_reviewer": "Obecné pokyny od jiných institucí nejsou požadavky ČSOB. Ověřit každou povinnost a datum platnosti."
+    },
+    {
+      "id": "SUP_TRAVEL_007",
+      "document_type": "support_procedure",
+      "schema_version": "1.0",
+      "language": "cs",
+      "category": "travel_disruptions",
+      "title": "Dlouhé zpoždění vlaku",
+      "scenario": "Klient řeší situaci: dlouhé zpoždění vlaku. Potřebuje praktický, ověřený postup bez předčasného příslibu plnění.",
+      "intent_tag": "rail_delay",
+      "question_variations": [
+        "Vlak má dvě hodiny sekeru.",
+        "Kvůli vlaku asi nestihnu další spoj.",
+        "Mám si vyžádat potvrzení zpoždění?"
+      ],
+      "conditions": [
+        "Postup posuzovat podle země události, konkrétního dopravce nebo poskytovatele služby a verze smlouvy."
+      ],
+      "immediate_steps": [
+        {
+          "text": "Uchovejte rezervaci, jízdenku nebo letenku a zaznamenejte okolnosti narušení cesty.",
+          "requirement_type": "recommended",
+          "evidence_level": "official_insurer",
+          "source_ids": [
+            "CSOB_VPP2021"
+          ],
+          "condition": null
+        },
+        {
+          "text": "Při uplatnění škody z cestovního pojištění doložte podle druhu události důvod zmeškání, dobu zpoždění nebo cenu nevyčerpané služby.",
+          "requirement_type": "recommended",
+          "evidence_level": "official_insurer",
+          "source_ids": [
+            "CSOB_VPP2021"
+          ],
+          "condition": "Pokud podle příslušných podmínek uplatňujete pojištění narušení cesty."
+        },
+        {
+          "text": "Informujte se u železničního dopravce o náhradním spojení a o uplatnění práv při zrušení nebo zpoždění vlaku.",
+          "requirement_type": "recommended",
+          "evidence_level": "general_guidance",
+          "source_ids": [
+            "EU_RAIL"
+          ],
+          "condition": null
+        }
+      ],
+      "required_documents": [],
+      "recommended_documents": [
+        {
+          "name": "Potvrzení od dopravce nebo poskytovatele služby o narušení cesty, pokud jej lze získat.",
+          "requirement_type": "recommended",
+          "source_ids": [
+            "CSOB_VPP2021"
+          ]
+        }
+      ],
+      "police_involvement": {
+        "status": "not_established",
+        "guidance": "Z dostupných zdrojů nevyplývá jednotná povinnost pořídit policejní protokol právě pro tento scénář.",
+        "source_ids": [],
+        "needs_expert_review": true
+      },
+      "clarifying_questions": [
+        "O jaký druh dopravy a jakého dopravce se jedná?",
+        "Jaké byly plánované a skutečné termíny a co již dopravce potvrdil?"
+      ],
+      "coverage_considerations": [
+        "Ověřit, zda je sjednáno příslušné riziko přerušení cesty, zmeškání odjezdu, storna nebo zpoždění letu.",
+        "U aktuálních webových doporučení je nutné ověřit soulad s verzí pojistných podmínek použitelnou pro smlouvu."
+      ],
+      "escalation_conditions": [
+        "Pokud potřebujete závazné rozhodnutí o krytí, přesný seznam povinných dokladů nebo výjimku z postupu, předejte dotaz pracovníkovi pojišťovny."
+      ],
+      "open_questions_for_expert": [
+        "Potvrdit pro scénář „Dlouhé zpoždění vlaku“ přesné doklady, použitelné výluky, rozsah asistence a případné povinnosti vůči ČSOB podle sjednaného produktu."
+      ],
+      "sources": [
+        {
+          "source_id": "EU_RAIL",
+          "url": "https://europa.eu/youreurope/citizens/travel/passenger-rights/rail/index_cs.htm",
+          "section": "Zrušení a zpoždění železničního spoje",
+          "last_checked_at": "2026-11-26",
+          "effective_from": null
+        },
+        {
+          "source_id": "CSOB_VPP2021",
+          "url": "https://www.csobpoj.cz/documents/10332/5083102/11N9393%2BVPP%2BCP%2B2021_form%C3%A1t%2BA4_CZ_v%C4%8Detn%C4%9B%2Boce%C5%88ovac%C3%ADch%2Btabulek_final_PDF-A.pdf/91a13cf6-8af5-00b8-784b-2f4f65ab34d0?t=1714117917863",
+          "section": "Pokyny pro klienta (strana 2) a jednotlivá ustanovení VPP CP 2021",
+          "last_checked_at": "2026-11-26",
+          "effective_from": "2021-04-01"
+        }
+      ],
+      "source_ids": [
+        "EU_RAIL",
+        "CSOB_VPP2021"
+      ],
+      "evidence_level": "general_guidance",
+      "official_scenario_specific_evidence": false,
+      "procedure_completeness": "unresolved",
+      "priority": "P1",
+      "policy_version_check_required": true,
+      "applicable_policy_versions": [],
+      "review_status": "DRAFT",
+      "reviewed_by": null,
+      "last_verified_at": null,
+      "last_public_source_checked_at": "2026-11-26",
+      "approved_at": null,
+      "publication_status": "REVIEW_ONLY",
+      "retrieval_eligible": false,
+      "notes_for_reviewer": "Obecné pokyny od jiných institucí nejsou požadavky ČSOB. Ověřit každou povinnost a datum platnosti."
+    },
+    {
+      "id": "SUP_TRAVEL_008",
+      "document_type": "support_procedure",
+      "schema_version": "1.0",
+      "language": "cs",
+      "category": "travel_disruptions",
+      "title": "Zrušený dálkový autobus",
+      "scenario": "Klient řeší situaci: zrušený dálkový autobus. Potřebuje praktický, ověřený postup bez předčasného příslibu plnění.",
+      "intent_tag": "bus_cancel",
+      "question_variations": [
+        "Zrušili nám dálkový autobus.",
+        "Dopravce zrušil autobusový spoj.",
+        "Jak zjistím náhradní dopravu?"
+      ],
+      "conditions": [
+        "Postup posuzovat podle země události, konkrétního dopravce nebo poskytovatele služby a verze smlouvy."
+      ],
+      "immediate_steps": [
+        {
+          "text": "Uchovejte rezervaci, jízdenku nebo letenku a zaznamenejte okolnosti narušení cesty.",
+          "requirement_type": "recommended",
+          "evidence_level": "official_insurer",
+          "source_ids": [
+            "CSOB_VPP2021"
+          ],
+          "condition": null
+        },
+        {
+          "text": "Při uplatnění škody z cestovního pojištění doložte podle druhu události důvod zmeškání, dobu zpoždění nebo cenu nevyčerpané služby.",
+          "requirement_type": "recommended",
+          "evidence_level": "official_insurer",
+          "source_ids": [
+            "CSOB_VPP2021"
+          ],
+          "condition": "Pokud podle příslušných podmínek uplatňujete pojištění narušení cesty."
+        },
+        {
+          "text": "Požádejte autobusového dopravce o informace o náhradní dopravě a případném vrácení jízdného; evropská pravidla závisí na druhu spoje.",
+          "requirement_type": "recommended",
+          "evidence_level": "general_guidance",
+          "source_ids": [
+            "EU_BUS"
+          ],
+          "condition": null
+        }
+      ],
+      "required_documents": [],
+      "recommended_documents": [
+        {
+          "name": "Potvrzení od dopravce nebo poskytovatele služby o narušení cesty, pokud jej lze získat.",
+          "requirement_type": "recommended",
+          "source_ids": [
+            "CSOB_VPP2021"
+          ]
+        }
+      ],
+      "police_involvement": {
+        "status": "not_established",
+        "guidance": "Z dostupných zdrojů nevyplývá jednotná povinnost pořídit policejní protokol právě pro tento scénář.",
+        "source_ids": [],
+        "needs_expert_review": true
+      },
+      "clarifying_questions": [
+        "O jaký druh dopravy a jakého dopravce se jedná?",
+        "Jaké byly plánované a skutečné termíny a co již dopravce potvrdil?"
+      ],
+      "coverage_considerations": [
+        "Ověřit, zda je sjednáno příslušné riziko přerušení cesty, zmeškání odjezdu, storna nebo zpoždění letu.",
+        "U aktuálních webových doporučení je nutné ověřit soulad s verzí pojistných podmínek použitelnou pro smlouvu."
+      ],
+      "escalation_conditions": [
+        "Pokud potřebujete závazné rozhodnutí o krytí, přesný seznam povinných dokladů nebo výjimku z postupu, předejte dotaz pracovníkovi pojišťovny."
+      ],
+      "open_questions_for_expert": [
+        "Potvrdit pro scénář „Zrušený dálkový autobus“ přesné doklady, použitelné výluky, rozsah asistence a případné povinnosti vůči ČSOB podle sjednaného produktu."
+      ],
+      "sources": [
+        {
+          "source_id": "EU_BUS",
+          "url": "https://europa.eu/youreurope/citizens/travel/passenger-rights/bus-and-coach/index_cs.htm",
+          "section": "Zrušení a zpoždění autobusové dopravy",
+          "last_checked_at": "2026-11-26",
+          "effective_from": null
+        },
+        {
+          "source_id": "CSOB_VPP2021",
+          "url": "https://www.csobpoj.cz/documents/10332/5083102/11N9393%2BVPP%2BCP%2B2021_form%C3%A1t%2BA4_CZ_v%C4%8Detn%C4%9B%2Boce%C5%88ovac%C3%ADch%2Btabulek_final_PDF-A.pdf/91a13cf6-8af5-00b8-784b-2f4f65ab34d0?t=1714117917863",
+          "section": "Pokyny pro klienta (strana 2) a jednotlivá ustanovení VPP CP 2021",
+          "last_checked_at": "2026-11-26",
+          "effective_from": "2021-04-01"
+        }
+      ],
+      "source_ids": [
+        "EU_BUS",
+        "CSOB_VPP2021"
+      ],
+      "evidence_level": "general_guidance",
+      "official_scenario_specific_evidence": false,
+      "procedure_completeness": "unresolved",
+      "priority": "P1",
+      "policy_version_check_required": true,
+      "applicable_policy_versions": [],
+      "review_status": "DRAFT",
+      "reviewed_by": null,
+      "last_verified_at": null,
+      "last_public_source_checked_at": "2026-11-26",
+      "approved_at": null,
+      "publication_status": "REVIEW_ONLY",
+      "retrieval_eligible": false,
+      "notes_for_reviewer": "Obecné pokyny od jiných institucí nejsou požadavky ČSOB. Ověřit každou povinnost a datum platnosti."
+    },
+    {
+      "id": "SUP_TRAVEL_009",
+      "document_type": "support_procedure",
+      "schema_version": "1.0",
+      "language": "cs",
+      "category": "travel_disruptions",
+      "title": "Pozdní transfer na letiště",
+      "scenario": "Klient řeší situaci: pozdní transfer na letiště. Potřebuje praktický, ověřený postup bez předčasného příslibu plnění.",
+      "intent_tag": "missed_own",
+      "question_variations": [
+        "Transfer z hotelu přijel pozdě.",
+        "Kvůli taxíku nestíhám letiště.",
+        "Jak doložím důvod zmeškání?"
+      ],
+      "conditions": [
+        "Postup posuzovat podle země události, konkrétního dopravce nebo poskytovatele služby a verze smlouvy."
+      ],
+      "immediate_steps": [
+        {
+          "text": "Uchovejte rezervaci, jízdenku nebo letenku a zaznamenejte okolnosti narušení cesty.",
+          "requirement_type": "recommended",
+          "evidence_level": "official_insurer",
+          "source_ids": [
+            "CSOB_VPP2021"
+          ],
+          "condition": null
+        },
+        {
+          "text": "Při uplatnění škody z cestovního pojištění doložte podle druhu události důvod zmeškání, dobu zpoždění nebo cenu nevyčerpané služby.",
+          "requirement_type": "recommended",
+          "evidence_level": "official_insurer",
+          "source_ids": [
+            "CSOB_VPP2021"
+          ],
+          "condition": "Pokud podle příslušných podmínek uplatňujete pojištění narušení cesty."
+        }
+      ],
+      "required_documents": [],
+      "recommended_documents": [
+        {
+          "name": "Potvrzení od dopravce nebo poskytovatele služby o narušení cesty, pokud jej lze získat.",
+          "requirement_type": "recommended",
+          "source_ids": [
+            "CSOB_VPP2021"
+          ]
+        }
+      ],
+      "police_involvement": {
+        "status": "not_established",
+        "guidance": "Z dostupných zdrojů nevyplývá jednotná povinnost pořídit policejní protokol právě pro tento scénář.",
+        "source_ids": [],
+        "needs_expert_review": true
+      },
+      "clarifying_questions": [
+        "O jaký druh dopravy a jakého dopravce se jedná?",
+        "Jaké byly plánované a skutečné termíny a co již dopravce potvrdil?"
+      ],
+      "coverage_considerations": [
+        "Ověřit, zda je sjednáno příslušné riziko přerušení cesty, zmeškání odjezdu, storna nebo zpoždění letu.",
+        "U aktuálních webových doporučení je nutné ověřit soulad s verzí pojistných podmínek použitelnou pro smlouvu."
+      ],
+      "escalation_conditions": [
+        "Pokud potřebujete závazné rozhodnutí o krytí, přesný seznam povinných dokladů nebo výjimku z postupu, předejte dotaz pracovníkovi pojišťovny."
+      ],
+      "open_questions_for_expert": [
+        "Potvrdit pro scénář „Pozdní transfer na letiště“ přesné doklady, použitelné výluky, rozsah asistence a případné povinnosti vůči ČSOB podle sjednaného produktu."
+      ],
+      "sources": [
+        {
+          "source_id": "CSOB_VPP2021",
+          "url": "https://www.csobpoj.cz/documents/10332/5083102/11N9393%2BVPP%2BCP%2B2021_form%C3%A1t%2BA4_CZ_v%C4%8Detn%C4%9B%2Boce%C5%88ovac%C3%ADch%2Btabulek_final_PDF-A.pdf/91a13cf6-8af5-00b8-784b-2f4f65ab34d0?t=1714117917863",
+          "section": "Pokyny pro klienta (strana 2) a jednotlivá ustanovení VPP CP 2021",
+          "last_checked_at": "2026-11-26",
+          "effective_from": "2021-04-01"
+        }
+      ],
+      "source_ids": [
+        "CSOB_VPP2021"
+      ],
+      "evidence_level": "needs_expert_review",
+      "official_scenario_specific_evidence": false,
+      "procedure_completeness": "unresolved",
+      "priority": "P1",
+      "policy_version_check_required": true,
+      "applicable_policy_versions": [],
+      "review_status": "DRAFT",
+      "reviewed_by": null,
+      "last_verified_at": null,
+      "last_public_source_checked_at": "2026-11-26",
+      "approved_at": null,
+      "publication_status": "REVIEW_ONLY",
+      "retrieval_eligible": false,
+      "notes_for_reviewer": "Obecné pokyny od jiných institucí nejsou požadavky ČSOB. Ověřit každou povinnost a datum platnosti."
+    },
+    {
+      "id": "SUP_TRAVEL_010",
+      "document_type": "support_procedure",
+      "schema_version": "1.0",
+      "language": "cs",
+      "category": "travel_disruptions",
+      "title": "Stávka leteckého personálu",
+      "scenario": "Klient řeší situaci: stávka leteckého personálu. Potřebuje praktický, ověřený postup bez předčasného příslibu plnění.",
+      "intent_tag": "air_cancel",
+      "question_variations": [
+        "Zrušili lety kvůli stávce.",
+        "Kvůli stávce se nemůžu dostat domů.",
+        "Kdo se postará o přesměrování?"
+      ],
+      "conditions": [
+        "Postup posuzovat podle země události, konkrétního dopravce nebo poskytovatele služby a verze smlouvy."
+      ],
+      "immediate_steps": [
+        {
+          "text": "Uchovejte rezervaci, jízdenku nebo letenku a zaznamenejte okolnosti narušení cesty.",
+          "requirement_type": "recommended",
+          "evidence_level": "official_insurer",
+          "source_ids": [
+            "CSOB_VPP2021"
+          ],
+          "condition": null
+        },
+        {
+          "text": "Při uplatnění škody z cestovního pojištění doložte podle druhu události důvod zmeškání, dobu zpoždění nebo cenu nevyčerpané služby.",
+          "requirement_type": "recommended",
+          "evidence_level": "official_insurer",
+          "source_ids": [
+            "CSOB_VPP2021"
+          ],
+          "condition": "Pokud podle příslušných podmínek uplatňujete pojištění narušení cesty."
+        },
+        {
+          "text": "Obraťte se na provozující leteckou společnost a požádejte o informace o náhradním spojení či pomoci podle příslušných pravidel.",
+          "requirement_type": "recommended",
+          "evidence_level": "general_guidance",
+          "source_ids": [
+            "EU_AIR"
+          ],
+          "condition": null
+        }
+      ],
+      "required_documents": [],
+      "recommended_documents": [
+        {
+          "name": "Potvrzení od dopravce nebo poskytovatele služby o narušení cesty, pokud jej lze získat.",
+          "requirement_type": "recommended",
+          "source_ids": [
+            "CSOB_VPP2021"
+          ]
+        }
+      ],
+      "police_involvement": {
+        "status": "not_established",
+        "guidance": "Z dostupných zdrojů nevyplývá jednotná povinnost pořídit policejní protokol právě pro tento scénář.",
+        "source_ids": [],
+        "needs_expert_review": true
+      },
+      "clarifying_questions": [
+        "O jaký druh dopravy a jakého dopravce se jedná?",
+        "Jaké byly plánované a skutečné termíny a co již dopravce potvrdil?"
+      ],
+      "coverage_considerations": [
+        "Ověřit, zda je sjednáno příslušné riziko přerušení cesty, zmeškání odjezdu, storna nebo zpoždění letu.",
+        "U aktuálních webových doporučení je nutné ověřit soulad s verzí pojistných podmínek použitelnou pro smlouvu."
+      ],
+      "escalation_conditions": [
+        "Pokud potřebujete závazné rozhodnutí o krytí, přesný seznam povinných dokladů nebo výjimku z postupu, předejte dotaz pracovníkovi pojišťovny."
+      ],
+      "open_questions_for_expert": [
+        "Potvrdit pro scénář „Stávka leteckého personálu“ přesné doklady, použitelné výluky, rozsah asistence a případné povinnosti vůči ČSOB podle sjednaného produktu."
+      ],
+      "sources": [
+        {
+          "source_id": "EU_AIR",
+          "url": "https://europa.eu/youreurope/citizens/travel/passenger-rights/air/index_cs.htm",
+          "section": "Práva cestujících; Zpoždění, zrušení a zavazadla",
+          "last_checked_at": "2026-11-26",
+          "effective_from": null
+        },
+        {
+          "source_id": "CSOB_VPP2021",
+          "url": "https://www.csobpoj.cz/documents/10332/5083102/11N9393%2BVPP%2BCP%2B2021_form%C3%A1t%2BA4_CZ_v%C4%8Detn%C4%9B%2Boce%C5%88ovac%C3%ADch%2Btabulek_final_PDF-A.pdf/91a13cf6-8af5-00b8-784b-2f4f65ab34d0?t=1714117917863",
+          "section": "Pokyny pro klienta (strana 2) a jednotlivá ustanovení VPP CP 2021",
+          "last_checked_at": "2026-11-26",
+          "effective_from": "2021-04-01"
+        }
+      ],
+      "source_ids": [
+        "EU_AIR",
+        "CSOB_VPP2021"
+      ],
+      "evidence_level": "general_guidance",
+      "official_scenario_specific_evidence": false,
+      "procedure_completeness": "unresolved",
+      "priority": "P1",
+      "policy_version_check_required": true,
+      "applicable_policy_versions": [],
+      "review_status": "DRAFT",
+      "reviewed_by": null,
+      "last_verified_at": null,
+      "last_public_source_checked_at": "2026-11-26",
+      "approved_at": null,
+      "publication_status": "REVIEW_ONLY",
+      "retrieval_eligible": false,
+      "notes_for_reviewer": "Obecné pokyny od jiných institucí nejsou požadavky ČSOB. Ověřit každou povinnost a datum platnosti."
+    },
+    {
+      "id": "SUP_TRAVEL_011",
+      "document_type": "support_procedure",
+      "schema_version": "1.0",
+      "language": "cs",
+      "category": "travel_disruptions",
+      "title": "Zemětřesení nebo přírodní katastrofa",
+      "scenario": "Klient řeší situaci: zemětřesení nebo přírodní katastrofa. Potřebuje praktický, ověřený postup bez předčasného příslibu plnění.",
+      "intent_tag": "disaster",
+      "question_variations": [
+        "V místě dovolené bylo zemětřesení.",
+        "Jsme v oblasti katastrofy a nevím co dělat.",
+        "Mám kontaktovat českou ambasádu?"
+      ],
+      "conditions": [
+        "Postup posuzovat podle země události, konkrétního dopravce nebo poskytovatele služby a verze smlouvy."
+      ],
+      "immediate_steps": [
+        {
+          "text": "Uchovejte rezervaci, jízdenku nebo letenku a zaznamenejte okolnosti narušení cesty.",
+          "requirement_type": "recommended",
+          "evidence_level": "official_insurer",
+          "source_ids": [
+            "CSOB_VPP2021"
+          ],
+          "condition": null
+        },
+        {
+          "text": "Při uplatnění škody z cestovního pojištění doložte podle druhu události důvod zmeškání, dobu zpoždění nebo cenu nevyčerpané služby.",
+          "requirement_type": "recommended",
+          "evidence_level": "official_insurer",
+          "source_ids": [
+            "CSOB_VPP2021"
+          ],
+          "condition": "Pokud podle příslušných podmínek uplatňujete pojištění narušení cesty."
+        },
+        {
+          "text": "Nejprve se řiďte pokyny místních bezpečnostních a záchranných orgánů.",
+          "requirement_type": "recommended",
+          "evidence_level": "general_guidance",
+          "source_ids": [
+            "MZV_CRISIS"
+          ],
+          "condition": null
+        },
+        {
+          "text": "Pokud jste občanem ČR v nouzové situaci, můžete kontaktovat příslušný zastupitelský úřad České republiky.",
+          "requirement_type": "recommended",
+          "evidence_level": "general_guidance",
+          "source_ids": [
+            "MZV_CRISIS"
+          ],
+          "condition": "Pouze pro občany České republiky."
+        }
+      ],
+      "required_documents": [],
+      "recommended_documents": [
+        {
+          "name": "Potvrzení od dopravce nebo poskytovatele služby o narušení cesty, pokud jej lze získat.",
+          "requirement_type": "recommended",
+          "source_ids": [
+            "CSOB_VPP2021"
+          ]
+        }
+      ],
+      "police_involvement": {
+        "status": "not_established",
+        "guidance": "Z dostupných zdrojů nevyplývá jednotná povinnost pořídit policejní protokol právě pro tento scénář.",
+        "source_ids": [],
+        "needs_expert_review": true
+      },
+      "clarifying_questions": [
+        "O jaký druh dopravy a jakého dopravce se jedná?",
+        "Jaké byly plánované a skutečné termíny a co již dopravce potvrdil?"
+      ],
+      "coverage_considerations": [
+        "Ověřit, zda je sjednáno příslušné riziko přerušení cesty, zmeškání odjezdu, storna nebo zpoždění letu.",
+        "U aktuálních webových doporučení je nutné ověřit soulad s verzí pojistných podmínek použitelnou pro smlouvu."
+      ],
+      "escalation_conditions": [
+        "Při bezprostředním nebezpečí nebo závažném zdravotním stavu má přednost přivolání místní pomoci.",
+        "Pokud potřebujete závazné rozhodnutí o krytí, přesný seznam povinných dokladů nebo výjimku z postupu, předejte dotaz pracovníkovi pojišťovny."
+      ],
+      "open_questions_for_expert": [
+        "Potvrdit pro scénář „Zemětřesení nebo přírodní katastrofa“ přesné doklady, použitelné výluky, rozsah asistence a případné povinnosti vůči ČSOB podle sjednaného produktu."
+      ],
+      "sources": [
+        {
+          "source_id": "MZV_DISASTER",
+          "url": "https://mzv.gov.cz/jnp/cz/cestujeme/jak_resit_situace_v_zahranici/zivelna_katastrofa.html",
+          "section": "Živelní katastrofa v zahraničí",
+          "last_checked_at": "2026-11-26",
+          "effective_from": null
+        },
+        {
+          "source_id": "CSOB_VPP2021",
+          "url": "https://www.csobpoj.cz/documents/10332/5083102/11N9393%2BVPP%2BCP%2B2021_form%C3%A1t%2BA4_CZ_v%C4%8Detn%C4%9B%2Boce%C5%88ovac%C3%ADch%2Btabulek_final_PDF-A.pdf/91a13cf6-8af5-00b8-784b-2f4f65ab34d0?t=1714117917863",
+          "section": "Pokyny pro klienta (strana 2) a jednotlivá ustanovení VPP CP 2021",
+          "last_checked_at": "2026-11-26",
+          "effective_from": "2021-04-01"
+        },
+        {
+          "source_id": "MZV_CRISIS",
+          "url": "https://mzv.gov.cz/jnp/cz/cestujeme/uzitecne_informace_pri_cestach/mimoradne_a_krizove_situace.mobi",
+          "section": "Mimořádné a krizové situace",
+          "last_checked_at": "2026-11-26",
+          "effective_from": null
+        }
+      ],
+      "source_ids": [
+        "MZV_DISASTER",
+        "CSOB_VPP2021",
+        "MZV_CRISIS"
+      ],
+      "evidence_level": "general_guidance",
+      "official_scenario_specific_evidence": false,
+      "procedure_completeness": "unresolved",
+      "priority": "P0",
+      "policy_version_check_required": true,
+      "applicable_policy_versions": [],
+      "review_status": "DRAFT",
+      "reviewed_by": null,
+      "last_verified_at": null,
+      "last_public_source_checked_at": "2026-11-26",
+      "approved_at": null,
+      "publication_status": "REVIEW_ONLY",
+      "retrieval_eligible": false,
+      "notes_for_reviewer": "Obecné pokyny od jiných institucí nejsou požadavky ČSOB. Ověřit každou povinnost a datum platnosti."
+    },
+    {
+      "id": "SUP_TRAVEL_012",
+      "document_type": "support_procedure",
+      "schema_version": "1.0",
+      "language": "cs",
+      "category": "travel_disruptions",
+      "title": "Povodeň v místě ubytování",
+      "scenario": "Klient řeší situaci: povodeň v místě ubytování. Potřebuje praktický, ověřený postup bez předčasného příslibu plnění.",
+      "intent_tag": "disaster",
+      "question_variations": [
+        "Hotel je zatopený, musíme odjet.",
+        "Voda nám zničila ubytování.",
+        "Kdo řeší náhradní hotel?"
+      ],
+      "conditions": [
+        "Postup posuzovat podle země události, konkrétního dopravce nebo poskytovatele služby a verze smlouvy."
+      ],
+      "immediate_steps": [
+        {
+          "text": "Uchovejte rezervaci, jízdenku nebo letenku a zaznamenejte okolnosti narušení cesty.",
+          "requirement_type": "recommended",
+          "evidence_level": "official_insurer",
+          "source_ids": [
+            "CSOB_VPP2021"
+          ],
+          "condition": null
+        },
+        {
+          "text": "Při uplatnění škody z cestovního pojištění doložte podle druhu události důvod zmeškání, dobu zpoždění nebo cenu nevyčerpané služby.",
+          "requirement_type": "recommended",
+          "evidence_level": "official_insurer",
+          "source_ids": [
+            "CSOB_VPP2021"
+          ],
+          "condition": "Pokud podle příslušných podmínek uplatňujete pojištění narušení cesty."
+        },
+        {
+          "text": "Nejprve se řiďte pokyny místních bezpečnostních a záchranných orgánů.",
+          "requirement_type": "recommended",
+          "evidence_level": "general_guidance",
+          "source_ids": [
+            "MZV_CRISIS"
+          ],
+          "condition": null
+        },
+        {
+          "text": "Pokud jste občanem ČR v nouzové situaci, můžete kontaktovat příslušný zastupitelský úřad České republiky.",
+          "requirement_type": "recommended",
+          "evidence_level": "general_guidance",
+          "source_ids": [
+            "MZV_CRISIS"
+          ],
+          "condition": "Pouze pro občany České republiky."
+        }
+      ],
+      "required_documents": [],
+      "recommended_documents": [
+        {
+          "name": "Potvrzení od dopravce nebo poskytovatele služby o narušení cesty, pokud jej lze získat.",
+          "requirement_type": "recommended",
+          "source_ids": [
+            "CSOB_VPP2021"
+          ]
+        }
+      ],
+      "police_involvement": {
+        "status": "not_established",
+        "guidance": "Z dostupných zdrojů nevyplývá jednotná povinnost pořídit policejní protokol právě pro tento scénář.",
+        "source_ids": [],
+        "needs_expert_review": true
+      },
+      "clarifying_questions": [
+        "O jaký druh dopravy a jakého dopravce se jedná?",
+        "Jaké byly plánované a skutečné termíny a co již dopravce potvrdil?"
+      ],
+      "coverage_considerations": [
+        "Ověřit, zda je sjednáno příslušné riziko přerušení cesty, zmeškání odjezdu, storna nebo zpoždění letu.",
+        "U aktuálních webových doporučení je nutné ověřit soulad s verzí pojistných podmínek použitelnou pro smlouvu."
+      ],
+      "escalation_conditions": [
+        "Při bezprostředním nebezpečí nebo závažném zdravotním stavu má přednost přivolání místní pomoci.",
+        "Pokud potřebujete závazné rozhodnutí o krytí, přesný seznam povinných dokladů nebo výjimku z postupu, předejte dotaz pracovníkovi pojišťovny."
+      ],
+      "open_questions_for_expert": [
+        "Potvrdit pro scénář „Povodeň v místě ubytování“ přesné doklady, použitelné výluky, rozsah asistence a případné povinnosti vůči ČSOB podle sjednaného produktu."
+      ],
+      "sources": [
+        {
+          "source_id": "MZV_CRISIS",
+          "url": "https://mzv.gov.cz/jnp/cz/cestujeme/uzitecne_informace_pri_cestach/mimoradne_a_krizove_situace.mobi",
+          "section": "Mimořádné a krizové situace",
+          "last_checked_at": "2026-11-26",
+          "effective_from": null
+        },
+        {
+          "source_id": "CSOB_VPP2021",
+          "url": "https://www.csobpoj.cz/documents/10332/5083102/11N9393%2BVPP%2BCP%2B2021_form%C3%A1t%2BA4_CZ_v%C4%8Detn%C4%9B%2Boce%C5%88ovac%C3%ADch%2Btabulek_final_PDF-A.pdf/91a13cf6-8af5-00b8-784b-2f4f65ab34d0?t=1714117917863",
+          "section": "Pokyny pro klienta (strana 2) a jednotlivá ustanovení VPP CP 2021",
+          "last_checked_at": "2026-11-26",
+          "effective_from": "2021-04-01"
+        }
+      ],
+      "source_ids": [
+        "MZV_CRISIS",
+        "CSOB_VPP2021"
+      ],
+      "evidence_level": "general_guidance",
+      "official_scenario_specific_evidence": false,
+      "procedure_completeness": "unresolved",
+      "priority": "P0",
+      "policy_version_check_required": true,
+      "applicable_policy_versions": [],
+      "review_status": "DRAFT",
+      "reviewed_by": null,
+      "last_verified_at": null,
+      "last_public_source_checked_at": "2026-11-26",
+      "approved_at": null,
+      "publication_status": "REVIEW_ONLY",
+      "retrieval_eligible": false,
+      "notes_for_reviewer": "Obecné pokyny od jiných institucí nejsou požadavky ČSOB. Ověřit každou povinnost a datum platnosti."
+    },
+    {
+      "id": "SUP_TRAVEL_013",
+      "document_type": "support_procedure",
+      "schema_version": "1.0",
+      "language": "cs",
+      "category": "travel_disruptions",
+      "title": "Požár a evakuace hotelu",
+      "scenario": "Klient řeší situaci: požár a evakuace hotelu. Potřebuje praktický, ověřený postup bez předčasného příslibu plnění.",
+      "intent_tag": "disaster",
+      "question_variations": [
+        "Evakuují nás z hotelu kvůli požáru.",
+        "V hotelu hoří a nemáme kam jít.",
+        "Máme nejdřív řešit pojištění?"
+      ],
+      "conditions": [
+        "Postup posuzovat podle země události, konkrétního dopravce nebo poskytovatele služby a verze smlouvy."
+      ],
+      "immediate_steps": [
+        {
+          "text": "Uchovejte rezervaci, jízdenku nebo letenku a zaznamenejte okolnosti narušení cesty.",
+          "requirement_type": "recommended",
+          "evidence_level": "official_insurer",
+          "source_ids": [
+            "CSOB_VPP2021"
+          ],
+          "condition": null
+        },
+        {
+          "text": "Při uplatnění škody z cestovního pojištění doložte podle druhu události důvod zmeškání, dobu zpoždění nebo cenu nevyčerpané služby.",
+          "requirement_type": "recommended",
+          "evidence_level": "official_insurer",
+          "source_ids": [
+            "CSOB_VPP2021"
+          ],
+          "condition": "Pokud podle příslušných podmínek uplatňujete pojištění narušení cesty."
+        },
+        {
+          "text": "Nejprve se řiďte pokyny místních bezpečnostních a záchranných orgánů.",
+          "requirement_type": "recommended",
+          "evidence_level": "general_guidance",
+          "source_ids": [
+            "MZV_CRISIS"
+          ],
+          "condition": null
+        },
+        {
+          "text": "Pokud jste občanem ČR v nouzové situaci, můžete kontaktovat příslušný zastupitelský úřad České republiky.",
+          "requirement_type": "recommended",
+          "evidence_level": "general_guidance",
+          "source_ids": [
+            "MZV_CRISIS"
+          ],
+          "condition": "Pouze pro občany České republiky."
+        }
+      ],
+      "required_documents": [],
+      "recommended_documents": [
+        {
+          "name": "Potvrzení od dopravce nebo poskytovatele služby o narušení cesty, pokud jej lze získat.",
+          "requirement_type": "recommended",
+          "source_ids": [
+            "CSOB_VPP2021"
+          ]
+        }
+      ],
+      "police_involvement": {
+        "status": "not_established",
+        "guidance": "Z dostupných zdrojů nevyplývá jednotná povinnost pořídit policejní protokol právě pro tento scénář.",
+        "source_ids": [],
+        "needs_expert_review": true
+      },
+      "clarifying_questions": [
+        "O jaký druh dopravy a jakého dopravce se jedná?",
+        "Jaké byly plánované a skutečné termíny a co již dopravce potvrdil?"
+      ],
+      "coverage_considerations": [
+        "Ověřit, zda je sjednáno příslušné riziko přerušení cesty, zmeškání odjezdu, storna nebo zpoždění letu.",
+        "U aktuálních webových doporučení je nutné ověřit soulad s verzí pojistných podmínek použitelnou pro smlouvu."
+      ],
+      "escalation_conditions": [
+        "Při bezprostředním nebezpečí nebo závažném zdravotním stavu má přednost přivolání místní pomoci.",
+        "Pokud potřebujete závazné rozhodnutí o krytí, přesný seznam povinných dokladů nebo výjimku z postupu, předejte dotaz pracovníkovi pojišťovny."
+      ],
+      "open_questions_for_expert": [
+        "Potvrdit pro scénář „Požár a evakuace hotelu“ přesné doklady, použitelné výluky, rozsah asistence a případné povinnosti vůči ČSOB podle sjednaného produktu."
+      ],
+      "sources": [
+        {
+          "source_id": "MZV_CRISIS",
+          "url": "https://mzv.gov.cz/jnp/cz/cestujeme/uzitecne_informace_pri_cestach/mimoradne_a_krizove_situace.mobi",
+          "section": "Mimořádné a krizové situace",
+          "last_checked_at": "2026-11-26",
+          "effective_from": null
+        },
+        {
+          "source_id": "CSOB_VPP2021",
+          "url": "https://www.csobpoj.cz/documents/10332/5083102/11N9393%2BVPP%2BCP%2B2021_form%C3%A1t%2BA4_CZ_v%C4%8Detn%C4%9B%2Boce%C5%88ovac%C3%ADch%2Btabulek_final_PDF-A.pdf/91a13cf6-8af5-00b8-784b-2f4f65ab34d0?t=1714117917863",
+          "section": "Pokyny pro klienta (strana 2) a jednotlivá ustanovení VPP CP 2021",
+          "last_checked_at": "2026-11-26",
+          "effective_from": "2021-04-01"
+        }
+      ],
+      "source_ids": [
+        "MZV_CRISIS",
+        "CSOB_VPP2021"
+      ],
+      "evidence_level": "general_guidance",
+      "official_scenario_specific_evidence": false,
+      "procedure_completeness": "unresolved",
+      "priority": "P0",
+      "policy_version_check_required": true,
+      "applicable_policy_versions": [],
+      "review_status": "DRAFT",
+      "reviewed_by": null,
+      "last_verified_at": null,
+      "last_public_source_checked_at": "2026-11-26",
+      "approved_at": null,
+      "publication_status": "REVIEW_ONLY",
+      "retrieval_eligible": false,
+      "notes_for_reviewer": "Obecné pokyny od jiných institucí nejsou požadavky ČSOB. Ověřit každou povinnost a datum platnosti."
+    },
+    {
+      "id": "SUP_TRAVEL_014",
+      "document_type": "support_procedure",
+      "schema_version": "1.0",
+      "language": "cs",
+      "category": "travel_disruptions",
+      "title": "Bezpečnostní nepokoje v destinaci",
+      "scenario": "Klient řeší situaci: bezpečnostní nepokoje v destinaci. Potřebuje praktický, ověřený postup bez předčasného příslibu plnění.",
+      "intent_tag": "crisis",
+      "question_variations": [
+        "V místě pobytu jsou nepokoje.",
+        "Je tu nebezpečno a bojím se vycházet.",
+        "Jak zjistím bezpečný postup návratu?"
+      ],
+      "conditions": [
+        "Postup posuzovat podle země události, konkrétního dopravce nebo poskytovatele služby a verze smlouvy."
+      ],
+      "immediate_steps": [
+        {
+          "text": "Uchovejte rezervaci, jízdenku nebo letenku a zaznamenejte okolnosti narušení cesty.",
+          "requirement_type": "recommended",
+          "evidence_level": "official_insurer",
+          "source_ids": [
+            "CSOB_VPP2021"
+          ],
+          "condition": null
+        },
+        {
+          "text": "Při uplatnění škody z cestovního pojištění doložte podle druhu události důvod zmeškání, dobu zpoždění nebo cenu nevyčerpané služby.",
+          "requirement_type": "recommended",
+          "evidence_level": "official_insurer",
+          "source_ids": [
+            "CSOB_VPP2021"
+          ],
+          "condition": "Pokud podle příslušných podmínek uplatňujete pojištění narušení cesty."
+        },
+        {
+          "text": "Nejprve se řiďte pokyny místních bezpečnostních a záchranných orgánů.",
+          "requirement_type": "recommended",
+          "evidence_level": "general_guidance",
+          "source_ids": [
+            "MZV_CRISIS"
+          ],
+          "condition": null
+        },
+        {
+          "text": "Pokud jste občanem ČR v nouzové situaci, můžete kontaktovat příslušný zastupitelský úřad České republiky.",
+          "requirement_type": "recommended",
+          "evidence_level": "general_guidance",
+          "source_ids": [
+            "MZV_CRISIS"
+          ],
+          "condition": "Pouze pro občany České republiky."
+        }
+      ],
+      "required_documents": [],
+      "recommended_documents": [
+        {
+          "name": "Potvrzení od dopravce nebo poskytovatele služby o narušení cesty, pokud jej lze získat.",
+          "requirement_type": "recommended",
+          "source_ids": [
+            "CSOB_VPP2021"
+          ]
+        }
+      ],
+      "police_involvement": {
+        "status": "not_established",
+        "guidance": "Z dostupných zdrojů nevyplývá jednotná povinnost pořídit policejní protokol právě pro tento scénář.",
+        "source_ids": [],
+        "needs_expert_review": true
+      },
+      "clarifying_questions": [
+        "O jaký druh dopravy a jakého dopravce se jedná?",
+        "Jaké byly plánované a skutečné termíny a co již dopravce potvrdil?"
+      ],
+      "coverage_considerations": [
+        "Ověřit, zda je sjednáno příslušné riziko přerušení cesty, zmeškání odjezdu, storna nebo zpoždění letu.",
+        "U aktuálních webových doporučení je nutné ověřit soulad s verzí pojistných podmínek použitelnou pro smlouvu."
+      ],
+      "escalation_conditions": [
+        "Při bezprostředním nebezpečí nebo závažném zdravotním stavu má přednost přivolání místní pomoci.",
+        "Pokud potřebujete závazné rozhodnutí o krytí, přesný seznam povinných dokladů nebo výjimku z postupu, předejte dotaz pracovníkovi pojišťovny."
+      ],
+      "open_questions_for_expert": [
+        "Potvrdit pro scénář „Bezpečnostní nepokoje v destinaci“ přesné doklady, použitelné výluky, rozsah asistence a případné povinnosti vůči ČSOB podle sjednaného produktu."
+      ],
+      "sources": [
+        {
+          "source_id": "MZV_CRISIS",
+          "url": "https://mzv.gov.cz/jnp/cz/cestujeme/uzitecne_informace_pri_cestach/mimoradne_a_krizove_situace.mobi",
+          "section": "Mimořádné a krizové situace",
+          "last_checked_at": "2026-11-26",
+          "effective_from": null
+        },
+        {
+          "source_id": "CSOB_VPP2021",
+          "url": "https://www.csobpoj.cz/documents/10332/5083102/11N9393%2BVPP%2BCP%2B2021_form%C3%A1t%2BA4_CZ_v%C4%8Detn%C4%9B%2Boce%C5%88ovac%C3%ADch%2Btabulek_final_PDF-A.pdf/91a13cf6-8af5-00b8-784b-2f4f65ab34d0?t=1714117917863",
+          "section": "Pokyny pro klienta (strana 2) a jednotlivá ustanovení VPP CP 2021",
+          "last_checked_at": "2026-11-26",
+          "effective_from": "2021-04-01"
+        }
+      ],
+      "source_ids": [
+        "MZV_CRISIS",
+        "CSOB_VPP2021"
+      ],
+      "evidence_level": "general_guidance",
+      "official_scenario_specific_evidence": false,
+      "procedure_completeness": "unresolved",
+      "priority": "P0",
+      "policy_version_check_required": true,
+      "applicable_policy_versions": [],
+      "review_status": "DRAFT",
+      "reviewed_by": null,
+      "last_verified_at": null,
+      "last_public_source_checked_at": "2026-11-26",
+      "approved_at": null,
+      "publication_status": "REVIEW_ONLY",
+      "retrieval_eligible": false,
+      "notes_for_reviewer": "Obecné pokyny od jiných institucí nejsou požadavky ČSOB. Ověřit každou povinnost a datum platnosti."
+    },
+    {
+      "id": "SUP_TRAVEL_015",
+      "document_type": "support_procedure",
+      "schema_version": "1.0",
+      "language": "cs",
+      "category": "travel_disruptions",
+      "title": "Hotel zrušil potvrzenou rezervaci",
+      "scenario": "Klient řeší situaci: hotel zrušil potvrzenou rezervaci. Potřebuje praktický, ověřený postup bez předčasného příslibu plnění.",
+      "intent_tag": "hotel_cancel",
+      "question_variations": [
+        "Hotel mi na místě zrušil rezervaci.",
+        "Přijel jsem a nemají pro mě pokoj.",
+        "Můžu žádat náhradu u pojišťovny?"
+      ],
+      "conditions": [
+        "Postup posuzovat podle země události, konkrétního dopravce nebo poskytovatele služby a verze smlouvy."
+      ],
+      "immediate_steps": [
+        {
+          "text": "Uchovejte rezervaci, jízdenku nebo letenku a zaznamenejte okolnosti narušení cesty.",
+          "requirement_type": "recommended",
+          "evidence_level": "official_insurer",
+          "source_ids": [
+            "CSOB_VPP2021"
+          ],
+          "condition": null
+        },
+        {
+          "text": "Při uplatnění škody z cestovního pojištění doložte podle druhu události důvod zmeškání, dobu zpoždění nebo cenu nevyčerpané služby.",
+          "requirement_type": "recommended",
+          "evidence_level": "official_insurer",
+          "source_ids": [
+            "CSOB_VPP2021"
+          ],
+          "condition": "Pokud podle příslušných podmínek uplatňujete pojištění narušení cesty."
+        }
+      ],
+      "required_documents": [],
+      "recommended_documents": [
+        {
+          "name": "Potvrzení od dopravce nebo poskytovatele služby o narušení cesty, pokud jej lze získat.",
+          "requirement_type": "recommended",
+          "source_ids": [
+            "CSOB_VPP2021"
+          ]
+        }
+      ],
+      "police_involvement": {
+        "status": "not_established",
+        "guidance": "Z dostupných zdrojů nevyplývá jednotná povinnost pořídit policejní protokol právě pro tento scénář.",
+        "source_ids": [],
+        "needs_expert_review": true
+      },
+      "clarifying_questions": [
+        "O jaký druh dopravy a jakého dopravce se jedná?",
+        "Jaké byly plánované a skutečné termíny a co již dopravce potvrdil?"
+      ],
+      "coverage_considerations": [
+        "Ověřit, zda je sjednáno příslušné riziko přerušení cesty, zmeškání odjezdu, storna nebo zpoždění letu.",
+        "U aktuálních webových doporučení je nutné ověřit soulad s verzí pojistných podmínek použitelnou pro smlouvu."
+      ],
+      "escalation_conditions": [
+        "Pokud potřebujete závazné rozhodnutí o krytí, přesný seznam povinných dokladů nebo výjimku z postupu, předejte dotaz pracovníkovi pojišťovny."
+      ],
+      "open_questions_for_expert": [
+        "Potvrdit pro scénář „Hotel zrušil potvrzenou rezervaci“ přesné doklady, použitelné výluky, rozsah asistence a případné povinnosti vůči ČSOB podle sjednaného produktu."
+      ],
+      "sources": [
+        {
+          "source_id": "CSOB_VPP2021",
+          "url": "https://www.csobpoj.cz/documents/10332/5083102/11N9393%2BVPP%2BCP%2B2021_form%C3%A1t%2BA4_CZ_v%C4%8Detn%C4%9B%2Boce%C5%88ovac%C3%ADch%2Btabulek_final_PDF-A.pdf/91a13cf6-8af5-00b8-784b-2f4f65ab34d0?t=1714117917863",
+          "section": "Pokyny pro klienta (strana 2) a jednotlivá ustanovení VPP CP 2021",
+          "last_checked_at": "2026-11-26",
+          "effective_from": "2021-04-01"
+        }
+      ],
+      "source_ids": [
+        "CSOB_VPP2021"
+      ],
+      "evidence_level": "needs_expert_review",
+      "official_scenario_specific_evidence": false,
+      "procedure_completeness": "unresolved",
+      "priority": "P1",
+      "policy_version_check_required": true,
+      "applicable_policy_versions": [],
+      "review_status": "DRAFT",
+      "reviewed_by": null,
+      "last_verified_at": null,
+      "last_public_source_checked_at": "2026-11-26",
+      "approved_at": null,
+      "publication_status": "REVIEW_ONLY",
+      "retrieval_eligible": false,
+      "notes_for_reviewer": "Obecné pokyny od jiných institucí nejsou požadavky ČSOB. Ověřit každou povinnost a datum platnosti."
+    },
+    {
+      "id": "SUP_TRAVEL_016",
+      "document_type": "support_procedure",
+      "schema_version": "1.0",
+      "language": "cs",
+      "category": "travel_disruptions",
+      "title": "Cestovní kancelář zrušila zájezd",
+      "scenario": "Klient řeší situaci: cestovní kancelář zrušila zájezd. Potřebuje praktický, ověřený postup bez předčasného příslibu plnění.",
+      "intent_tag": "tour_cancel",
+      "question_variations": [
+        "Cestovka mi zrušila dovolenou.",
+        "Zájezd se vůbec neuskuteční.",
+        "Kdo mi vrátí peníze?"
+      ],
+      "conditions": [
+        "Postup posuzovat podle země události, konkrétního dopravce nebo poskytovatele služby a verze smlouvy."
+      ],
+      "immediate_steps": [
+        {
+          "text": "Uchovejte rezervaci, jízdenku nebo letenku a zaznamenejte okolnosti narušení cesty.",
+          "requirement_type": "recommended",
+          "evidence_level": "official_insurer",
+          "source_ids": [
+            "CSOB_VPP2021"
+          ],
+          "condition": null
+        },
+        {
+          "text": "Při uplatnění škody z cestovního pojištění doložte podle druhu události důvod zmeškání, dobu zpoždění nebo cenu nevyčerpané služby.",
+          "requirement_type": "recommended",
+          "evidence_level": "official_insurer",
+          "source_ids": [
+            "CSOB_VPP2021"
+          ],
+          "condition": "Pokud podle příslušných podmínek uplatňujete pojištění narušení cesty."
+        }
+      ],
+      "required_documents": [],
+      "recommended_documents": [
+        {
+          "name": "Doklad o odstoupení od cestovní služby a potvrzení důvodu storna podle použitelné pojistné smlouvy.",
+          "requirement_type": "recommended",
+          "source_ids": [
+            "CSOB_VPP2021"
+          ]
+        },
+        {
+          "name": "Potvrzení od dopravce nebo poskytovatele služby o narušení cesty, pokud jej lze získat.",
+          "requirement_type": "recommended",
+          "source_ids": [
+            "CSOB_VPP2021"
+          ]
+        }
+      ],
+      "police_involvement": {
+        "status": "not_established",
+        "guidance": "Z dostupných zdrojů nevyplývá jednotná povinnost pořídit policejní protokol právě pro tento scénář.",
+        "source_ids": [],
+        "needs_expert_review": true
+      },
+      "clarifying_questions": [
+        "O jaký druh dopravy a jakého dopravce se jedná?",
+        "Jaké byly plánované a skutečné termíny a co již dopravce potvrdil?"
+      ],
+      "coverage_considerations": [
+        "Ověřit, zda je sjednáno příslušné riziko přerušení cesty, zmeškání odjezdu, storna nebo zpoždění letu.",
+        "U aktuálních webových doporučení je nutné ověřit soulad s verzí pojistných podmínek použitelnou pro smlouvu."
+      ],
+      "escalation_conditions": [
+        "Pokud potřebujete závazné rozhodnutí o krytí, přesný seznam povinných dokladů nebo výjimku z postupu, předejte dotaz pracovníkovi pojišťovny."
+      ],
+      "open_questions_for_expert": [
+        "Potvrdit pro scénář „Cestovní kancelář zrušila zájezd“ přesné doklady, použitelné výluky, rozsah asistence a případné povinnosti vůči ČSOB podle sjednaného produktu."
+      ],
+      "sources": [
+        {
+          "source_id": "CSOB_VPP2021",
+          "url": "https://www.csobpoj.cz/documents/10332/5083102/11N9393%2BVPP%2BCP%2B2021_form%C3%A1t%2BA4_CZ_v%C4%8Detn%C4%9B%2Boce%C5%88ovac%C3%ADch%2Btabulek_final_PDF-A.pdf/91a13cf6-8af5-00b8-784b-2f4f65ab34d0?t=1714117917863",
+          "section": "Pokyny pro klienta (strana 2) a jednotlivá ustanovení VPP CP 2021",
+          "last_checked_at": "2026-11-26",
+          "effective_from": "2021-04-01"
+        }
+      ],
+      "source_ids": [
+        "CSOB_VPP2021"
+      ],
+      "evidence_level": "needs_expert_review",
+      "official_scenario_specific_evidence": false,
+      "procedure_completeness": "unresolved",
+      "priority": "P1",
+      "policy_version_check_required": true,
+      "applicable_policy_versions": [],
+      "review_status": "DRAFT",
+      "reviewed_by": null,
+      "last_verified_at": null,
+      "last_public_source_checked_at": "2026-11-26",
+      "approved_at": null,
+      "publication_status": "REVIEW_ONLY",
+      "retrieval_eligible": false,
+      "notes_for_reviewer": "Obecné pokyny od jiných institucí nejsou požadavky ČSOB. Ověřit každou povinnost a datum platnosti."
+    },
+    {
+      "id": "SUP_TRAVEL_017",
+      "document_type": "support_procedure",
+      "schema_version": "1.0",
+      "language": "cs",
+      "category": "travel_disruptions",
+      "title": "Přerušení cesty kvůli úrazu",
+      "scenario": "Klient řeší situaci: přerušení cesty kvůli úrazu. Potřebuje praktický, ověřený postup bez předčasného příslibu plnění.",
+      "intent_tag": "trip_interrupt",
+      "question_variations": [
+        "Po úrazu musím ukončit dovolenou.",
+        "Kvůli zranění jedeme předčasně domů.",
+        "Jaké potvrzení budu potřebovat?"
+      ],
+      "conditions": [
+        "Postup posuzovat podle země události, konkrétního dopravce nebo poskytovatele služby a verze smlouvy."
+      ],
+      "immediate_steps": [
+        {
+          "text": "Uchovejte rezervaci, jízdenku nebo letenku a zaznamenejte okolnosti narušení cesty.",
+          "requirement_type": "recommended",
+          "evidence_level": "official_insurer",
+          "source_ids": [
+            "CSOB_VPP2021"
+          ],
+          "condition": null
+        },
+        {
+          "text": "Při uplatnění škody z cestovního pojištění doložte podle druhu události důvod zmeškání, dobu zpoždění nebo cenu nevyčerpané služby.",
+          "requirement_type": "recommended",
+          "evidence_level": "official_insurer",
+          "source_ids": [
+            "CSOB_VPP2021"
+          ],
+          "condition": "Pokud podle příslušných podmínek uplatňujete pojištění narušení cesty."
+        }
+      ],
+      "required_documents": [],
+      "recommended_documents": [
+        {
+          "name": "Potvrzení od dopravce nebo poskytovatele služby o narušení cesty, pokud jej lze získat.",
+          "requirement_type": "recommended",
+          "source_ids": [
+            "CSOB_VPP2021"
+          ]
+        }
+      ],
+      "police_involvement": {
+        "status": "not_established",
+        "guidance": "Z dostupných zdrojů nevyplývá jednotná povinnost pořídit policejní protokol právě pro tento scénář.",
+        "source_ids": [],
+        "needs_expert_review": true
+      },
+      "clarifying_questions": [
+        "O jaký druh dopravy a jakého dopravce se jedná?",
+        "Jaké byly plánované a skutečné termíny a co již dopravce potvrdil?"
+      ],
+      "coverage_considerations": [
+        "Ověřit, zda je sjednáno příslušné riziko přerušení cesty, zmeškání odjezdu, storna nebo zpoždění letu.",
+        "U aktuálních webových doporučení je nutné ověřit soulad s verzí pojistných podmínek použitelnou pro smlouvu."
+      ],
+      "escalation_conditions": [
+        "Pokud potřebujete závazné rozhodnutí o krytí, přesný seznam povinných dokladů nebo výjimku z postupu, předejte dotaz pracovníkovi pojišťovny."
+      ],
+      "open_questions_for_expert": [
+        "Potvrdit pro scénář „Přerušení cesty kvůli úrazu“ přesné doklady, použitelné výluky, rozsah asistence a případné povinnosti vůči ČSOB podle sjednaného produktu."
+      ],
+      "sources": [
+        {
+          "source_id": "CSOB_VPP2021",
+          "url": "https://www.csobpoj.cz/documents/10332/5083102/11N9393%2BVPP%2BCP%2B2021_form%C3%A1t%2BA4_CZ_v%C4%8Detn%C4%9B%2Boce%C5%88ovac%C3%ADch%2Btabulek_final_PDF-A.pdf/91a13cf6-8af5-00b8-784b-2f4f65ab34d0?t=1714117917863",
+          "section": "Pokyny pro klienta (strana 2) a jednotlivá ustanovení VPP CP 2021",
+          "last_checked_at": "2026-11-26",
+          "effective_from": "2021-04-01"
+        }
+      ],
+      "source_ids": [
+        "CSOB_VPP2021"
+      ],
+      "evidence_level": "needs_expert_review",
+      "official_scenario_specific_evidence": false,
+      "procedure_completeness": "unresolved",
+      "priority": "P1",
+      "policy_version_check_required": true,
+      "applicable_policy_versions": [],
+      "review_status": "DRAFT",
+      "reviewed_by": null,
+      "last_verified_at": null,
+      "last_public_source_checked_at": "2026-11-26",
+      "approved_at": null,
+      "publication_status": "REVIEW_ONLY",
+      "retrieval_eligible": false,
+      "notes_for_reviewer": "Obecné pokyny od jiných institucí nejsou požadavky ČSOB. Ověřit každou povinnost a datum platnosti."
+    },
+    {
+      "id": "SUP_TRAVEL_018",
+      "document_type": "support_procedure",
+      "schema_version": "1.0",
+      "language": "cs",
+      "category": "travel_disruptions",
+      "title": "Naléhavý návrat kvůli události v rodině",
+      "scenario": "Klient řeší situaci: naléhavý návrat kvůli události v rodině. Potřebuje praktický, ověřený postup bez předčasného příslibu plnění.",
+      "intent_tag": "urgent_return",
+      "question_variations": [
+        "Musím se hned vrátit domů kvůli rodině.",
+        "Doma se stalo neštěstí, potřebuji přiletět dřív.",
+        "Pomůže mi pojištění s letenkou?"
+      ],
+      "conditions": [
+        "Postup posuzovat podle země události, konkrétního dopravce nebo poskytovatele služby a verze smlouvy."
+      ],
+      "immediate_steps": [
+        {
+          "text": "Uchovejte rezervaci, jízdenku nebo letenku a zaznamenejte okolnosti narušení cesty.",
+          "requirement_type": "recommended",
+          "evidence_level": "official_insurer",
+          "source_ids": [
+            "CSOB_VPP2021"
+          ],
+          "condition": null
+        },
+        {
+          "text": "Při uplatnění škody z cestovního pojištění doložte podle druhu události důvod zmeškání, dobu zpoždění nebo cenu nevyčerpané služby.",
+          "requirement_type": "recommended",
+          "evidence_level": "official_insurer",
+          "source_ids": [
+            "CSOB_VPP2021"
+          ],
+          "condition": "Pokud podle příslušných podmínek uplatňujete pojištění narušení cesty."
+        }
+      ],
+      "required_documents": [],
+      "recommended_documents": [
+        {
+          "name": "Potvrzení od dopravce nebo poskytovatele služby o narušení cesty, pokud jej lze získat.",
+          "requirement_type": "recommended",
+          "source_ids": [
+            "CSOB_VPP2021"
+          ]
+        }
+      ],
+      "police_involvement": {
+        "status": "not_established",
+        "guidance": "Z dostupných zdrojů nevyplývá jednotná povinnost pořídit policejní protokol právě pro tento scénář.",
+        "source_ids": [],
+        "needs_expert_review": true
+      },
+      "clarifying_questions": [
+        "O jaký druh dopravy a jakého dopravce se jedná?",
+        "Jaké byly plánované a skutečné termíny a co již dopravce potvrdil?"
+      ],
+      "coverage_considerations": [
+        "Ověřit, zda je sjednáno příslušné riziko přerušení cesty, zmeškání odjezdu, storna nebo zpoždění letu.",
+        "U aktuálních webových doporučení je nutné ověřit soulad s verzí pojistných podmínek použitelnou pro smlouvu."
+      ],
+      "escalation_conditions": [
+        "Pokud potřebujete závazné rozhodnutí o krytí, přesný seznam povinných dokladů nebo výjimku z postupu, předejte dotaz pracovníkovi pojišťovny."
+      ],
+      "open_questions_for_expert": [
+        "Potvrdit pro scénář „Naléhavý návrat kvůli události v rodině“ přesné doklady, použitelné výluky, rozsah asistence a případné povinnosti vůči ČSOB podle sjednaného produktu."
+      ],
+      "sources": [
+        {
+          "source_id": "CSOB_VPP2021",
+          "url": "https://www.csobpoj.cz/documents/10332/5083102/11N9393%2BVPP%2BCP%2B2021_form%C3%A1t%2BA4_CZ_v%C4%8Detn%C4%9B%2Boce%C5%88ovac%C3%ADch%2Btabulek_final_PDF-A.pdf/91a13cf6-8af5-00b8-784b-2f4f65ab34d0?t=1714117917863",
+          "section": "Pokyny pro klienta (strana 2) a jednotlivá ustanovení VPP CP 2021",
+          "last_checked_at": "2026-11-26",
+          "effective_from": "2021-04-01"
+        }
+      ],
+      "source_ids": [
+        "CSOB_VPP2021"
+      ],
+      "evidence_level": "needs_expert_review",
+      "official_scenario_specific_evidence": false,
+      "procedure_completeness": "unresolved",
+      "priority": "P1",
+      "policy_version_check_required": true,
+      "applicable_policy_versions": [],
+      "review_status": "DRAFT",
+      "reviewed_by": null,
+      "last_verified_at": null,
+      "last_public_source_checked_at": "2026-11-26",
+      "approved_at": null,
+      "publication_status": "REVIEW_ONLY",
+      "retrieval_eligible": false,
+      "notes_for_reviewer": "Obecné pokyny od jiných institucí nejsou požadavky ČSOB. Ověřit každou povinnost a datum platnosti."
+    },
+    {
+      "id": "SUP_TRAVEL_019",
+      "document_type": "support_procedure",
+      "schema_version": "1.0",
+      "language": "cs",
+      "category": "travel_disruptions",
+      "title": "Ztráta českého cestovního pasu v zahraničí",
+      "scenario": "Klient řeší situaci: ztráta českého cestovního pasu v zahraničí. Potřebuje praktický, ověřený postup bez předčasného příslibu plnění.",
+      "intent_tag": "lost_passport_cz",
+      "question_variations": [
+        "Ztratil jsem český pas v zahraničí.",
+        "Nemám občanku ani pas, jak se dostanu domů?",
+        "Kde vydají náhradní doklad?"
+      ],
+      "conditions": [
+        "Postup posuzovat podle země události, konkrétního dopravce nebo poskytovatele služby a verze smlouvy."
+      ],
+      "immediate_steps": [
+        {
+          "text": "Uchovejte rezervaci, jízdenku nebo letenku a zaznamenejte okolnosti narušení cesty.",
+          "requirement_type": "recommended",
+          "evidence_level": "official_insurer",
+          "source_ids": [
+            "CSOB_VPP2021"
+          ],
+          "condition": null
+        },
+        {
+          "text": "Při uplatnění škody z cestovního pojištění doložte podle druhu události důvod zmeškání, dobu zpoždění nebo cenu nevyčerpané služby.",
+          "requirement_type": "recommended",
+          "evidence_level": "official_insurer",
+          "source_ids": [
+            "CSOB_VPP2021"
+          ],
+          "condition": "Pokud podle příslušných podmínek uplatňujete pojištění narušení cesty."
+        },
+        {
+          "text": "Občan ČR oznámí ztrátu dokladu českému zastupitelskému úřadu nebo příslušnému orgánu v ČR; místní policejní hlášení MZV doporučuje, ale obecně jej neoznačuje za povinné.",
+          "requirement_type": "recommended",
+          "evidence_level": "general_guidance",
+          "source_ids": [
+            "MZV_PASSPORT"
+          ],
+          "condition": "Jde o cestovní doklad občana ČR."
+        },
+        {
+          "text": "Pokud občan ČR potřebuje naléhavě cestovat, může požádat český zastupitelský úřad o cestovní průkaz.",
+          "requirement_type": "recommended",
+          "evidence_level": "general_guidance",
+          "source_ids": [
+            "MZV_PASSPORT"
+          ],
+          "condition": null
+        }
+      ],
+      "required_documents": [
+        {
+          "name": "K vydání českého cestovního průkazu se předkládají předepsané fotografie, formulář a doklady potřebné k ověření totožnosti a občanství.",
+          "requirement_type": "administrative_requirement",
+          "source_ids": [
+            "MZV_PASSPORT"
+          ]
+        }
+      ],
+      "recommended_documents": [],
+      "police_involvement": {
+        "status": "recommended_by_MZV_for_CZ_citizens",
+        "guidance": "MZV místní policejní hlášení ztráty českého dokladu doporučuje, nikoliv obecně nařizuje.",
+        "source_ids": [
+          "MZV_PASSPORT"
+        ],
+        "needs_expert_review": false
+      },
+      "clarifying_questions": [
+        "O jaký druh dopravy a jakého dopravce se jedná?",
+        "Jaké byly plánované a skutečné termíny a co již dopravce potvrdil?",
+        "Máte české občanství a nějaký jiný platný cestovní doklad?"
+      ],
+      "coverage_considerations": [
+        "Ověřit, zda je sjednáno příslušné riziko přerušení cesty, zmeškání odjezdu, storna nebo zpoždění letu.",
+        "U aktuálních webových doporučení je nutné ověřit soulad s verzí pojistných podmínek použitelnou pro smlouvu."
+      ],
+      "escalation_conditions": [
+        "Při bezprostředním nebezpečí nebo závažném zdravotním stavu má přednost přivolání místní pomoci.",
+        "Pokud potřebujete závazné rozhodnutí o krytí, přesný seznam povinných dokladů nebo výjimku z postupu, předejte dotaz pracovníkovi pojišťovny."
+      ],
+      "open_questions_for_expert": [
+        "Potvrdit pro scénář „Ztráta českého cestovního pasu v zahraničí“ přesné doklady, použitelné výluky, rozsah asistence a případné povinnosti vůči ČSOB podle sjednaného produktu."
+      ],
+      "sources": [
+        {
+          "source_id": "MZV_PASSPORT",
+          "url": "https://mzv.gov.cz/jnp/cz/cestujeme/jak_resit_situace_v_zahranici/ztrata_nebo_odcizeni_cestovnich_dokladu.html",
+          "section": "Ztráta nebo odcizení cestovních dokladů",
+          "last_checked_at": "2026-11-26",
+          "effective_from": null
+        },
+        {
+          "source_id": "CSOB_VPP2021",
+          "url": "https://www.csobpoj.cz/documents/10332/5083102/11N9393%2BVPP%2BCP%2B2021_form%C3%A1t%2BA4_CZ_v%C4%8Detn%C4%9B%2Boce%C5%88ovac%C3%ADch%2Btabulek_final_PDF-A.pdf/91a13cf6-8af5-00b8-784b-2f4f65ab34d0?t=1714117917863",
+          "section": "Pokyny pro klienta (strana 2) a jednotlivá ustanovení VPP CP 2021",
+          "last_checked_at": "2026-11-26",
+          "effective_from": "2021-04-01"
+        }
+      ],
+      "source_ids": [
+        "MZV_PASSPORT",
+        "CSOB_VPP2021"
+      ],
+      "evidence_level": "general_guidance",
+      "official_scenario_specific_evidence": false,
+      "procedure_completeness": "unresolved",
+      "priority": "P0",
+      "policy_version_check_required": true,
+      "applicable_policy_versions": [],
+      "review_status": "DRAFT",
+      "reviewed_by": null,
+      "last_verified_at": null,
+      "last_public_source_checked_at": "2026-11-26",
+      "approved_at": null,
+      "publication_status": "REVIEW_ONLY",
+      "retrieval_eligible": false,
+      "notes_for_reviewer": "Obecné pokyny od jiných institucí nejsou požadavky ČSOB. Ověřit každou povinnost a datum platnosti."
+    },
+    {
+      "id": "SUP_TRAVEL_020",
+      "document_type": "support_procedure",
+      "schema_version": "1.0",
+      "language": "cs",
+      "category": "travel_disruptions",
+      "title": "Ztráta pasu občana jiné země",
+      "scenario": "Klient řeší situaci: ztráta pasu občana jiné země. Potřebuje praktický, ověřený postup bez předčasného příslibu plnění.",
+      "intent_tag": "lost_passport_other",
+      "question_variations": [
+        "Ztratil jsem pas, ale nejsem občan ČR.",
+        "Nemám kazachstánský pas v cizině.",
+        "Může mi česká ambasáda vydat nový?"
+      ],
+      "conditions": [
+        "Postup posuzovat podle země události, konkrétního dopravce nebo poskytovatele služby a verze smlouvy."
+      ],
+      "immediate_steps": [
+        {
+          "text": "Uchovejte rezervaci, jízdenku nebo letenku a zaznamenejte okolnosti narušení cesty.",
+          "requirement_type": "recommended",
+          "evidence_level": "official_insurer",
+          "source_ids": [
+            "CSOB_VPP2021"
+          ],
+          "condition": null
+        },
+        {
+          "text": "Při uplatnění škody z cestovního pojištění doložte podle druhu události důvod zmeškání, dobu zpoždění nebo cenu nevyčerpané služby.",
+          "requirement_type": "recommended",
+          "evidence_level": "official_insurer",
+          "source_ids": [
+            "CSOB_VPP2021"
+          ],
+          "condition": "Pokud podle příslušných podmínek uplatňujete pojištění narušení cesty."
+        }
+      ],
+      "required_documents": [],
+      "recommended_documents": [],
+      "police_involvement": {
+        "status": "not_established",
+        "guidance": "Z dostupných zdrojů nevyplývá jednotná povinnost pořídit policejní protokol právě pro tento scénář.",
+        "source_ids": [],
+        "needs_expert_review": true
+      },
+      "clarifying_questions": [
+        "O jaký druh dopravy a jakého dopravce se jedná?",
+        "Jaké byly plánované a skutečné termíny a co již dopravce potvrdil?",
+        "Jaké máte občanství a v jaké zemi se nacházíte?"
+      ],
+      "coverage_considerations": [
+        "Ověřit, zda je sjednáno příslušné riziko přerušení cesty, zmeškání odjezdu, storna nebo zpoždění letu.",
+        "U aktuálních webových doporučení je nutné ověřit soulad s verzí pojistných podmínek použitelnou pro smlouvu."
+      ],
+      "escalation_conditions": [
+        "Situace vyžaduje individuální posouzení odborným pracovníkem; neslibujte pojistné plnění ani konkrétní výjimku.",
+        "Při bezprostředním nebezpečí nebo závažném zdravotním stavu má přednost přivolání místní pomoci.",
+        "Pokud potřebujete závazné rozhodnutí o krytí, přesný seznam povinných dokladů nebo výjimku z postupu, předejte dotaz pracovníkovi pojišťovny."
+      ],
+      "open_questions_for_expert": [
+        "Zpracovat postup podle státního občanství klienta; český náhradní cestovní průkaz nelze slibovat cizím státním příslušníkům."
+      ],
+      "sources": [
+        {
+          "source_id": "MZV_PASSPORT",
+          "url": "https://mzv.gov.cz/jnp/cz/cestujeme/jak_resit_situace_v_zahranici/ztrata_nebo_odcizeni_cestovnich_dokladu.html",
+          "section": "Ztráta nebo odcizení cestovních dokladů",
+          "last_checked_at": "2026-11-26",
+          "effective_from": null
+        },
+        {
+          "source_id": "CSOB_VPP2021",
+          "url": "https://www.csobpoj.cz/documents/10332/5083102/11N9393%2BVPP%2BCP%2B2021_form%C3%A1t%2BA4_CZ_v%C4%8Detn%C4%9B%2Boce%C5%88ovac%C3%ADch%2Btabulek_final_PDF-A.pdf/91a13cf6-8af5-00b8-784b-2f4f65ab34d0?t=1714117917863",
+          "section": "Pokyny pro klienta (strana 2) a jednotlivá ustanovení VPP CP 2021",
+          "last_checked_at": "2026-11-26",
+          "effective_from": "2021-04-01"
+        }
+      ],
+      "source_ids": [
+        "MZV_PASSPORT",
+        "CSOB_VPP2021"
+      ],
+      "evidence_level": "general_guidance",
+      "official_scenario_specific_evidence": false,
+      "procedure_completeness": "unresolved",
+      "priority": "P0",
+      "policy_version_check_required": true,
+      "applicable_policy_versions": [],
+      "review_status": "DRAFT",
+      "reviewed_by": null,
+      "last_verified_at": null,
+      "last_public_source_checked_at": "2026-11-26",
+      "approved_at": null,
+      "publication_status": "REVIEW_ONLY",
+      "retrieval_eligible": false,
+      "notes_for_reviewer": "Obecné pokyny od jiných institucí nejsou požadavky ČSOB. Ověřit každou povinnost a datum platnosti."
+    },
+    {
+      "id": "SUP_TRAVEL_021",
+      "document_type": "support_procedure",
+      "schema_version": "1.0",
+      "language": "cs",
+      "category": "travel_disruptions",
+      "title": "Zamítnuté vízum před odjezdem",
+      "scenario": "Klient řeší situaci: zamítnuté vízum před odjezdem. Potřebuje praktický, ověřený postup bez předčasného příslibu plnění.",
+      "intent_tag": "visa_rejected",
+      "question_variations": [
+        "Nedostal jsem vízum a zájezd je zaplacený.",
+        "Kvůli vízu nemůžu na dovolenou.",
+        "Kryje to pojištění storna?"
+      ],
+      "conditions": [
+        "Postup posuzovat podle země události, konkrétního dopravce nebo poskytovatele služby a verze smlouvy."
+      ],
+      "immediate_steps": [
+        {
+          "text": "Uchovejte rezervaci, jízdenku nebo letenku a zaznamenejte okolnosti narušení cesty.",
+          "requirement_type": "recommended",
+          "evidence_level": "official_insurer",
+          "source_ids": [
+            "CSOB_VPP2021"
+          ],
+          "condition": null
+        },
+        {
+          "text": "Při uplatnění škody z cestovního pojištění doložte podle druhu události důvod zmeškání, dobu zpoždění nebo cenu nevyčerpané služby.",
+          "requirement_type": "recommended",
+          "evidence_level": "official_insurer",
+          "source_ids": [
+            "CSOB_VPP2021"
+          ],
+          "condition": "Pokud podle příslušných podmínek uplatňujete pojištění narušení cesty."
+        }
+      ],
+      "required_documents": [],
+      "recommended_documents": [
+        {
+          "name": "Potvrzení od dopravce nebo poskytovatele služby o narušení cesty, pokud jej lze získat.",
+          "requirement_type": "recommended",
+          "source_ids": [
+            "CSOB_VPP2021"
+          ]
+        }
+      ],
+      "police_involvement": {
+        "status": "not_established",
+        "guidance": "Z dostupných zdrojů nevyplývá jednotná povinnost pořídit policejní protokol právě pro tento scénář.",
+        "source_ids": [],
+        "needs_expert_review": true
+      },
+      "clarifying_questions": [
+        "O jaký druh dopravy a jakého dopravce se jedná?",
+        "Jaké byly plánované a skutečné termíny a co již dopravce potvrdil?"
+      ],
+      "coverage_considerations": [
+        "Ověřit, zda je sjednáno příslušné riziko přerušení cesty, zmeškání odjezdu, storna nebo zpoždění letu.",
+        "U aktuálních webových doporučení je nutné ověřit soulad s verzí pojistných podmínek použitelnou pro smlouvu."
+      ],
+      "escalation_conditions": [
+        "Pokud potřebujete závazné rozhodnutí o krytí, přesný seznam povinných dokladů nebo výjimku z postupu, předejte dotaz pracovníkovi pojišťovny."
+      ],
+      "open_questions_for_expert": [
+        "Potvrdit pro scénář „Zamítnuté vízum před odjezdem“ přesné doklady, použitelné výluky, rozsah asistence a případné povinnosti vůči ČSOB podle sjednaného produktu."
+      ],
+      "sources": [
+        {
+          "source_id": "CSOB_VPP2021",
+          "url": "https://www.csobpoj.cz/documents/10332/5083102/11N9393%2BVPP%2BCP%2B2021_form%C3%A1t%2BA4_CZ_v%C4%8Detn%C4%9B%2Boce%C5%88ovac%C3%ADch%2Btabulek_final_PDF-A.pdf/91a13cf6-8af5-00b8-784b-2f4f65ab34d0?t=1714117917863",
+          "section": "Pokyny pro klienta (strana 2) a jednotlivá ustanovení VPP CP 2021",
+          "last_checked_at": "2026-11-26",
+          "effective_from": "2021-04-01"
+        }
+      ],
+      "source_ids": [
+        "CSOB_VPP2021"
+      ],
+      "evidence_level": "needs_expert_review",
+      "official_scenario_specific_evidence": false,
+      "procedure_completeness": "unresolved",
+      "priority": "P1",
+      "policy_version_check_required": true,
+      "applicable_policy_versions": [],
+      "review_status": "DRAFT",
+      "reviewed_by": null,
+      "last_verified_at": null,
+      "last_public_source_checked_at": "2026-11-26",
+      "approved_at": null,
+      "publication_status": "REVIEW_ONLY",
+      "retrieval_eligible": false,
+      "notes_for_reviewer": "Obecné pokyny od jiných institucí nejsou požadavky ČSOB. Ověřit každou povinnost a datum platnosti."
+    },
+    {
+      "id": "SUP_TRAVEL_022",
+      "document_type": "support_procedure",
+      "schema_version": "1.0",
+      "language": "cs",
+      "category": "travel_disruptions",
+      "title": "Zmeškaný odjezd kvůli dopravní zácpě",
+      "scenario": "Klient řeší situaci: zmeškaný odjezd kvůli dopravní zácpě. Potřebuje praktický, ověřený postup bez předčasného příslibu plnění.",
+      "intent_tag": "missed_own",
+      "question_variations": [
+        "Stál jsem v koloně a nestihl odlet.",
+        "Kvůli zácpě jsem nestihl odjezd.",
+        "Jak doložit situaci?"
+      ],
+      "conditions": [
+        "Postup posuzovat podle země události, konkrétního dopravce nebo poskytovatele služby a verze smlouvy."
+      ],
+      "immediate_steps": [
+        {
+          "text": "Uchovejte rezervaci, jízdenku nebo letenku a zaznamenejte okolnosti narušení cesty.",
+          "requirement_type": "recommended",
+          "evidence_level": "official_insurer",
+          "source_ids": [
+            "CSOB_VPP2021"
+          ],
+          "condition": null
+        },
+        {
+          "text": "Při uplatnění škody z cestovního pojištění doložte podle druhu události důvod zmeškání, dobu zpoždění nebo cenu nevyčerpané služby.",
+          "requirement_type": "recommended",
+          "evidence_level": "official_insurer",
+          "source_ids": [
+            "CSOB_VPP2021"
+          ],
+          "condition": "Pokud podle příslušných podmínek uplatňujete pojištění narušení cesty."
+        }
+      ],
+      "required_documents": [],
+      "recommended_documents": [
+        {
+          "name": "Potvrzení od dopravce nebo poskytovatele služby o narušení cesty, pokud jej lze získat.",
+          "requirement_type": "recommended",
+          "source_ids": [
+            "CSOB_VPP2021"
+          ]
+        }
+      ],
+      "police_involvement": {
+        "status": "not_established",
+        "guidance": "Z dostupných zdrojů nevyplývá jednotná povinnost pořídit policejní protokol právě pro tento scénář.",
+        "source_ids": [],
+        "needs_expert_review": true
+      },
+      "clarifying_questions": [
+        "O jaký druh dopravy a jakého dopravce se jedná?",
+        "Jaké byly plánované a skutečné termíny a co již dopravce potvrdil?"
+      ],
+      "coverage_considerations": [
+        "Ověřit, zda je sjednáno příslušné riziko přerušení cesty, zmeškání odjezdu, storna nebo zpoždění letu.",
+        "U aktuálních webových doporučení je nutné ověřit soulad s verzí pojistných podmínek použitelnou pro smlouvu."
+      ],
+      "escalation_conditions": [
+        "Pokud potřebujete závazné rozhodnutí o krytí, přesný seznam povinných dokladů nebo výjimku z postupu, předejte dotaz pracovníkovi pojišťovny."
+      ],
+      "open_questions_for_expert": [
+        "Potvrdit pro scénář „Zmeškaný odjezd kvůli dopravní zácpě“ přesné doklady, použitelné výluky, rozsah asistence a případné povinnosti vůči ČSOB podle sjednaného produktu."
+      ],
+      "sources": [
+        {
+          "source_id": "CSOB_VPP2021",
+          "url": "https://www.csobpoj.cz/documents/10332/5083102/11N9393%2BVPP%2BCP%2B2021_form%C3%A1t%2BA4_CZ_v%C4%8Detn%C4%9B%2Boce%C5%88ovac%C3%ADch%2Btabulek_final_PDF-A.pdf/91a13cf6-8af5-00b8-784b-2f4f65ab34d0?t=1714117917863",
+          "section": "Pokyny pro klienta (strana 2) a jednotlivá ustanovení VPP CP 2021",
+          "last_checked_at": "2026-11-26",
+          "effective_from": "2021-04-01"
+        }
+      ],
+      "source_ids": [
+        "CSOB_VPP2021"
+      ],
+      "evidence_level": "needs_expert_review",
+      "official_scenario_specific_evidence": false,
+      "procedure_completeness": "unresolved",
+      "priority": "P1",
+      "policy_version_check_required": true,
+      "applicable_policy_versions": [],
+      "review_status": "DRAFT",
+      "reviewed_by": null,
+      "last_verified_at": null,
+      "last_public_source_checked_at": "2026-11-26",
+      "approved_at": null,
+      "publication_status": "REVIEW_ONLY",
+      "retrieval_eligible": false,
+      "notes_for_reviewer": "Obecné pokyny od jiných institucí nejsou požadavky ČSOB. Ověřit každou povinnost a datum platnosti."
+    },
+    {
+      "id": "SUP_TRAVEL_023",
+      "document_type": "support_procedure",
+      "schema_version": "1.0",
+      "language": "cs",
+      "category": "travel_disruptions",
+      "title": "Přesměrování letu na jiné letiště",
+      "scenario": "Klient řeší situaci: přesměrování letu na jiné letiště. Potřebuje praktický, ověřený postup bez předčasného příslibu plnění.",
+      "intent_tag": "air_redirect",
+      "question_variations": [
+        "Letadlo přistálo na jiném letišti.",
+        "Přesměrovali nás mimo cílové město.",
+        "Kdo platí dopravu do cíle?"
+      ],
+      "conditions": [
+        "Postup posuzovat podle země události, konkrétního dopravce nebo poskytovatele služby a verze smlouvy."
+      ],
+      "immediate_steps": [
+        {
+          "text": "Uchovejte rezervaci, jízdenku nebo letenku a zaznamenejte okolnosti narušení cesty.",
+          "requirement_type": "recommended",
+          "evidence_level": "official_insurer",
+          "source_ids": [
+            "CSOB_VPP2021"
+          ],
+          "condition": null
+        },
+        {
+          "text": "Při uplatnění škody z cestovního pojištění doložte podle druhu události důvod zmeškání, dobu zpoždění nebo cenu nevyčerpané služby.",
+          "requirement_type": "recommended",
+          "evidence_level": "official_insurer",
+          "source_ids": [
+            "CSOB_VPP2021"
+          ],
+          "condition": "Pokud podle příslušných podmínek uplatňujete pojištění narušení cesty."
+        },
+        {
+          "text": "Obraťte se na provozující leteckou společnost a požádejte o informace o náhradním spojení či pomoci podle příslušných pravidel.",
+          "requirement_type": "recommended",
+          "evidence_level": "general_guidance",
+          "source_ids": [
+            "EU_AIR"
+          ],
+          "condition": null
+        }
+      ],
+      "required_documents": [],
+      "recommended_documents": [
+        {
+          "name": "Potvrzení od dopravce nebo poskytovatele služby o narušení cesty, pokud jej lze získat.",
+          "requirement_type": "recommended",
+          "source_ids": [
+            "CSOB_VPP2021"
+          ]
+        }
+      ],
+      "police_involvement": {
+        "status": "not_established",
+        "guidance": "Z dostupných zdrojů nevyplývá jednotná povinnost pořídit policejní protokol právě pro tento scénář.",
+        "source_ids": [],
+        "needs_expert_review": true
+      },
+      "clarifying_questions": [
+        "O jaký druh dopravy a jakého dopravce se jedná?",
+        "Jaké byly plánované a skutečné termíny a co již dopravce potvrdil?"
+      ],
+      "coverage_considerations": [
+        "Ověřit, zda je sjednáno příslušné riziko přerušení cesty, zmeškání odjezdu, storna nebo zpoždění letu.",
+        "U aktuálních webových doporučení je nutné ověřit soulad s verzí pojistných podmínek použitelnou pro smlouvu."
+      ],
+      "escalation_conditions": [
+        "Pokud potřebujete závazné rozhodnutí o krytí, přesný seznam povinných dokladů nebo výjimku z postupu, předejte dotaz pracovníkovi pojišťovny."
+      ],
+      "open_questions_for_expert": [
+        "Potvrdit pro scénář „Přesměrování letu na jiné letiště“ přesné doklady, použitelné výluky, rozsah asistence a případné povinnosti vůči ČSOB podle sjednaného produktu."
+      ],
+      "sources": [
+        {
+          "source_id": "EU_AIR",
+          "url": "https://europa.eu/youreurope/citizens/travel/passenger-rights/air/index_cs.htm",
+          "section": "Práva cestujících; Zpoždění, zrušení a zavazadla",
+          "last_checked_at": "2026-11-26",
+          "effective_from": null
+        },
+        {
+          "source_id": "CSOB_VPP2021",
+          "url": "https://www.csobpoj.cz/documents/10332/5083102/11N9393%2BVPP%2BCP%2B2021_form%C3%A1t%2BA4_CZ_v%C4%8Detn%C4%9B%2Boce%C5%88ovac%C3%ADch%2Btabulek_final_PDF-A.pdf/91a13cf6-8af5-00b8-784b-2f4f65ab34d0?t=1714117917863",
+          "section": "Pokyny pro klienta (strana 2) a jednotlivá ustanovení VPP CP 2021",
+          "last_checked_at": "2026-11-26",
+          "effective_from": "2021-04-01"
+        }
+      ],
+      "source_ids": [
+        "EU_AIR",
+        "CSOB_VPP2021"
+      ],
+      "evidence_level": "needs_expert_review",
+      "official_scenario_specific_evidence": false,
+      "procedure_completeness": "unresolved",
+      "priority": "P1",
+      "policy_version_check_required": true,
+      "applicable_policy_versions": [],
+      "review_status": "DRAFT",
+      "reviewed_by": null,
+      "last_verified_at": null,
+      "last_public_source_checked_at": "2026-11-26",
+      "approved_at": null,
+      "publication_status": "REVIEW_ONLY",
+      "retrieval_eligible": false,
+      "notes_for_reviewer": "Obecné pokyny od jiných institucí nejsou požadavky ČSOB. Ověřit každou povinnost a datum platnosti."
+    },
+    {
+      "id": "SUP_TRAVEL_024",
+      "document_type": "support_procedure",
+      "schema_version": "1.0",
+      "language": "cs",
+      "category": "travel_disruptions",
+      "title": "Nenabídnutá náhradní cesta",
+      "scenario": "Klient řeší situaci: nenabídnutá náhradní cesta. Potřebuje praktický, ověřený postup bez předčasného příslibu plnění.",
+      "intent_tag": "air_cancel",
+      "question_variations": [
+        "Dopravce mi po zrušení nic nenabídl.",
+        "Zůstali jsme na letišti bez náhradního letu.",
+        "Jak se domáhat pomoci?"
+      ],
+      "conditions": [
+        "Postup posuzovat podle země události, konkrétního dopravce nebo poskytovatele služby a verze smlouvy."
+      ],
+      "immediate_steps": [
+        {
+          "text": "Uchovejte rezervaci, jízdenku nebo letenku a zaznamenejte okolnosti narušení cesty.",
+          "requirement_type": "recommended",
+          "evidence_level": "official_insurer",
+          "source_ids": [
+            "CSOB_VPP2021"
+          ],
+          "condition": null
+        },
+        {
+          "text": "Při uplatnění škody z cestovního pojištění doložte podle druhu události důvod zmeškání, dobu zpoždění nebo cenu nevyčerpané služby.",
+          "requirement_type": "recommended",
+          "evidence_level": "official_insurer",
+          "source_ids": [
+            "CSOB_VPP2021"
+          ],
+          "condition": "Pokud podle příslušných podmínek uplatňujete pojištění narušení cesty."
+        },
+        {
+          "text": "Obraťte se na provozující leteckou společnost a požádejte o informace o náhradním spojení či pomoci podle příslušných pravidel.",
+          "requirement_type": "recommended",
+          "evidence_level": "general_guidance",
+          "source_ids": [
+            "EU_AIR"
+          ],
+          "condition": null
+        }
+      ],
+      "required_documents": [],
+      "recommended_documents": [
+        {
+          "name": "Potvrzení od dopravce nebo poskytovatele služby o narušení cesty, pokud jej lze získat.",
+          "requirement_type": "recommended",
+          "source_ids": [
+            "CSOB_VPP2021"
+          ]
+        }
+      ],
+      "police_involvement": {
+        "status": "not_established",
+        "guidance": "Z dostupných zdrojů nevyplývá jednotná povinnost pořídit policejní protokol právě pro tento scénář.",
+        "source_ids": [],
+        "needs_expert_review": true
+      },
+      "clarifying_questions": [
+        "O jaký druh dopravy a jakého dopravce se jedná?",
+        "Jaké byly plánované a skutečné termíny a co již dopravce potvrdil?"
+      ],
+      "coverage_considerations": [
+        "Ověřit, zda je sjednáno příslušné riziko přerušení cesty, zmeškání odjezdu, storna nebo zpoždění letu.",
+        "U aktuálních webových doporučení je nutné ověřit soulad s verzí pojistných podmínek použitelnou pro smlouvu."
+      ],
+      "escalation_conditions": [
+        "Pokud potřebujete závazné rozhodnutí o krytí, přesný seznam povinných dokladů nebo výjimku z postupu, předejte dotaz pracovníkovi pojišťovny."
+      ],
+      "open_questions_for_expert": [
+        "Potvrdit pro scénář „Nenabídnutá náhradní cesta“ přesné doklady, použitelné výluky, rozsah asistence a případné povinnosti vůči ČSOB podle sjednaného produktu."
+      ],
+      "sources": [
+        {
+          "source_id": "EU_AIR",
+          "url": "https://europa.eu/youreurope/citizens/travel/passenger-rights/air/index_cs.htm",
+          "section": "Práva cestujících; Zpoždění, zrušení a zavazadla",
+          "last_checked_at": "2026-11-26",
+          "effective_from": null
+        },
+        {
+          "source_id": "CSOB_VPP2021",
+          "url": "https://www.csobpoj.cz/documents/10332/5083102/11N9393%2BVPP%2BCP%2B2021_form%C3%A1t%2BA4_CZ_v%C4%8Detn%C4%9B%2Boce%C5%88ovac%C3%ADch%2Btabulek_final_PDF-A.pdf/91a13cf6-8af5-00b8-784b-2f4f65ab34d0?t=1714117917863",
+          "section": "Pokyny pro klienta (strana 2) a jednotlivá ustanovení VPP CP 2021",
+          "last_checked_at": "2026-11-26",
+          "effective_from": "2021-04-01"
+        }
+      ],
+      "source_ids": [
+        "EU_AIR",
+        "CSOB_VPP2021"
+      ],
+      "evidence_level": "general_guidance",
+      "official_scenario_specific_evidence": false,
+      "procedure_completeness": "unresolved",
+      "priority": "P1",
+      "policy_version_check_required": true,
+      "applicable_policy_versions": [],
+      "review_status": "DRAFT",
+      "reviewed_by": null,
+      "last_verified_at": null,
+      "last_public_source_checked_at": "2026-11-26",
+      "approved_at": null,
+      "publication_status": "REVIEW_ONLY",
+      "retrieval_eligible": false,
+      "notes_for_reviewer": "Obecné pokyny od jiných institucí nejsou požadavky ČSOB. Ověřit každou povinnost a datum platnosti."
+    }
+  ]
+}

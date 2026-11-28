@@ -1,6 +1,7 @@
 from app.schemas.task_result import (
     PolicyTaskContent,
     RetrievalTaskContent,
+    SupportTaskContent,
     TaskResult,
 )
 from app.schemas.task_routing import TaskTarget
@@ -44,6 +45,14 @@ class ContextBuilder:
                     )
                 )
 
+            elif result.target == TaskTarget.SUPPORT:
+                sections.append(
+                    self._build_support_context(
+                        task_type=result.task_type.value,
+                        content=result.content,
+                    )
+                )
+
             else:
                 raise ValueError(
                     "Unsupported task result target: "
@@ -51,6 +60,40 @@ class ContextBuilder:
                 )
 
         return "\n\n".join(sections)
+
+    def _build_support_context(
+        self,
+        *,
+        task_type: str,
+        content: SupportTaskContent,
+    ) -> str:
+        lines = ["[SUPPORT GUIDANCE]", f"[TASK: {task_type}]"]
+        for unit in content.units:
+            lines.extend(["", f"Procedure: {unit.title}", f"Scenario: {unit.scenario}"])
+            if unit.review_status:
+                lines.append(f"Review status: {unit.review_status}")
+            if unit.conditions:
+                lines.append("Conditions: " + "; ".join(unit.conditions))
+            if unit.immediate_steps:
+                steps = (
+                    [step.text + (f" (only when {step.condition})" if step.condition else "")
+                     for step in unit.steps]
+                    if unit.steps else unit.immediate_steps
+                )
+                lines.append("Steps: " + "; ".join(steps))
+            if unit.required_documents:
+                lines.append("Required documents: " + "; ".join(unit.required_documents))
+            if unit.recommended_documents:
+                lines.append("Recommended documents: " + "; ".join(unit.recommended_documents))
+            if unit.applicability:
+                lines.append("Applicability: " + "; ".join(unit.applicability))
+            if unit.provenance:
+                lines.append("Provenance: " + "; ".join(unit.provenance))
+            if unit.escalation_guidance:
+                lines.append("Escalation: " + "; ".join(unit.escalation_guidance))
+            if unit.coverage_considerations:
+                lines.append("Coverage cautions: " + "; ".join(unit.coverage_considerations))
+        return "\n".join(lines)
 
     # ========================================================
     # POLICY

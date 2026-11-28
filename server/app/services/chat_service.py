@@ -3,7 +3,9 @@ import time
 import asyncio
 import uuid
 import json
+from datetime import date
 
+from app.core.config import settings
 from app.models import ConversationRole
 from app.schemas.query_plan import TaskType
 from app.services.conversation_service import ConversationService
@@ -12,7 +14,7 @@ from sqlalchemy.orm import Session
 
 from app.schemas.policy import PolicyDetailsResponse
 from app.schemas.safety import SafetyRoute
-from app.schemas.task_result import TaskResult, RetrievalTaskContent, RetrievedChunk, PolicyTaskContent
+from app.schemas.task_result import TaskResult, RetrievalTaskContent, RetrievedChunk, PolicyTaskContent, SupportTaskContent
 from app.schemas.task_routing import TaskTarget
 from app.schemas.response_validation import ValidationAction
 from app.services.response_validator import ResponseValidator
@@ -44,6 +46,7 @@ from app.services.query_planner import QueryPlanner, QueryPlanAction
 from app.services.retrieval_service import (
     RetrievalService,
 )
+from app.services.support_retrieval import SupportRetrievalService
 from app.services.safety_classifier import (
     SafetyClassifier,
 )
@@ -66,6 +69,7 @@ class ChatService:
             self,
             *,
             retrieval_service: RetrievalService,
+            support_retrieval_service: SupportRetrievalService,
             llm_service: LLMService,
             safety_classifier: SafetyClassifier,
             safety_router: SafetyRouter,
@@ -83,6 +87,7 @@ class ChatService:
 
     ):
         self.retrieval_service = retrieval_service
+        self.support_retrieval_service = support_retrieval_service
         self.llm_service = llm_service
 
         self.safety_classifier = safety_classifier
@@ -200,6 +205,15 @@ class ChatService:
 
         plan = await planning_task
         print(f"[CHAT] Plan ready: action={plan.action.value}, tasks={len(plan.tasks)}", flush=True)
+        if settings.environment == "development":
+            for index, planned_task in enumerate(plan.tasks, start=1):
+                print(
+                    f"[CHAT] Planner task {index}: "
+                    f"type={planned_task.type.value}, "
+                    f"evidence_route={planned_task.evidence_route.value if planned_task.evidence_route else 'unset'}, "
+                    f"query={planned_task.query!r}",
+                    flush=True,
+                )
 
 
         # A clarification is a complete response for this turn.
@@ -254,6 +268,13 @@ class ChatService:
                     task=task,
                 )
             )
+            if settings.environment == "development":
+                print(
+                    f"[CHAT] Routed task: type={task.type.value}, "
+                    f"evidence_route={routed_task.evidence_route.value}, "
+                    f"targets={[target.value for target in routed_task.targets]}",
+                    flush=True,
+                )
 
             for target in routed_task.targets:
                 task_started = time.perf_counter()
@@ -296,6 +317,21 @@ class ChatService:
                     )
 
                     print(f"[CHAT] Retrieval returned {len(retrieval_results)} chunks", flush=True)
+                    if settings.environment == "development":
+                        for index, (chunk, score) in enumerate(retrieval_results, start=1):
+                            print(
+                                "[CHAT] Documentation chunk "
+                                + json.dumps({
+                                    "rank": index,
+                                    "id": str(chunk.id),
+                                    "score": score,
+                                    "page": chunk.page_number,
+                                    "article": chunk.article_number,
+                                    "section": section_label(chunk),
+                                    "content": chunk.content,
+                                }, ensure_ascii=False),
+                                flush=True,
+                            )
                     if not retrieval_results:
                         print(f"[CHAT] Task elapsed: {time.perf_counter() - task_started:.2f}s", flush=True)
                         continue
@@ -323,6 +359,74 @@ class ChatService:
                             content=(
                                 retrieval_content
                             ),
+                        )
+                    )
+
+                # =============================================
+                # SUPPORT
+                # =============================================
+
+                elif target == TaskTarget.SUPPORT:
+                    if active_policy_id is None:
+                        return self._policy_unavailable(
+                            db=db, conversation_id=conversation.id, started=total_start,
+                            safety_result=safety_decision.category.value,
+                        )
+
+                    authorized_policy = self.policy_service.get_policy_for_user(
+                        db=db,
+                        policy_id=active_policy_id,
+                        user_id=user_id,
+                    )
+                    if authorized_policy is None:
+                        return self._policy_unavailable(
+                            db=db, conversation_id=conversation.id, started=total_start,
+                            safety_result=safety_decision.category.value,
+                        )
+
+                    support_result = self.support_retrieval_service.search(
+                        db=db,
+                        question=task.query,
+                        product_version=authorized_policy.product_version.version,
+                        as_of=date.today(),
+                    )
+                    if support_result.is_miss:
+                        rewritten = self.support_retrieval_service.rewrite_query(task.query)
+                        if rewritten != task.query:
+                            if settings.environment == "development":
+                                print(f"[CHAT] Support retry query: {rewritten!r}", flush=True)
+                            support_result = self.support_retrieval_service.search(
+                                db=db, question=rewritten,
+                                product_version=authorized_policy.product_version.version,
+                                as_of=date.today(),
+                            )
+                    if support_result.is_miss:
+                        print("[CHAT] Support retrieval miss; no support evidence added", flush=True)
+                        continue
+                    if settings.environment == "development":
+                        print(
+                            f"[CHAT] Support retrieval returned {len(support_result.units)} procedures "
+                            f"for query={support_result.attempted_query!r}",
+                            flush=True,
+                        )
+                        for index, unit in enumerate(support_result.units, start=1):
+                            print(
+                                "[CHAT] Support procedure "
+                                + json.dumps({
+                                    "rank": index,
+                                    "id": unit.procedure_id,
+                                    "title": unit.title,
+                                    "scenario": unit.scenario,
+                                    "review_status": unit.review_status,
+                                }, ensure_ascii=False),
+                                flush=True,
+                            )
+
+                    task_results.append(
+                        TaskResult(
+                            task_type=task.type,
+                            target=target,
+                            content=SupportTaskContent(units=support_result.units),
                         )
                     )
 

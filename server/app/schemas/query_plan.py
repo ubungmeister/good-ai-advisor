@@ -12,6 +12,13 @@ class TaskType(StrEnum):
     POLICY_DETAILS = "POLICY_DETAILS"
 
 
+class EvidenceRoute(StrEnum):
+    POLICY = "POLICY"
+    SUPPORT = "SUPPORT"
+    BOTH = "BOTH"
+    NONE = "NONE"
+
+
 class QueryPlanAction(StrEnum):
     EXECUTE = "EXECUTE"
     NEEDS_CLARIFICATION = "NEEDS_CLARIFICATION"
@@ -19,6 +26,7 @@ class QueryPlanAction(StrEnum):
 
 class PlannedTask(BaseModel):
     type: TaskType
+    evidence_route: EvidenceRoute | None = None
 
     query: str = Field(
         min_length=1,

@@ -16,6 +16,9 @@ from app.services.message_source_service import MessageSourceService
 from app.services.policy_service import PolicyService
 from app.services.response_validator import ResponseValidator
 from app.services.retrieval_service import RetrievalService
+from app.services.support_publication import SupportPublicationGate
+from app.services.support_retrieval import SupportRetrievalService
+from app.repositories.support_knowledge_repository import SupportKnowledgeRepository
 from app.services.safe_response_service import SafeResponseService
 from app.services.safety_classifier import SafetyClassifier
 from app.services.safety_router import SafetyRouter
@@ -91,6 +94,16 @@ def get_retrieval_service() -> RetrievalService:
 
 
 @lru_cache
+def get_support_retrieval_service() -> SupportRetrievalService:
+    return SupportRetrievalService(
+        publication_gate=SupportPublicationGate(),
+        repository=SupportKnowledgeRepository(),
+        embedding_service=get_retrieval_service().embedding_service,
+        include_drafts=settings.support_include_drafts,
+    )
+
+
+@lru_cache
 def get_safety_classifier() -> SafetyClassifier:
     return SafetyClassifier(
         llm_service=get_llm_service(),
@@ -139,6 +152,7 @@ def get_response_validator() -> ResponseValidator:
 def get_chat_service() -> ChatService:
     return ChatService(
         retrieval_service=get_retrieval_service(),
+        support_retrieval_service=get_support_retrieval_service(),
         llm_service=get_llm_service(),
 
         safety_classifier=get_safety_classifier(),

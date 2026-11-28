@@ -1,0 +1,1527 @@
+{
+  "schema_version": "1.0",
+  "document_type": "support_knowledge_collection",
+  "language": "cs",
+  "dataset_status": "DRAFT_EXPERT_REVIEW_REQUIRED",
+  "generated_at": "2026-11-26",
+  "title": "Pomoc při sportovních a horských událostech",
+  "articles": [
+    {
+      "id": "SUP_SPORTS_001",
+      "document_type": "support_procedure",
+      "schema_version": "1.0",
+      "language": "cs",
+      "category": "winter_sports",
+      "title": "Úraz na sjezdovce",
+      "scenario": "Klient řeší situaci: úraz na sjezdovce. Potřebuje praktický, ověřený postup bez předčasného příslibu plnění.",
+      "intent_tag": "sport_injury",
+      "question_variations": [
+        "Zranil jsem se při lyžování.",
+        "Na sjezdovce mám zlomenou ruku.",
+        "Mám volat horskou službu nebo asistenci?"
+      ],
+      "conditions": [
+        "Postup posuzovat podle země události, konkrétního dopravce nebo poskytovatele služby a verze smlouvy."
+      ],
+      "immediate_steps": [
+        {
+          "text": "Při vážném úrazu nejprve zajistěte odbornou záchrannou pomoc podle místních možností.",
+          "requirement_type": "recommended",
+          "evidence_level": "official_insurer",
+          "source_ids": [
+            "CSOB_MED"
+          ],
+          "condition": "Pokud hrozí nebezpečí zdraví nebo života."
+        },
+        {
+          "text": "Jakmile je to možné, kontaktujte asistenční službu ČSOB Pojišťovny a uschovejte zprávy od zdravotníků nebo záchranářů.",
+          "requirement_type": "recommended",
+          "evidence_level": "official_insurer",
+          "source_ids": [
+            "CSOB_MED"
+          ],
+          "condition": null
+        },
+        {
+          "text": "Rozsah pojištění konkrétní sportovní činnosti je nutné ověřit ve sjednané smlouvě a příslušných pojistných podmínkách.",
+          "requirement_type": "recommended",
+          "evidence_level": "official_insurer",
+          "source_ids": [
+            "CSOB_VPP2021"
+          ],
+          "condition": null
+        }
+      ],
+      "required_documents": [],
+      "recommended_documents": [],
+      "police_involvement": {
+        "status": "not_established",
+        "guidance": "Z dostupných zdrojů nevyplývá jednotná povinnost pořídit policejní protokol právě pro tento scénář.",
+        "source_ids": [],
+        "needs_expert_review": true
+      },
+      "clarifying_questions": [
+        "Jde o vážný úraz nebo probíhá záchranná akce?",
+        "Jaký sport jste provozoval(a), kde a za jakých podmínek?"
+      ],
+      "coverage_considerations": [
+        "Ověřit zařazení sportu a prostředí do příslušné rizikové skupiny, sjednaná rozšíření a výluky.",
+        "U aktuálních webových doporučení je nutné ověřit soulad s verzí pojistných podmínek použitelnou pro smlouvu."
+      ],
+      "escalation_conditions": [
+        "Pokud potřebujete závazné rozhodnutí o krytí, přesný seznam povinných dokladů nebo výjimku z postupu, předejte dotaz pracovníkovi pojišťovny."
+      ],
+      "open_questions_for_expert": [
+        "Potvrdit pro scénář „Úraz na sjezdovce“ přesné doklady, použitelné výluky, rozsah asistence a případné povinnosti vůči ČSOB podle sjednaného produktu."
+      ],
+      "sources": [
+        {
+          "source_id": "CSOB_MED",
+          "url": "https://www.csobpoj.cz/skody-a-pojistne-udalosti/co-delat-pri-urazu-nebo-nemoci-v-zahranici",
+          "section": "Záchrana života; Asistence; Dokumentace; Oznámení",
+          "last_checked_at": "2026-11-26",
+          "effective_from": null
+        },
+        {
+          "source_id": "CSOB_VPP2021",
+          "url": "https://www.csobpoj.cz/documents/10332/5083102/11N9393%2BVPP%2BCP%2B2021_form%C3%A1t%2BA4_CZ_v%C4%8Detn%C4%9B%2Boce%C5%88ovac%C3%ADch%2Btabulek_final_PDF-A.pdf/91a13cf6-8af5-00b8-784b-2f4f65ab34d0?t=1714117917863",
+          "section": "Pokyny pro klienta (strana 2) a jednotlivá ustanovení VPP CP 2021",
+          "last_checked_at": "2026-11-26",
+          "effective_from": "2021-04-01"
+        }
+      ],
+      "source_ids": [
+        "CSOB_MED",
+        "CSOB_VPP2021"
+      ],
+      "evidence_level": "needs_expert_review",
+      "official_scenario_specific_evidence": false,
+      "procedure_completeness": "unresolved",
+      "priority": "P2",
+      "policy_version_check_required": true,
+      "applicable_policy_versions": [],
+      "review_status": "DRAFT",
+      "reviewed_by": null,
+      "last_verified_at": null,
+      "last_public_source_checked_at": "2026-11-26",
+      "approved_at": null,
+      "publication_status": "REVIEW_ONLY",
+      "retrieval_eligible": false,
+      "notes_for_reviewer": "Obecné pokyny od jiných institucí nejsou požadavky ČSOB. Ověřit každou povinnost a datum platnosti."
+    },
+    {
+      "id": "SUP_SPORTS_002",
+      "document_type": "support_procedure",
+      "schema_version": "1.0",
+      "language": "cs",
+      "category": "winter_sports",
+      "title": "Úraz mimo vyznačenou sjezdovku",
+      "scenario": "Klient řeší situaci: úraz mimo vyznačenou sjezdovku. Potřebuje praktický, ověřený postup bez předčasného příslibu plnění.",
+      "intent_tag": "sport_offpiste",
+      "question_variations": [
+        "Zranil jsem se při jízdě mimo sjezdovku.",
+        "Byl jsem ve freeride terénu.",
+        "Vztahuje se na to moje pojištění?"
+      ],
+      "conditions": [
+        "Postup posuzovat podle země události, konkrétního dopravce nebo poskytovatele služby a verze smlouvy."
+      ],
+      "immediate_steps": [
+        {
+          "text": "Při vážném úrazu nejprve zajistěte odbornou záchrannou pomoc podle místních možností.",
+          "requirement_type": "recommended",
+          "evidence_level": "official_insurer",
+          "source_ids": [
+            "CSOB_MED"
+          ],
+          "condition": "Pokud hrozí nebezpečí zdraví nebo života."
+        },
+        {
+          "text": "Jakmile je to možné, kontaktujte asistenční službu ČSOB Pojišťovny a uschovejte zprávy od zdravotníků nebo záchranářů.",
+          "requirement_type": "recommended",
+          "evidence_level": "official_insurer",
+          "source_ids": [
+            "CSOB_MED"
+          ],
+          "condition": null
+        },
+        {
+          "text": "Rozsah pojištění konkrétní sportovní činnosti je nutné ověřit ve sjednané smlouvě a příslušných pojistných podmínkách.",
+          "requirement_type": "recommended",
+          "evidence_level": "official_insurer",
+          "source_ids": [
+            "CSOB_VPP2021"
+          ],
+          "condition": null
+        }
+      ],
+      "required_documents": [],
+      "recommended_documents": [],
+      "police_involvement": {
+        "status": "not_established",
+        "guidance": "Z dostupných zdrojů nevyplývá jednotná povinnost pořídit policejní protokol právě pro tento scénář.",
+        "source_ids": [],
+        "needs_expert_review": true
+      },
+      "clarifying_questions": [
+        "Jde o vážný úraz nebo probíhá záchranná akce?",
+        "Jaký sport jste provozoval(a), kde a za jakých podmínek?",
+        "Byl pohyb mimo značenou trasu zakázaný a máte sjednané sportovní připojištění?"
+      ],
+      "coverage_considerations": [
+        "Ověřit zařazení sportu a prostředí do příslušné rizikové skupiny, sjednaná rozšíření a výluky.",
+        "U aktuálních webových doporučení je nutné ověřit soulad s verzí pojistných podmínek použitelnou pro smlouvu."
+      ],
+      "escalation_conditions": [
+        "Situace vyžaduje individuální posouzení odborným pracovníkem; neslibujte pojistné plnění ani konkrétní výjimku.",
+        "Při bezprostředním nebezpečí nebo závažném zdravotním stavu má přednost přivolání místní pomoci.",
+        "Pokud potřebujete závazné rozhodnutí o krytí, přesný seznam povinných dokladů nebo výjimku z postupu, předejte dotaz pracovníkovi pojišťovny."
+      ],
+      "open_questions_for_expert": [
+        "Potvrdit přesnou klasifikaci sportu, podmínek výkonu a nutného připojištění podle verze smlouvy."
+      ],
+      "sources": [
+        {
+          "source_id": "CSOB_VPP2021",
+          "url": "https://www.csobpoj.cz/documents/10332/5083102/11N9393%2BVPP%2BCP%2B2021_form%C3%A1t%2BA4_CZ_v%C4%8Detn%C4%9B%2Boce%C5%88ovac%C3%ADch%2Btabulek_final_PDF-A.pdf/91a13cf6-8af5-00b8-784b-2f4f65ab34d0?t=1714117917863",
+          "section": "Pokyny pro klienta (strana 2) a jednotlivá ustanovení VPP CP 2021",
+          "last_checked_at": "2026-11-26",
+          "effective_from": "2021-04-01"
+        },
+        {
+          "source_id": "CSOB_MED",
+          "url": "https://www.csobpoj.cz/skody-a-pojistne-udalosti/co-delat-pri-urazu-nebo-nemoci-v-zahranici",
+          "section": "Záchrana života; Asistence; Dokumentace; Oznámení",
+          "last_checked_at": "2026-11-26",
+          "effective_from": null
+        }
+      ],
+      "source_ids": [
+        "CSOB_VPP2021",
+        "CSOB_MED"
+      ],
+      "evidence_level": "needs_expert_review",
+      "official_scenario_specific_evidence": false,
+      "procedure_completeness": "unresolved",
+      "priority": "P0",
+      "policy_version_check_required": true,
+      "applicable_policy_versions": [],
+      "review_status": "DRAFT",
+      "reviewed_by": null,
+      "last_verified_at": null,
+      "last_public_source_checked_at": "2026-11-26",
+      "approved_at": null,
+      "publication_status": "REVIEW_ONLY",
+      "retrieval_eligible": false,
+      "notes_for_reviewer": "Obecné pokyny od jiných institucí nejsou požadavky ČSOB. Ověřit každou povinnost a datum platnosti."
+    },
+    {
+      "id": "SUP_SPORTS_003",
+      "document_type": "support_procedure",
+      "schema_version": "1.0",
+      "language": "cs",
+      "category": "winter_sports",
+      "title": "Lavina v horách",
+      "scenario": "Klient řeší situaci: lavina v horách. Potřebuje praktický, ověřený postup bez předčasného příslibu plnění.",
+      "intent_tag": "sport_emergency",
+      "question_variations": [
+        "Spadla na nás lavina.",
+        "Kamarád zmizel pod sněhem.",
+        "Koho máme volat jako prvního?"
+      ],
+      "conditions": [
+        "Postup posuzovat podle země události, konkrétního dopravce nebo poskytovatele služby a verze smlouvy."
+      ],
+      "immediate_steps": [
+        {
+          "text": "Při vážném úrazu nejprve zajistěte odbornou záchrannou pomoc podle místních možností.",
+          "requirement_type": "recommended",
+          "evidence_level": "official_insurer",
+          "source_ids": [
+            "CSOB_MED"
+          ],
+          "condition": "Pokud hrozí nebezpečí zdraví nebo života."
+        },
+        {
+          "text": "Jakmile je to možné, kontaktujte asistenční službu ČSOB Pojišťovny a uschovejte zprávy od zdravotníků nebo záchranářů.",
+          "requirement_type": "recommended",
+          "evidence_level": "official_insurer",
+          "source_ids": [
+            "CSOB_MED"
+          ],
+          "condition": null
+        },
+        {
+          "text": "Rozsah pojištění konkrétní sportovní činnosti je nutné ověřit ve sjednané smlouvě a příslušných pojistných podmínkách.",
+          "requirement_type": "recommended",
+          "evidence_level": "official_insurer",
+          "source_ids": [
+            "CSOB_VPP2021"
+          ],
+          "condition": null
+        },
+        {
+          "text": "V Evropské unii můžete v tísni volat 112.",
+          "requirement_type": "recommended",
+          "evidence_level": "general_guidance",
+          "source_ids": [
+            "EU_EMERGENCY"
+          ],
+          "condition": "Pokud jste v EU."
+        }
+      ],
+      "required_documents": [],
+      "recommended_documents": [],
+      "police_involvement": {
+        "status": "not_established",
+        "guidance": "Z dostupných zdrojů nevyplývá jednotná povinnost pořídit policejní protokol právě pro tento scénář.",
+        "source_ids": [],
+        "needs_expert_review": true
+      },
+      "clarifying_questions": [
+        "Jde o vážný úraz nebo probíhá záchranná akce?",
+        "Jaký sport jste provozoval(a), kde a za jakých podmínek?"
+      ],
+      "coverage_considerations": [
+        "Ověřit zařazení sportu a prostředí do příslušné rizikové skupiny, sjednaná rozšíření a výluky.",
+        "U aktuálních webových doporučení je nutné ověřit soulad s verzí pojistných podmínek použitelnou pro smlouvu."
+      ],
+      "escalation_conditions": [
+        "Při bezprostředním nebezpečí nebo závažném zdravotním stavu má přednost přivolání místní pomoci.",
+        "Pokud potřebujete závazné rozhodnutí o krytí, přesný seznam povinných dokladů nebo výjimku z postupu, předejte dotaz pracovníkovi pojišťovny."
+      ],
+      "open_questions_for_expert": [
+        "Potvrdit pro scénář „Lavina v horách“ přesné doklady, použitelné výluky, rozsah asistence a případné povinnosti vůči ČSOB podle sjednaného produktu."
+      ],
+      "sources": [
+        {
+          "source_id": "CSOB_MED",
+          "url": "https://www.csobpoj.cz/skody-a-pojistne-udalosti/co-delat-pri-urazu-nebo-nemoci-v-zahranici",
+          "section": "Záchrana života; Asistence; Dokumentace; Oznámení",
+          "last_checked_at": "2026-11-26",
+          "effective_from": null
+        },
+        {
+          "source_id": "CSOB_VPP2021",
+          "url": "https://www.csobpoj.cz/documents/10332/5083102/11N9393%2BVPP%2BCP%2B2021_form%C3%A1t%2BA4_CZ_v%C4%8Detn%C4%9B%2Boce%C5%88ovac%C3%ADch%2Btabulek_final_PDF-A.pdf/91a13cf6-8af5-00b8-784b-2f4f65ab34d0?t=1714117917863",
+          "section": "Pokyny pro klienta (strana 2) a jednotlivá ustanovení VPP CP 2021",
+          "last_checked_at": "2026-11-26",
+          "effective_from": "2021-04-01"
+        },
+        {
+          "source_id": "EU_EMERGENCY",
+          "url": "https://europa.eu/youreurope/citizens/travel/security-and-emergencies/emergency/index_en.htm",
+          "section": "Tísňové číslo 112",
+          "last_checked_at": "2026-11-26",
+          "effective_from": null
+        }
+      ],
+      "source_ids": [
+        "CSOB_MED",
+        "CSOB_VPP2021",
+        "EU_EMERGENCY"
+      ],
+      "evidence_level": "needs_expert_review",
+      "official_scenario_specific_evidence": false,
+      "procedure_completeness": "unresolved",
+      "priority": "P0",
+      "policy_version_check_required": true,
+      "applicable_policy_versions": [],
+      "review_status": "DRAFT",
+      "reviewed_by": null,
+      "last_verified_at": null,
+      "last_public_source_checked_at": "2026-11-26",
+      "approved_at": null,
+      "publication_status": "REVIEW_ONLY",
+      "retrieval_eligible": false,
+      "notes_for_reviewer": "Obecné pokyny od jiných institucí nejsou požadavky ČSOB. Ověřit každou povinnost a datum platnosti."
+    },
+    {
+      "id": "SUP_SPORTS_004",
+      "document_type": "support_procedure",
+      "schema_version": "1.0",
+      "language": "cs",
+      "category": "winter_sports",
+      "title": "Zásah horské služby",
+      "scenario": "Klient řeší situaci: zásah horské služby. Potřebuje praktický, ověřený postup bez předčasného příslibu plnění.",
+      "intent_tag": "sport_rescue",
+      "question_variations": [
+        "Musela pro mě přijet horská služba.",
+        "Záchranáři mě vezli ze sjezdovky.",
+        "Kdo zaplatí zásah?"
+      ],
+      "conditions": [
+        "Postup posuzovat podle země události, konkrétního dopravce nebo poskytovatele služby a verze smlouvy."
+      ],
+      "immediate_steps": [
+        {
+          "text": "Při vážném úrazu nejprve zajistěte odbornou záchrannou pomoc podle místních možností.",
+          "requirement_type": "recommended",
+          "evidence_level": "official_insurer",
+          "source_ids": [
+            "CSOB_MED"
+          ],
+          "condition": "Pokud hrozí nebezpečí zdraví nebo života."
+        },
+        {
+          "text": "Jakmile je to možné, kontaktujte asistenční službu ČSOB Pojišťovny a uschovejte zprávy od zdravotníků nebo záchranářů.",
+          "requirement_type": "recommended",
+          "evidence_level": "official_insurer",
+          "source_ids": [
+            "CSOB_MED"
+          ],
+          "condition": null
+        },
+        {
+          "text": "Rozsah pojištění konkrétní sportovní činnosti je nutné ověřit ve sjednané smlouvě a příslušných pojistných podmínkách.",
+          "requirement_type": "recommended",
+          "evidence_level": "official_insurer",
+          "source_ids": [
+            "CSOB_VPP2021"
+          ],
+          "condition": null
+        }
+      ],
+      "required_documents": [],
+      "recommended_documents": [],
+      "police_involvement": {
+        "status": "not_established",
+        "guidance": "Z dostupných zdrojů nevyplývá jednotná povinnost pořídit policejní protokol právě pro tento scénář.",
+        "source_ids": [],
+        "needs_expert_review": true
+      },
+      "clarifying_questions": [
+        "Jde o vážný úraz nebo probíhá záchranná akce?",
+        "Jaký sport jste provozoval(a), kde a za jakých podmínek?"
+      ],
+      "coverage_considerations": [
+        "Ověřit zařazení sportu a prostředí do příslušné rizikové skupiny, sjednaná rozšíření a výluky.",
+        "U aktuálních webových doporučení je nutné ověřit soulad s verzí pojistných podmínek použitelnou pro smlouvu."
+      ],
+      "escalation_conditions": [
+        "Při bezprostředním nebezpečí nebo závažném zdravotním stavu má přednost přivolání místní pomoci.",
+        "Pokud potřebujete závazné rozhodnutí o krytí, přesný seznam povinných dokladů nebo výjimku z postupu, předejte dotaz pracovníkovi pojišťovny."
+      ],
+      "open_questions_for_expert": [
+        "Potvrdit pro scénář „Zásah horské služby“ přesné doklady, použitelné výluky, rozsah asistence a případné povinnosti vůči ČSOB podle sjednaného produktu."
+      ],
+      "sources": [
+        {
+          "source_id": "CSOB_ASSIST",
+          "url": "https://www.csobpoj.cz/skody-a-pojistne-udalosti/vse-o-asistencnich-sluzbach",
+          "section": "Asistenční služby k cestovnímu pojištění",
+          "last_checked_at": "2026-11-26",
+          "effective_from": null
+        },
+        {
+          "source_id": "CSOB_MED",
+          "url": "https://www.csobpoj.cz/skody-a-pojistne-udalosti/co-delat-pri-urazu-nebo-nemoci-v-zahranici",
+          "section": "Záchrana života; Asistence; Dokumentace; Oznámení",
+          "last_checked_at": "2026-11-26",
+          "effective_from": null
+        },
+        {
+          "source_id": "CSOB_VPP2021",
+          "url": "https://www.csobpoj.cz/documents/10332/5083102/11N9393%2BVPP%2BCP%2B2021_form%C3%A1t%2BA4_CZ_v%C4%8Detn%C4%9B%2Boce%C5%88ovac%C3%ADch%2Btabulek_final_PDF-A.pdf/91a13cf6-8af5-00b8-784b-2f4f65ab34d0?t=1714117917863",
+          "section": "Pokyny pro klienta (strana 2) a jednotlivá ustanovení VPP CP 2021",
+          "last_checked_at": "2026-11-26",
+          "effective_from": "2021-04-01"
+        }
+      ],
+      "source_ids": [
+        "CSOB_ASSIST",
+        "CSOB_MED",
+        "CSOB_VPP2021"
+      ],
+      "evidence_level": "needs_expert_review",
+      "official_scenario_specific_evidence": false,
+      "procedure_completeness": "unresolved",
+      "priority": "P0",
+      "policy_version_check_required": true,
+      "applicable_policy_versions": [],
+      "review_status": "DRAFT",
+      "reviewed_by": null,
+      "last_verified_at": null,
+      "last_public_source_checked_at": "2026-11-26",
+      "approved_at": null,
+      "publication_status": "REVIEW_ONLY",
+      "retrieval_eligible": false,
+      "notes_for_reviewer": "Obecné pokyny od jiných institucí nejsou požadavky ČSOB. Ověřit každou povinnost a datum platnosti."
+    },
+    {
+      "id": "SUP_SPORTS_005",
+      "document_type": "support_procedure",
+      "schema_version": "1.0",
+      "language": "cs",
+      "category": "winter_sports",
+      "title": "Záchrana vrtulníkem",
+      "scenario": "Klient řeší situaci: záchrana vrtulníkem. Potřebuje praktický, ověřený postup bez předčasného příslibu plnění.",
+      "intent_tag": "sport_rescue",
+      "question_variations": [
+        "Evakuovali mě vrtulníkem z hor.",
+        "Letěl pro mě záchranářský vrtulník.",
+        "Pokryje to moje pojistka?"
+      ],
+      "conditions": [
+        "Postup posuzovat podle země události, konkrétního dopravce nebo poskytovatele služby a verze smlouvy."
+      ],
+      "immediate_steps": [
+        {
+          "text": "Při vážném úrazu nejprve zajistěte odbornou záchrannou pomoc podle místních možností.",
+          "requirement_type": "recommended",
+          "evidence_level": "official_insurer",
+          "source_ids": [
+            "CSOB_MED"
+          ],
+          "condition": "Pokud hrozí nebezpečí zdraví nebo života."
+        },
+        {
+          "text": "Jakmile je to možné, kontaktujte asistenční službu ČSOB Pojišťovny a uschovejte zprávy od zdravotníků nebo záchranářů.",
+          "requirement_type": "recommended",
+          "evidence_level": "official_insurer",
+          "source_ids": [
+            "CSOB_MED"
+          ],
+          "condition": null
+        },
+        {
+          "text": "Rozsah pojištění konkrétní sportovní činnosti je nutné ověřit ve sjednané smlouvě a příslušných pojistných podmínkách.",
+          "requirement_type": "recommended",
+          "evidence_level": "official_insurer",
+          "source_ids": [
+            "CSOB_VPP2021"
+          ],
+          "condition": null
+        }
+      ],
+      "required_documents": [],
+      "recommended_documents": [],
+      "police_involvement": {
+        "status": "not_established",
+        "guidance": "Z dostupných zdrojů nevyplývá jednotná povinnost pořídit policejní protokol právě pro tento scénář.",
+        "source_ids": [],
+        "needs_expert_review": true
+      },
+      "clarifying_questions": [
+        "Jde o vážný úraz nebo probíhá záchranná akce?",
+        "Jaký sport jste provozoval(a), kde a za jakých podmínek?"
+      ],
+      "coverage_considerations": [
+        "Ověřit zařazení sportu a prostředí do příslušné rizikové skupiny, sjednaná rozšíření a výluky.",
+        "U aktuálních webových doporučení je nutné ověřit soulad s verzí pojistných podmínek použitelnou pro smlouvu."
+      ],
+      "escalation_conditions": [
+        "Při bezprostředním nebezpečí nebo závažném zdravotním stavu má přednost přivolání místní pomoci.",
+        "Pokud potřebujete závazné rozhodnutí o krytí, přesný seznam povinných dokladů nebo výjimku z postupu, předejte dotaz pracovníkovi pojišťovny."
+      ],
+      "open_questions_for_expert": [
+        "Potvrdit pro scénář „Záchrana vrtulníkem“ přesné doklady, použitelné výluky, rozsah asistence a případné povinnosti vůči ČSOB podle sjednaného produktu."
+      ],
+      "sources": [
+        {
+          "source_id": "CSOB_ASSIST",
+          "url": "https://www.csobpoj.cz/skody-a-pojistne-udalosti/vse-o-asistencnich-sluzbach",
+          "section": "Asistenční služby k cestovnímu pojištění",
+          "last_checked_at": "2026-11-26",
+          "effective_from": null
+        },
+        {
+          "source_id": "CSOB_MED",
+          "url": "https://www.csobpoj.cz/skody-a-pojistne-udalosti/co-delat-pri-urazu-nebo-nemoci-v-zahranici",
+          "section": "Záchrana života; Asistence; Dokumentace; Oznámení",
+          "last_checked_at": "2026-11-26",
+          "effective_from": null
+        },
+        {
+          "source_id": "CSOB_VPP2021",
+          "url": "https://www.csobpoj.cz/documents/10332/5083102/11N9393%2BVPP%2BCP%2B2021_form%C3%A1t%2BA4_CZ_v%C4%8Detn%C4%9B%2Boce%C5%88ovac%C3%ADch%2Btabulek_final_PDF-A.pdf/91a13cf6-8af5-00b8-784b-2f4f65ab34d0?t=1714117917863",
+          "section": "Pokyny pro klienta (strana 2) a jednotlivá ustanovení VPP CP 2021",
+          "last_checked_at": "2026-11-26",
+          "effective_from": "2021-04-01"
+        }
+      ],
+      "source_ids": [
+        "CSOB_ASSIST",
+        "CSOB_MED",
+        "CSOB_VPP2021"
+      ],
+      "evidence_level": "needs_expert_review",
+      "official_scenario_specific_evidence": false,
+      "procedure_completeness": "unresolved",
+      "priority": "P0",
+      "policy_version_check_required": true,
+      "applicable_policy_versions": [],
+      "review_status": "DRAFT",
+      "reviewed_by": null,
+      "last_verified_at": null,
+      "last_public_source_checked_at": "2026-11-26",
+      "approved_at": null,
+      "publication_status": "REVIEW_ONLY",
+      "retrieval_eligible": false,
+      "notes_for_reviewer": "Obecné pokyny od jiných institucí nejsou požadavky ČSOB. Ověřit každou povinnost a datum platnosti."
+    },
+    {
+      "id": "SUP_SPORTS_006",
+      "document_type": "support_procedure",
+      "schema_version": "1.0",
+      "language": "cs",
+      "category": "winter_sports",
+      "title": "Poškozené vlastní lyže",
+      "scenario": "Klient řeší situaci: poškozené vlastní lyže. Potřebuje praktický, ověřený postup bez předčasného příslibu plnění.",
+      "intent_tag": "sport_gear",
+      "question_variations": [
+        "Zlomil jsem lyže při pádu.",
+        "Moje snowboardové vybavení se rozbilo.",
+        "Platí na vybavení pojištění zavazadel?"
+      ],
+      "conditions": [
+        "Postup posuzovat podle země události, konkrétního dopravce nebo poskytovatele služby a verze smlouvy."
+      ],
+      "immediate_steps": [
+        {
+          "text": "Při vážném úrazu nejprve zajistěte odbornou záchrannou pomoc podle místních možností.",
+          "requirement_type": "recommended",
+          "evidence_level": "official_insurer",
+          "source_ids": [
+            "CSOB_MED"
+          ],
+          "condition": "Pokud hrozí nebezpečí zdraví nebo života."
+        },
+        {
+          "text": "Jakmile je to možné, kontaktujte asistenční službu ČSOB Pojišťovny a uschovejte zprávy od zdravotníků nebo záchranářů.",
+          "requirement_type": "recommended",
+          "evidence_level": "official_insurer",
+          "source_ids": [
+            "CSOB_MED"
+          ],
+          "condition": null
+        },
+        {
+          "text": "Rozsah pojištění konkrétní sportovní činnosti je nutné ověřit ve sjednané smlouvě a příslušných pojistných podmínkách.",
+          "requirement_type": "recommended",
+          "evidence_level": "official_insurer",
+          "source_ids": [
+            "CSOB_VPP2021"
+          ],
+          "condition": null
+        }
+      ],
+      "required_documents": [],
+      "recommended_documents": [],
+      "police_involvement": {
+        "status": "not_established",
+        "guidance": "Z dostupných zdrojů nevyplývá jednotná povinnost pořídit policejní protokol právě pro tento scénář.",
+        "source_ids": [],
+        "needs_expert_review": true
+      },
+      "clarifying_questions": [
+        "Jde o vážný úraz nebo probíhá záchranná akce?",
+        "Jaký sport jste provozoval(a), kde a za jakých podmínek?"
+      ],
+      "coverage_considerations": [
+        "Ověřit zařazení sportu a prostředí do příslušné rizikové skupiny, sjednaná rozšíření a výluky.",
+        "U aktuálních webových doporučení je nutné ověřit soulad s verzí pojistných podmínek použitelnou pro smlouvu."
+      ],
+      "escalation_conditions": [
+        "Pokud potřebujete závazné rozhodnutí o krytí, přesný seznam povinných dokladů nebo výjimku z postupu, předejte dotaz pracovníkovi pojišťovny."
+      ],
+      "open_questions_for_expert": [
+        "Potvrdit pro scénář „Poškozené vlastní lyže“ přesné doklady, použitelné výluky, rozsah asistence a případné povinnosti vůči ČSOB podle sjednaného produktu."
+      ],
+      "sources": [
+        {
+          "source_id": "CSOB_VPP2021",
+          "url": "https://www.csobpoj.cz/documents/10332/5083102/11N9393%2BVPP%2BCP%2B2021_form%C3%A1t%2BA4_CZ_v%C4%8Detn%C4%9B%2Boce%C5%88ovac%C3%ADch%2Btabulek_final_PDF-A.pdf/91a13cf6-8af5-00b8-784b-2f4f65ab34d0?t=1714117917863",
+          "section": "Pokyny pro klienta (strana 2) a jednotlivá ustanovení VPP CP 2021",
+          "last_checked_at": "2026-11-26",
+          "effective_from": "2021-04-01"
+        },
+        {
+          "source_id": "CSOB_MED",
+          "url": "https://www.csobpoj.cz/skody-a-pojistne-udalosti/co-delat-pri-urazu-nebo-nemoci-v-zahranici",
+          "section": "Záchrana života; Asistence; Dokumentace; Oznámení",
+          "last_checked_at": "2026-11-26",
+          "effective_from": null
+        }
+      ],
+      "source_ids": [
+        "CSOB_VPP2021",
+        "CSOB_MED"
+      ],
+      "evidence_level": "needs_expert_review",
+      "official_scenario_specific_evidence": false,
+      "procedure_completeness": "unresolved",
+      "priority": "P2",
+      "policy_version_check_required": true,
+      "applicable_policy_versions": [],
+      "review_status": "DRAFT",
+      "reviewed_by": null,
+      "last_verified_at": null,
+      "last_public_source_checked_at": "2026-11-26",
+      "approved_at": null,
+      "publication_status": "REVIEW_ONLY",
+      "retrieval_eligible": false,
+      "notes_for_reviewer": "Obecné pokyny od jiných institucí nejsou požadavky ČSOB. Ověřit každou povinnost a datum platnosti."
+    },
+    {
+      "id": "SUP_SPORTS_007",
+      "document_type": "support_procedure",
+      "schema_version": "1.0",
+      "language": "cs",
+      "category": "winter_sports",
+      "title": "Rozbité vypůjčené lyže",
+      "scenario": "Klient řeší situaci: rozbité vypůjčené lyže. Potřebuje praktický, ověřený postup bez předčasného příslibu plnění.",
+      "intent_tag": "sport_rental",
+      "question_variations": [
+        "Zlomil jsem lyže z půjčovny.",
+        "Půjčovna po mně chce zaplatit výbavu.",
+        "Můžu to řešit z odpovědnosti?"
+      ],
+      "conditions": [
+        "Postup posuzovat podle země události, konkrétního dopravce nebo poskytovatele služby a verze smlouvy."
+      ],
+      "immediate_steps": [
+        {
+          "text": "Při vážném úrazu nejprve zajistěte odbornou záchrannou pomoc podle místních možností.",
+          "requirement_type": "recommended",
+          "evidence_level": "official_insurer",
+          "source_ids": [
+            "CSOB_MED"
+          ],
+          "condition": "Pokud hrozí nebezpečí zdraví nebo života."
+        },
+        {
+          "text": "Jakmile je to možné, kontaktujte asistenční službu ČSOB Pojišťovny a uschovejte zprávy od zdravotníků nebo záchranářů.",
+          "requirement_type": "recommended",
+          "evidence_level": "official_insurer",
+          "source_ids": [
+            "CSOB_MED"
+          ],
+          "condition": null
+        },
+        {
+          "text": "Rozsah pojištění konkrétní sportovní činnosti je nutné ověřit ve sjednané smlouvě a příslušných pojistných podmínkách.",
+          "requirement_type": "recommended",
+          "evidence_level": "official_insurer",
+          "source_ids": [
+            "CSOB_VPP2021"
+          ],
+          "condition": null
+        }
+      ],
+      "required_documents": [],
+      "recommended_documents": [],
+      "police_involvement": {
+        "status": "not_established",
+        "guidance": "Z dostupných zdrojů nevyplývá jednotná povinnost pořídit policejní protokol právě pro tento scénář.",
+        "source_ids": [],
+        "needs_expert_review": true
+      },
+      "clarifying_questions": [
+        "Jde o vážný úraz nebo probíhá záchranná akce?",
+        "Jaký sport jste provozoval(a), kde a za jakých podmínek?"
+      ],
+      "coverage_considerations": [
+        "Ověřit zařazení sportu a prostředí do příslušné rizikové skupiny, sjednaná rozšíření a výluky.",
+        "U aktuálních webových doporučení je nutné ověřit soulad s verzí pojistných podmínek použitelnou pro smlouvu."
+      ],
+      "escalation_conditions": [
+        "Pokud potřebujete závazné rozhodnutí o krytí, přesný seznam povinných dokladů nebo výjimku z postupu, předejte dotaz pracovníkovi pojišťovny."
+      ],
+      "open_questions_for_expert": [
+        "Potvrdit pro scénář „Rozbité vypůjčené lyže“ přesné doklady, použitelné výluky, rozsah asistence a případné povinnosti vůči ČSOB podle sjednaného produktu."
+      ],
+      "sources": [
+        {
+          "source_id": "CSOB_VPP2021",
+          "url": "https://www.csobpoj.cz/documents/10332/5083102/11N9393%2BVPP%2BCP%2B2021_form%C3%A1t%2BA4_CZ_v%C4%8Detn%C4%9B%2Boce%C5%88ovac%C3%ADch%2Btabulek_final_PDF-A.pdf/91a13cf6-8af5-00b8-784b-2f4f65ab34d0?t=1714117917863",
+          "section": "Pokyny pro klienta (strana 2) a jednotlivá ustanovení VPP CP 2021",
+          "last_checked_at": "2026-11-26",
+          "effective_from": "2021-04-01"
+        },
+        {
+          "source_id": "CSOB_MED",
+          "url": "https://www.csobpoj.cz/skody-a-pojistne-udalosti/co-delat-pri-urazu-nebo-nemoci-v-zahranici",
+          "section": "Záchrana života; Asistence; Dokumentace; Oznámení",
+          "last_checked_at": "2026-11-26",
+          "effective_from": null
+        }
+      ],
+      "source_ids": [
+        "CSOB_VPP2021",
+        "CSOB_MED"
+      ],
+      "evidence_level": "needs_expert_review",
+      "official_scenario_specific_evidence": false,
+      "procedure_completeness": "unresolved",
+      "priority": "P2",
+      "policy_version_check_required": true,
+      "applicable_policy_versions": [],
+      "review_status": "DRAFT",
+      "reviewed_by": null,
+      "last_verified_at": null,
+      "last_public_source_checked_at": "2026-11-26",
+      "approved_at": null,
+      "publication_status": "REVIEW_ONLY",
+      "retrieval_eligible": false,
+      "notes_for_reviewer": "Obecné pokyny od jiných institucí nejsou požadavky ČSOB. Ověřit každou povinnost a datum platnosti."
+    },
+    {
+      "id": "SUP_SPORTS_008",
+      "document_type": "support_procedure",
+      "schema_version": "1.0",
+      "language": "cs",
+      "category": "winter_sports",
+      "title": "Ukradené lyže z lyžárny",
+      "scenario": "Klient řeší situaci: ukradené lyže z lyžárny. Potřebuje praktický, ověřený postup bez předčasného příslibu plnění.",
+      "intent_tag": "sport_theft",
+      "question_variations": [
+        "Z lyžárny mi ukradli lyže.",
+        "Někdo odnesl moje vybavení ze stojanu.",
+        "Potřebuju policejní protokol?"
+      ],
+      "conditions": [
+        "Postup posuzovat podle země události, konkrétního dopravce nebo poskytovatele služby a verze smlouvy."
+      ],
+      "immediate_steps": [
+        {
+          "text": "Při vážném úrazu nejprve zajistěte odbornou záchrannou pomoc podle místních možností.",
+          "requirement_type": "recommended",
+          "evidence_level": "official_insurer",
+          "source_ids": [
+            "CSOB_MED"
+          ],
+          "condition": "Pokud hrozí nebezpečí zdraví nebo života."
+        },
+        {
+          "text": "Jakmile je to možné, kontaktujte asistenční službu ČSOB Pojišťovny a uschovejte zprávy od zdravotníků nebo záchranářů.",
+          "requirement_type": "recommended",
+          "evidence_level": "official_insurer",
+          "source_ids": [
+            "CSOB_MED"
+          ],
+          "condition": null
+        },
+        {
+          "text": "Rozsah pojištění konkrétní sportovní činnosti je nutné ověřit ve sjednané smlouvě a příslušných pojistných podmínkách.",
+          "requirement_type": "recommended",
+          "evidence_level": "official_insurer",
+          "source_ids": [
+            "CSOB_VPP2021"
+          ],
+          "condition": null
+        },
+        {
+          "text": "Při krádeži zavazadel VPP CP 2021 stanovují neprodlené ohlášení místní policii a vyžádání policejního protokolu; ověřte verzi podmínek pro vaši smlouvu.",
+          "requirement_type": "contractual_version_specific",
+          "evidence_level": "official_insurer",
+          "source_ids": [
+            "CSOB_VPP2021"
+          ],
+          "condition": null
+        },
+        {
+          "text": "U krádeže zavazadel VPP CP 2021 vyžadují policejní protokol; zařazení konkrétního sportovního vybavení mezi pojištěná zavazadla vyžaduje ověření.",
+          "requirement_type": "recommended",
+          "evidence_level": "official_insurer",
+          "source_ids": [
+            "CSOB_VPP2021"
+          ],
+          "condition": null
+        }
+      ],
+      "required_documents": [],
+      "recommended_documents": [],
+      "police_involvement": {
+        "status": "not_established",
+        "guidance": "Z dostupných zdrojů nevyplývá jednotná povinnost pořídit policejní protokol právě pro tento scénář.",
+        "source_ids": [],
+        "needs_expert_review": true
+      },
+      "clarifying_questions": [
+        "Jde o vážný úraz nebo probíhá záchranná akce?",
+        "Jaký sport jste provozoval(a), kde a za jakých podmínek?"
+      ],
+      "coverage_considerations": [
+        "Ověřit zařazení sportu a prostředí do příslušné rizikové skupiny, sjednaná rozšíření a výluky.",
+        "U aktuálních webových doporučení je nutné ověřit soulad s verzí pojistných podmínek použitelnou pro smlouvu."
+      ],
+      "escalation_conditions": [
+        "Pokud potřebujete závazné rozhodnutí o krytí, přesný seznam povinných dokladů nebo výjimku z postupu, předejte dotaz pracovníkovi pojišťovny."
+      ],
+      "open_questions_for_expert": [
+        "Potvrdit pro scénář „Ukradené lyže z lyžárny“ přesné doklady, použitelné výluky, rozsah asistence a případné povinnosti vůči ČSOB podle sjednaného produktu."
+      ],
+      "sources": [
+        {
+          "source_id": "CSOB_VPP2021",
+          "url": "https://www.csobpoj.cz/documents/10332/5083102/11N9393%2BVPP%2BCP%2B2021_form%C3%A1t%2BA4_CZ_v%C4%8Detn%C4%9B%2Boce%C5%88ovac%C3%ADch%2Btabulek_final_PDF-A.pdf/91a13cf6-8af5-00b8-784b-2f4f65ab34d0?t=1714117917863",
+          "section": "Pokyny pro klienta (strana 2) a jednotlivá ustanovení VPP CP 2021",
+          "last_checked_at": "2026-11-26",
+          "effective_from": "2021-04-01"
+        },
+        {
+          "source_id": "CSOB_MED",
+          "url": "https://www.csobpoj.cz/skody-a-pojistne-udalosti/co-delat-pri-urazu-nebo-nemoci-v-zahranici",
+          "section": "Záchrana života; Asistence; Dokumentace; Oznámení",
+          "last_checked_at": "2026-11-26",
+          "effective_from": null
+        }
+      ],
+      "source_ids": [
+        "CSOB_VPP2021",
+        "CSOB_MED"
+      ],
+      "evidence_level": "needs_expert_review",
+      "official_scenario_specific_evidence": false,
+      "procedure_completeness": "unresolved",
+      "priority": "P2",
+      "policy_version_check_required": true,
+      "applicable_policy_versions": [],
+      "review_status": "DRAFT",
+      "reviewed_by": null,
+      "last_verified_at": null,
+      "last_public_source_checked_at": "2026-11-26",
+      "approved_at": null,
+      "publication_status": "REVIEW_ONLY",
+      "retrieval_eligible": false,
+      "notes_for_reviewer": "Obecné pokyny od jiných institucí nejsou požadavky ČSOB. Ověřit každou povinnost a datum platnosti."
+    },
+    {
+      "id": "SUP_SPORTS_009",
+      "document_type": "support_procedure",
+      "schema_version": "1.0",
+      "language": "cs",
+      "category": "winter_sports",
+      "title": "Úraz při snowboardingu",
+      "scenario": "Klient řeší situaci: úraz při snowboardingu. Potřebuje praktický, ověřený postup bez předčasného příslibu plnění.",
+      "intent_tag": "sport_injury",
+      "question_variations": [
+        "Spadl jsem na snowboardu a bolí mě koleno.",
+        "Na snowboadu jsem se zranil.",
+        "Jak zjistím sportovní krytí?"
+      ],
+      "conditions": [
+        "Postup posuzovat podle země události, konkrétního dopravce nebo poskytovatele služby a verze smlouvy."
+      ],
+      "immediate_steps": [
+        {
+          "text": "Při vážném úrazu nejprve zajistěte odbornou záchrannou pomoc podle místních možností.",
+          "requirement_type": "recommended",
+          "evidence_level": "official_insurer",
+          "source_ids": [
+            "CSOB_MED"
+          ],
+          "condition": "Pokud hrozí nebezpečí zdraví nebo života."
+        },
+        {
+          "text": "Jakmile je to možné, kontaktujte asistenční službu ČSOB Pojišťovny a uschovejte zprávy od zdravotníků nebo záchranářů.",
+          "requirement_type": "recommended",
+          "evidence_level": "official_insurer",
+          "source_ids": [
+            "CSOB_MED"
+          ],
+          "condition": null
+        },
+        {
+          "text": "Rozsah pojištění konkrétní sportovní činnosti je nutné ověřit ve sjednané smlouvě a příslušných pojistných podmínkách.",
+          "requirement_type": "recommended",
+          "evidence_level": "official_insurer",
+          "source_ids": [
+            "CSOB_VPP2021"
+          ],
+          "condition": null
+        }
+      ],
+      "required_documents": [],
+      "recommended_documents": [],
+      "police_involvement": {
+        "status": "not_established",
+        "guidance": "Z dostupných zdrojů nevyplývá jednotná povinnost pořídit policejní protokol právě pro tento scénář.",
+        "source_ids": [],
+        "needs_expert_review": true
+      },
+      "clarifying_questions": [
+        "Jde o vážný úraz nebo probíhá záchranná akce?",
+        "Jaký sport jste provozoval(a), kde a za jakých podmínek?"
+      ],
+      "coverage_considerations": [
+        "Ověřit zařazení sportu a prostředí do příslušné rizikové skupiny, sjednaná rozšíření a výluky.",
+        "U aktuálních webových doporučení je nutné ověřit soulad s verzí pojistných podmínek použitelnou pro smlouvu."
+      ],
+      "escalation_conditions": [
+        "Pokud potřebujete závazné rozhodnutí o krytí, přesný seznam povinných dokladů nebo výjimku z postupu, předejte dotaz pracovníkovi pojišťovny."
+      ],
+      "open_questions_for_expert": [
+        "Potvrdit pro scénář „Úraz při snowboardingu“ přesné doklady, použitelné výluky, rozsah asistence a případné povinnosti vůči ČSOB podle sjednaného produktu."
+      ],
+      "sources": [
+        {
+          "source_id": "CSOB_MED",
+          "url": "https://www.csobpoj.cz/skody-a-pojistne-udalosti/co-delat-pri-urazu-nebo-nemoci-v-zahranici",
+          "section": "Záchrana života; Asistence; Dokumentace; Oznámení",
+          "last_checked_at": "2026-11-26",
+          "effective_from": null
+        },
+        {
+          "source_id": "CSOB_VPP2021",
+          "url": "https://www.csobpoj.cz/documents/10332/5083102/11N9393%2BVPP%2BCP%2B2021_form%C3%A1t%2BA4_CZ_v%C4%8Detn%C4%9B%2Boce%C5%88ovac%C3%ADch%2Btabulek_final_PDF-A.pdf/91a13cf6-8af5-00b8-784b-2f4f65ab34d0?t=1714117917863",
+          "section": "Pokyny pro klienta (strana 2) a jednotlivá ustanovení VPP CP 2021",
+          "last_checked_at": "2026-11-26",
+          "effective_from": "2021-04-01"
+        }
+      ],
+      "source_ids": [
+        "CSOB_MED",
+        "CSOB_VPP2021"
+      ],
+      "evidence_level": "needs_expert_review",
+      "official_scenario_specific_evidence": false,
+      "procedure_completeness": "unresolved",
+      "priority": "P2",
+      "policy_version_check_required": true,
+      "applicable_policy_versions": [],
+      "review_status": "DRAFT",
+      "reviewed_by": null,
+      "last_verified_at": null,
+      "last_public_source_checked_at": "2026-11-26",
+      "approved_at": null,
+      "publication_status": "REVIEW_ONLY",
+      "retrieval_eligible": false,
+      "notes_for_reviewer": "Obecné pokyny od jiných institucí nejsou požadavky ČSOB. Ověřit každou povinnost a datum platnosti."
+    },
+    {
+      "id": "SUP_SPORTS_010",
+      "document_type": "support_procedure",
+      "schema_version": "1.0",
+      "language": "cs",
+      "category": "winter_sports",
+      "title": "Skialpinismus a pojistné krytí",
+      "scenario": "Klient řeší situaci: skialpinismus a pojistné krytí. Potřebuje praktický, ověřený postup bez předčasného příslibu plnění.",
+      "intent_tag": "sport_special",
+      "question_variations": [
+        "Na skialpech jsem měl úraz.",
+        "Šel jsem na túru mimo upravené trasy.",
+        "Je skialpinismus rizikový sport?"
+      ],
+      "conditions": [
+        "Postup posuzovat podle země události, konkrétního dopravce nebo poskytovatele služby a verze smlouvy."
+      ],
+      "immediate_steps": [
+        {
+          "text": "Při vážném úrazu nejprve zajistěte odbornou záchrannou pomoc podle místních možností.",
+          "requirement_type": "recommended",
+          "evidence_level": "official_insurer",
+          "source_ids": [
+            "CSOB_MED"
+          ],
+          "condition": "Pokud hrozí nebezpečí zdraví nebo života."
+        },
+        {
+          "text": "Jakmile je to možné, kontaktujte asistenční službu ČSOB Pojišťovny a uschovejte zprávy od zdravotníků nebo záchranářů.",
+          "requirement_type": "recommended",
+          "evidence_level": "official_insurer",
+          "source_ids": [
+            "CSOB_MED"
+          ],
+          "condition": null
+        },
+        {
+          "text": "Rozsah pojištění konkrétní sportovní činnosti je nutné ověřit ve sjednané smlouvě a příslušných pojistných podmínkách.",
+          "requirement_type": "recommended",
+          "evidence_level": "official_insurer",
+          "source_ids": [
+            "CSOB_VPP2021"
+          ],
+          "condition": null
+        }
+      ],
+      "required_documents": [],
+      "recommended_documents": [],
+      "police_involvement": {
+        "status": "not_established",
+        "guidance": "Z dostupných zdrojů nevyplývá jednotná povinnost pořídit policejní protokol právě pro tento scénář.",
+        "source_ids": [],
+        "needs_expert_review": true
+      },
+      "clarifying_questions": [
+        "Jde o vážný úraz nebo probíhá záchranná akce?",
+        "Jaký sport jste provozoval(a), kde a za jakých podmínek?"
+      ],
+      "coverage_considerations": [
+        "Ověřit zařazení sportu a prostředí do příslušné rizikové skupiny, sjednaná rozšíření a výluky.",
+        "U aktuálních webových doporučení je nutné ověřit soulad s verzí pojistných podmínek použitelnou pro smlouvu."
+      ],
+      "escalation_conditions": [
+        "Pokud potřebujete závazné rozhodnutí o krytí, přesný seznam povinných dokladů nebo výjimku z postupu, předejte dotaz pracovníkovi pojišťovny."
+      ],
+      "open_questions_for_expert": [
+        "Potvrdit přesnou klasifikaci sportu, podmínek výkonu a nutného připojištění podle verze smlouvy."
+      ],
+      "sources": [
+        {
+          "source_id": "CSOB_VPP2021",
+          "url": "https://www.csobpoj.cz/documents/10332/5083102/11N9393%2BVPP%2BCP%2B2021_form%C3%A1t%2BA4_CZ_v%C4%8Detn%C4%9B%2Boce%C5%88ovac%C3%ADch%2Btabulek_final_PDF-A.pdf/91a13cf6-8af5-00b8-784b-2f4f65ab34d0?t=1714117917863",
+          "section": "Pokyny pro klienta (strana 2) a jednotlivá ustanovení VPP CP 2021",
+          "last_checked_at": "2026-11-26",
+          "effective_from": "2021-04-01"
+        },
+        {
+          "source_id": "CSOB_MED",
+          "url": "https://www.csobpoj.cz/skody-a-pojistne-udalosti/co-delat-pri-urazu-nebo-nemoci-v-zahranici",
+          "section": "Záchrana života; Asistence; Dokumentace; Oznámení",
+          "last_checked_at": "2026-11-26",
+          "effective_from": null
+        }
+      ],
+      "source_ids": [
+        "CSOB_VPP2021",
+        "CSOB_MED"
+      ],
+      "evidence_level": "needs_expert_review",
+      "official_scenario_specific_evidence": false,
+      "procedure_completeness": "unresolved",
+      "priority": "P2",
+      "policy_version_check_required": true,
+      "applicable_policy_versions": [],
+      "review_status": "DRAFT",
+      "reviewed_by": null,
+      "last_verified_at": null,
+      "last_public_source_checked_at": "2026-11-26",
+      "approved_at": null,
+      "publication_status": "REVIEW_ONLY",
+      "retrieval_eligible": false,
+      "notes_for_reviewer": "Obecné pokyny od jiných institucí nejsou požadavky ČSOB. Ověřit každou povinnost a datum platnosti."
+    },
+    {
+      "id": "SUP_SPORTS_011",
+      "document_type": "support_procedure",
+      "schema_version": "1.0",
+      "language": "cs",
+      "category": "winter_sports",
+      "title": "Zranění při běžeckém lyžování",
+      "scenario": "Klient řeší situaci: zranění při běžeckém lyžování. Potřebuje praktický, ověřený postup bez předčasného příslibu plnění.",
+      "intent_tag": "sport_injury",
+      "question_variations": [
+        "Spadl jsem na běžkách.",
+        "Urazil jsem se při běžkování.",
+        "Je to pojištěný sport?"
+      ],
+      "conditions": [
+        "Postup posuzovat podle země události, konkrétního dopravce nebo poskytovatele služby a verze smlouvy."
+      ],
+      "immediate_steps": [
+        {
+          "text": "Při vážném úrazu nejprve zajistěte odbornou záchrannou pomoc podle místních možností.",
+          "requirement_type": "recommended",
+          "evidence_level": "official_insurer",
+          "source_ids": [
+            "CSOB_MED"
+          ],
+          "condition": "Pokud hrozí nebezpečí zdraví nebo života."
+        },
+        {
+          "text": "Jakmile je to možné, kontaktujte asistenční službu ČSOB Pojišťovny a uschovejte zprávy od zdravotníků nebo záchranářů.",
+          "requirement_type": "recommended",
+          "evidence_level": "official_insurer",
+          "source_ids": [
+            "CSOB_MED"
+          ],
+          "condition": null
+        },
+        {
+          "text": "Rozsah pojištění konkrétní sportovní činnosti je nutné ověřit ve sjednané smlouvě a příslušných pojistných podmínkách.",
+          "requirement_type": "recommended",
+          "evidence_level": "official_insurer",
+          "source_ids": [
+            "CSOB_VPP2021"
+          ],
+          "condition": null
+        }
+      ],
+      "required_documents": [],
+      "recommended_documents": [],
+      "police_involvement": {
+        "status": "not_established",
+        "guidance": "Z dostupných zdrojů nevyplývá jednotná povinnost pořídit policejní protokol právě pro tento scénář.",
+        "source_ids": [],
+        "needs_expert_review": true
+      },
+      "clarifying_questions": [
+        "Jde o vážný úraz nebo probíhá záchranná akce?",
+        "Jaký sport jste provozoval(a), kde a za jakých podmínek?"
+      ],
+      "coverage_considerations": [
+        "Ověřit zařazení sportu a prostředí do příslušné rizikové skupiny, sjednaná rozšíření a výluky.",
+        "U aktuálních webových doporučení je nutné ověřit soulad s verzí pojistných podmínek použitelnou pro smlouvu."
+      ],
+      "escalation_conditions": [
+        "Pokud potřebujete závazné rozhodnutí o krytí, přesný seznam povinných dokladů nebo výjimku z postupu, předejte dotaz pracovníkovi pojišťovny."
+      ],
+      "open_questions_for_expert": [
+        "Potvrdit pro scénář „Zranění při běžeckém lyžování“ přesné doklady, použitelné výluky, rozsah asistence a případné povinnosti vůči ČSOB podle sjednaného produktu."
+      ],
+      "sources": [
+        {
+          "source_id": "CSOB_MED",
+          "url": "https://www.csobpoj.cz/skody-a-pojistne-udalosti/co-delat-pri-urazu-nebo-nemoci-v-zahranici",
+          "section": "Záchrana života; Asistence; Dokumentace; Oznámení",
+          "last_checked_at": "2026-11-26",
+          "effective_from": null
+        },
+        {
+          "source_id": "CSOB_VPP2021",
+          "url": "https://www.csobpoj.cz/documents/10332/5083102/11N9393%2BVPP%2BCP%2B2021_form%C3%A1t%2BA4_CZ_v%C4%8Detn%C4%9B%2Boce%C5%88ovac%C3%ADch%2Btabulek_final_PDF-A.pdf/91a13cf6-8af5-00b8-784b-2f4f65ab34d0?t=1714117917863",
+          "section": "Pokyny pro klienta (strana 2) a jednotlivá ustanovení VPP CP 2021",
+          "last_checked_at": "2026-11-26",
+          "effective_from": "2021-04-01"
+        }
+      ],
+      "source_ids": [
+        "CSOB_MED",
+        "CSOB_VPP2021"
+      ],
+      "evidence_level": "needs_expert_review",
+      "official_scenario_specific_evidence": false,
+      "procedure_completeness": "unresolved",
+      "priority": "P2",
+      "policy_version_check_required": true,
+      "applicable_policy_versions": [],
+      "review_status": "DRAFT",
+      "reviewed_by": null,
+      "last_verified_at": null,
+      "last_public_source_checked_at": "2026-11-26",
+      "approved_at": null,
+      "publication_status": "REVIEW_ONLY",
+      "retrieval_eligible": false,
+      "notes_for_reviewer": "Obecné pokyny od jiných institucí nejsou požadavky ČSOB. Ověřit každou povinnost a datum platnosti."
+    },
+    {
+      "id": "SUP_SPORTS_012",
+      "document_type": "support_procedure",
+      "schema_version": "1.0",
+      "language": "cs",
+      "category": "winter_sports",
+      "title": "Úraz během organizovaného závodu",
+      "scenario": "Klient řeší situaci: úraz během organizovaného závodu. Potřebuje praktický, ověřený postup bez předčasného příslibu plnění.",
+      "intent_tag": "sport_competition",
+      "question_variations": [
+        "Zranil jsem se na lyžařském závodě.",
+        "Byl jsem na sportovní soutěži.",
+        "Liší se krytí od rekreační jízdy?"
+      ],
+      "conditions": [
+        "Postup posuzovat podle země události, konkrétního dopravce nebo poskytovatele služby a verze smlouvy."
+      ],
+      "immediate_steps": [
+        {
+          "text": "Při vážném úrazu nejprve zajistěte odbornou záchrannou pomoc podle místních možností.",
+          "requirement_type": "recommended",
+          "evidence_level": "official_insurer",
+          "source_ids": [
+            "CSOB_MED"
+          ],
+          "condition": "Pokud hrozí nebezpečí zdraví nebo života."
+        },
+        {
+          "text": "Jakmile je to možné, kontaktujte asistenční službu ČSOB Pojišťovny a uschovejte zprávy od zdravotníků nebo záchranářů.",
+          "requirement_type": "recommended",
+          "evidence_level": "official_insurer",
+          "source_ids": [
+            "CSOB_MED"
+          ],
+          "condition": null
+        },
+        {
+          "text": "Rozsah pojištění konkrétní sportovní činnosti je nutné ověřit ve sjednané smlouvě a příslušných pojistných podmínkách.",
+          "requirement_type": "recommended",
+          "evidence_level": "official_insurer",
+          "source_ids": [
+            "CSOB_VPP2021"
+          ],
+          "condition": null
+        }
+      ],
+      "required_documents": [],
+      "recommended_documents": [],
+      "police_involvement": {
+        "status": "not_established",
+        "guidance": "Z dostupných zdrojů nevyplývá jednotná povinnost pořídit policejní protokol právě pro tento scénář.",
+        "source_ids": [],
+        "needs_expert_review": true
+      },
+      "clarifying_questions": [
+        "Jde o vážný úraz nebo probíhá záchranná akce?",
+        "Jaký sport jste provozoval(a), kde a za jakých podmínek?"
+      ],
+      "coverage_considerations": [
+        "Ověřit zařazení sportu a prostředí do příslušné rizikové skupiny, sjednaná rozšíření a výluky.",
+        "U aktuálních webových doporučení je nutné ověřit soulad s verzí pojistných podmínek použitelnou pro smlouvu."
+      ],
+      "escalation_conditions": [
+        "Pokud potřebujete závazné rozhodnutí o krytí, přesný seznam povinných dokladů nebo výjimku z postupu, předejte dotaz pracovníkovi pojišťovny."
+      ],
+      "open_questions_for_expert": [
+        "Potvrdit přesnou klasifikaci sportu, podmínek výkonu a nutného připojištění podle verze smlouvy."
+      ],
+      "sources": [
+        {
+          "source_id": "CSOB_VPP2021",
+          "url": "https://www.csobpoj.cz/documents/10332/5083102/11N9393%2BVPP%2BCP%2B2021_form%C3%A1t%2BA4_CZ_v%C4%8Detn%C4%9B%2Boce%C5%88ovac%C3%ADch%2Btabulek_final_PDF-A.pdf/91a13cf6-8af5-00b8-784b-2f4f65ab34d0?t=1714117917863",
+          "section": "Pokyny pro klienta (strana 2) a jednotlivá ustanovení VPP CP 2021",
+          "last_checked_at": "2026-11-26",
+          "effective_from": "2021-04-01"
+        },
+        {
+          "source_id": "CSOB_MED",
+          "url": "https://www.csobpoj.cz/skody-a-pojistne-udalosti/co-delat-pri-urazu-nebo-nemoci-v-zahranici",
+          "section": "Záchrana života; Asistence; Dokumentace; Oznámení",
+          "last_checked_at": "2026-11-26",
+          "effective_from": null
+        }
+      ],
+      "source_ids": [
+        "CSOB_VPP2021",
+        "CSOB_MED"
+      ],
+      "evidence_level": "needs_expert_review",
+      "official_scenario_specific_evidence": false,
+      "procedure_completeness": "unresolved",
+      "priority": "P2",
+      "policy_version_check_required": true,
+      "applicable_policy_versions": [],
+      "review_status": "DRAFT",
+      "reviewed_by": null,
+      "last_verified_at": null,
+      "last_public_source_checked_at": "2026-11-26",
+      "approved_at": null,
+      "publication_status": "REVIEW_ONLY",
+      "retrieval_eligible": false,
+      "notes_for_reviewer": "Obecné pokyny od jiných institucí nejsou požadavky ČSOB. Ověřit každou povinnost a datum platnosti."
+    },
+    {
+      "id": "SUP_SPORTS_013",
+      "document_type": "support_procedure",
+      "schema_version": "1.0",
+      "language": "cs",
+      "category": "winter_sports",
+      "title": "Nehoda na ferratě",
+      "scenario": "Klient řeší situaci: nehoda na ferratě. Potřebuje praktický, ověřený postup bez předčasného příslibu plnění.",
+      "intent_tag": "sport_special",
+      "question_variations": [
+        "Zranil jsem se na via ferratě.",
+        "V horách jsem spadl při lezení s jištěním.",
+        "Potřebuji připojištění rizikových sportů?"
+      ],
+      "conditions": [
+        "Postup posuzovat podle země události, konkrétního dopravce nebo poskytovatele služby a verze smlouvy."
+      ],
+      "immediate_steps": [
+        {
+          "text": "Při vážném úrazu nejprve zajistěte odbornou záchrannou pomoc podle místních možností.",
+          "requirement_type": "recommended",
+          "evidence_level": "official_insurer",
+          "source_ids": [
+            "CSOB_MED"
+          ],
+          "condition": "Pokud hrozí nebezpečí zdraví nebo života."
+        },
+        {
+          "text": "Jakmile je to možné, kontaktujte asistenční službu ČSOB Pojišťovny a uschovejte zprávy od zdravotníků nebo záchranářů.",
+          "requirement_type": "recommended",
+          "evidence_level": "official_insurer",
+          "source_ids": [
+            "CSOB_MED"
+          ],
+          "condition": null
+        },
+        {
+          "text": "Rozsah pojištění konkrétní sportovní činnosti je nutné ověřit ve sjednané smlouvě a příslušných pojistných podmínkách.",
+          "requirement_type": "recommended",
+          "evidence_level": "official_insurer",
+          "source_ids": [
+            "CSOB_VPP2021"
+          ],
+          "condition": null
+        }
+      ],
+      "required_documents": [],
+      "recommended_documents": [],
+      "police_involvement": {
+        "status": "not_established",
+        "guidance": "Z dostupných zdrojů nevyplývá jednotná povinnost pořídit policejní protokol právě pro tento scénář.",
+        "source_ids": [],
+        "needs_expert_review": true
+      },
+      "clarifying_questions": [
+        "Jde o vážný úraz nebo probíhá záchranná akce?",
+        "Jaký sport jste provozoval(a), kde a za jakých podmínek?"
+      ],
+      "coverage_considerations": [
+        "Ověřit zařazení sportu a prostředí do příslušné rizikové skupiny, sjednaná rozšíření a výluky.",
+        "U aktuálních webových doporučení je nutné ověřit soulad s verzí pojistných podmínek použitelnou pro smlouvu."
+      ],
+      "escalation_conditions": [
+        "Pokud potřebujete závazné rozhodnutí o krytí, přesný seznam povinných dokladů nebo výjimku z postupu, předejte dotaz pracovníkovi pojišťovny."
+      ],
+      "open_questions_for_expert": [
+        "Potvrdit přesnou klasifikaci sportu, podmínek výkonu a nutného připojištění podle verze smlouvy."
+      ],
+      "sources": [
+        {
+          "source_id": "CSOB_VPP2021",
+          "url": "https://www.csobpoj.cz/documents/10332/5083102/11N9393%2BVPP%2BCP%2B2021_form%C3%A1t%2BA4_CZ_v%C4%8Detn%C4%9B%2Boce%C5%88ovac%C3%ADch%2Btabulek_final_PDF-A.pdf/91a13cf6-8af5-00b8-784b-2f4f65ab34d0?t=1714117917863",
+          "section": "Pokyny pro klienta (strana 2) a jednotlivá ustanovení VPP CP 2021",
+          "last_checked_at": "2026-11-26",
+          "effective_from": "2021-04-01"
+        },
+        {
+          "source_id": "CSOB_MED",
+          "url": "https://www.csobpoj.cz/skody-a-pojistne-udalosti/co-delat-pri-urazu-nebo-nemoci-v-zahranici",
+          "section": "Záchrana života; Asistence; Dokumentace; Oznámení",
+          "last_checked_at": "2026-11-26",
+          "effective_from": null
+        }
+      ],
+      "source_ids": [
+        "CSOB_VPP2021",
+        "CSOB_MED"
+      ],
+      "evidence_level": "needs_expert_review",
+      "official_scenario_specific_evidence": false,
+      "procedure_completeness": "unresolved",
+      "priority": "P2",
+      "policy_version_check_required": true,
+      "applicable_policy_versions": [],
+      "review_status": "DRAFT",
+      "reviewed_by": null,
+      "last_verified_at": null,
+      "last_public_source_checked_at": "2026-11-26",
+      "approved_at": null,
+      "publication_status": "REVIEW_ONLY",
+      "retrieval_eligible": false,
+      "notes_for_reviewer": "Obecné pokyny od jiných institucí nejsou požadavky ČSOB. Ověřit každou povinnost a datum platnosti."
+    },
+    {
+      "id": "SUP_SPORTS_014",
+      "document_type": "support_procedure",
+      "schema_version": "1.0",
+      "language": "cs",
+      "category": "winter_sports",
+      "title": "Potápěčský úraz",
+      "scenario": "Klient řeší situaci: potápěčský úraz. Potřebuje praktický, ověřený postup bez předčasného příslibu plnění.",
+      "intent_tag": "sport_emergency",
+      "question_variations": [
+        "Mám zdravotní problém po potápění.",
+        "Při ponoru se mi udělalo zle.",
+        "Jak získat rychlou zdravotní pomoc?"
+      ],
+      "conditions": [
+        "Postup posuzovat podle země události, konkrétního dopravce nebo poskytovatele služby a verze smlouvy."
+      ],
+      "immediate_steps": [
+        {
+          "text": "Při vážném úrazu nejprve zajistěte odbornou záchrannou pomoc podle místních možností.",
+          "requirement_type": "recommended",
+          "evidence_level": "official_insurer",
+          "source_ids": [
+            "CSOB_MED"
+          ],
+          "condition": "Pokud hrozí nebezpečí zdraví nebo života."
+        },
+        {
+          "text": "Jakmile je to možné, kontaktujte asistenční službu ČSOB Pojišťovny a uschovejte zprávy od zdravotníků nebo záchranářů.",
+          "requirement_type": "recommended",
+          "evidence_level": "official_insurer",
+          "source_ids": [
+            "CSOB_MED"
+          ],
+          "condition": null
+        },
+        {
+          "text": "Rozsah pojištění konkrétní sportovní činnosti je nutné ověřit ve sjednané smlouvě a příslušných pojistných podmínkách.",
+          "requirement_type": "recommended",
+          "evidence_level": "official_insurer",
+          "source_ids": [
+            "CSOB_VPP2021"
+          ],
+          "condition": null
+        },
+        {
+          "text": "V Evropské unii můžete v tísni volat 112.",
+          "requirement_type": "recommended",
+          "evidence_level": "general_guidance",
+          "source_ids": [
+            "EU_EMERGENCY"
+          ],
+          "condition": "Pokud jste v EU."
+        }
+      ],
+      "required_documents": [],
+      "recommended_documents": [],
+      "police_involvement": {
+        "status": "not_established",
+        "guidance": "Z dostupných zdrojů nevyplývá jednotná povinnost pořídit policejní protokol právě pro tento scénář.",
+        "source_ids": [],
+        "needs_expert_review": true
+      },
+      "clarifying_questions": [
+        "Jde o vážný úraz nebo probíhá záchranná akce?",
+        "Jaký sport jste provozoval(a), kde a za jakých podmínek?"
+      ],
+      "coverage_considerations": [
+        "Ověřit zařazení sportu a prostředí do příslušné rizikové skupiny, sjednaná rozšíření a výluky.",
+        "U aktuálních webových doporučení je nutné ověřit soulad s verzí pojistných podmínek použitelnou pro smlouvu."
+      ],
+      "escalation_conditions": [
+        "Při bezprostředním nebezpečí nebo závažném zdravotním stavu má přednost přivolání místní pomoci.",
+        "Pokud potřebujete závazné rozhodnutí o krytí, přesný seznam povinných dokladů nebo výjimku z postupu, předejte dotaz pracovníkovi pojišťovny."
+      ],
+      "open_questions_for_expert": [
+        "Potvrdit pro scénář „Potápěčský úraz“ přesné doklady, použitelné výluky, rozsah asistence a případné povinnosti vůči ČSOB podle sjednaného produktu."
+      ],
+      "sources": [
+        {
+          "source_id": "CSOB_MED",
+          "url": "https://www.csobpoj.cz/skody-a-pojistne-udalosti/co-delat-pri-urazu-nebo-nemoci-v-zahranici",
+          "section": "Záchrana života; Asistence; Dokumentace; Oznámení",
+          "last_checked_at": "2026-11-26",
+          "effective_from": null
+        },
+        {
+          "source_id": "CSOB_VPP2021",
+          "url": "https://www.csobpoj.cz/documents/10332/5083102/11N9393%2BVPP%2BCP%2B2021_form%C3%A1t%2BA4_CZ_v%C4%8Detn%C4%9B%2Boce%C5%88ovac%C3%ADch%2Btabulek_final_PDF-A.pdf/91a13cf6-8af5-00b8-784b-2f4f65ab34d0?t=1714117917863",
+          "section": "Pokyny pro klienta (strana 2) a jednotlivá ustanovení VPP CP 2021",
+          "last_checked_at": "2026-11-26",
+          "effective_from": "2021-04-01"
+        },
+        {
+          "source_id": "EU_EMERGENCY",
+          "url": "https://europa.eu/youreurope/citizens/travel/security-and-emergencies/emergency/index_en.htm",
+          "section": "Tísňové číslo 112",
+          "last_checked_at": "2026-11-26",
+          "effective_from": null
+        }
+      ],
+      "source_ids": [
+        "CSOB_MED",
+        "CSOB_VPP2021",
+        "EU_EMERGENCY"
+      ],
+      "evidence_level": "needs_expert_review",
+      "official_scenario_specific_evidence": false,
+      "procedure_completeness": "unresolved",
+      "priority": "P0",
+      "policy_version_check_required": true,
+      "applicable_policy_versions": [],
+      "review_status": "DRAFT",
+      "reviewed_by": null,
+      "last_verified_at": null,
+      "last_public_source_checked_at": "2026-11-26",
+      "approved_at": null,
+      "publication_status": "REVIEW_ONLY",
+      "retrieval_eligible": false,
+      "notes_for_reviewer": "Obecné pokyny od jiných institucí nejsou požadavky ČSOB. Ověřit každou povinnost a datum platnosti."
+    }
+  ]
+}

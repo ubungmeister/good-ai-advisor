@@ -1,0 +1,2543 @@
+{
+  "schema_version": "1.0",
+  "document_type": "support_knowledge_collection",
+  "language": "cs",
+  "dataset_status": "DRAFT_EXPERT_REVIEW_REQUIRED",
+  "generated_at": "2026-11-26",
+  "title": "Obecná asistence pojištěným",
+  "articles": [
+    {
+      "id": "SUP_GENERAL_001",
+      "document_type": "support_procedure",
+      "schema_version": "1.0",
+      "language": "cs",
+      "category": "general_support",
+      "title": "Nejasná situace v zahraničí",
+      "scenario": "Klient řeší situaci: nejasná situace v zahraničí. Potřebuje praktický, ověřený postup bez předčasného příslibu plnění.",
+      "intent_tag": "general_urgent",
+      "question_variations": [
+        "Stalo se mi něco v zahraničí, co teď?",
+        "Nevím, jak začít řešit problém.",
+        "Komu mám nejdřív zavolat?"
+      ],
+      "conditions": [
+        "Postup posuzovat podle země události, konkrétního dopravce nebo poskytovatele služby a verze smlouvy."
+      ],
+      "immediate_steps": [
+        {
+          "text": "Pokud se v zahraničí stala škodní událost, kontaktujte podle potřeby asistenční službu ČSOB Pojišťovny na +420 466 100 777.",
+          "requirement_type": "recommended",
+          "evidence_level": "official_insurer",
+          "source_ids": [
+            "CSOB_GUIDE"
+          ],
+          "condition": null
+        },
+        {
+          "text": "Pro určení pojistného krytí ověřte konkrétní pojistnou smlouvu, sjednaná rizika, limity a platnou verzi podmínek.",
+          "requirement_type": "recommended",
+          "evidence_level": "official_insurer",
+          "source_ids": [
+            "CSOB_VPP2021"
+          ],
+          "condition": null
+        },
+        {
+          "text": "Asistenční služba ČSOB k cestovnímu pojištění je uvedena na čísle +420 466 100 777.",
+          "requirement_type": "recommended",
+          "evidence_level": "official_insurer",
+          "source_ids": [
+            "CSOB_ASSIST"
+          ],
+          "condition": null
+        }
+      ],
+      "required_documents": [],
+      "recommended_documents": [],
+      "police_involvement": {
+        "status": "not_established",
+        "guidance": "Z dostupných zdrojů nevyplývá jednotná povinnost pořídit policejní protokol právě pro tento scénář.",
+        "source_ids": [],
+        "needs_expert_review": true
+      },
+      "clarifying_questions": [
+        "Co přesně se stalo a ve které zemi?",
+        "Potřebujete akutní pomoc, nebo chcete hlavně ověřit pojistné krytí?"
+      ],
+      "coverage_considerations": [
+        "Závěr o krytí nelze odvodit bez identifikace pojistné smlouvy a sjednaných rizik.",
+        "U aktuálních webových doporučení je nutné ověřit soulad s verzí pojistných podmínek použitelnou pro smlouvu."
+      ],
+      "escalation_conditions": [
+        "Pokud potřebujete závazné rozhodnutí o krytí, přesný seznam povinných dokladů nebo výjimku z postupu, předejte dotaz pracovníkovi pojišťovny."
+      ],
+      "open_questions_for_expert": [
+        "Potvrdit pro scénář „Nejasná situace v zahraničí“ přesné doklady, použitelné výluky, rozsah asistence a případné povinnosti vůči ČSOB podle sjednaného produktu."
+      ],
+      "sources": [
+        {
+          "source_id": "CSOB_GUIDE",
+          "url": "https://www.csobpoj.cz/jak-postupovat-pri-skode-cestovni-pojisteni",
+          "section": "Událost v zahraničí",
+          "last_checked_at": "2026-11-26",
+          "effective_from": null
+        },
+        {
+          "source_id": "CSOB_VPP2021",
+          "url": "https://www.csobpoj.cz/documents/10332/5083102/11N9393%2BVPP%2BCP%2B2021_form%C3%A1t%2BA4_CZ_v%C4%8Detn%C4%9B%2Boce%C5%88ovac%C3%ADch%2Btabulek_final_PDF-A.pdf/91a13cf6-8af5-00b8-784b-2f4f65ab34d0?t=1714117917863",
+          "section": "Pokyny pro klienta (strana 2) a jednotlivá ustanovení VPP CP 2021",
+          "last_checked_at": "2026-11-26",
+          "effective_from": "2021-04-01"
+        },
+        {
+          "source_id": "CSOB_ASSIST",
+          "url": "https://www.csobpoj.cz/skody-a-pojistne-udalosti/vse-o-asistencnich-sluzbach",
+          "section": "Asistenční služby k cestovnímu pojištění",
+          "last_checked_at": "2026-11-26",
+          "effective_from": null
+        }
+      ],
+      "source_ids": [
+        "CSOB_GUIDE",
+        "CSOB_VPP2021",
+        "CSOB_ASSIST"
+      ],
+      "evidence_level": "needs_expert_review",
+      "official_scenario_specific_evidence": false,
+      "procedure_completeness": "unresolved",
+      "priority": "P2",
+      "policy_version_check_required": true,
+      "applicable_policy_versions": [],
+      "review_status": "DRAFT",
+      "reviewed_by": null,
+      "last_verified_at": null,
+      "last_public_source_checked_at": "2026-11-26",
+      "approved_at": null,
+      "publication_status": "REVIEW_ONLY",
+      "retrieval_eligible": false,
+      "notes_for_reviewer": "Obecné pokyny od jiných institucí nejsou požadavky ČSOB. Ověřit každou povinnost a datum platnosti."
+    },
+    {
+      "id": "SUP_GENERAL_002",
+      "document_type": "support_procedure",
+      "schema_version": "1.0",
+      "language": "cs",
+      "category": "general_support",
+      "title": "Nejistota, zda je událost pojištěná",
+      "scenario": "Klient řeší situaci: nejistota, zda je událost pojištěná. Potřebuje praktický, ověřený postup bez předčasného příslibu plnění.",
+      "intent_tag": "coverage_unknown",
+      "question_variations": [
+        "Mám na to vůbec pojištění?",
+        "Je tohle kryté mojí smlouvou?",
+        "Jak zjistím, jestli mi něco proplatíte?"
+      ],
+      "conditions": [
+        "Postup posuzovat podle země události, konkrétního dopravce nebo poskytovatele služby a verze smlouvy."
+      ],
+      "immediate_steps": [
+        {
+          "text": "Pokud se v zahraničí stala škodní událost, kontaktujte podle potřeby asistenční službu ČSOB Pojišťovny na +420 466 100 777.",
+          "requirement_type": "recommended",
+          "evidence_level": "official_insurer",
+          "source_ids": [
+            "CSOB_GUIDE"
+          ],
+          "condition": null
+        },
+        {
+          "text": "Pro určení pojistného krytí ověřte konkrétní pojistnou smlouvu, sjednaná rizika, limity a platnou verzi podmínek.",
+          "requirement_type": "recommended",
+          "evidence_level": "official_insurer",
+          "source_ids": [
+            "CSOB_VPP2021"
+          ],
+          "condition": null
+        },
+        {
+          "text": "Rozsah, osoby, datum a územní platnost pojištění posuzujte podle konkrétní smlouvy a jejího znění podmínek; samotný obecný webový popis nestačí.",
+          "requirement_type": "recommended",
+          "evidence_level": "official_insurer",
+          "source_ids": [
+            "CSOB_VPP2021"
+          ],
+          "condition": null
+        }
+      ],
+      "required_documents": [],
+      "recommended_documents": [],
+      "police_involvement": {
+        "status": "not_established",
+        "guidance": "Z dostupných zdrojů nevyplývá jednotná povinnost pořídit policejní protokol právě pro tento scénář.",
+        "source_ids": [],
+        "needs_expert_review": true
+      },
+      "clarifying_questions": [
+        "Co přesně se stalo a ve které zemi?",
+        "Potřebujete akutní pomoc, nebo chcete hlavně ověřit pojistné krytí?"
+      ],
+      "coverage_considerations": [
+        "Závěr o krytí nelze odvodit bez identifikace pojistné smlouvy a sjednaných rizik.",
+        "U aktuálních webových doporučení je nutné ověřit soulad s verzí pojistných podmínek použitelnou pro smlouvu."
+      ],
+      "escalation_conditions": [
+        "Pokud potřebujete závazné rozhodnutí o krytí, přesný seznam povinných dokladů nebo výjimku z postupu, předejte dotaz pracovníkovi pojišťovny."
+      ],
+      "open_questions_for_expert": [
+        "Potvrdit pro scénář „Nejistota, zda je událost pojištěná“ přesné doklady, použitelné výluky, rozsah asistence a případné povinnosti vůči ČSOB podle sjednaného produktu."
+      ],
+      "sources": [
+        {
+          "source_id": "CSOB_VPP2021",
+          "url": "https://www.csobpoj.cz/documents/10332/5083102/11N9393%2BVPP%2BCP%2B2021_form%C3%A1t%2BA4_CZ_v%C4%8Detn%C4%9B%2Boce%C5%88ovac%C3%ADch%2Btabulek_final_PDF-A.pdf/91a13cf6-8af5-00b8-784b-2f4f65ab34d0?t=1714117917863",
+          "section": "Pokyny pro klienta (strana 2) a jednotlivá ustanovení VPP CP 2021",
+          "last_checked_at": "2026-11-26",
+          "effective_from": "2021-04-01"
+        },
+        {
+          "source_id": "CSOB_GUIDE",
+          "url": "https://www.csobpoj.cz/jak-postupovat-pri-skode-cestovni-pojisteni",
+          "section": "Událost v zahraničí",
+          "last_checked_at": "2026-11-26",
+          "effective_from": null
+        }
+      ],
+      "source_ids": [
+        "CSOB_VPP2021",
+        "CSOB_GUIDE"
+      ],
+      "evidence_level": "needs_expert_review",
+      "official_scenario_specific_evidence": false,
+      "procedure_completeness": "unresolved",
+      "priority": "P2",
+      "policy_version_check_required": true,
+      "applicable_policy_versions": [],
+      "review_status": "DRAFT",
+      "reviewed_by": null,
+      "last_verified_at": null,
+      "last_public_source_checked_at": "2026-11-26",
+      "approved_at": null,
+      "publication_status": "REVIEW_ONLY",
+      "retrieval_eligible": false,
+      "notes_for_reviewer": "Obecné pokyny od jiných institucí nejsou požadavky ČSOB. Ověřit každou povinnost a datum platnosti."
+    },
+    {
+      "id": "SUP_GENERAL_003",
+      "document_type": "support_procedure",
+      "schema_version": "1.0",
+      "language": "cs",
+      "category": "general_support",
+      "title": "Neznámé limity pojistky",
+      "scenario": "Klient řeší situaci: neznámé limity pojistky. Potřebuje praktický, ověřený postup bez předčasného příslibu plnění.",
+      "intent_tag": "coverage_limit",
+      "question_variations": [
+        "Jaký mám limit na zavazadla?",
+        "Netuším, kolik mi pojišťovna může vyplatit.",
+        "Kde najdu limity své varianty?"
+      ],
+      "conditions": [
+        "Postup posuzovat podle země události, konkrétního dopravce nebo poskytovatele služby a verze smlouvy."
+      ],
+      "immediate_steps": [
+        {
+          "text": "Pokud se v zahraničí stala škodní událost, kontaktujte podle potřeby asistenční službu ČSOB Pojišťovny na +420 466 100 777.",
+          "requirement_type": "recommended",
+          "evidence_level": "official_insurer",
+          "source_ids": [
+            "CSOB_GUIDE"
+          ],
+          "condition": null
+        },
+        {
+          "text": "Pro určení pojistného krytí ověřte konkrétní pojistnou smlouvu, sjednaná rizika, limity a platnou verzi podmínek.",
+          "requirement_type": "recommended",
+          "evidence_level": "official_insurer",
+          "source_ids": [
+            "CSOB_VPP2021"
+          ],
+          "condition": null
+        },
+        {
+          "text": "Rozsah, osoby, datum a územní platnost pojištění posuzujte podle konkrétní smlouvy a jejího znění podmínek; samotný obecný webový popis nestačí.",
+          "requirement_type": "recommended",
+          "evidence_level": "official_insurer",
+          "source_ids": [
+            "CSOB_VPP2021"
+          ],
+          "condition": null
+        }
+      ],
+      "required_documents": [],
+      "recommended_documents": [],
+      "police_involvement": {
+        "status": "not_established",
+        "guidance": "Z dostupných zdrojů nevyplývá jednotná povinnost pořídit policejní protokol právě pro tento scénář.",
+        "source_ids": [],
+        "needs_expert_review": true
+      },
+      "clarifying_questions": [
+        "Co přesně se stalo a ve které zemi?",
+        "Potřebujete akutní pomoc, nebo chcete hlavně ověřit pojistné krytí?"
+      ],
+      "coverage_considerations": [
+        "Závěr o krytí nelze odvodit bez identifikace pojistné smlouvy a sjednaných rizik.",
+        "U aktuálních webových doporučení je nutné ověřit soulad s verzí pojistných podmínek použitelnou pro smlouvu."
+      ],
+      "escalation_conditions": [
+        "Pokud potřebujete závazné rozhodnutí o krytí, přesný seznam povinných dokladů nebo výjimku z postupu, předejte dotaz pracovníkovi pojišťovny."
+      ],
+      "open_questions_for_expert": [
+        "Potvrdit pro scénář „Neznámé limity pojistky“ přesné doklady, použitelné výluky, rozsah asistence a případné povinnosti vůči ČSOB podle sjednaného produktu."
+      ],
+      "sources": [
+        {
+          "source_id": "CSOB_VPP2021",
+          "url": "https://www.csobpoj.cz/documents/10332/5083102/11N9393%2BVPP%2BCP%2B2021_form%C3%A1t%2BA4_CZ_v%C4%8Detn%C4%9B%2Boce%C5%88ovac%C3%ADch%2Btabulek_final_PDF-A.pdf/91a13cf6-8af5-00b8-784b-2f4f65ab34d0?t=1714117917863",
+          "section": "Pokyny pro klienta (strana 2) a jednotlivá ustanovení VPP CP 2021",
+          "last_checked_at": "2026-11-26",
+          "effective_from": "2021-04-01"
+        },
+        {
+          "source_id": "CSOB_GUIDE",
+          "url": "https://www.csobpoj.cz/jak-postupovat-pri-skode-cestovni-pojisteni",
+          "section": "Událost v zahraničí",
+          "last_checked_at": "2026-11-26",
+          "effective_from": null
+        }
+      ],
+      "source_ids": [
+        "CSOB_VPP2021",
+        "CSOB_GUIDE"
+      ],
+      "evidence_level": "needs_expert_review",
+      "official_scenario_specific_evidence": false,
+      "procedure_completeness": "unresolved",
+      "priority": "P2",
+      "policy_version_check_required": true,
+      "applicable_policy_versions": [],
+      "review_status": "DRAFT",
+      "reviewed_by": null,
+      "last_verified_at": null,
+      "last_public_source_checked_at": "2026-11-26",
+      "approved_at": null,
+      "publication_status": "REVIEW_ONLY",
+      "retrieval_eligible": false,
+      "notes_for_reviewer": "Obecné pokyny od jiných institucí nejsou požadavky ČSOB. Ověřit každou povinnost a datum platnosti."
+    },
+    {
+      "id": "SUP_GENERAL_004",
+      "document_type": "support_procedure",
+      "schema_version": "1.0",
+      "language": "cs",
+      "category": "general_support",
+      "title": "Ztracená pojistná smlouva",
+      "scenario": "Klient řeší situaci: ztracená pojistná smlouva. Potřebuje praktický, ověřený postup bez předčasného příslibu plnění.",
+      "intent_tag": "general_policy_missing",
+      "question_variations": [
+        "Nemůžu najít smlouvu.",
+        "Ztratil jsem dokumenty k pojištění.",
+        "Stačí mi kartička asistence?"
+      ],
+      "conditions": [
+        "Postup posuzovat podle země události, konkrétního dopravce nebo poskytovatele služby a verze smlouvy."
+      ],
+      "immediate_steps": [
+        {
+          "text": "Pokud se v zahraničí stala škodní událost, kontaktujte podle potřeby asistenční službu ČSOB Pojišťovny na +420 466 100 777.",
+          "requirement_type": "recommended",
+          "evidence_level": "official_insurer",
+          "source_ids": [
+            "CSOB_GUIDE"
+          ],
+          "condition": null
+        },
+        {
+          "text": "Pro určení pojistného krytí ověřte konkrétní pojistnou smlouvu, sjednaná rizika, limity a platnou verzi podmínek.",
+          "requirement_type": "recommended",
+          "evidence_level": "official_insurer",
+          "source_ids": [
+            "CSOB_VPP2021"
+          ],
+          "condition": null
+        }
+      ],
+      "required_documents": [],
+      "recommended_documents": [],
+      "police_involvement": {
+        "status": "not_established",
+        "guidance": "Z dostupných zdrojů nevyplývá jednotná povinnost pořídit policejní protokol právě pro tento scénář.",
+        "source_ids": [],
+        "needs_expert_review": true
+      },
+      "clarifying_questions": [
+        "Co přesně se stalo a ve které zemi?",
+        "Potřebujete akutní pomoc, nebo chcete hlavně ověřit pojistné krytí?"
+      ],
+      "coverage_considerations": [
+        "Závěr o krytí nelze odvodit bez identifikace pojistné smlouvy a sjednaných rizik.",
+        "U aktuálních webových doporučení je nutné ověřit soulad s verzí pojistných podmínek použitelnou pro smlouvu."
+      ],
+      "escalation_conditions": [
+        "Pokud potřebujete závazné rozhodnutí o krytí, přesný seznam povinných dokladů nebo výjimku z postupu, předejte dotaz pracovníkovi pojišťovny."
+      ],
+      "open_questions_for_expert": [
+        "Potvrdit pro scénář „Ztracená pojistná smlouva“ přesné doklady, použitelné výluky, rozsah asistence a případné povinnosti vůči ČSOB podle sjednaného produktu."
+      ],
+      "sources": [
+        {
+          "source_id": "CSOB_VPP2021",
+          "url": "https://www.csobpoj.cz/documents/10332/5083102/11N9393%2BVPP%2BCP%2B2021_form%C3%A1t%2BA4_CZ_v%C4%8Detn%C4%9B%2Boce%C5%88ovac%C3%ADch%2Btabulek_final_PDF-A.pdf/91a13cf6-8af5-00b8-784b-2f4f65ab34d0?t=1714117917863",
+          "section": "Pokyny pro klienta (strana 2) a jednotlivá ustanovení VPP CP 2021",
+          "last_checked_at": "2026-11-26",
+          "effective_from": "2021-04-01"
+        },
+        {
+          "source_id": "CSOB_GUIDE",
+          "url": "https://www.csobpoj.cz/jak-postupovat-pri-skode-cestovni-pojisteni",
+          "section": "Událost v zahraničí",
+          "last_checked_at": "2026-11-26",
+          "effective_from": null
+        }
+      ],
+      "source_ids": [
+        "CSOB_VPP2021",
+        "CSOB_GUIDE"
+      ],
+      "evidence_level": "needs_expert_review",
+      "official_scenario_specific_evidence": false,
+      "procedure_completeness": "unresolved",
+      "priority": "P2",
+      "policy_version_check_required": true,
+      "applicable_policy_versions": [],
+      "review_status": "DRAFT",
+      "reviewed_by": null,
+      "last_verified_at": null,
+      "last_public_source_checked_at": "2026-11-26",
+      "approved_at": null,
+      "publication_status": "REVIEW_ONLY",
+      "retrieval_eligible": false,
+      "notes_for_reviewer": "Obecné pokyny od jiných institucí nejsou požadavky ČSOB. Ověřit každou povinnost a datum platnosti."
+    },
+    {
+      "id": "SUP_GENERAL_005",
+      "document_type": "support_procedure",
+      "schema_version": "1.0",
+      "language": "cs",
+      "category": "general_support",
+      "title": "Chybějící asistenční kartička",
+      "scenario": "Klient řeší situaci: chybějící asistenční kartička. Potřebuje praktický, ověřený postup bez předčasného příslibu plnění.",
+      "intent_tag": "general_assistance",
+      "question_variations": [
+        "Nemám u sebe asistenční kartičku.",
+        "Nenašel jsem kontakt na asistenci.",
+        "Jak získám pomoc bez kartičky?"
+      ],
+      "conditions": [
+        "Postup posuzovat podle země události, konkrétního dopravce nebo poskytovatele služby a verze smlouvy."
+      ],
+      "immediate_steps": [
+        {
+          "text": "Pokud se v zahraničí stala škodní událost, kontaktujte podle potřeby asistenční službu ČSOB Pojišťovny na +420 466 100 777.",
+          "requirement_type": "recommended",
+          "evidence_level": "official_insurer",
+          "source_ids": [
+            "CSOB_GUIDE"
+          ],
+          "condition": null
+        },
+        {
+          "text": "Pro určení pojistného krytí ověřte konkrétní pojistnou smlouvu, sjednaná rizika, limity a platnou verzi podmínek.",
+          "requirement_type": "recommended",
+          "evidence_level": "official_insurer",
+          "source_ids": [
+            "CSOB_VPP2021"
+          ],
+          "condition": null
+        },
+        {
+          "text": "Asistenční služba ČSOB k cestovnímu pojištění je uvedena na čísle +420 466 100 777.",
+          "requirement_type": "recommended",
+          "evidence_level": "official_insurer",
+          "source_ids": [
+            "CSOB_ASSIST"
+          ],
+          "condition": null
+        }
+      ],
+      "required_documents": [],
+      "recommended_documents": [],
+      "police_involvement": {
+        "status": "not_established",
+        "guidance": "Z dostupných zdrojů nevyplývá jednotná povinnost pořídit policejní protokol právě pro tento scénář.",
+        "source_ids": [],
+        "needs_expert_review": true
+      },
+      "clarifying_questions": [
+        "Co přesně se stalo a ve které zemi?",
+        "Potřebujete akutní pomoc, nebo chcete hlavně ověřit pojistné krytí?"
+      ],
+      "coverage_considerations": [
+        "Závěr o krytí nelze odvodit bez identifikace pojistné smlouvy a sjednaných rizik.",
+        "U aktuálních webových doporučení je nutné ověřit soulad s verzí pojistných podmínek použitelnou pro smlouvu."
+      ],
+      "escalation_conditions": [
+        "Pokud potřebujete závazné rozhodnutí o krytí, přesný seznam povinných dokladů nebo výjimku z postupu, předejte dotaz pracovníkovi pojišťovny."
+      ],
+      "open_questions_for_expert": [
+        "Potvrdit pro scénář „Chybějící asistenční kartička“ přesné doklady, použitelné výluky, rozsah asistence a případné povinnosti vůči ČSOB podle sjednaného produktu."
+      ],
+      "sources": [
+        {
+          "source_id": "CSOB_ASSIST",
+          "url": "https://www.csobpoj.cz/skody-a-pojistne-udalosti/vse-o-asistencnich-sluzbach",
+          "section": "Asistenční služby k cestovnímu pojištění",
+          "last_checked_at": "2026-11-26",
+          "effective_from": null
+        },
+        {
+          "source_id": "CSOB_GUIDE",
+          "url": "https://www.csobpoj.cz/jak-postupovat-pri-skode-cestovni-pojisteni",
+          "section": "Událost v zahraničí",
+          "last_checked_at": "2026-11-26",
+          "effective_from": null
+        },
+        {
+          "source_id": "CSOB_VPP2021",
+          "url": "https://www.csobpoj.cz/documents/10332/5083102/11N9393%2BVPP%2BCP%2B2021_form%C3%A1t%2BA4_CZ_v%C4%8Detn%C4%9B%2Boce%C5%88ovac%C3%ADch%2Btabulek_final_PDF-A.pdf/91a13cf6-8af5-00b8-784b-2f4f65ab34d0?t=1714117917863",
+          "section": "Pokyny pro klienta (strana 2) a jednotlivá ustanovení VPP CP 2021",
+          "last_checked_at": "2026-11-26",
+          "effective_from": "2021-04-01"
+        }
+      ],
+      "source_ids": [
+        "CSOB_ASSIST",
+        "CSOB_GUIDE",
+        "CSOB_VPP2021"
+      ],
+      "evidence_level": "needs_expert_review",
+      "official_scenario_specific_evidence": false,
+      "procedure_completeness": "unresolved",
+      "priority": "P2",
+      "policy_version_check_required": true,
+      "applicable_policy_versions": [],
+      "review_status": "DRAFT",
+      "reviewed_by": null,
+      "last_verified_at": null,
+      "last_public_source_checked_at": "2026-11-26",
+      "approved_at": null,
+      "publication_status": "REVIEW_ONLY",
+      "retrieval_eligible": false,
+      "notes_for_reviewer": "Obecné pokyny od jiných institucí nejsou požadavky ČSOB. Ověřit každou povinnost a datum platnosti."
+    },
+    {
+      "id": "SUP_GENERAL_006",
+      "document_type": "support_procedure",
+      "schema_version": "1.0",
+      "language": "cs",
+      "category": "general_support",
+      "title": "Jazyková bariéra při řešení události",
+      "scenario": "Klient řeší situaci: jazyková bariéra při řešení události. Potřebuje praktický, ověřený postup bez předčasného příslibu plnění.",
+      "intent_tag": "language",
+      "question_variations": [
+        "Nedomluvím se v zahraničí.",
+        "Na policii mi nikdo nerozumí.",
+        "Může mi asistence pomoci s překladem?"
+      ],
+      "conditions": [
+        "Postup posuzovat podle země události, konkrétního dopravce nebo poskytovatele služby a verze smlouvy."
+      ],
+      "immediate_steps": [
+        {
+          "text": "Pokud se v zahraničí stala škodní událost, kontaktujte podle potřeby asistenční službu ČSOB Pojišťovny na +420 466 100 777.",
+          "requirement_type": "recommended",
+          "evidence_level": "official_insurer",
+          "source_ids": [
+            "CSOB_GUIDE"
+          ],
+          "condition": null
+        },
+        {
+          "text": "Pro určení pojistného krytí ověřte konkrétní pojistnou smlouvu, sjednaná rizika, limity a platnou verzi podmínek.",
+          "requirement_type": "recommended",
+          "evidence_level": "official_insurer",
+          "source_ids": [
+            "CSOB_VPP2021"
+          ],
+          "condition": null
+        },
+        {
+          "text": "Asistenční služba ČSOB může pomoci s komunikací v cizím jazyce.",
+          "requirement_type": "recommended",
+          "evidence_level": "official_insurer",
+          "source_ids": [
+            "CSOB_ASSIST"
+          ],
+          "condition": null
+        }
+      ],
+      "required_documents": [],
+      "recommended_documents": [],
+      "police_involvement": {
+        "status": "not_established",
+        "guidance": "Z dostupných zdrojů nevyplývá jednotná povinnost pořídit policejní protokol právě pro tento scénář.",
+        "source_ids": [],
+        "needs_expert_review": true
+      },
+      "clarifying_questions": [
+        "Co přesně se stalo a ve které zemi?",
+        "Potřebujete akutní pomoc, nebo chcete hlavně ověřit pojistné krytí?"
+      ],
+      "coverage_considerations": [
+        "Závěr o krytí nelze odvodit bez identifikace pojistné smlouvy a sjednaných rizik.",
+        "U aktuálních webových doporučení je nutné ověřit soulad s verzí pojistných podmínek použitelnou pro smlouvu."
+      ],
+      "escalation_conditions": [
+        "Pokud potřebujete závazné rozhodnutí o krytí, přesný seznam povinných dokladů nebo výjimku z postupu, předejte dotaz pracovníkovi pojišťovny."
+      ],
+      "open_questions_for_expert": [
+        "Potvrdit pro scénář „Jazyková bariéra při řešení události“ přesné doklady, použitelné výluky, rozsah asistence a případné povinnosti vůči ČSOB podle sjednaného produktu."
+      ],
+      "sources": [
+        {
+          "source_id": "CSOB_ASSIST",
+          "url": "https://www.csobpoj.cz/skody-a-pojistne-udalosti/vse-o-asistencnich-sluzbach",
+          "section": "Asistenční služby k cestovnímu pojištění",
+          "last_checked_at": "2026-11-26",
+          "effective_from": null
+        },
+        {
+          "source_id": "CSOB_GUIDE",
+          "url": "https://www.csobpoj.cz/jak-postupovat-pri-skode-cestovni-pojisteni",
+          "section": "Událost v zahraničí",
+          "last_checked_at": "2026-11-26",
+          "effective_from": null
+        },
+        {
+          "source_id": "CSOB_VPP2021",
+          "url": "https://www.csobpoj.cz/documents/10332/5083102/11N9393%2BVPP%2BCP%2B2021_form%C3%A1t%2BA4_CZ_v%C4%8Detn%C4%9B%2Boce%C5%88ovac%C3%ADch%2Btabulek_final_PDF-A.pdf/91a13cf6-8af5-00b8-784b-2f4f65ab34d0?t=1714117917863",
+          "section": "Pokyny pro klienta (strana 2) a jednotlivá ustanovení VPP CP 2021",
+          "last_checked_at": "2026-11-26",
+          "effective_from": "2021-04-01"
+        }
+      ],
+      "source_ids": [
+        "CSOB_ASSIST",
+        "CSOB_GUIDE",
+        "CSOB_VPP2021"
+      ],
+      "evidence_level": "official_insurer",
+      "official_scenario_specific_evidence": true,
+      "procedure_completeness": "partial",
+      "priority": "P2",
+      "policy_version_check_required": true,
+      "applicable_policy_versions": [],
+      "review_status": "DRAFT",
+      "reviewed_by": null,
+      "last_verified_at": null,
+      "last_public_source_checked_at": "2026-11-26",
+      "approved_at": null,
+      "publication_status": "REVIEW_ONLY",
+      "retrieval_eligible": false,
+      "notes_for_reviewer": "Obecné pokyny od jiných institucí nejsou požadavky ČSOB. Ověřit každou povinnost a datum platnosti."
+    },
+    {
+      "id": "SUP_GENERAL_007",
+      "document_type": "support_procedure",
+      "schema_version": "1.0",
+      "language": "cs",
+      "category": "general_support",
+      "title": "Zákazník je ve stresu a neví, jak pokračovat",
+      "scenario": "Klient řeší situaci: zákazník je ve stresu a neví, jak pokračovat. Potřebuje praktický, ověřený postup bez předčasného příslibu plnění.",
+      "intent_tag": "general_urgent",
+      "question_variations": [
+        "Jsem úplně v panice, nevím co dělat.",
+        "Mám hrozný strach a potřebuji poradit.",
+        "Můžete mi říct první krok?"
+      ],
+      "conditions": [
+        "Postup posuzovat podle země události, konkrétního dopravce nebo poskytovatele služby a verze smlouvy."
+      ],
+      "immediate_steps": [
+        {
+          "text": "Pokud se v zahraničí stala škodní událost, kontaktujte podle potřeby asistenční službu ČSOB Pojišťovny na +420 466 100 777.",
+          "requirement_type": "recommended",
+          "evidence_level": "official_insurer",
+          "source_ids": [
+            "CSOB_GUIDE"
+          ],
+          "condition": null
+        },
+        {
+          "text": "Pro určení pojistného krytí ověřte konkrétní pojistnou smlouvu, sjednaná rizika, limity a platnou verzi podmínek.",
+          "requirement_type": "recommended",
+          "evidence_level": "official_insurer",
+          "source_ids": [
+            "CSOB_VPP2021"
+          ],
+          "condition": null
+        },
+        {
+          "text": "Asistenční služba ČSOB k cestovnímu pojištění je uvedena na čísle +420 466 100 777.",
+          "requirement_type": "recommended",
+          "evidence_level": "official_insurer",
+          "source_ids": [
+            "CSOB_ASSIST"
+          ],
+          "condition": null
+        }
+      ],
+      "required_documents": [],
+      "recommended_documents": [],
+      "police_involvement": {
+        "status": "not_established",
+        "guidance": "Z dostupných zdrojů nevyplývá jednotná povinnost pořídit policejní protokol právě pro tento scénář.",
+        "source_ids": [],
+        "needs_expert_review": true
+      },
+      "clarifying_questions": [
+        "Co přesně se stalo a ve které zemi?",
+        "Potřebujete akutní pomoc, nebo chcete hlavně ověřit pojistné krytí?"
+      ],
+      "coverage_considerations": [
+        "Závěr o krytí nelze odvodit bez identifikace pojistné smlouvy a sjednaných rizik.",
+        "U aktuálních webových doporučení je nutné ověřit soulad s verzí pojistných podmínek použitelnou pro smlouvu."
+      ],
+      "escalation_conditions": [
+        "Pokud potřebujete závazné rozhodnutí o krytí, přesný seznam povinných dokladů nebo výjimku z postupu, předejte dotaz pracovníkovi pojišťovny."
+      ],
+      "open_questions_for_expert": [
+        "Potvrdit pro scénář „Zákazník je ve stresu a neví, jak pokračovat“ přesné doklady, použitelné výluky, rozsah asistence a případné povinnosti vůči ČSOB podle sjednaného produktu."
+      ],
+      "sources": [
+        {
+          "source_id": "CSOB_GUIDE",
+          "url": "https://www.csobpoj.cz/jak-postupovat-pri-skode-cestovni-pojisteni",
+          "section": "Událost v zahraničí",
+          "last_checked_at": "2026-11-26",
+          "effective_from": null
+        },
+        {
+          "source_id": "CSOB_VPP2021",
+          "url": "https://www.csobpoj.cz/documents/10332/5083102/11N9393%2BVPP%2BCP%2B2021_form%C3%A1t%2BA4_CZ_v%C4%8Detn%C4%9B%2Boce%C5%88ovac%C3%ADch%2Btabulek_final_PDF-A.pdf/91a13cf6-8af5-00b8-784b-2f4f65ab34d0?t=1714117917863",
+          "section": "Pokyny pro klienta (strana 2) a jednotlivá ustanovení VPP CP 2021",
+          "last_checked_at": "2026-11-26",
+          "effective_from": "2021-04-01"
+        },
+        {
+          "source_id": "CSOB_ASSIST",
+          "url": "https://www.csobpoj.cz/skody-a-pojistne-udalosti/vse-o-asistencnich-sluzbach",
+          "section": "Asistenční služby k cestovnímu pojištění",
+          "last_checked_at": "2026-11-26",
+          "effective_from": null
+        }
+      ],
+      "source_ids": [
+        "CSOB_GUIDE",
+        "CSOB_VPP2021",
+        "CSOB_ASSIST"
+      ],
+      "evidence_level": "needs_expert_review",
+      "official_scenario_specific_evidence": false,
+      "procedure_completeness": "unresolved",
+      "priority": "P2",
+      "policy_version_check_required": true,
+      "applicable_policy_versions": [],
+      "review_status": "DRAFT",
+      "reviewed_by": null,
+      "last_verified_at": null,
+      "last_public_source_checked_at": "2026-11-26",
+      "approved_at": null,
+      "publication_status": "REVIEW_ONLY",
+      "retrieval_eligible": false,
+      "notes_for_reviewer": "Obecné pokyny od jiných institucí nejsou požadavky ČSOB. Ověřit každou povinnost a datum platnosti."
+    },
+    {
+      "id": "SUP_GENERAL_008",
+      "document_type": "support_procedure",
+      "schema_version": "1.0",
+      "language": "cs",
+      "category": "general_support",
+      "title": "Protichůdné pokyny od asistence a dopravce",
+      "scenario": "Klient řeší situaci: protichůdné pokyny od asistence a dopravce. Potřebuje praktický, ověřený postup bez předčasného příslibu plnění.",
+      "intent_tag": "conflict",
+      "question_variations": [
+        "Aerolinka mi říká něco jiného než pojišťovna.",
+        "Dostal jsem různé rady od dvou lidí.",
+        "Čím se mám řídit?"
+      ],
+      "conditions": [
+        "Postup posuzovat podle země události, konkrétního dopravce nebo poskytovatele služby a verze smlouvy."
+      ],
+      "immediate_steps": [
+        {
+          "text": "Pokud se v zahraničí stala škodní událost, kontaktujte podle potřeby asistenční službu ČSOB Pojišťovny na +420 466 100 777.",
+          "requirement_type": "recommended",
+          "evidence_level": "official_insurer",
+          "source_ids": [
+            "CSOB_GUIDE"
+          ],
+          "condition": null
+        },
+        {
+          "text": "Pro určení pojistného krytí ověřte konkrétní pojistnou smlouvu, sjednaná rizika, limity a platnou verzi podmínek.",
+          "requirement_type": "recommended",
+          "evidence_level": "official_insurer",
+          "source_ids": [
+            "CSOB_VPP2021"
+          ],
+          "condition": null
+        }
+      ],
+      "required_documents": [],
+      "recommended_documents": [],
+      "police_involvement": {
+        "status": "not_established",
+        "guidance": "Z dostupných zdrojů nevyplývá jednotná povinnost pořídit policejní protokol právě pro tento scénář.",
+        "source_ids": [],
+        "needs_expert_review": true
+      },
+      "clarifying_questions": [
+        "Co přesně se stalo a ve které zemi?",
+        "Potřebujete akutní pomoc, nebo chcete hlavně ověřit pojistné krytí?"
+      ],
+      "coverage_considerations": [
+        "Závěr o krytí nelze odvodit bez identifikace pojistné smlouvy a sjednaných rizik.",
+        "U aktuálních webových doporučení je nutné ověřit soulad s verzí pojistných podmínek použitelnou pro smlouvu."
+      ],
+      "escalation_conditions": [
+        "Pokud potřebujete závazné rozhodnutí o krytí, přesný seznam povinných dokladů nebo výjimku z postupu, předejte dotaz pracovníkovi pojišťovny."
+      ],
+      "open_questions_for_expert": [
+        "Potvrdit pro scénář „Protichůdné pokyny od asistence a dopravce“ přesné doklady, použitelné výluky, rozsah asistence a případné povinnosti vůči ČSOB podle sjednaného produktu."
+      ],
+      "sources": [
+        {
+          "source_id": "CSOB_CLAIM",
+          "url": "https://www.csobpoj.cz/oznameni-pojistne-udalosti-cestovni-pojisteni",
+          "section": "Oznámení online, telefonicky a doplnění dokladů",
+          "last_checked_at": "2026-11-26",
+          "effective_from": null
+        },
+        {
+          "source_id": "CSOB_GUIDE",
+          "url": "https://www.csobpoj.cz/jak-postupovat-pri-skode-cestovni-pojisteni",
+          "section": "Událost v zahraničí",
+          "last_checked_at": "2026-11-26",
+          "effective_from": null
+        },
+        {
+          "source_id": "CSOB_VPP2021",
+          "url": "https://www.csobpoj.cz/documents/10332/5083102/11N9393%2BVPP%2BCP%2B2021_form%C3%A1t%2BA4_CZ_v%C4%8Detn%C4%9B%2Boce%C5%88ovac%C3%ADch%2Btabulek_final_PDF-A.pdf/91a13cf6-8af5-00b8-784b-2f4f65ab34d0?t=1714117917863",
+          "section": "Pokyny pro klienta (strana 2) a jednotlivá ustanovení VPP CP 2021",
+          "last_checked_at": "2026-11-26",
+          "effective_from": "2021-04-01"
+        }
+      ],
+      "source_ids": [
+        "CSOB_CLAIM",
+        "CSOB_GUIDE",
+        "CSOB_VPP2021"
+      ],
+      "evidence_level": "needs_expert_review",
+      "official_scenario_specific_evidence": false,
+      "procedure_completeness": "unresolved",
+      "priority": "P2",
+      "policy_version_check_required": true,
+      "applicable_policy_versions": [],
+      "review_status": "DRAFT",
+      "reviewed_by": null,
+      "last_verified_at": null,
+      "last_public_source_checked_at": "2026-11-26",
+      "approved_at": null,
+      "publication_status": "REVIEW_ONLY",
+      "retrieval_eligible": false,
+      "notes_for_reviewer": "Obecné pokyny od jiných institucí nejsou požadavky ČSOB. Ověřit každou povinnost a datum platnosti."
+    },
+    {
+      "id": "SUP_GENERAL_009",
+      "document_type": "support_procedure",
+      "schema_version": "1.0",
+      "language": "cs",
+      "category": "general_support",
+      "title": "Kdy volat asistenční službu",
+      "scenario": "Klient řeší situaci: kdy volat asistenční službu. Potřebuje praktický, ověřený postup bez předčasného příslibu plnění.",
+      "intent_tag": "general_assistance",
+      "question_variations": [
+        "Kdy mám zavolat asistenční službu?",
+        "Volá se asistence i kvůli malé škodě?",
+        "Je asistence dostupná nonstop?"
+      ],
+      "conditions": [
+        "Postup posuzovat podle země události, konkrétního dopravce nebo poskytovatele služby a verze smlouvy."
+      ],
+      "immediate_steps": [
+        {
+          "text": "Pokud se v zahraničí stala škodní událost, kontaktujte podle potřeby asistenční službu ČSOB Pojišťovny na +420 466 100 777.",
+          "requirement_type": "recommended",
+          "evidence_level": "official_insurer",
+          "source_ids": [
+            "CSOB_GUIDE"
+          ],
+          "condition": null
+        },
+        {
+          "text": "Pro určení pojistného krytí ověřte konkrétní pojistnou smlouvu, sjednaná rizika, limity a platnou verzi podmínek.",
+          "requirement_type": "recommended",
+          "evidence_level": "official_insurer",
+          "source_ids": [
+            "CSOB_VPP2021"
+          ],
+          "condition": null
+        },
+        {
+          "text": "Asistenční služba ČSOB k cestovnímu pojištění je uvedena na čísle +420 466 100 777.",
+          "requirement_type": "recommended",
+          "evidence_level": "official_insurer",
+          "source_ids": [
+            "CSOB_ASSIST"
+          ],
+          "condition": null
+        }
+      ],
+      "required_documents": [],
+      "recommended_documents": [],
+      "police_involvement": {
+        "status": "not_established",
+        "guidance": "Z dostupných zdrojů nevyplývá jednotná povinnost pořídit policejní protokol právě pro tento scénář.",
+        "source_ids": [],
+        "needs_expert_review": true
+      },
+      "clarifying_questions": [
+        "Co přesně se stalo a ve které zemi?",
+        "Potřebujete akutní pomoc, nebo chcete hlavně ověřit pojistné krytí?"
+      ],
+      "coverage_considerations": [
+        "Závěr o krytí nelze odvodit bez identifikace pojistné smlouvy a sjednaných rizik.",
+        "U aktuálních webových doporučení je nutné ověřit soulad s verzí pojistných podmínek použitelnou pro smlouvu."
+      ],
+      "escalation_conditions": [
+        "Pokud potřebujete závazné rozhodnutí o krytí, přesný seznam povinných dokladů nebo výjimku z postupu, předejte dotaz pracovníkovi pojišťovny."
+      ],
+      "open_questions_for_expert": [
+        "Potvrdit pro scénář „Kdy volat asistenční službu“ přesné doklady, použitelné výluky, rozsah asistence a případné povinnosti vůči ČSOB podle sjednaného produktu."
+      ],
+      "sources": [
+        {
+          "source_id": "CSOB_ASSIST",
+          "url": "https://www.csobpoj.cz/skody-a-pojistne-udalosti/vse-o-asistencnich-sluzbach",
+          "section": "Asistenční služby k cestovnímu pojištění",
+          "last_checked_at": "2026-11-26",
+          "effective_from": null
+        },
+        {
+          "source_id": "CSOB_GUIDE",
+          "url": "https://www.csobpoj.cz/jak-postupovat-pri-skode-cestovni-pojisteni",
+          "section": "Událost v zahraničí",
+          "last_checked_at": "2026-11-26",
+          "effective_from": null
+        },
+        {
+          "source_id": "CSOB_VPP2021",
+          "url": "https://www.csobpoj.cz/documents/10332/5083102/11N9393%2BVPP%2BCP%2B2021_form%C3%A1t%2BA4_CZ_v%C4%8Detn%C4%9B%2Boce%C5%88ovac%C3%ADch%2Btabulek_final_PDF-A.pdf/91a13cf6-8af5-00b8-784b-2f4f65ab34d0?t=1714117917863",
+          "section": "Pokyny pro klienta (strana 2) a jednotlivá ustanovení VPP CP 2021",
+          "last_checked_at": "2026-11-26",
+          "effective_from": "2021-04-01"
+        }
+      ],
+      "source_ids": [
+        "CSOB_ASSIST",
+        "CSOB_GUIDE",
+        "CSOB_VPP2021"
+      ],
+      "evidence_level": "needs_expert_review",
+      "official_scenario_specific_evidence": false,
+      "procedure_completeness": "unresolved",
+      "priority": "P2",
+      "policy_version_check_required": true,
+      "applicable_policy_versions": [],
+      "review_status": "DRAFT",
+      "reviewed_by": null,
+      "last_verified_at": null,
+      "last_public_source_checked_at": "2026-11-26",
+      "approved_at": null,
+      "publication_status": "REVIEW_ONLY",
+      "retrieval_eligible": false,
+      "notes_for_reviewer": "Obecné pokyny od jiných institucí nejsou požadavky ČSOB. Ověřit každou povinnost a datum platnosti."
+    },
+    {
+      "id": "SUP_GENERAL_010",
+      "document_type": "support_procedure",
+      "schema_version": "1.0",
+      "language": "cs",
+      "category": "general_support",
+      "title": "Bez internetu v zahraničí",
+      "scenario": "Klient řeší situaci: bez internetu v zahraničí. Potřebuje praktický, ověřený postup bez předčasného příslibu plnění.",
+      "intent_tag": "claim_phone",
+      "question_variations": [
+        "Nefunguje mi internet ani aplikace.",
+        "Nemůžu vyplnit online hlášení.",
+        "Můžu řešit škodu telefonem?"
+      ],
+      "conditions": [
+        "Postup posuzovat podle země události, konkrétního dopravce nebo poskytovatele služby a verze smlouvy."
+      ],
+      "immediate_steps": [
+        {
+          "text": "Pokud se v zahraničí stala škodní událost, kontaktujte podle potřeby asistenční službu ČSOB Pojišťovny na +420 466 100 777.",
+          "requirement_type": "recommended",
+          "evidence_level": "official_insurer",
+          "source_ids": [
+            "CSOB_GUIDE"
+          ],
+          "condition": null
+        },
+        {
+          "text": "Pro určení pojistného krytí ověřte konkrétní pojistnou smlouvu, sjednaná rizika, limity a platnou verzi podmínek.",
+          "requirement_type": "recommended",
+          "evidence_level": "official_insurer",
+          "source_ids": [
+            "CSOB_VPP2021"
+          ],
+          "condition": null
+        },
+        {
+          "text": "Při telefonickém hlášení ČSOB uvádí volbu 1; klientská linka pro hlášení je dostupná v pracovních dnech od 8 do 18 hodin.",
+          "requirement_type": "recommended",
+          "evidence_level": "official_insurer",
+          "source_ids": [
+            "CSOB_CLAIM"
+          ],
+          "condition": null
+        }
+      ],
+      "required_documents": [],
+      "recommended_documents": [],
+      "police_involvement": {
+        "status": "not_established",
+        "guidance": "Z dostupných zdrojů nevyplývá jednotná povinnost pořídit policejní protokol právě pro tento scénář.",
+        "source_ids": [],
+        "needs_expert_review": true
+      },
+      "clarifying_questions": [
+        "Co přesně se stalo a ve které zemi?",
+        "Potřebujete akutní pomoc, nebo chcete hlavně ověřit pojistné krytí?"
+      ],
+      "coverage_considerations": [
+        "Závěr o krytí nelze odvodit bez identifikace pojistné smlouvy a sjednaných rizik.",
+        "U aktuálních webových doporučení je nutné ověřit soulad s verzí pojistných podmínek použitelnou pro smlouvu."
+      ],
+      "escalation_conditions": [
+        "Pokud potřebujete závazné rozhodnutí o krytí, přesný seznam povinných dokladů nebo výjimku z postupu, předejte dotaz pracovníkovi pojišťovny."
+      ],
+      "open_questions_for_expert": [
+        "Potvrdit pro scénář „Bez internetu v zahraničí“ přesné doklady, použitelné výluky, rozsah asistence a případné povinnosti vůči ČSOB podle sjednaného produktu."
+      ],
+      "sources": [
+        {
+          "source_id": "CSOB_CLAIM",
+          "url": "https://www.csobpoj.cz/oznameni-pojistne-udalosti-cestovni-pojisteni",
+          "section": "Oznámení online, telefonicky a doplnění dokladů",
+          "last_checked_at": "2026-11-26",
+          "effective_from": null
+        },
+        {
+          "source_id": "CSOB_GUIDE",
+          "url": "https://www.csobpoj.cz/jak-postupovat-pri-skode-cestovni-pojisteni",
+          "section": "Událost v zahraničí",
+          "last_checked_at": "2026-11-26",
+          "effective_from": null
+        },
+        {
+          "source_id": "CSOB_VPP2021",
+          "url": "https://www.csobpoj.cz/documents/10332/5083102/11N9393%2BVPP%2BCP%2B2021_form%C3%A1t%2BA4_CZ_v%C4%8Detn%C4%9B%2Boce%C5%88ovac%C3%ADch%2Btabulek_final_PDF-A.pdf/91a13cf6-8af5-00b8-784b-2f4f65ab34d0?t=1714117917863",
+          "section": "Pokyny pro klienta (strana 2) a jednotlivá ustanovení VPP CP 2021",
+          "last_checked_at": "2026-11-26",
+          "effective_from": "2021-04-01"
+        }
+      ],
+      "source_ids": [
+        "CSOB_CLAIM",
+        "CSOB_GUIDE",
+        "CSOB_VPP2021"
+      ],
+      "evidence_level": "official_insurer",
+      "official_scenario_specific_evidence": true,
+      "procedure_completeness": "partial",
+      "priority": "P2",
+      "policy_version_check_required": true,
+      "applicable_policy_versions": [],
+      "review_status": "DRAFT",
+      "reviewed_by": null,
+      "last_verified_at": null,
+      "last_public_source_checked_at": "2026-11-26",
+      "approved_at": null,
+      "publication_status": "REVIEW_ONLY",
+      "retrieval_eligible": false,
+      "notes_for_reviewer": "Obecné pokyny od jiných institucí nejsou požadavky ČSOB. Ověřit každou povinnost a datum platnosti."
+    },
+    {
+      "id": "SUP_GENERAL_011",
+      "document_type": "support_procedure",
+      "schema_version": "1.0",
+      "language": "cs",
+      "category": "general_support",
+      "title": "Událost před začátkem pojistné doby",
+      "scenario": "Klient řeší situaci: událost před začátkem pojistné doby. Potřebuje praktický, ověřený postup bez předčasného příslibu plnění.",
+      "intent_tag": "coverage_dates",
+      "question_variations": [
+        "Pojistka začíná zítra a dnes se stala škoda.",
+        "Stalo se to před začátkem pojištění.",
+        "Platí už krytí?"
+      ],
+      "conditions": [
+        "Postup posuzovat podle země události, konkrétního dopravce nebo poskytovatele služby a verze smlouvy."
+      ],
+      "immediate_steps": [
+        {
+          "text": "Pokud se v zahraničí stala škodní událost, kontaktujte podle potřeby asistenční službu ČSOB Pojišťovny na +420 466 100 777.",
+          "requirement_type": "recommended",
+          "evidence_level": "official_insurer",
+          "source_ids": [
+            "CSOB_GUIDE"
+          ],
+          "condition": null
+        },
+        {
+          "text": "Pro určení pojistného krytí ověřte konkrétní pojistnou smlouvu, sjednaná rizika, limity a platnou verzi podmínek.",
+          "requirement_type": "recommended",
+          "evidence_level": "official_insurer",
+          "source_ids": [
+            "CSOB_VPP2021"
+          ],
+          "condition": null
+        },
+        {
+          "text": "Rozsah, osoby, datum a územní platnost pojištění posuzujte podle konkrétní smlouvy a jejího znění podmínek; samotný obecný webový popis nestačí.",
+          "requirement_type": "recommended",
+          "evidence_level": "official_insurer",
+          "source_ids": [
+            "CSOB_VPP2021"
+          ],
+          "condition": null
+        }
+      ],
+      "required_documents": [],
+      "recommended_documents": [],
+      "police_involvement": {
+        "status": "not_established",
+        "guidance": "Z dostupných zdrojů nevyplývá jednotná povinnost pořídit policejní protokol právě pro tento scénář.",
+        "source_ids": [],
+        "needs_expert_review": true
+      },
+      "clarifying_questions": [
+        "Co přesně se stalo a ve které zemi?",
+        "Potřebujete akutní pomoc, nebo chcete hlavně ověřit pojistné krytí?"
+      ],
+      "coverage_considerations": [
+        "Závěr o krytí nelze odvodit bez identifikace pojistné smlouvy a sjednaných rizik.",
+        "U aktuálních webových doporučení je nutné ověřit soulad s verzí pojistných podmínek použitelnou pro smlouvu."
+      ],
+      "escalation_conditions": [
+        "Pokud potřebujete závazné rozhodnutí o krytí, přesný seznam povinných dokladů nebo výjimku z postupu, předejte dotaz pracovníkovi pojišťovny."
+      ],
+      "open_questions_for_expert": [
+        "Potvrdit pro scénář „Událost před začátkem pojistné doby“ přesné doklady, použitelné výluky, rozsah asistence a případné povinnosti vůči ČSOB podle sjednaného produktu."
+      ],
+      "sources": [
+        {
+          "source_id": "CSOB_VPP2021",
+          "url": "https://www.csobpoj.cz/documents/10332/5083102/11N9393%2BVPP%2BCP%2B2021_form%C3%A1t%2BA4_CZ_v%C4%8Detn%C4%9B%2Boce%C5%88ovac%C3%ADch%2Btabulek_final_PDF-A.pdf/91a13cf6-8af5-00b8-784b-2f4f65ab34d0?t=1714117917863",
+          "section": "Pokyny pro klienta (strana 2) a jednotlivá ustanovení VPP CP 2021",
+          "last_checked_at": "2026-11-26",
+          "effective_from": "2021-04-01"
+        },
+        {
+          "source_id": "CSOB_GUIDE",
+          "url": "https://www.csobpoj.cz/jak-postupovat-pri-skode-cestovni-pojisteni",
+          "section": "Událost v zahraničí",
+          "last_checked_at": "2026-11-26",
+          "effective_from": null
+        }
+      ],
+      "source_ids": [
+        "CSOB_VPP2021",
+        "CSOB_GUIDE"
+      ],
+      "evidence_level": "needs_expert_review",
+      "official_scenario_specific_evidence": false,
+      "procedure_completeness": "unresolved",
+      "priority": "P2",
+      "policy_version_check_required": true,
+      "applicable_policy_versions": [],
+      "review_status": "DRAFT",
+      "reviewed_by": null,
+      "last_verified_at": null,
+      "last_public_source_checked_at": "2026-11-26",
+      "approved_at": null,
+      "publication_status": "REVIEW_ONLY",
+      "retrieval_eligible": false,
+      "notes_for_reviewer": "Obecné pokyny od jiných institucí nejsou požadavky ČSOB. Ověřit každou povinnost a datum platnosti."
+    },
+    {
+      "id": "SUP_GENERAL_012",
+      "document_type": "support_procedure",
+      "schema_version": "1.0",
+      "language": "cs",
+      "category": "general_support",
+      "title": "Událost po skončení pojištění",
+      "scenario": "Klient řeší situaci: událost po skončení pojištění. Potřebuje praktický, ověřený postup bez předčasného příslibu plnění.",
+      "intent_tag": "coverage_dates",
+      "question_variations": [
+        "Pojistka včera skončila.",
+        "Po návratu jsem zjistil další škodu.",
+        "Rozhoduje datum škody nebo hlášení?"
+      ],
+      "conditions": [
+        "Postup posuzovat podle země události, konkrétního dopravce nebo poskytovatele služby a verze smlouvy."
+      ],
+      "immediate_steps": [
+        {
+          "text": "Pokud se v zahraničí stala škodní událost, kontaktujte podle potřeby asistenční službu ČSOB Pojišťovny na +420 466 100 777.",
+          "requirement_type": "recommended",
+          "evidence_level": "official_insurer",
+          "source_ids": [
+            "CSOB_GUIDE"
+          ],
+          "condition": null
+        },
+        {
+          "text": "Pro určení pojistného krytí ověřte konkrétní pojistnou smlouvu, sjednaná rizika, limity a platnou verzi podmínek.",
+          "requirement_type": "recommended",
+          "evidence_level": "official_insurer",
+          "source_ids": [
+            "CSOB_VPP2021"
+          ],
+          "condition": null
+        },
+        {
+          "text": "Rozsah, osoby, datum a územní platnost pojištění posuzujte podle konkrétní smlouvy a jejího znění podmínek; samotný obecný webový popis nestačí.",
+          "requirement_type": "recommended",
+          "evidence_level": "official_insurer",
+          "source_ids": [
+            "CSOB_VPP2021"
+          ],
+          "condition": null
+        }
+      ],
+      "required_documents": [],
+      "recommended_documents": [],
+      "police_involvement": {
+        "status": "not_established",
+        "guidance": "Z dostupných zdrojů nevyplývá jednotná povinnost pořídit policejní protokol právě pro tento scénář.",
+        "source_ids": [],
+        "needs_expert_review": true
+      },
+      "clarifying_questions": [
+        "Co přesně se stalo a ve které zemi?",
+        "Potřebujete akutní pomoc, nebo chcete hlavně ověřit pojistné krytí?"
+      ],
+      "coverage_considerations": [
+        "Závěr o krytí nelze odvodit bez identifikace pojistné smlouvy a sjednaných rizik.",
+        "U aktuálních webových doporučení je nutné ověřit soulad s verzí pojistných podmínek použitelnou pro smlouvu."
+      ],
+      "escalation_conditions": [
+        "Pokud potřebujete závazné rozhodnutí o krytí, přesný seznam povinných dokladů nebo výjimku z postupu, předejte dotaz pracovníkovi pojišťovny."
+      ],
+      "open_questions_for_expert": [
+        "Potvrdit pro scénář „Událost po skončení pojištění“ přesné doklady, použitelné výluky, rozsah asistence a případné povinnosti vůči ČSOB podle sjednaného produktu."
+      ],
+      "sources": [
+        {
+          "source_id": "CSOB_VPP2021",
+          "url": "https://www.csobpoj.cz/documents/10332/5083102/11N9393%2BVPP%2BCP%2B2021_form%C3%A1t%2BA4_CZ_v%C4%8Detn%C4%9B%2Boce%C5%88ovac%C3%ADch%2Btabulek_final_PDF-A.pdf/91a13cf6-8af5-00b8-784b-2f4f65ab34d0?t=1714117917863",
+          "section": "Pokyny pro klienta (strana 2) a jednotlivá ustanovení VPP CP 2021",
+          "last_checked_at": "2026-11-26",
+          "effective_from": "2021-04-01"
+        },
+        {
+          "source_id": "CSOB_GUIDE",
+          "url": "https://www.csobpoj.cz/jak-postupovat-pri-skode-cestovni-pojisteni",
+          "section": "Událost v zahraničí",
+          "last_checked_at": "2026-11-26",
+          "effective_from": null
+        }
+      ],
+      "source_ids": [
+        "CSOB_VPP2021",
+        "CSOB_GUIDE"
+      ],
+      "evidence_level": "needs_expert_review",
+      "official_scenario_specific_evidence": false,
+      "procedure_completeness": "unresolved",
+      "priority": "P2",
+      "policy_version_check_required": true,
+      "applicable_policy_versions": [],
+      "review_status": "DRAFT",
+      "reviewed_by": null,
+      "last_verified_at": null,
+      "last_public_source_checked_at": "2026-11-26",
+      "approved_at": null,
+      "publication_status": "REVIEW_ONLY",
+      "retrieval_eligible": false,
+      "notes_for_reviewer": "Obecné pokyny od jiných institucí nejsou požadavky ČSOB. Ověřit každou povinnost a datum platnosti."
+    },
+    {
+      "id": "SUP_GENERAL_013",
+      "document_type": "support_procedure",
+      "schema_version": "1.0",
+      "language": "cs",
+      "category": "general_support",
+      "title": "Nejasný územní rozsah pojištění",
+      "scenario": "Klient řeší situaci: nejasný územní rozsah pojištění. Potřebuje praktický, ověřený postup bez předčasného příslibu plnění.",
+      "intent_tag": "coverage_territory",
+      "question_variations": [
+        "Jsem v jiné zemi, než jsem plánoval.",
+        "Nevím, jestli je moje destinace pojištěná.",
+        "Jak zjistím územní platnost?"
+      ],
+      "conditions": [
+        "Postup posuzovat podle země události, konkrétního dopravce nebo poskytovatele služby a verze smlouvy."
+      ],
+      "immediate_steps": [
+        {
+          "text": "Pokud se v zahraničí stala škodní událost, kontaktujte podle potřeby asistenční službu ČSOB Pojišťovny na +420 466 100 777.",
+          "requirement_type": "recommended",
+          "evidence_level": "official_insurer",
+          "source_ids": [
+            "CSOB_GUIDE"
+          ],
+          "condition": null
+        },
+        {
+          "text": "Pro určení pojistného krytí ověřte konkrétní pojistnou smlouvu, sjednaná rizika, limity a platnou verzi podmínek.",
+          "requirement_type": "recommended",
+          "evidence_level": "official_insurer",
+          "source_ids": [
+            "CSOB_VPP2021"
+          ],
+          "condition": null
+        },
+        {
+          "text": "Rozsah, osoby, datum a územní platnost pojištění posuzujte podle konkrétní smlouvy a jejího znění podmínek; samotný obecný webový popis nestačí.",
+          "requirement_type": "recommended",
+          "evidence_level": "official_insurer",
+          "source_ids": [
+            "CSOB_VPP2021"
+          ],
+          "condition": null
+        }
+      ],
+      "required_documents": [],
+      "recommended_documents": [],
+      "police_involvement": {
+        "status": "not_established",
+        "guidance": "Z dostupných zdrojů nevyplývá jednotná povinnost pořídit policejní protokol právě pro tento scénář.",
+        "source_ids": [],
+        "needs_expert_review": true
+      },
+      "clarifying_questions": [
+        "Co přesně se stalo a ve které zemi?",
+        "Potřebujete akutní pomoc, nebo chcete hlavně ověřit pojistné krytí?"
+      ],
+      "coverage_considerations": [
+        "Závěr o krytí nelze odvodit bez identifikace pojistné smlouvy a sjednaných rizik.",
+        "U aktuálních webových doporučení je nutné ověřit soulad s verzí pojistných podmínek použitelnou pro smlouvu."
+      ],
+      "escalation_conditions": [
+        "Pokud potřebujete závazné rozhodnutí o krytí, přesný seznam povinných dokladů nebo výjimku z postupu, předejte dotaz pracovníkovi pojišťovny."
+      ],
+      "open_questions_for_expert": [
+        "Potvrdit pro scénář „Nejasný územní rozsah pojištění“ přesné doklady, použitelné výluky, rozsah asistence a případné povinnosti vůči ČSOB podle sjednaného produktu."
+      ],
+      "sources": [
+        {
+          "source_id": "CSOB_VPP2021",
+          "url": "https://www.csobpoj.cz/documents/10332/5083102/11N9393%2BVPP%2BCP%2B2021_form%C3%A1t%2BA4_CZ_v%C4%8Detn%C4%9B%2Boce%C5%88ovac%C3%ADch%2Btabulek_final_PDF-A.pdf/91a13cf6-8af5-00b8-784b-2f4f65ab34d0?t=1714117917863",
+          "section": "Pokyny pro klienta (strana 2) a jednotlivá ustanovení VPP CP 2021",
+          "last_checked_at": "2026-11-26",
+          "effective_from": "2021-04-01"
+        },
+        {
+          "source_id": "CSOB_GUIDE",
+          "url": "https://www.csobpoj.cz/jak-postupovat-pri-skode-cestovni-pojisteni",
+          "section": "Událost v zahraničí",
+          "last_checked_at": "2026-11-26",
+          "effective_from": null
+        }
+      ],
+      "source_ids": [
+        "CSOB_VPP2021",
+        "CSOB_GUIDE"
+      ],
+      "evidence_level": "needs_expert_review",
+      "official_scenario_specific_evidence": false,
+      "procedure_completeness": "unresolved",
+      "priority": "P2",
+      "policy_version_check_required": true,
+      "applicable_policy_versions": [],
+      "review_status": "DRAFT",
+      "reviewed_by": null,
+      "last_verified_at": null,
+      "last_public_source_checked_at": "2026-11-26",
+      "approved_at": null,
+      "publication_status": "REVIEW_ONLY",
+      "retrieval_eligible": false,
+      "notes_for_reviewer": "Obecné pokyny od jiných institucí nejsou požadavky ČSOB. Ověřit každou povinnost a datum platnosti."
+    },
+    {
+      "id": "SUP_GENERAL_014",
+      "document_type": "support_procedure",
+      "schema_version": "1.0",
+      "language": "cs",
+      "category": "general_support",
+      "title": "Spolupojištěný člen rodiny",
+      "scenario": "Klient řeší situaci: spolupojištěný člen rodiny. Potřebuje praktický, ověřený postup bez předčasného příslibu plnění.",
+      "intent_tag": "coverage_person",
+      "question_variations": [
+        "Na stejné smlouvě je i dítě.",
+        "Je manželka krytá mojí pojistkou?",
+        "Musíme mít každý vlastní smlouvu?"
+      ],
+      "conditions": [
+        "Postup posuzovat podle země události, konkrétního dopravce nebo poskytovatele služby a verze smlouvy."
+      ],
+      "immediate_steps": [
+        {
+          "text": "Pokud se v zahraničí stala škodní událost, kontaktujte podle potřeby asistenční službu ČSOB Pojišťovny na +420 466 100 777.",
+          "requirement_type": "recommended",
+          "evidence_level": "official_insurer",
+          "source_ids": [
+            "CSOB_GUIDE"
+          ],
+          "condition": null
+        },
+        {
+          "text": "Pro určení pojistného krytí ověřte konkrétní pojistnou smlouvu, sjednaná rizika, limity a platnou verzi podmínek.",
+          "requirement_type": "recommended",
+          "evidence_level": "official_insurer",
+          "source_ids": [
+            "CSOB_VPP2021"
+          ],
+          "condition": null
+        },
+        {
+          "text": "Rozsah, osoby, datum a územní platnost pojištění posuzujte podle konkrétní smlouvy a jejího znění podmínek; samotný obecný webový popis nestačí.",
+          "requirement_type": "recommended",
+          "evidence_level": "official_insurer",
+          "source_ids": [
+            "CSOB_VPP2021"
+          ],
+          "condition": null
+        }
+      ],
+      "required_documents": [],
+      "recommended_documents": [],
+      "police_involvement": {
+        "status": "not_established",
+        "guidance": "Z dostupných zdrojů nevyplývá jednotná povinnost pořídit policejní protokol právě pro tento scénář.",
+        "source_ids": [],
+        "needs_expert_review": true
+      },
+      "clarifying_questions": [
+        "Co přesně se stalo a ve které zemi?",
+        "Potřebujete akutní pomoc, nebo chcete hlavně ověřit pojistné krytí?"
+      ],
+      "coverage_considerations": [
+        "Závěr o krytí nelze odvodit bez identifikace pojistné smlouvy a sjednaných rizik.",
+        "U aktuálních webových doporučení je nutné ověřit soulad s verzí pojistných podmínek použitelnou pro smlouvu."
+      ],
+      "escalation_conditions": [
+        "Pokud potřebujete závazné rozhodnutí o krytí, přesný seznam povinných dokladů nebo výjimku z postupu, předejte dotaz pracovníkovi pojišťovny."
+      ],
+      "open_questions_for_expert": [
+        "Potvrdit pro scénář „Spolupojištěný člen rodiny“ přesné doklady, použitelné výluky, rozsah asistence a případné povinnosti vůči ČSOB podle sjednaného produktu."
+      ],
+      "sources": [
+        {
+          "source_id": "CSOB_VPP2021",
+          "url": "https://www.csobpoj.cz/documents/10332/5083102/11N9393%2BVPP%2BCP%2B2021_form%C3%A1t%2BA4_CZ_v%C4%8Detn%C4%9B%2Boce%C5%88ovac%C3%ADch%2Btabulek_final_PDF-A.pdf/91a13cf6-8af5-00b8-784b-2f4f65ab34d0?t=1714117917863",
+          "section": "Pokyny pro klienta (strana 2) a jednotlivá ustanovení VPP CP 2021",
+          "last_checked_at": "2026-11-26",
+          "effective_from": "2021-04-01"
+        },
+        {
+          "source_id": "CSOB_GUIDE",
+          "url": "https://www.csobpoj.cz/jak-postupovat-pri-skode-cestovni-pojisteni",
+          "section": "Událost v zahraničí",
+          "last_checked_at": "2026-11-26",
+          "effective_from": null
+        }
+      ],
+      "source_ids": [
+        "CSOB_VPP2021",
+        "CSOB_GUIDE"
+      ],
+      "evidence_level": "needs_expert_review",
+      "official_scenario_specific_evidence": false,
+      "procedure_completeness": "unresolved",
+      "priority": "P2",
+      "policy_version_check_required": true,
+      "applicable_policy_versions": [],
+      "review_status": "DRAFT",
+      "reviewed_by": null,
+      "last_verified_at": null,
+      "last_public_source_checked_at": "2026-11-26",
+      "approved_at": null,
+      "publication_status": "REVIEW_ONLY",
+      "retrieval_eligible": false,
+      "notes_for_reviewer": "Obecné pokyny od jiných institucí nejsou požadavky ČSOB. Ověřit každou povinnost a datum platnosti."
+    },
+    {
+      "id": "SUP_GENERAL_015",
+      "document_type": "support_procedure",
+      "schema_version": "1.0",
+      "language": "cs",
+      "category": "general_support",
+      "title": "Cestovní pojištění k platební kartě",
+      "scenario": "Klient řeší situaci: cestovní pojištění k platební kartě. Potřebuje praktický, ověřený postup bez předčasného příslibu plnění.",
+      "intent_tag": "coverage_bank",
+      "question_variations": [
+        "Mám pojištění přes bankovní kartu.",
+        "Stačí cestovní pojištění k účtu?",
+        "Kde zjistím skutečný rozsah krytí?"
+      ],
+      "conditions": [
+        "Postup posuzovat podle země události, konkrétního dopravce nebo poskytovatele služby a verze smlouvy."
+      ],
+      "immediate_steps": [
+        {
+          "text": "Pokud se v zahraničí stala škodní událost, kontaktujte podle potřeby asistenční službu ČSOB Pojišťovny na +420 466 100 777.",
+          "requirement_type": "recommended",
+          "evidence_level": "official_insurer",
+          "source_ids": [
+            "CSOB_GUIDE"
+          ],
+          "condition": null
+        },
+        {
+          "text": "Pro určení pojistného krytí ověřte konkrétní pojistnou smlouvu, sjednaná rizika, limity a platnou verzi podmínek.",
+          "requirement_type": "recommended",
+          "evidence_level": "official_insurer",
+          "source_ids": [
+            "CSOB_VPP2021"
+          ],
+          "condition": null
+        },
+        {
+          "text": "Rozsah, osoby, datum a územní platnost pojištění posuzujte podle konkrétní smlouvy a jejího znění podmínek; samotný obecný webový popis nestačí.",
+          "requirement_type": "recommended",
+          "evidence_level": "official_insurer",
+          "source_ids": [
+            "CSOB_VPP2021"
+          ],
+          "condition": null
+        }
+      ],
+      "required_documents": [],
+      "recommended_documents": [],
+      "police_involvement": {
+        "status": "not_established",
+        "guidance": "Z dostupných zdrojů nevyplývá jednotná povinnost pořídit policejní protokol právě pro tento scénář.",
+        "source_ids": [],
+        "needs_expert_review": true
+      },
+      "clarifying_questions": [
+        "Co přesně se stalo a ve které zemi?",
+        "Potřebujete akutní pomoc, nebo chcete hlavně ověřit pojistné krytí?"
+      ],
+      "coverage_considerations": [
+        "Závěr o krytí nelze odvodit bez identifikace pojistné smlouvy a sjednaných rizik.",
+        "U aktuálních webových doporučení je nutné ověřit soulad s verzí pojistných podmínek použitelnou pro smlouvu."
+      ],
+      "escalation_conditions": [
+        "Pokud potřebujete závazné rozhodnutí o krytí, přesný seznam povinných dokladů nebo výjimku z postupu, předejte dotaz pracovníkovi pojišťovny."
+      ],
+      "open_questions_for_expert": [
+        "Potvrdit pro scénář „Cestovní pojištění k platební kartě“ přesné doklady, použitelné výluky, rozsah asistence a případné povinnosti vůči ČSOB podle sjednaného produktu."
+      ],
+      "sources": [
+        {
+          "source_id": "CSOB_PRODUCT",
+          "url": "https://www.csobpoj.cz/pojisteni/cestovni-pojisteni",
+          "section": "Cestovní pojištění",
+          "last_checked_at": "2026-11-26",
+          "effective_from": null
+        },
+        {
+          "source_id": "CSOB_GUIDE",
+          "url": "https://www.csobpoj.cz/jak-postupovat-pri-skode-cestovni-pojisteni",
+          "section": "Událost v zahraničí",
+          "last_checked_at": "2026-11-26",
+          "effective_from": null
+        },
+        {
+          "source_id": "CSOB_VPP2021",
+          "url": "https://www.csobpoj.cz/documents/10332/5083102/11N9393%2BVPP%2BCP%2B2021_form%C3%A1t%2BA4_CZ_v%C4%8Detn%C4%9B%2Boce%C5%88ovac%C3%ADch%2Btabulek_final_PDF-A.pdf/91a13cf6-8af5-00b8-784b-2f4f65ab34d0?t=1714117917863",
+          "section": "Pokyny pro klienta (strana 2) a jednotlivá ustanovení VPP CP 2021",
+          "last_checked_at": "2026-11-26",
+          "effective_from": "2021-04-01"
+        }
+      ],
+      "source_ids": [
+        "CSOB_PRODUCT",
+        "CSOB_GUIDE",
+        "CSOB_VPP2021"
+      ],
+      "evidence_level": "needs_expert_review",
+      "official_scenario_specific_evidence": false,
+      "procedure_completeness": "unresolved",
+      "priority": "P2",
+      "policy_version_check_required": true,
+      "applicable_policy_versions": [],
+      "review_status": "DRAFT",
+      "reviewed_by": null,
+      "last_verified_at": null,
+      "last_public_source_checked_at": "2026-11-26",
+      "approved_at": null,
+      "publication_status": "REVIEW_ONLY",
+      "retrieval_eligible": false,
+      "notes_for_reviewer": "Obecné pokyny od jiných institucí nejsou požadavky ČSOB. Ověřit každou povinnost a datum platnosti."
+    },
+    {
+      "id": "SUP_GENERAL_016",
+      "document_type": "support_procedure",
+      "schema_version": "1.0",
+      "language": "cs",
+      "category": "general_support",
+      "title": "Skupinové cestovní pojištění",
+      "scenario": "Klient řeší situaci: skupinové cestovní pojištění. Potřebuje praktický, ověřený postup bez předčasného příslibu plnění.",
+      "intent_tag": "coverage_person",
+      "question_variations": [
+        "Jsme pojištění přes zaměstnavatele.",
+        "Mám skupinovou cestovní smlouvu.",
+        "Jak ověřím, že se na mě vztahuje?"
+      ],
+      "conditions": [
+        "Postup posuzovat podle země události, konkrétního dopravce nebo poskytovatele služby a verze smlouvy."
+      ],
+      "immediate_steps": [
+        {
+          "text": "Pokud se v zahraničí stala škodní událost, kontaktujte podle potřeby asistenční službu ČSOB Pojišťovny na +420 466 100 777.",
+          "requirement_type": "recommended",
+          "evidence_level": "official_insurer",
+          "source_ids": [
+            "CSOB_GUIDE"
+          ],
+          "condition": null
+        },
+        {
+          "text": "Pro určení pojistného krytí ověřte konkrétní pojistnou smlouvu, sjednaná rizika, limity a platnou verzi podmínek.",
+          "requirement_type": "recommended",
+          "evidence_level": "official_insurer",
+          "source_ids": [
+            "CSOB_VPP2021"
+          ],
+          "condition": null
+        },
+        {
+          "text": "Rozsah, osoby, datum a územní platnost pojištění posuzujte podle konkrétní smlouvy a jejího znění podmínek; samotný obecný webový popis nestačí.",
+          "requirement_type": "recommended",
+          "evidence_level": "official_insurer",
+          "source_ids": [
+            "CSOB_VPP2021"
+          ],
+          "condition": null
+        }
+      ],
+      "required_documents": [],
+      "recommended_documents": [],
+      "police_involvement": {
+        "status": "not_established",
+        "guidance": "Z dostupných zdrojů nevyplývá jednotná povinnost pořídit policejní protokol právě pro tento scénář.",
+        "source_ids": [],
+        "needs_expert_review": true
+      },
+      "clarifying_questions": [
+        "Co přesně se stalo a ve které zemi?",
+        "Potřebujete akutní pomoc, nebo chcete hlavně ověřit pojistné krytí?"
+      ],
+      "coverage_considerations": [
+        "Závěr o krytí nelze odvodit bez identifikace pojistné smlouvy a sjednaných rizik.",
+        "U aktuálních webových doporučení je nutné ověřit soulad s verzí pojistných podmínek použitelnou pro smlouvu."
+      ],
+      "escalation_conditions": [
+        "Pokud potřebujete závazné rozhodnutí o krytí, přesný seznam povinných dokladů nebo výjimku z postupu, předejte dotaz pracovníkovi pojišťovny."
+      ],
+      "open_questions_for_expert": [
+        "Potvrdit pro scénář „Skupinové cestovní pojištění“ přesné doklady, použitelné výluky, rozsah asistence a případné povinnosti vůči ČSOB podle sjednaného produktu."
+      ],
+      "sources": [
+        {
+          "source_id": "CSOB_VPP2021",
+          "url": "https://www.csobpoj.cz/documents/10332/5083102/11N9393%2BVPP%2BCP%2B2021_form%C3%A1t%2BA4_CZ_v%C4%8Detn%C4%9B%2Boce%C5%88ovac%C3%ADch%2Btabulek_final_PDF-A.pdf/91a13cf6-8af5-00b8-784b-2f4f65ab34d0?t=1714117917863",
+          "section": "Pokyny pro klienta (strana 2) a jednotlivá ustanovení VPP CP 2021",
+          "last_checked_at": "2026-11-26",
+          "effective_from": "2021-04-01"
+        },
+        {
+          "source_id": "CSOB_GUIDE",
+          "url": "https://www.csobpoj.cz/jak-postupovat-pri-skode-cestovni-pojisteni",
+          "section": "Událost v zahraničí",
+          "last_checked_at": "2026-11-26",
+          "effective_from": null
+        }
+      ],
+      "source_ids": [
+        "CSOB_VPP2021",
+        "CSOB_GUIDE"
+      ],
+      "evidence_level": "needs_expert_review",
+      "official_scenario_specific_evidence": false,
+      "procedure_completeness": "unresolved",
+      "priority": "P2",
+      "policy_version_check_required": true,
+      "applicable_policy_versions": [],
+      "review_status": "DRAFT",
+      "reviewed_by": null,
+      "last_verified_at": null,
+      "last_public_source_checked_at": "2026-11-26",
+      "approved_at": null,
+      "publication_status": "REVIEW_ONLY",
+      "retrieval_eligible": false,
+      "notes_for_reviewer": "Obecné pokyny od jiných institucí nejsou požadavky ČSOB. Ověřit každou povinnost a datum platnosti."
+    },
+    {
+      "id": "SUP_GENERAL_017",
+      "document_type": "support_procedure",
+      "schema_version": "1.0",
+      "language": "cs",
+      "category": "general_support",
+      "title": "Asistence při úmrtí v zahraničí",
+      "scenario": "Klient řeší situaci: asistence při úmrtí v zahraničí. Potřebuje praktický, ověřený postup bez předčasného příslibu plnění.",
+      "intent_tag": "death_abroad",
+      "question_variations": [
+        "Blízký člověk zemřel na dovolené.",
+        "Potřebujeme řešit převoz zesnulého.",
+        "Komu mám zavolat?"
+      ],
+      "conditions": [
+        "Postup posuzovat podle země události, konkrétního dopravce nebo poskytovatele služby a verze smlouvy."
+      ],
+      "immediate_steps": [
+        {
+          "text": "Pokud se v zahraničí stala škodní událost, kontaktujte podle potřeby asistenční službu ČSOB Pojišťovny na +420 466 100 777.",
+          "requirement_type": "recommended",
+          "evidence_level": "official_insurer",
+          "source_ids": [
+            "CSOB_GUIDE"
+          ],
+          "condition": null
+        },
+        {
+          "text": "Pro určení pojistného krytí ověřte konkrétní pojistnou smlouvu, sjednaná rizika, limity a platnou verzi podmínek.",
+          "requirement_type": "recommended",
+          "evidence_level": "official_insurer",
+          "source_ids": [
+            "CSOB_VPP2021"
+          ],
+          "condition": null
+        },
+        {
+          "text": "Asistenční služba ČSOB k cestovnímu pojištění je uvedena na čísle +420 466 100 777.",
+          "requirement_type": "recommended",
+          "evidence_level": "official_insurer",
+          "source_ids": [
+            "CSOB_ASSIST"
+          ],
+          "condition": null
+        }
+      ],
+      "required_documents": [],
+      "recommended_documents": [],
+      "police_involvement": {
+        "status": "not_established",
+        "guidance": "Z dostupných zdrojů nevyplývá jednotná povinnost pořídit policejní protokol právě pro tento scénář.",
+        "source_ids": [],
+        "needs_expert_review": true
+      },
+      "clarifying_questions": [
+        "Co přesně se stalo a ve které zemi?",
+        "Potřebujete akutní pomoc, nebo chcete hlavně ověřit pojistné krytí?"
+      ],
+      "coverage_considerations": [
+        "Závěr o krytí nelze odvodit bez identifikace pojistné smlouvy a sjednaných rizik.",
+        "U aktuálních webových doporučení je nutné ověřit soulad s verzí pojistných podmínek použitelnou pro smlouvu."
+      ],
+      "escalation_conditions": [
+        "Při bezprostředním nebezpečí nebo závažném zdravotním stavu má přednost přivolání místní pomoci.",
+        "Pokud potřebujete závazné rozhodnutí o krytí, přesný seznam povinných dokladů nebo výjimku z postupu, předejte dotaz pracovníkovi pojišťovny."
+      ],
+      "open_questions_for_expert": [
+        "Potvrdit pro scénář „Asistence při úmrtí v zahraničí“ přesné doklady, použitelné výluky, rozsah asistence a případné povinnosti vůči ČSOB podle sjednaného produktu."
+      ],
+      "sources": [
+        {
+          "source_id": "CSOB_ASSIST",
+          "url": "https://www.csobpoj.cz/skody-a-pojistne-udalosti/vse-o-asistencnich-sluzbach",
+          "section": "Asistenční služby k cestovnímu pojištění",
+          "last_checked_at": "2026-11-26",
+          "effective_from": null
+        },
+        {
+          "source_id": "CSOB_GUIDE",
+          "url": "https://www.csobpoj.cz/jak-postupovat-pri-skode-cestovni-pojisteni",
+          "section": "Událost v zahraničí",
+          "last_checked_at": "2026-11-26",
+          "effective_from": null
+        },
+        {
+          "source_id": "CSOB_VPP2021",
+          "url": "https://www.csobpoj.cz/documents/10332/5083102/11N9393%2BVPP%2BCP%2B2021_form%C3%A1t%2BA4_CZ_v%C4%8Detn%C4%9B%2Boce%C5%88ovac%C3%ADch%2Btabulek_final_PDF-A.pdf/91a13cf6-8af5-00b8-784b-2f4f65ab34d0?t=1714117917863",
+          "section": "Pokyny pro klienta (strana 2) a jednotlivá ustanovení VPP CP 2021",
+          "last_checked_at": "2026-11-26",
+          "effective_from": "2021-04-01"
+        }
+      ],
+      "source_ids": [
+        "CSOB_ASSIST",
+        "CSOB_GUIDE",
+        "CSOB_VPP2021"
+      ],
+      "evidence_level": "needs_expert_review",
+      "official_scenario_specific_evidence": false,
+      "procedure_completeness": "unresolved",
+      "priority": "P0",
+      "policy_version_check_required": true,
+      "applicable_policy_versions": [],
+      "review_status": "DRAFT",
+      "reviewed_by": null,
+      "last_verified_at": null,
+      "last_public_source_checked_at": "2026-11-26",
+      "approved_at": null,
+      "publication_status": "REVIEW_ONLY",
+      "retrieval_eligible": false,
+      "notes_for_reviewer": "Obecné pokyny od jiných institucí nejsou požadavky ČSOB. Ověřit každou povinnost a datum platnosti."
+    },
+    {
+      "id": "SUP_GENERAL_018",
+      "document_type": "support_procedure",
+      "schema_version": "1.0",
+      "language": "cs",
+      "category": "general_support",
+      "title": "Ztracená platební karta v zahraničí",
+      "scenario": "Klient řeší situaci: ztracená platební karta v zahraničí. Potřebuje praktický, ověřený postup bez předčasného příslibu plnění.",
+      "intent_tag": "bank_card",
+      "question_variations": [
+        "Ztratil jsem bankovní kartu.",
+        "Nemám kartu ani hotovost na dovolené.",
+        "Pomůže mi cestovní pojištění?"
+      ],
+      "conditions": [
+        "Postup posuzovat podle země události, konkrétního dopravce nebo poskytovatele služby a verze smlouvy."
+      ],
+      "immediate_steps": [
+        {
+          "text": "Pokud se v zahraničí stala škodní událost, kontaktujte podle potřeby asistenční službu ČSOB Pojišťovny na +420 466 100 777.",
+          "requirement_type": "recommended",
+          "evidence_level": "official_insurer",
+          "source_ids": [
+            "CSOB_GUIDE"
+          ],
+          "condition": null
+        },
+        {
+          "text": "Pro určení pojistného krytí ověřte konkrétní pojistnou smlouvu, sjednaná rizika, limity a platnou verzi podmínek.",
+          "requirement_type": "recommended",
+          "evidence_level": "official_insurer",
+          "source_ids": [
+            "CSOB_VPP2021"
+          ],
+          "condition": null
+        }
+      ],
+      "required_documents": [],
+      "recommended_documents": [],
+      "police_involvement": {
+        "status": "not_established",
+        "guidance": "Z dostupných zdrojů nevyplývá jednotná povinnost pořídit policejní protokol právě pro tento scénář.",
+        "source_ids": [],
+        "needs_expert_review": true
+      },
+      "clarifying_questions": [
+        "Co přesně se stalo a ve které zemi?",
+        "Potřebujete akutní pomoc, nebo chcete hlavně ověřit pojistné krytí?"
+      ],
+      "coverage_considerations": [
+        "Závěr o krytí nelze odvodit bez identifikace pojistné smlouvy a sjednaných rizik.",
+        "U aktuálních webových doporučení je nutné ověřit soulad s verzí pojistných podmínek použitelnou pro smlouvu."
+      ],
+      "escalation_conditions": [
+        "Pokud potřebujete závazné rozhodnutí o krytí, přesný seznam povinných dokladů nebo výjimku z postupu, předejte dotaz pracovníkovi pojišťovny."
+      ],
+      "open_questions_for_expert": [
+        "Potvrdit pro scénář „Ztracená platební karta v zahraničí“ přesné doklady, použitelné výluky, rozsah asistence a případné povinnosti vůči ČSOB podle sjednaného produktu."
+      ],
+      "sources": [
+        {
+          "source_id": "CSOB_GUIDE",
+          "url": "https://www.csobpoj.cz/jak-postupovat-pri-skode-cestovni-pojisteni",
+          "section": "Událost v zahraničí",
+          "last_checked_at": "2026-11-26",
+          "effective_from": null
+        },
+        {
+          "source_id": "CSOB_VPP2021",
+          "url": "https://www.csobpoj.cz/documents/10332/5083102/11N9393%2BVPP%2BCP%2B2021_form%C3%A1t%2BA4_CZ_v%C4%8Detn%C4%9B%2Boce%C5%88ovac%C3%ADch%2Btabulek_final_PDF-A.pdf/91a13cf6-8af5-00b8-784b-2f4f65ab34d0?t=1714117917863",
+          "section": "Pokyny pro klienta (strana 2) a jednotlivá ustanovení VPP CP 2021",
+          "last_checked_at": "2026-11-26",
+          "effective_from": "2021-04-01"
+        }
+      ],
+      "source_ids": [
+        "CSOB_GUIDE",
+        "CSOB_VPP2021"
+      ],
+      "evidence_level": "needs_expert_review",
+      "official_scenario_specific_evidence": false,
+      "procedure_completeness": "unresolved",
+      "priority": "P2",
+      "policy_version_check_required": true,
+      "applicable_policy_versions": [],
+      "review_status": "DRAFT",
+      "reviewed_by": null,
+      "last_verified_at": null,
+      "last_public_source_checked_at": "2026-11-26",
+      "approved_at": null,
+      "publication_status": "REVIEW_ONLY",
+      "retrieval_eligible": false,
+      "notes_for_reviewer": "Obecné pokyny od jiných institucí nejsou požadavky ČSOB. Ověřit každou povinnost a datum platnosti."
+    },
+    {
+      "id": "SUP_GENERAL_019",
+      "document_type": "support_procedure",
+      "schema_version": "1.0",
+      "language": "cs",
+      "category": "general_support",
+      "title": "Nedostatek hotovosti v zahraničí",
+      "scenario": "Klient řeší situaci: nedostatek hotovosti v zahraničí. Potřebuje praktický, ověřený postup bez předčasného příslibu plnění.",
+      "intent_tag": "cash_shortage",
+      "question_variations": [
+        "Došly mi peníze a jsem v cizině.",
+        "Nemůžu zaplatit nutné výdaje.",
+        "Může asistence zařídit finanční pomoc?"
+      ],
+      "conditions": [
+        "Postup posuzovat podle země události, konkrétního dopravce nebo poskytovatele služby a verze smlouvy."
+      ],
+      "immediate_steps": [
+        {
+          "text": "Pokud se v zahraničí stala škodní událost, kontaktujte podle potřeby asistenční službu ČSOB Pojišťovny na +420 466 100 777.",
+          "requirement_type": "recommended",
+          "evidence_level": "official_insurer",
+          "source_ids": [
+            "CSOB_GUIDE"
+          ],
+          "condition": null
+        },
+        {
+          "text": "Pro určení pojistného krytí ověřte konkrétní pojistnou smlouvu, sjednaná rizika, limity a platnou verzi podmínek.",
+          "requirement_type": "recommended",
+          "evidence_level": "official_insurer",
+          "source_ids": [
+            "CSOB_VPP2021"
+          ],
+          "condition": null
+        }
+      ],
+      "required_documents": [],
+      "recommended_documents": [],
+      "police_involvement": {
+        "status": "not_established",
+        "guidance": "Z dostupných zdrojů nevyplývá jednotná povinnost pořídit policejní protokol právě pro tento scénář.",
+        "source_ids": [],
+        "needs_expert_review": true
+      },
+      "clarifying_questions": [
+        "Co přesně se stalo a ve které zemi?",
+        "Potřebujete akutní pomoc, nebo chcete hlavně ověřit pojistné krytí?"
+      ],
+      "coverage_considerations": [
+        "Závěr o krytí nelze odvodit bez identifikace pojistné smlouvy a sjednaných rizik.",
+        "U aktuálních webových doporučení je nutné ověřit soulad s verzí pojistných podmínek použitelnou pro smlouvu."
+      ],
+      "escalation_conditions": [
+        "Pokud potřebujete závazné rozhodnutí o krytí, přesný seznam povinných dokladů nebo výjimku z postupu, předejte dotaz pracovníkovi pojišťovny."
+      ],
+      "open_questions_for_expert": [
+        "Potvrdit pro scénář „Nedostatek hotovosti v zahraničí“ přesné doklady, použitelné výluky, rozsah asistence a případné povinnosti vůči ČSOB podle sjednaného produktu."
+      ],
+      "sources": [
+        {
+          "source_id": "CSOB_ASSIST",
+          "url": "https://www.csobpoj.cz/skody-a-pojistne-udalosti/vse-o-asistencnich-sluzbach",
+          "section": "Asistenční služby k cestovnímu pojištění",
+          "last_checked_at": "2026-11-26",
+          "effective_from": null
+        },
+        {
+          "source_id": "CSOB_GUIDE",
+          "url": "https://www.csobpoj.cz/jak-postupovat-pri-skode-cestovni-pojisteni",
+          "section": "Událost v zahraničí",
+          "last_checked_at": "2026-11-26",
+          "effective_from": null
+        },
+        {
+          "source_id": "CSOB_VPP2021",
+          "url": "https://www.csobpoj.cz/documents/10332/5083102/11N9393%2BVPP%2BCP%2B2021_form%C3%A1t%2BA4_CZ_v%C4%8Detn%C4%9B%2Boce%C5%88ovac%C3%ADch%2Btabulek_final_PDF-A.pdf/91a13cf6-8af5-00b8-784b-2f4f65ab34d0?t=1714117917863",
+          "section": "Pokyny pro klienta (strana 2) a jednotlivá ustanovení VPP CP 2021",
+          "last_checked_at": "2026-11-26",
+          "effective_from": "2021-04-01"
+        }
+      ],
+      "source_ids": [
+        "CSOB_ASSIST",
+        "CSOB_GUIDE",
+        "CSOB_VPP2021"
+      ],
+      "evidence_level": "needs_expert_review",
+      "official_scenario_specific_evidence": false,
+      "procedure_completeness": "unresolved",
+      "priority": "P2",
+      "policy_version_check_required": true,
+      "applicable_policy_versions": [],
+      "review_status": "DRAFT",
+      "reviewed_by": null,
+      "last_verified_at": null,
+      "last_public_source_checked_at": "2026-11-26",
+      "approved_at": null,
+      "publication_status": "REVIEW_ONLY",
+      "retrieval_eligible": false,
+      "notes_for_reviewer": "Obecné pokyny od jiných institucí nejsou požadavky ČSOB. Ověřit každou povinnost a datum platnosti."
+    },
+    {
+      "id": "SUP_GENERAL_020",
+      "document_type": "support_procedure",
+      "schema_version": "1.0",
+      "language": "cs",
+      "category": "general_support",
+      "title": "Pojištěný nerozumí žádosti o dokumenty",
+      "scenario": "Klient řeší situaci: pojištěný nerozumí žádosti o dokumenty. Potřebuje praktický, ověřený postup bez předčasného příslibu plnění.",
+      "intent_tag": "claim_supplement",
+      "question_variations": [
+        "Pojišťovna po mně chce dokument, kterému nerozumím.",
+        "Nevím, co znamená výzva likvidátora.",
+        "Můžu si vyžádat vysvětlení?"
+      ],
+      "conditions": [
+        "Postup posuzovat podle země události, konkrétního dopravce nebo poskytovatele služby a verze smlouvy."
+      ],
+      "immediate_steps": [
+        {
+          "text": "Pokud se v zahraničí stala škodní událost, kontaktujte podle potřeby asistenční službu ČSOB Pojišťovny na +420 466 100 777.",
+          "requirement_type": "recommended",
+          "evidence_level": "official_insurer",
+          "source_ids": [
+            "CSOB_GUIDE"
+          ],
+          "condition": null
+        },
+        {
+          "text": "Pro určení pojistného krytí ověřte konkrétní pojistnou smlouvu, sjednaná rizika, limity a platnou verzi podmínek.",
+          "requirement_type": "recommended",
+          "evidence_level": "official_insurer",
+          "source_ids": [
+            "CSOB_VPP2021"
+          ],
+          "condition": null
+        },
+        {
+          "text": "Doplňující dokumenty zašlete přednostně přes detail škody v odkazu doručeném e-mailem od ČSOB.",
+          "requirement_type": "recommended",
+          "evidence_level": "official_insurer",
+          "source_ids": [
+            "CSOB_CLAIM"
+          ],
+          "condition": null
+        }
+      ],
+      "required_documents": [],
+      "recommended_documents": [],
+      "police_involvement": {
+        "status": "not_established",
+        "guidance": "Z dostupných zdrojů nevyplývá jednotná povinnost pořídit policejní protokol právě pro tento scénář.",
+        "source_ids": [],
+        "needs_expert_review": true
+      },
+      "clarifying_questions": [
+        "Co přesně se stalo a ve které zemi?",
+        "Potřebujete akutní pomoc, nebo chcete hlavně ověřit pojistné krytí?"
+      ],
+      "coverage_considerations": [
+        "Závěr o krytí nelze odvodit bez identifikace pojistné smlouvy a sjednaných rizik.",
+        "U aktuálních webových doporučení je nutné ověřit soulad s verzí pojistných podmínek použitelnou pro smlouvu."
+      ],
+      "escalation_conditions": [
+        "Pokud potřebujete závazné rozhodnutí o krytí, přesný seznam povinných dokladů nebo výjimku z postupu, předejte dotaz pracovníkovi pojišťovny."
+      ],
+      "open_questions_for_expert": [
+        "Potvrdit pro scénář „Pojištěný nerozumí žádosti o dokumenty“ přesné doklady, použitelné výluky, rozsah asistence a případné povinnosti vůči ČSOB podle sjednaného produktu."
+      ],
+      "sources": [
+        {
+          "source_id": "CSOB_CLAIM",
+          "url": "https://www.csobpoj.cz/oznameni-pojistne-udalosti-cestovni-pojisteni",
+          "section": "Oznámení online, telefonicky a doplnění dokladů",
+          "last_checked_at": "2026-11-26",
+          "effective_from": null
+        },
+        {
+          "source_id": "CSOB_GUIDE",
+          "url": "https://www.csobpoj.cz/jak-postupovat-pri-skode-cestovni-pojisteni",
+          "section": "Událost v zahraničí",
+          "last_checked_at": "2026-11-26",
+          "effective_from": null
+        },
+        {
+          "source_id": "CSOB_VPP2021",
+          "url": "https://www.csobpoj.cz/documents/10332/5083102/11N9393%2BVPP%2BCP%2B2021_form%C3%A1t%2BA4_CZ_v%C4%8Detn%C4%9B%2Boce%C5%88ovac%C3%ADch%2Btabulek_final_PDF-A.pdf/91a13cf6-8af5-00b8-784b-2f4f65ab34d0?t=1714117917863",
+          "section": "Pokyny pro klienta (strana 2) a jednotlivá ustanovení VPP CP 2021",
+          "last_checked_at": "2026-11-26",
+          "effective_from": "2021-04-01"
+        }
+      ],
+      "source_ids": [
+        "CSOB_CLAIM",
+        "CSOB_GUIDE",
+        "CSOB_VPP2021"
+      ],
+      "evidence_level": "official_insurer",
+      "official_scenario_specific_evidence": true,
+      "procedure_completeness": "partial",
+      "priority": "P2",
+      "policy_version_check_required": true,
+      "applicable_policy_versions": [],
+      "review_status": "DRAFT",
+      "reviewed_by": null,
+      "last_verified_at": null,
+      "last_public_source_checked_at": "2026-11-26",
+      "approved_at": null,
+      "publication_status": "REVIEW_ONLY",
+      "retrieval_eligible": false,
+      "notes_for_reviewer": "Obecné pokyny od jiných institucí nejsou požadavky ČSOB. Ověřit každou povinnost a datum platnosti."
+    },
+    {
+      "id": "SUP_GENERAL_021",
+      "document_type": "support_procedure",
+      "schema_version": "1.0",
+      "language": "cs",
+      "category": "general_support",
+      "title": "Podvodně vypadající žádost o údaje",
+      "scenario": "Klient řeší situaci: podvodně vypadající žádost o údaje. Potřebuje praktický, ověřený postup bez předčasného příslibu plnění.",
+      "intent_tag": "suspected_phishing",
+      "question_variations": [
+        "Přišel mi podezřelý odkaz na nahrání dokladů.",
+        "Někdo po mně chce heslo k pojištění.",
+        "Jak ověřím, že jde o pojišťovnu?"
+      ],
+      "conditions": [
+        "Postup posuzovat podle země události, konkrétního dopravce nebo poskytovatele služby a verze smlouvy."
+      ],
+      "immediate_steps": [
+        {
+          "text": "Pokud se v zahraničí stala škodní událost, kontaktujte podle potřeby asistenční službu ČSOB Pojišťovny na +420 466 100 777.",
+          "requirement_type": "recommended",
+          "evidence_level": "official_insurer",
+          "source_ids": [
+            "CSOB_GUIDE"
+          ],
+          "condition": null
+        },
+        {
+          "text": "Pro určení pojistného krytí ověřte konkrétní pojistnou smlouvu, sjednaná rizika, limity a platnou verzi podmínek.",
+          "requirement_type": "recommended",
+          "evidence_level": "official_insurer",
+          "source_ids": [
+            "CSOB_VPP2021"
+          ],
+          "condition": null
+        }
+      ],
+      "required_documents": [],
+      "recommended_documents": [],
+      "police_involvement": {
+        "status": "not_established",
+        "guidance": "Z dostupných zdrojů nevyplývá jednotná povinnost pořídit policejní protokol právě pro tento scénář.",
+        "source_ids": [],
+        "needs_expert_review": true
+      },
+      "clarifying_questions": [
+        "Co přesně se stalo a ve které zemi?",
+        "Potřebujete akutní pomoc, nebo chcete hlavně ověřit pojistné krytí?"
+      ],
+      "coverage_considerations": [
+        "Závěr o krytí nelze odvodit bez identifikace pojistné smlouvy a sjednaných rizik.",
+        "U aktuálních webových doporučení je nutné ověřit soulad s verzí pojistných podmínek použitelnou pro smlouvu."
+      ],
+      "escalation_conditions": [
+        "Pokud potřebujete závazné rozhodnutí o krytí, přesný seznam povinných dokladů nebo výjimku z postupu, předejte dotaz pracovníkovi pojišťovny."
+      ],
+      "open_questions_for_expert": [
+        "Potvrdit pro scénář „Podvodně vypadající žádost o údaje“ přesné doklady, použitelné výluky, rozsah asistence a případné povinnosti vůči ČSOB podle sjednaného produktu."
+      ],
+      "sources": [
+        {
+          "source_id": "CSOB_CLAIM",
+          "url": "https://www.csobpoj.cz/oznameni-pojistne-udalosti-cestovni-pojisteni",
+          "section": "Oznámení online, telefonicky a doplnění dokladů",
+          "last_checked_at": "2026-11-26",
+          "effective_from": null
+        },
+        {
+          "source_id": "CSOB_GUIDE",
+          "url": "https://www.csobpoj.cz/jak-postupovat-pri-skode-cestovni-pojisteni",
+          "section": "Událost v zahraničí",
+          "last_checked_at": "2026-11-26",
+          "effective_from": null
+        },
+        {
+          "source_id": "CSOB_VPP2021",
+          "url": "https://www.csobpoj.cz/documents/10332/5083102/11N9393%2BVPP%2BCP%2B2021_form%C3%A1t%2BA4_CZ_v%C4%8Detn%C4%9B%2Boce%C5%88ovac%C3%ADch%2Btabulek_final_PDF-A.pdf/91a13cf6-8af5-00b8-784b-2f4f65ab34d0?t=1714117917863",
+          "section": "Pokyny pro klienta (strana 2) a jednotlivá ustanovení VPP CP 2021",
+          "last_checked_at": "2026-11-26",
+          "effective_from": "2021-04-01"
+        }
+      ],
+      "source_ids": [
+        "CSOB_CLAIM",
+        "CSOB_GUIDE",
+        "CSOB_VPP2021"
+      ],
+      "evidence_level": "needs_expert_review",
+      "official_scenario_specific_evidence": false,
+      "procedure_completeness": "unresolved",
+      "priority": "P2",
+      "policy_version_check_required": true,
+      "applicable_policy_versions": [],
+      "review_status": "DRAFT",
+      "reviewed_by": null,
+      "last_verified_at": null,
+      "last_public_source_checked_at": "2026-11-26",
+      "approved_at": null,
+      "publication_status": "REVIEW_ONLY",
+      "retrieval_eligible": false,
+      "notes_for_reviewer": "Obecné pokyny od jiných institucí nejsou požadavky ČSOB. Ověřit každou povinnost a datum platnosti."
+    },
+    {
+      "id": "SUP_GENERAL_022",
+      "document_type": "support_procedure",
+      "schema_version": "1.0",
+      "language": "cs",
+      "category": "general_support",
+      "title": "Klient chce okamžitě potvrdit proplacení",
+      "scenario": "Klient řeší situaci: klient chce okamžitě potvrdit proplacení. Potřebuje praktický, ověřený postup bez předčasného příslibu plnění.",
+      "intent_tag": "coverage_unknown",
+      "question_variations": [
+        "Zaručíte mi, že to proplatíte?",
+        "Potřebuju hned vědět, že dostanu peníze.",
+        "Můžete mi potvrdit pojistný nárok?"
+      ],
+      "conditions": [
+        "Postup posuzovat podle země události, konkrétního dopravce nebo poskytovatele služby a verze smlouvy."
+      ],
+      "immediate_steps": [
+        {
+          "text": "Pokud se v zahraničí stala škodní událost, kontaktujte podle potřeby asistenční službu ČSOB Pojišťovny na +420 466 100 777.",
+          "requirement_type": "recommended",
+          "evidence_level": "official_insurer",
+          "source_ids": [
+            "CSOB_GUIDE"
+          ],
+          "condition": null
+        },
+        {
+          "text": "Pro určení pojistného krytí ověřte konkrétní pojistnou smlouvu, sjednaná rizika, limity a platnou verzi podmínek.",
+          "requirement_type": "recommended",
+          "evidence_level": "official_insurer",
+          "source_ids": [
+            "CSOB_VPP2021"
+          ],
+          "condition": null
+        },
+        {
+          "text": "Rozsah, osoby, datum a územní platnost pojištění posuzujte podle konkrétní smlouvy a jejího znění podmínek; samotný obecný webový popis nestačí.",
+          "requirement_type": "recommended",
+          "evidence_level": "official_insurer",
+          "source_ids": [
+            "CSOB_VPP2021"
+          ],
+          "condition": null
+        }
+      ],
+      "required_documents": [],
+      "recommended_documents": [],
+      "police_involvement": {
+        "status": "not_established",
+        "guidance": "Z dostupných zdrojů nevyplývá jednotná povinnost pořídit policejní protokol právě pro tento scénář.",
+        "source_ids": [],
+        "needs_expert_review": true
+      },
+      "clarifying_questions": [
+        "Co přesně se stalo a ve které zemi?",
+        "Potřebujete akutní pomoc, nebo chcete hlavně ověřit pojistné krytí?"
+      ],
+      "coverage_considerations": [
+        "Závěr o krytí nelze odvodit bez identifikace pojistné smlouvy a sjednaných rizik.",
+        "U aktuálních webových doporučení je nutné ověřit soulad s verzí pojistných podmínek použitelnou pro smlouvu."
+      ],
+      "escalation_conditions": [
+        "Pokud potřebujete závazné rozhodnutí o krytí, přesný seznam povinných dokladů nebo výjimku z postupu, předejte dotaz pracovníkovi pojišťovny."
+      ],
+      "open_questions_for_expert": [
+        "Potvrdit pro scénář „Klient chce okamžitě potvrdit proplacení“ přesné doklady, použitelné výluky, rozsah asistence a případné povinnosti vůči ČSOB podle sjednaného produktu."
+      ],
+      "sources": [
+        {
+          "source_id": "CSOB_CLAIM_GENERAL",
+          "url": "https://www.csobpoj.cz/skody-a-pojistne-udalosti/jak-oznamit-skodu",
+          "section": "Šetření škody; Stav škodní události",
+          "last_checked_at": "2026-11-26",
+          "effective_from": null
+        },
+        {
+          "source_id": "CSOB_GUIDE",
+          "url": "https://www.csobpoj.cz/jak-postupovat-pri-skode-cestovni-pojisteni",
+          "section": "Událost v zahraničí",
+          "last_checked_at": "2026-11-26",
+          "effective_from": null
+        },
+        {
+          "source_id": "CSOB_VPP2021",
+          "url": "https://www.csobpoj.cz/documents/10332/5083102/11N9393%2BVPP%2BCP%2B2021_form%C3%A1t%2BA4_CZ_v%C4%8Detn%C4%9B%2Boce%C5%88ovac%C3%ADch%2Btabulek_final_PDF-A.pdf/91a13cf6-8af5-00b8-784b-2f4f65ab34d0?t=1714117917863",
+          "section": "Pokyny pro klienta (strana 2) a jednotlivá ustanovení VPP CP 2021",
+          "last_checked_at": "2026-11-26",
+          "effective_from": "2021-04-01"
+        }
+      ],
+      "source_ids": [
+        "CSOB_CLAIM_GENERAL",
+        "CSOB_GUIDE",
+        "CSOB_VPP2021"
+      ],
+      "evidence_level": "needs_expert_review",
+      "official_scenario_specific_evidence": false,
+      "procedure_completeness": "unresolved",
+      "priority": "P2",
+      "policy_version_check_required": true,
+      "applicable_policy_versions": [],
+      "review_status": "DRAFT",
+      "reviewed_by": null,
+      "last_verified_at": null,
+      "last_public_source_checked_at": "2026-11-26",
+      "approved_at": null,
+      "publication_status": "REVIEW_ONLY",
+      "retrieval_eligible": false,
+      "notes_for_reviewer": "Obecné pokyny od jiných institucí nejsou požadavky ČSOB. Ověřit každou povinnost a datum platnosti."
+    },
+    {
+      "id": "SUP_GENERAL_023",
+      "document_type": "support_procedure",
+      "schema_version": "1.0",
+      "language": "cs",
+      "category": "general_support",
+      "title": "Klient má několik pojistek",
+      "scenario": "Klient řeší situaci: klient má několik pojistek. Potřebuje praktický, ověřený postup bez předčasného příslibu plnění.",
+      "intent_tag": "multiple_policies",
+      "question_variations": [
+        "Mám dvě cestovní pojistky.",
+        "Můžu jednu škodu hlásit z obou smluv?",
+        "Kterou smlouvu použijete?"
+      ],
+      "conditions": [
+        "Postup posuzovat podle země události, konkrétního dopravce nebo poskytovatele služby a verze smlouvy."
+      ],
+      "immediate_steps": [
+        {
+          "text": "Pokud se v zahraničí stala škodní událost, kontaktujte podle potřeby asistenční službu ČSOB Pojišťovny na +420 466 100 777.",
+          "requirement_type": "recommended",
+          "evidence_level": "official_insurer",
+          "source_ids": [
+            "CSOB_GUIDE"
+          ],
+          "condition": null
+        },
+        {
+          "text": "Pro určení pojistného krytí ověřte konkrétní pojistnou smlouvu, sjednaná rizika, limity a platnou verzi podmínek.",
+          "requirement_type": "recommended",
+          "evidence_level": "official_insurer",
+          "source_ids": [
+            "CSOB_VPP2021"
+          ],
+          "condition": null
+        },
+        {
+          "text": "Rozsah, osoby, datum a územní platnost pojištění posuzujte podle konkrétní smlouvy a jejího znění podmínek; samotný obecný webový popis nestačí.",
+          "requirement_type": "recommended",
+          "evidence_level": "official_insurer",
+          "source_ids": [
+            "CSOB_VPP2021"
+          ],
+          "condition": null
+        }
+      ],
+      "required_documents": [],
+      "recommended_documents": [],
+      "police_involvement": {
+        "status": "not_established",
+        "guidance": "Z dostupných zdrojů nevyplývá jednotná povinnost pořídit policejní protokol právě pro tento scénář.",
+        "source_ids": [],
+        "needs_expert_review": true
+      },
+      "clarifying_questions": [
+        "Co přesně se stalo a ve které zemi?",
+        "Potřebujete akutní pomoc, nebo chcete hlavně ověřit pojistné krytí?"
+      ],
+      "coverage_considerations": [
+        "Závěr o krytí nelze odvodit bez identifikace pojistné smlouvy a sjednaných rizik.",
+        "U aktuálních webových doporučení je nutné ověřit soulad s verzí pojistných podmínek použitelnou pro smlouvu."
+      ],
+      "escalation_conditions": [
+        "Pokud potřebujete závazné rozhodnutí o krytí, přesný seznam povinných dokladů nebo výjimku z postupu, předejte dotaz pracovníkovi pojišťovny."
+      ],
+      "open_questions_for_expert": [
+        "Potvrdit pro scénář „Klient má několik pojistek“ přesné doklady, použitelné výluky, rozsah asistence a případné povinnosti vůči ČSOB podle sjednaného produktu."
+      ],
+      "sources": [
+        {
+          "source_id": "CSOB_VPP2021",
+          "url": "https://www.csobpoj.cz/documents/10332/5083102/11N9393%2BVPP%2BCP%2B2021_form%C3%A1t%2BA4_CZ_v%C4%8Detn%C4%9B%2Boce%C5%88ovac%C3%ADch%2Btabulek_final_PDF-A.pdf/91a13cf6-8af5-00b8-784b-2f4f65ab34d0?t=1714117917863",
+          "section": "Pokyny pro klienta (strana 2) a jednotlivá ustanovení VPP CP 2021",
+          "last_checked_at": "2026-11-26",
+          "effective_from": "2021-04-01"
+        },
+        {
+          "source_id": "CSOB_GUIDE",
+          "url": "https://www.csobpoj.cz/jak-postupovat-pri-skode-cestovni-pojisteni",
+          "section": "Událost v zahraničí",
+          "last_checked_at": "2026-11-26",
+          "effective_from": null
+        }
+      ],
+      "source_ids": [
+        "CSOB_VPP2021",
+        "CSOB_GUIDE"
+      ],
+      "evidence_level": "needs_expert_review",
+      "official_scenario_specific_evidence": false,
+      "procedure_completeness": "unresolved",
+      "priority": "P2",
+      "policy_version_check_required": true,
+      "applicable_policy_versions": [],
+      "review_status": "DRAFT",
+      "reviewed_by": null,
+      "last_verified_at": null,
+      "last_public_source_checked_at": "2026-11-26",
+      "approved_at": null,
+      "publication_status": "REVIEW_ONLY",
+      "retrieval_eligible": false,
+      "notes_for_reviewer": "Obecné pokyny od jiných institucí nejsou požadavky ČSOB. Ověřit každou povinnost a datum platnosti."
+    },
+    {
+      "id": "SUP_GENERAL_024",
+      "document_type": "support_procedure",
+      "schema_version": "1.0",
+      "language": "cs",
+      "category": "general_support",
+      "title": "Klient si není jistý, jaký dokument platí",
+      "scenario": "Klient řeší situaci: klient si není jistý, jaký dokument platí. Potřebuje praktický, ověřený postup bez předčasného příslibu plnění.",
+      "intent_tag": "claim_version",
+      "question_variations": [
+        "Mám staré VPP a nové informace na webu.",
+        "Co platí pro mou smlouvu z roku 2021?",
+        "Je novější článek závazný i pro mě?"
+      ],
+      "conditions": [
+        "Postup posuzovat podle země události, konkrétního dopravce nebo poskytovatele služby a verze smlouvy."
+      ],
+      "immediate_steps": [
+        {
+          "text": "Pokud se v zahraničí stala škodní událost, kontaktujte podle potřeby asistenční službu ČSOB Pojišťovny na +420 466 100 777.",
+          "requirement_type": "recommended",
+          "evidence_level": "official_insurer",
+          "source_ids": [
+            "CSOB_GUIDE"
+          ],
+          "condition": null
+        },
+        {
+          "text": "Pro určení pojistného krytí ověřte konkrétní pojistnou smlouvu, sjednaná rizika, limity a platnou verzi podmínek.",
+          "requirement_type": "recommended",
+          "evidence_level": "official_insurer",
+          "source_ids": [
+            "CSOB_VPP2021"
+          ],
+          "condition": null
+        },
+        {
+          "text": "Rozsah, osoby, datum a územní platnost pojištění posuzujte podle konkrétní smlouvy a jejího znění podmínek; samotný obecný webový popis nestačí.",
+          "requirement_type": "recommended",
+          "evidence_level": "official_insurer",
+          "source_ids": [
+            "CSOB_VPP2021"
+          ],
+          "condition": null
+        }
+      ],
+      "required_documents": [],
+      "recommended_documents": [],
+      "police_involvement": {
+        "status": "not_established",
+        "guidance": "Z dostupných zdrojů nevyplývá jednotná povinnost pořídit policejní protokol právě pro tento scénář.",
+        "source_ids": [],
+        "needs_expert_review": true
+      },
+      "clarifying_questions": [
+        "Co přesně se stalo a ve které zemi?",
+        "Potřebujete akutní pomoc, nebo chcete hlavně ověřit pojistné krytí?",
+        "Kdy byla smlouva uzavřena a jaké dokumenty byly její součástí?"
+      ],
+      "coverage_considerations": [
+        "Závěr o krytí nelze odvodit bez identifikace pojistné smlouvy a sjednaných rizik.",
+        "U aktuálních webových doporučení je nutné ověřit soulad s verzí pojistných podmínek použitelnou pro smlouvu."
+      ],
+      "escalation_conditions": [
+        "Pokud potřebujete závazné rozhodnutí o krytí, přesný seznam povinných dokladů nebo výjimku z postupu, předejte dotaz pracovníkovi pojišťovny."
+      ],
+      "open_questions_for_expert": [
+        "Potvrdit pro scénář „Klient si není jistý, jaký dokument platí“ přesné doklady, použitelné výluky, rozsah asistence a případné povinnosti vůči ČSOB podle sjednaného produktu."
+      ],
+      "sources": [
+        {
+          "source_id": "CSOB_VPP2021",
+          "url": "https://www.csobpoj.cz/documents/10332/5083102/11N9393%2BVPP%2BCP%2B2021_form%C3%A1t%2BA4_CZ_v%C4%8Detn%C4%9B%2Boce%C5%88ovac%C3%ADch%2Btabulek_final_PDF-A.pdf/91a13cf6-8af5-00b8-784b-2f4f65ab34d0?t=1714117917863",
+          "section": "Pokyny pro klienta (strana 2) a jednotlivá ustanovení VPP CP 2021",
+          "last_checked_at": "2026-11-26",
+          "effective_from": "2021-04-01"
+        },
+        {
+          "source_id": "CSOB_GUIDE",
+          "url": "https://www.csobpoj.cz/jak-postupovat-pri-skode-cestovni-pojisteni",
+          "section": "Událost v zahraničí",
+          "last_checked_at": "2026-11-26",
+          "effective_from": null
+        }
+      ],
+      "source_ids": [
+        "CSOB_VPP2021",
+        "CSOB_GUIDE"
+      ],
+      "evidence_level": "needs_expert_review",
+      "official_scenario_specific_evidence": false,
+      "procedure_completeness": "unresolved",
+      "priority": "P2",
+      "policy_version_check_required": true,
+      "applicable_policy_versions": [],
+      "review_status": "DRAFT",
+      "reviewed_by": null,
+      "last_verified_at": null,
+      "last_public_source_checked_at": "2026-11-26",
+      "approved_at": null,
+      "publication_status": "REVIEW_ONLY",
+      "retrieval_eligible": false,
+      "notes_for_reviewer": "Obecné pokyny od jiných institucí nejsou požadavky ČSOB. Ověřit každou povinnost a datum platnosti."
+    }
+  ]
+}

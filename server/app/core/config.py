@@ -54,5 +54,11 @@ class Settings:
     dev_policy_id: str = os.getenv("DEV_POLICY_ID", "")
     # Language of the indexed policy corpus, independent of the user's language.
     retrieval_query_language: str = os.getenv("RETRIEVAL_QUERY_LANGUAGE", "Czech")
+    # Internal prototype: allow the reviewed and draft support corpus in chat.
+    support_include_drafts: bool = os.getenv(
+        "SUPPORT_INCLUDE_DRAFTS", "true" if environment == "development" else "false"
+    ).lower() in {
+        "1", "true", "yes"
+    }
 
 settings = Settings()

@@ -1,0 +1,1585 @@
+{
+  "schema_version": "1.0",
+  "document_type": "support_knowledge_collection",
+  "language": "cs",
+  "dataset_status": "DRAFT_EXPERT_REVIEW_REQUIRED",
+  "generated_at": "2026-11-26",
+  "title": "Pomoc při škodě způsobené jiné osobě",
+  "articles": [
+    {
+      "id": "SUP_LIABILITY_001",
+      "document_type": "support_procedure",
+      "schema_version": "1.0",
+      "language": "cs",
+      "category": "liability_procedures",
+      "title": "Poškození vybavení hotelového pokoje",
+      "scenario": "Klient řeší situaci: poškození vybavení hotelového pokoje. Potřebuje praktický, ověřený postup bez předčasného příslibu plnění.",
+      "intent_tag": "liability_property",
+      "question_variations": [
+        "Omylem jsem rozbil hotelovou televizi.",
+        "V hotelu po mně chtějí peníze za škodu.",
+        "Mám to hned zaplatit?"
+      ],
+      "conditions": [
+        "Postup posuzovat podle země události, konkrétního dopravce nebo poskytovatele služby a verze smlouvy."
+      ],
+      "immediate_steps": [
+        {
+          "text": "Zdokumentujte okolnosti a rozsah způsobené škody, ideálně fotografiemi a údaji o svědcích.",
+          "requirement_type": "recommended",
+          "evidence_level": "official_insurer",
+          "source_ids": [
+            "CSOB_VPP2021"
+          ],
+          "condition": null
+        },
+        {
+          "text": "U větší škody neprodleně kontaktujte asistenci a bez souhlasu pojišťovny neuznávejte odpovědnost ani neprovádějte úhradu.",
+          "requirement_type": "recommended",
+          "evidence_level": "official_insurer",
+          "source_ids": [
+            "CSOB_VPP2021"
+          ],
+          "condition": "Pokud jde o větší škodu podle pokynů VPP CP 2021."
+        },
+        {
+          "text": "Nepodepisujte dokument, jehož obsahu nerozumíte.",
+          "requirement_type": "recommended",
+          "evidence_level": "official_insurer",
+          "source_ids": [
+            "CSOB_GUIDE"
+          ],
+          "condition": null
+        }
+      ],
+      "required_documents": [],
+      "recommended_documents": [
+        {
+          "name": "Fotografie poškození a dostupná svědecká prohlášení.",
+          "requirement_type": "recommended",
+          "source_ids": [
+            "CSOB_VPP2021"
+          ]
+        }
+      ],
+      "police_involvement": {
+        "status": "not_established",
+        "guidance": "Z dostupných zdrojů nevyplývá jednotná povinnost pořídit policejní protokol právě pro tento scénář.",
+        "source_ids": [],
+        "needs_expert_review": true
+      },
+      "clarifying_questions": [
+        "Jaká škoda vznikla, komu a za jakých okolností?",
+        "Požaduje někdo zaplacení nebo podpis dokumentu?"
+      ],
+      "coverage_considerations": [
+        "Ověřit sjednané pojištění odpovědnosti, příčinu škody, charakter předmětu a případné výluky.",
+        "U aktuálních webových doporučení je nutné ověřit soulad s verzí pojistných podmínek použitelnou pro smlouvu."
+      ],
+      "escalation_conditions": [
+        "Pokud potřebujete závazné rozhodnutí o krytí, přesný seznam povinných dokladů nebo výjimku z postupu, předejte dotaz pracovníkovi pojišťovny."
+      ],
+      "open_questions_for_expert": [
+        "Potvrdit pro scénář „Poškození vybavení hotelového pokoje“ přesné doklady, použitelné výluky, rozsah asistence a případné povinnosti vůči ČSOB podle sjednaného produktu."
+      ],
+      "sources": [
+        {
+          "source_id": "CSOB_VPP2021",
+          "url": "https://www.csobpoj.cz/documents/10332/5083102/11N9393%2BVPP%2BCP%2B2021_form%C3%A1t%2BA4_CZ_v%C4%8Detn%C4%9B%2Boce%C5%88ovac%C3%ADch%2Btabulek_final_PDF-A.pdf/91a13cf6-8af5-00b8-784b-2f4f65ab34d0?t=1714117917863",
+          "section": "Pokyny pro klienta (strana 2) a jednotlivá ustanovení VPP CP 2021",
+          "last_checked_at": "2026-11-26",
+          "effective_from": "2021-04-01"
+        },
+        {
+          "source_id": "CSOB_GUIDE",
+          "url": "https://www.csobpoj.cz/jak-postupovat-pri-skode-cestovni-pojisteni",
+          "section": "Událost v zahraničí",
+          "last_checked_at": "2026-11-26",
+          "effective_from": null
+        }
+      ],
+      "source_ids": [
+        "CSOB_VPP2021",
+        "CSOB_GUIDE"
+      ],
+      "evidence_level": "needs_expert_review",
+      "official_scenario_specific_evidence": false,
+      "procedure_completeness": "unresolved",
+      "priority": "P2",
+      "policy_version_check_required": true,
+      "applicable_policy_versions": [],
+      "review_status": "DRAFT",
+      "reviewed_by": null,
+      "last_verified_at": null,
+      "last_public_source_checked_at": "2026-11-26",
+      "approved_at": null,
+      "publication_status": "REVIEW_ONLY",
+      "retrieval_eligible": false,
+      "notes_for_reviewer": "Obecné pokyny od jiných institucí nejsou požadavky ČSOB. Ověřit každou povinnost a datum platnosti."
+    },
+    {
+      "id": "SUP_LIABILITY_002",
+      "document_type": "support_procedure",
+      "schema_version": "1.0",
+      "language": "cs",
+      "category": "liability_procedures",
+      "title": "Neúmyslné zranění cizí osoby",
+      "scenario": "Klient řeší situaci: neúmyslné zranění cizí osoby. Potřebuje praktický, ověřený postup bez předčasného příslibu plnění.",
+      "intent_tag": "liability_injury",
+      "question_variations": [
+        "Srazil jsem člověka na kole.",
+        "Omylem jsem někoho zranil při sportu.",
+        "Mám uznat svou vinu?"
+      ],
+      "conditions": [
+        "Postup posuzovat podle země události, konkrétního dopravce nebo poskytovatele služby a verze smlouvy."
+      ],
+      "immediate_steps": [
+        {
+          "text": "Zdokumentujte okolnosti a rozsah způsobené škody, ideálně fotografiemi a údaji o svědcích.",
+          "requirement_type": "recommended",
+          "evidence_level": "official_insurer",
+          "source_ids": [
+            "CSOB_VPP2021"
+          ],
+          "condition": null
+        },
+        {
+          "text": "U větší škody neprodleně kontaktujte asistenci a bez souhlasu pojišťovny neuznávejte odpovědnost ani neprovádějte úhradu.",
+          "requirement_type": "recommended",
+          "evidence_level": "official_insurer",
+          "source_ids": [
+            "CSOB_VPP2021"
+          ],
+          "condition": "Pokud jde o větší škodu podle pokynů VPP CP 2021."
+        },
+        {
+          "text": "Nepodepisujte dokument, jehož obsahu nerozumíte.",
+          "requirement_type": "recommended",
+          "evidence_level": "official_insurer",
+          "source_ids": [
+            "CSOB_GUIDE"
+          ],
+          "condition": null
+        }
+      ],
+      "required_documents": [],
+      "recommended_documents": [
+        {
+          "name": "Fotografie poškození a dostupná svědecká prohlášení.",
+          "requirement_type": "recommended",
+          "source_ids": [
+            "CSOB_VPP2021"
+          ]
+        }
+      ],
+      "police_involvement": {
+        "status": "not_established",
+        "guidance": "Z dostupných zdrojů nevyplývá jednotná povinnost pořídit policejní protokol právě pro tento scénář.",
+        "source_ids": [],
+        "needs_expert_review": true
+      },
+      "clarifying_questions": [
+        "Jaká škoda vznikla, komu a za jakých okolností?",
+        "Požaduje někdo zaplacení nebo podpis dokumentu?"
+      ],
+      "coverage_considerations": [
+        "Ověřit sjednané pojištění odpovědnosti, příčinu škody, charakter předmětu a případné výluky.",
+        "U aktuálních webových doporučení je nutné ověřit soulad s verzí pojistných podmínek použitelnou pro smlouvu."
+      ],
+      "escalation_conditions": [
+        "Při bezprostředním nebezpečí nebo závažném zdravotním stavu má přednost přivolání místní pomoci.",
+        "Pokud potřebujete závazné rozhodnutí o krytí, přesný seznam povinných dokladů nebo výjimku z postupu, předejte dotaz pracovníkovi pojišťovny."
+      ],
+      "open_questions_for_expert": [
+        "Potvrdit pro scénář „Neúmyslné zranění cizí osoby“ přesné doklady, použitelné výluky, rozsah asistence a případné povinnosti vůči ČSOB podle sjednaného produktu."
+      ],
+      "sources": [
+        {
+          "source_id": "CSOB_VPP2021",
+          "url": "https://www.csobpoj.cz/documents/10332/5083102/11N9393%2BVPP%2BCP%2B2021_form%C3%A1t%2BA4_CZ_v%C4%8Detn%C4%9B%2Boce%C5%88ovac%C3%ADch%2Btabulek_final_PDF-A.pdf/91a13cf6-8af5-00b8-784b-2f4f65ab34d0?t=1714117917863",
+          "section": "Pokyny pro klienta (strana 2) a jednotlivá ustanovení VPP CP 2021",
+          "last_checked_at": "2026-11-26",
+          "effective_from": "2021-04-01"
+        },
+        {
+          "source_id": "CSOB_GUIDE",
+          "url": "https://www.csobpoj.cz/jak-postupovat-pri-skode-cestovni-pojisteni",
+          "section": "Událost v zahraničí",
+          "last_checked_at": "2026-11-26",
+          "effective_from": null
+        }
+      ],
+      "source_ids": [
+        "CSOB_VPP2021",
+        "CSOB_GUIDE"
+      ],
+      "evidence_level": "needs_expert_review",
+      "official_scenario_specific_evidence": false,
+      "procedure_completeness": "unresolved",
+      "priority": "P0",
+      "policy_version_check_required": true,
+      "applicable_policy_versions": [],
+      "review_status": "DRAFT",
+      "reviewed_by": null,
+      "last_verified_at": null,
+      "last_public_source_checked_at": "2026-11-26",
+      "approved_at": null,
+      "publication_status": "REVIEW_ONLY",
+      "retrieval_eligible": false,
+      "notes_for_reviewer": "Obecné pokyny od jiných institucí nejsou požadavky ČSOB. Ověřit každou povinnost a datum platnosti."
+    },
+    {
+      "id": "SUP_LIABILITY_003",
+      "document_type": "support_procedure",
+      "schema_version": "1.0",
+      "language": "cs",
+      "category": "liability_procedures",
+      "title": "Nehoda na půjčeném kole",
+      "scenario": "Klient řeší situaci: nehoda na půjčeném kole. Potřebuje praktický, ověřený postup bez předčasného příslibu plnění.",
+      "intent_tag": "liability_rental",
+      "question_variations": [
+        "Naboural jsem na půjčeném kole.",
+        "S půjčeným kolem jsem poškodil auto.",
+        "Kryje odpovědnost takovou situaci?"
+      ],
+      "conditions": [
+        "Postup posuzovat podle země události, konkrétního dopravce nebo poskytovatele služby a verze smlouvy."
+      ],
+      "immediate_steps": [
+        {
+          "text": "Zdokumentujte okolnosti a rozsah způsobené škody, ideálně fotografiemi a údaji o svědcích.",
+          "requirement_type": "recommended",
+          "evidence_level": "official_insurer",
+          "source_ids": [
+            "CSOB_VPP2021"
+          ],
+          "condition": null
+        },
+        {
+          "text": "U větší škody neprodleně kontaktujte asistenci a bez souhlasu pojišťovny neuznávejte odpovědnost ani neprovádějte úhradu.",
+          "requirement_type": "recommended",
+          "evidence_level": "official_insurer",
+          "source_ids": [
+            "CSOB_VPP2021"
+          ],
+          "condition": "Pokud jde o větší škodu podle pokynů VPP CP 2021."
+        },
+        {
+          "text": "Nepodepisujte dokument, jehož obsahu nerozumíte.",
+          "requirement_type": "recommended",
+          "evidence_level": "official_insurer",
+          "source_ids": [
+            "CSOB_GUIDE"
+          ],
+          "condition": null
+        }
+      ],
+      "required_documents": [],
+      "recommended_documents": [
+        {
+          "name": "Fotografie poškození a dostupná svědecká prohlášení.",
+          "requirement_type": "recommended",
+          "source_ids": [
+            "CSOB_VPP2021"
+          ]
+        }
+      ],
+      "police_involvement": {
+        "status": "not_established",
+        "guidance": "Z dostupných zdrojů nevyplývá jednotná povinnost pořídit policejní protokol právě pro tento scénář.",
+        "source_ids": [],
+        "needs_expert_review": true
+      },
+      "clarifying_questions": [
+        "Jaká škoda vznikla, komu a za jakých okolností?",
+        "Požaduje někdo zaplacení nebo podpis dokumentu?"
+      ],
+      "coverage_considerations": [
+        "Ověřit sjednané pojištění odpovědnosti, příčinu škody, charakter předmětu a případné výluky.",
+        "U aktuálních webových doporučení je nutné ověřit soulad s verzí pojistných podmínek použitelnou pro smlouvu."
+      ],
+      "escalation_conditions": [
+        "Pokud potřebujete závazné rozhodnutí o krytí, přesný seznam povinných dokladů nebo výjimku z postupu, předejte dotaz pracovníkovi pojišťovny."
+      ],
+      "open_questions_for_expert": [
+        "Potvrdit hranici mezi cestovní odpovědností a škodou na půjčeném nebo motorovém vozidle."
+      ],
+      "sources": [
+        {
+          "source_id": "CSOB_VPP2021",
+          "url": "https://www.csobpoj.cz/documents/10332/5083102/11N9393%2BVPP%2BCP%2B2021_form%C3%A1t%2BA4_CZ_v%C4%8Detn%C4%9B%2Boce%C5%88ovac%C3%ADch%2Btabulek_final_PDF-A.pdf/91a13cf6-8af5-00b8-784b-2f4f65ab34d0?t=1714117917863",
+          "section": "Pokyny pro klienta (strana 2) a jednotlivá ustanovení VPP CP 2021",
+          "last_checked_at": "2026-11-26",
+          "effective_from": "2021-04-01"
+        },
+        {
+          "source_id": "CSOB_GUIDE",
+          "url": "https://www.csobpoj.cz/jak-postupovat-pri-skode-cestovni-pojisteni",
+          "section": "Událost v zahraničí",
+          "last_checked_at": "2026-11-26",
+          "effective_from": null
+        }
+      ],
+      "source_ids": [
+        "CSOB_VPP2021",
+        "CSOB_GUIDE"
+      ],
+      "evidence_level": "needs_expert_review",
+      "official_scenario_specific_evidence": false,
+      "procedure_completeness": "unresolved",
+      "priority": "P2",
+      "policy_version_check_required": true,
+      "applicable_policy_versions": [],
+      "review_status": "DRAFT",
+      "reviewed_by": null,
+      "last_verified_at": null,
+      "last_public_source_checked_at": "2026-11-26",
+      "approved_at": null,
+      "publication_status": "REVIEW_ONLY",
+      "retrieval_eligible": false,
+      "notes_for_reviewer": "Obecné pokyny od jiných institucí nejsou požadavky ČSOB. Ověřit každou povinnost a datum platnosti."
+    },
+    {
+      "id": "SUP_LIABILITY_004",
+      "document_type": "support_procedure",
+      "schema_version": "1.0",
+      "language": "cs",
+      "category": "liability_procedures",
+      "title": "Nehoda na elektrické koloběžce",
+      "scenario": "Klient řeší situaci: nehoda na elektrické koloběžce. Potřebuje praktický, ověřený postup bez předčasného příslibu plnění.",
+      "intent_tag": "liability_rental",
+      "question_variations": [
+        "Naboural jsem na elektrokoloběžce.",
+        "Poškodil jsem věc jízdou na e-koloběžce.",
+        "Je to v cestovním pojištění?"
+      ],
+      "conditions": [
+        "Postup posuzovat podle země události, konkrétního dopravce nebo poskytovatele služby a verze smlouvy."
+      ],
+      "immediate_steps": [
+        {
+          "text": "Zdokumentujte okolnosti a rozsah způsobené škody, ideálně fotografiemi a údaji o svědcích.",
+          "requirement_type": "recommended",
+          "evidence_level": "official_insurer",
+          "source_ids": [
+            "CSOB_VPP2021"
+          ],
+          "condition": null
+        },
+        {
+          "text": "U větší škody neprodleně kontaktujte asistenci a bez souhlasu pojišťovny neuznávejte odpovědnost ani neprovádějte úhradu.",
+          "requirement_type": "recommended",
+          "evidence_level": "official_insurer",
+          "source_ids": [
+            "CSOB_VPP2021"
+          ],
+          "condition": "Pokud jde o větší škodu podle pokynů VPP CP 2021."
+        },
+        {
+          "text": "Nepodepisujte dokument, jehož obsahu nerozumíte.",
+          "requirement_type": "recommended",
+          "evidence_level": "official_insurer",
+          "source_ids": [
+            "CSOB_GUIDE"
+          ],
+          "condition": null
+        }
+      ],
+      "required_documents": [],
+      "recommended_documents": [
+        {
+          "name": "Fotografie poškození a dostupná svědecká prohlášení.",
+          "requirement_type": "recommended",
+          "source_ids": [
+            "CSOB_VPP2021"
+          ]
+        }
+      ],
+      "police_involvement": {
+        "status": "not_established",
+        "guidance": "Z dostupných zdrojů nevyplývá jednotná povinnost pořídit policejní protokol právě pro tento scénář.",
+        "source_ids": [],
+        "needs_expert_review": true
+      },
+      "clarifying_questions": [
+        "Jaká škoda vznikla, komu a za jakých okolností?",
+        "Požaduje někdo zaplacení nebo podpis dokumentu?"
+      ],
+      "coverage_considerations": [
+        "Ověřit sjednané pojištění odpovědnosti, příčinu škody, charakter předmětu a případné výluky.",
+        "U aktuálních webových doporučení je nutné ověřit soulad s verzí pojistných podmínek použitelnou pro smlouvu."
+      ],
+      "escalation_conditions": [
+        "Pokud potřebujete závazné rozhodnutí o krytí, přesný seznam povinných dokladů nebo výjimku z postupu, předejte dotaz pracovníkovi pojišťovny."
+      ],
+      "open_questions_for_expert": [
+        "Potvrdit hranici mezi cestovní odpovědností a škodou na půjčeném nebo motorovém vozidle."
+      ],
+      "sources": [
+        {
+          "source_id": "CSOB_VPP2021",
+          "url": "https://www.csobpoj.cz/documents/10332/5083102/11N9393%2BVPP%2BCP%2B2021_form%C3%A1t%2BA4_CZ_v%C4%8Detn%C4%9B%2Boce%C5%88ovac%C3%ADch%2Btabulek_final_PDF-A.pdf/91a13cf6-8af5-00b8-784b-2f4f65ab34d0?t=1714117917863",
+          "section": "Pokyny pro klienta (strana 2) a jednotlivá ustanovení VPP CP 2021",
+          "last_checked_at": "2026-11-26",
+          "effective_from": "2021-04-01"
+        },
+        {
+          "source_id": "CSOB_GUIDE",
+          "url": "https://www.csobpoj.cz/jak-postupovat-pri-skode-cestovni-pojisteni",
+          "section": "Událost v zahraničí",
+          "last_checked_at": "2026-11-26",
+          "effective_from": null
+        }
+      ],
+      "source_ids": [
+        "CSOB_VPP2021",
+        "CSOB_GUIDE"
+      ],
+      "evidence_level": "needs_expert_review",
+      "official_scenario_specific_evidence": false,
+      "procedure_completeness": "unresolved",
+      "priority": "P2",
+      "policy_version_check_required": true,
+      "applicable_policy_versions": [],
+      "review_status": "DRAFT",
+      "reviewed_by": null,
+      "last_verified_at": null,
+      "last_public_source_checked_at": "2026-11-26",
+      "approved_at": null,
+      "publication_status": "REVIEW_ONLY",
+      "retrieval_eligible": false,
+      "notes_for_reviewer": "Obecné pokyny od jiných institucí nejsou požadavky ČSOB. Ověřit každou povinnost a datum platnosti."
+    },
+    {
+      "id": "SUP_LIABILITY_005",
+      "document_type": "support_procedure",
+      "schema_version": "1.0",
+      "language": "cs",
+      "category": "liability_procedures",
+      "title": "Srážka dvou lyžařů",
+      "scenario": "Klient řeší situaci: srážka dvou lyžařů. Potřebuje praktický, ověřený postup bez předčasného příslibu plnění.",
+      "intent_tag": "liability_injury",
+      "question_variations": [
+        "Na sjezdovce jsem narazil do druhého lyžaře.",
+        "Druhý člověk tvrdí, že jsem mu způsobil úraz.",
+        "Musím mu dát peníze?"
+      ],
+      "conditions": [
+        "Postup posuzovat podle země události, konkrétního dopravce nebo poskytovatele služby a verze smlouvy."
+      ],
+      "immediate_steps": [
+        {
+          "text": "Zdokumentujte okolnosti a rozsah způsobené škody, ideálně fotografiemi a údaji o svědcích.",
+          "requirement_type": "recommended",
+          "evidence_level": "official_insurer",
+          "source_ids": [
+            "CSOB_VPP2021"
+          ],
+          "condition": null
+        },
+        {
+          "text": "U větší škody neprodleně kontaktujte asistenci a bez souhlasu pojišťovny neuznávejte odpovědnost ani neprovádějte úhradu.",
+          "requirement_type": "recommended",
+          "evidence_level": "official_insurer",
+          "source_ids": [
+            "CSOB_VPP2021"
+          ],
+          "condition": "Pokud jde o větší škodu podle pokynů VPP CP 2021."
+        },
+        {
+          "text": "Nepodepisujte dokument, jehož obsahu nerozumíte.",
+          "requirement_type": "recommended",
+          "evidence_level": "official_insurer",
+          "source_ids": [
+            "CSOB_GUIDE"
+          ],
+          "condition": null
+        }
+      ],
+      "required_documents": [],
+      "recommended_documents": [
+        {
+          "name": "Fotografie poškození a dostupná svědecká prohlášení.",
+          "requirement_type": "recommended",
+          "source_ids": [
+            "CSOB_VPP2021"
+          ]
+        }
+      ],
+      "police_involvement": {
+        "status": "not_established",
+        "guidance": "Z dostupných zdrojů nevyplývá jednotná povinnost pořídit policejní protokol právě pro tento scénář.",
+        "source_ids": [],
+        "needs_expert_review": true
+      },
+      "clarifying_questions": [
+        "Jaká škoda vznikla, komu a za jakých okolností?",
+        "Požaduje někdo zaplacení nebo podpis dokumentu?"
+      ],
+      "coverage_considerations": [
+        "Ověřit sjednané pojištění odpovědnosti, příčinu škody, charakter předmětu a případné výluky.",
+        "U aktuálních webových doporučení je nutné ověřit soulad s verzí pojistných podmínek použitelnou pro smlouvu."
+      ],
+      "escalation_conditions": [
+        "Při bezprostředním nebezpečí nebo závažném zdravotním stavu má přednost přivolání místní pomoci.",
+        "Pokud potřebujete závazné rozhodnutí o krytí, přesný seznam povinných dokladů nebo výjimku z postupu, předejte dotaz pracovníkovi pojišťovny."
+      ],
+      "open_questions_for_expert": [
+        "Potvrdit pro scénář „Srážka dvou lyžařů“ přesné doklady, použitelné výluky, rozsah asistence a případné povinnosti vůči ČSOB podle sjednaného produktu."
+      ],
+      "sources": [
+        {
+          "source_id": "CSOB_VPP2021",
+          "url": "https://www.csobpoj.cz/documents/10332/5083102/11N9393%2BVPP%2BCP%2B2021_form%C3%A1t%2BA4_CZ_v%C4%8Detn%C4%9B%2Boce%C5%88ovac%C3%ADch%2Btabulek_final_PDF-A.pdf/91a13cf6-8af5-00b8-784b-2f4f65ab34d0?t=1714117917863",
+          "section": "Pokyny pro klienta (strana 2) a jednotlivá ustanovení VPP CP 2021",
+          "last_checked_at": "2026-11-26",
+          "effective_from": "2021-04-01"
+        },
+        {
+          "source_id": "CSOB_GUIDE",
+          "url": "https://www.csobpoj.cz/jak-postupovat-pri-skode-cestovni-pojisteni",
+          "section": "Událost v zahraničí",
+          "last_checked_at": "2026-11-26",
+          "effective_from": null
+        }
+      ],
+      "source_ids": [
+        "CSOB_VPP2021",
+        "CSOB_GUIDE"
+      ],
+      "evidence_level": "needs_expert_review",
+      "official_scenario_specific_evidence": false,
+      "procedure_completeness": "unresolved",
+      "priority": "P0",
+      "policy_version_check_required": true,
+      "applicable_policy_versions": [],
+      "review_status": "DRAFT",
+      "reviewed_by": null,
+      "last_verified_at": null,
+      "last_public_source_checked_at": "2026-11-26",
+      "approved_at": null,
+      "publication_status": "REVIEW_ONLY",
+      "retrieval_eligible": false,
+      "notes_for_reviewer": "Obecné pokyny od jiných institucí nejsou požadavky ČSOB. Ověřit každou povinnost a datum platnosti."
+    },
+    {
+      "id": "SUP_LIABILITY_006",
+      "document_type": "support_procedure",
+      "schema_version": "1.0",
+      "language": "cs",
+      "category": "liability_procedures",
+      "title": "Poškození vybavení restaurace",
+      "scenario": "Klient řeší situaci: poškození vybavení restaurace. Potřebuje praktický, ověřený postup bez předčasného příslibu plnění.",
+      "intent_tag": "liability_property",
+      "question_variations": [
+        "V restauraci jsem rozbil skleněné dveře.",
+        "Omylem jsem zničil zařízení podniku.",
+        "Potřebuju potvrzení od majitele?"
+      ],
+      "conditions": [
+        "Postup posuzovat podle země události, konkrétního dopravce nebo poskytovatele služby a verze smlouvy."
+      ],
+      "immediate_steps": [
+        {
+          "text": "Zdokumentujte okolnosti a rozsah způsobené škody, ideálně fotografiemi a údaji o svědcích.",
+          "requirement_type": "recommended",
+          "evidence_level": "official_insurer",
+          "source_ids": [
+            "CSOB_VPP2021"
+          ],
+          "condition": null
+        },
+        {
+          "text": "U větší škody neprodleně kontaktujte asistenci a bez souhlasu pojišťovny neuznávejte odpovědnost ani neprovádějte úhradu.",
+          "requirement_type": "recommended",
+          "evidence_level": "official_insurer",
+          "source_ids": [
+            "CSOB_VPP2021"
+          ],
+          "condition": "Pokud jde o větší škodu podle pokynů VPP CP 2021."
+        },
+        {
+          "text": "Nepodepisujte dokument, jehož obsahu nerozumíte.",
+          "requirement_type": "recommended",
+          "evidence_level": "official_insurer",
+          "source_ids": [
+            "CSOB_GUIDE"
+          ],
+          "condition": null
+        }
+      ],
+      "required_documents": [],
+      "recommended_documents": [
+        {
+          "name": "Fotografie poškození a dostupná svědecká prohlášení.",
+          "requirement_type": "recommended",
+          "source_ids": [
+            "CSOB_VPP2021"
+          ]
+        }
+      ],
+      "police_involvement": {
+        "status": "not_established",
+        "guidance": "Z dostupných zdrojů nevyplývá jednotná povinnost pořídit policejní protokol právě pro tento scénář.",
+        "source_ids": [],
+        "needs_expert_review": true
+      },
+      "clarifying_questions": [
+        "Jaká škoda vznikla, komu a za jakých okolností?",
+        "Požaduje někdo zaplacení nebo podpis dokumentu?"
+      ],
+      "coverage_considerations": [
+        "Ověřit sjednané pojištění odpovědnosti, příčinu škody, charakter předmětu a případné výluky.",
+        "U aktuálních webových doporučení je nutné ověřit soulad s verzí pojistných podmínek použitelnou pro smlouvu."
+      ],
+      "escalation_conditions": [
+        "Pokud potřebujete závazné rozhodnutí o krytí, přesný seznam povinných dokladů nebo výjimku z postupu, předejte dotaz pracovníkovi pojišťovny."
+      ],
+      "open_questions_for_expert": [
+        "Potvrdit pro scénář „Poškození vybavení restaurace“ přesné doklady, použitelné výluky, rozsah asistence a případné povinnosti vůči ČSOB podle sjednaného produktu."
+      ],
+      "sources": [
+        {
+          "source_id": "CSOB_VPP2021",
+          "url": "https://www.csobpoj.cz/documents/10332/5083102/11N9393%2BVPP%2BCP%2B2021_form%C3%A1t%2BA4_CZ_v%C4%8Detn%C4%9B%2Boce%C5%88ovac%C3%ADch%2Btabulek_final_PDF-A.pdf/91a13cf6-8af5-00b8-784b-2f4f65ab34d0?t=1714117917863",
+          "section": "Pokyny pro klienta (strana 2) a jednotlivá ustanovení VPP CP 2021",
+          "last_checked_at": "2026-11-26",
+          "effective_from": "2021-04-01"
+        },
+        {
+          "source_id": "CSOB_GUIDE",
+          "url": "https://www.csobpoj.cz/jak-postupovat-pri-skode-cestovni-pojisteni",
+          "section": "Událost v zahraničí",
+          "last_checked_at": "2026-11-26",
+          "effective_from": null
+        }
+      ],
+      "source_ids": [
+        "CSOB_VPP2021",
+        "CSOB_GUIDE"
+      ],
+      "evidence_level": "needs_expert_review",
+      "official_scenario_specific_evidence": false,
+      "procedure_completeness": "unresolved",
+      "priority": "P2",
+      "policy_version_check_required": true,
+      "applicable_policy_versions": [],
+      "review_status": "DRAFT",
+      "reviewed_by": null,
+      "last_verified_at": null,
+      "last_public_source_checked_at": "2026-11-26",
+      "approved_at": null,
+      "publication_status": "REVIEW_ONLY",
+      "retrieval_eligible": false,
+      "notes_for_reviewer": "Obecné pokyny od jiných institucí nejsou požadavky ČSOB. Ověřit každou povinnost a datum platnosti."
+    },
+    {
+      "id": "SUP_LIABILITY_007",
+      "document_type": "support_procedure",
+      "schema_version": "1.0",
+      "language": "cs",
+      "category": "liability_procedures",
+      "title": "Škoda v pronajatém apartmánu",
+      "scenario": "Klient řeší situaci: škoda v pronajatém apartmánu. Potřebuje praktický, ověřený postup bez předčasného příslibu plnění.",
+      "intent_tag": "liability_property",
+      "question_variations": [
+        "V pronajatém bytě jsem něco poškodil.",
+        "Majitel apartmánu po mně chce náhradu.",
+        "Platí na to moje pojistka?"
+      ],
+      "conditions": [
+        "Postup posuzovat podle země události, konkrétního dopravce nebo poskytovatele služby a verze smlouvy."
+      ],
+      "immediate_steps": [
+        {
+          "text": "Zdokumentujte okolnosti a rozsah způsobené škody, ideálně fotografiemi a údaji o svědcích.",
+          "requirement_type": "recommended",
+          "evidence_level": "official_insurer",
+          "source_ids": [
+            "CSOB_VPP2021"
+          ],
+          "condition": null
+        },
+        {
+          "text": "U větší škody neprodleně kontaktujte asistenci a bez souhlasu pojišťovny neuznávejte odpovědnost ani neprovádějte úhradu.",
+          "requirement_type": "recommended",
+          "evidence_level": "official_insurer",
+          "source_ids": [
+            "CSOB_VPP2021"
+          ],
+          "condition": "Pokud jde o větší škodu podle pokynů VPP CP 2021."
+        },
+        {
+          "text": "Nepodepisujte dokument, jehož obsahu nerozumíte.",
+          "requirement_type": "recommended",
+          "evidence_level": "official_insurer",
+          "source_ids": [
+            "CSOB_GUIDE"
+          ],
+          "condition": null
+        }
+      ],
+      "required_documents": [],
+      "recommended_documents": [
+        {
+          "name": "Fotografie poškození a dostupná svědecká prohlášení.",
+          "requirement_type": "recommended",
+          "source_ids": [
+            "CSOB_VPP2021"
+          ]
+        }
+      ],
+      "police_involvement": {
+        "status": "not_established",
+        "guidance": "Z dostupných zdrojů nevyplývá jednotná povinnost pořídit policejní protokol právě pro tento scénář.",
+        "source_ids": [],
+        "needs_expert_review": true
+      },
+      "clarifying_questions": [
+        "Jaká škoda vznikla, komu a za jakých okolností?",
+        "Požaduje někdo zaplacení nebo podpis dokumentu?"
+      ],
+      "coverage_considerations": [
+        "Ověřit sjednané pojištění odpovědnosti, příčinu škody, charakter předmětu a případné výluky.",
+        "U aktuálních webových doporučení je nutné ověřit soulad s verzí pojistných podmínek použitelnou pro smlouvu."
+      ],
+      "escalation_conditions": [
+        "Pokud potřebujete závazné rozhodnutí o krytí, přesný seznam povinných dokladů nebo výjimku z postupu, předejte dotaz pracovníkovi pojišťovny."
+      ],
+      "open_questions_for_expert": [
+        "Potvrdit pro scénář „Škoda v pronajatém apartmánu“ přesné doklady, použitelné výluky, rozsah asistence a případné povinnosti vůči ČSOB podle sjednaného produktu."
+      ],
+      "sources": [
+        {
+          "source_id": "CSOB_VPP2021",
+          "url": "https://www.csobpoj.cz/documents/10332/5083102/11N9393%2BVPP%2BCP%2B2021_form%C3%A1t%2BA4_CZ_v%C4%8Detn%C4%9B%2Boce%C5%88ovac%C3%ADch%2Btabulek_final_PDF-A.pdf/91a13cf6-8af5-00b8-784b-2f4f65ab34d0?t=1714117917863",
+          "section": "Pokyny pro klienta (strana 2) a jednotlivá ustanovení VPP CP 2021",
+          "last_checked_at": "2026-11-26",
+          "effective_from": "2021-04-01"
+        },
+        {
+          "source_id": "CSOB_GUIDE",
+          "url": "https://www.csobpoj.cz/jak-postupovat-pri-skode-cestovni-pojisteni",
+          "section": "Událost v zahraničí",
+          "last_checked_at": "2026-11-26",
+          "effective_from": null
+        }
+      ],
+      "source_ids": [
+        "CSOB_VPP2021",
+        "CSOB_GUIDE"
+      ],
+      "evidence_level": "needs_expert_review",
+      "official_scenario_specific_evidence": false,
+      "procedure_completeness": "unresolved",
+      "priority": "P2",
+      "policy_version_check_required": true,
+      "applicable_policy_versions": [],
+      "review_status": "DRAFT",
+      "reviewed_by": null,
+      "last_verified_at": null,
+      "last_public_source_checked_at": "2026-11-26",
+      "approved_at": null,
+      "publication_status": "REVIEW_ONLY",
+      "retrieval_eligible": false,
+      "notes_for_reviewer": "Obecné pokyny od jiných institucí nejsou požadavky ČSOB. Ověřit každou povinnost a datum platnosti."
+    },
+    {
+      "id": "SUP_LIABILITY_008",
+      "document_type": "support_procedure",
+      "schema_version": "1.0",
+      "language": "cs",
+      "category": "liability_procedures",
+      "title": "Poškození zapůjčené věci",
+      "scenario": "Klient řeší situaci: poškození zapůjčené věci. Potřebuje praktický, ověřený postup bez předčasného příslibu plnění.",
+      "intent_tag": "liability_rental",
+      "question_variations": [
+        "Rozbil jsem půjčený fotoaparát.",
+        "Poškodil jsem věc, kterou jsem měl vypůjčenou.",
+        "Mám poškozenému hned zaplatit?"
+      ],
+      "conditions": [
+        "Postup posuzovat podle země události, konkrétního dopravce nebo poskytovatele služby a verze smlouvy."
+      ],
+      "immediate_steps": [
+        {
+          "text": "Zdokumentujte okolnosti a rozsah způsobené škody, ideálně fotografiemi a údaji o svědcích.",
+          "requirement_type": "recommended",
+          "evidence_level": "official_insurer",
+          "source_ids": [
+            "CSOB_VPP2021"
+          ],
+          "condition": null
+        },
+        {
+          "text": "U větší škody neprodleně kontaktujte asistenci a bez souhlasu pojišťovny neuznávejte odpovědnost ani neprovádějte úhradu.",
+          "requirement_type": "recommended",
+          "evidence_level": "official_insurer",
+          "source_ids": [
+            "CSOB_VPP2021"
+          ],
+          "condition": "Pokud jde o větší škodu podle pokynů VPP CP 2021."
+        },
+        {
+          "text": "Nepodepisujte dokument, jehož obsahu nerozumíte.",
+          "requirement_type": "recommended",
+          "evidence_level": "official_insurer",
+          "source_ids": [
+            "CSOB_GUIDE"
+          ],
+          "condition": null
+        }
+      ],
+      "required_documents": [],
+      "recommended_documents": [
+        {
+          "name": "Fotografie poškození a dostupná svědecká prohlášení.",
+          "requirement_type": "recommended",
+          "source_ids": [
+            "CSOB_VPP2021"
+          ]
+        }
+      ],
+      "police_involvement": {
+        "status": "not_established",
+        "guidance": "Z dostupných zdrojů nevyplývá jednotná povinnost pořídit policejní protokol právě pro tento scénář.",
+        "source_ids": [],
+        "needs_expert_review": true
+      },
+      "clarifying_questions": [
+        "Jaká škoda vznikla, komu a za jakých okolností?",
+        "Požaduje někdo zaplacení nebo podpis dokumentu?"
+      ],
+      "coverage_considerations": [
+        "Ověřit sjednané pojištění odpovědnosti, příčinu škody, charakter předmětu a případné výluky.",
+        "U aktuálních webových doporučení je nutné ověřit soulad s verzí pojistných podmínek použitelnou pro smlouvu."
+      ],
+      "escalation_conditions": [
+        "Pokud potřebujete závazné rozhodnutí o krytí, přesný seznam povinných dokladů nebo výjimku z postupu, předejte dotaz pracovníkovi pojišťovny."
+      ],
+      "open_questions_for_expert": [
+        "Potvrdit hranici mezi cestovní odpovědností a škodou na půjčeném nebo motorovém vozidle."
+      ],
+      "sources": [
+        {
+          "source_id": "CSOB_VPP2021",
+          "url": "https://www.csobpoj.cz/documents/10332/5083102/11N9393%2BVPP%2BCP%2B2021_form%C3%A1t%2BA4_CZ_v%C4%8Detn%C4%9B%2Boce%C5%88ovac%C3%ADch%2Btabulek_final_PDF-A.pdf/91a13cf6-8af5-00b8-784b-2f4f65ab34d0?t=1714117917863",
+          "section": "Pokyny pro klienta (strana 2) a jednotlivá ustanovení VPP CP 2021",
+          "last_checked_at": "2026-11-26",
+          "effective_from": "2021-04-01"
+        },
+        {
+          "source_id": "CSOB_GUIDE",
+          "url": "https://www.csobpoj.cz/jak-postupovat-pri-skode-cestovni-pojisteni",
+          "section": "Událost v zahraničí",
+          "last_checked_at": "2026-11-26",
+          "effective_from": null
+        }
+      ],
+      "source_ids": [
+        "CSOB_VPP2021",
+        "CSOB_GUIDE"
+      ],
+      "evidence_level": "needs_expert_review",
+      "official_scenario_specific_evidence": false,
+      "procedure_completeness": "unresolved",
+      "priority": "P2",
+      "policy_version_check_required": true,
+      "applicable_policy_versions": [],
+      "review_status": "DRAFT",
+      "reviewed_by": null,
+      "last_verified_at": null,
+      "last_public_source_checked_at": "2026-11-26",
+      "approved_at": null,
+      "publication_status": "REVIEW_ONLY",
+      "retrieval_eligible": false,
+      "notes_for_reviewer": "Obecné pokyny od jiných institucí nejsou požadavky ČSOB. Ověřit každou povinnost a datum platnosti."
+    },
+    {
+      "id": "SUP_LIABILITY_009",
+      "document_type": "support_procedure",
+      "schema_version": "1.0",
+      "language": "cs",
+      "category": "liability_procedures",
+      "title": "Škoda způsobená dítětem",
+      "scenario": "Klient řeší situaci: škoda způsobená dítětem. Potřebuje praktický, ověřený postup bez předčasného příslibu plnění.",
+      "intent_tag": "liability_child",
+      "question_variations": [
+        "Dítě rozbilo v hotelu drahou vázu.",
+        "Syn na dovolené někomu způsobil škodu.",
+        "Čí pojištění odpovědnosti platí?"
+      ],
+      "conditions": [
+        "Postup posuzovat podle země události, konkrétního dopravce nebo poskytovatele služby a verze smlouvy."
+      ],
+      "immediate_steps": [
+        {
+          "text": "Zdokumentujte okolnosti a rozsah způsobené škody, ideálně fotografiemi a údaji o svědcích.",
+          "requirement_type": "recommended",
+          "evidence_level": "official_insurer",
+          "source_ids": [
+            "CSOB_VPP2021"
+          ],
+          "condition": null
+        },
+        {
+          "text": "U větší škody neprodleně kontaktujte asistenci a bez souhlasu pojišťovny neuznávejte odpovědnost ani neprovádějte úhradu.",
+          "requirement_type": "recommended",
+          "evidence_level": "official_insurer",
+          "source_ids": [
+            "CSOB_VPP2021"
+          ],
+          "condition": "Pokud jde o větší škodu podle pokynů VPP CP 2021."
+        },
+        {
+          "text": "Nepodepisujte dokument, jehož obsahu nerozumíte.",
+          "requirement_type": "recommended",
+          "evidence_level": "official_insurer",
+          "source_ids": [
+            "CSOB_GUIDE"
+          ],
+          "condition": null
+        }
+      ],
+      "required_documents": [],
+      "recommended_documents": [
+        {
+          "name": "Fotografie poškození a dostupná svědecká prohlášení.",
+          "requirement_type": "recommended",
+          "source_ids": [
+            "CSOB_VPP2021"
+          ]
+        }
+      ],
+      "police_involvement": {
+        "status": "not_established",
+        "guidance": "Z dostupných zdrojů nevyplývá jednotná povinnost pořídit policejní protokol právě pro tento scénář.",
+        "source_ids": [],
+        "needs_expert_review": true
+      },
+      "clarifying_questions": [
+        "Jaká škoda vznikla, komu a za jakých okolností?",
+        "Požaduje někdo zaplacení nebo podpis dokumentu?"
+      ],
+      "coverage_considerations": [
+        "Ověřit sjednané pojištění odpovědnosti, příčinu škody, charakter předmětu a případné výluky.",
+        "U aktuálních webových doporučení je nutné ověřit soulad s verzí pojistných podmínek použitelnou pro smlouvu."
+      ],
+      "escalation_conditions": [
+        "Pokud potřebujete závazné rozhodnutí o krytí, přesný seznam povinných dokladů nebo výjimku z postupu, předejte dotaz pracovníkovi pojišťovny."
+      ],
+      "open_questions_for_expert": [
+        "Potvrdit pro scénář „Škoda způsobená dítětem“ přesné doklady, použitelné výluky, rozsah asistence a případné povinnosti vůči ČSOB podle sjednaného produktu."
+      ],
+      "sources": [
+        {
+          "source_id": "CSOB_VPP2021",
+          "url": "https://www.csobpoj.cz/documents/10332/5083102/11N9393%2BVPP%2BCP%2B2021_form%C3%A1t%2BA4_CZ_v%C4%8Detn%C4%9B%2Boce%C5%88ovac%C3%ADch%2Btabulek_final_PDF-A.pdf/91a13cf6-8af5-00b8-784b-2f4f65ab34d0?t=1714117917863",
+          "section": "Pokyny pro klienta (strana 2) a jednotlivá ustanovení VPP CP 2021",
+          "last_checked_at": "2026-11-26",
+          "effective_from": "2021-04-01"
+        },
+        {
+          "source_id": "CSOB_GUIDE",
+          "url": "https://www.csobpoj.cz/jak-postupovat-pri-skode-cestovni-pojisteni",
+          "section": "Událost v zahraničí",
+          "last_checked_at": "2026-11-26",
+          "effective_from": null
+        }
+      ],
+      "source_ids": [
+        "CSOB_VPP2021",
+        "CSOB_GUIDE"
+      ],
+      "evidence_level": "needs_expert_review",
+      "official_scenario_specific_evidence": false,
+      "procedure_completeness": "unresolved",
+      "priority": "P2",
+      "policy_version_check_required": true,
+      "applicable_policy_versions": [],
+      "review_status": "DRAFT",
+      "reviewed_by": null,
+      "last_verified_at": null,
+      "last_public_source_checked_at": "2026-11-26",
+      "approved_at": null,
+      "publication_status": "REVIEW_ONLY",
+      "retrieval_eligible": false,
+      "notes_for_reviewer": "Obecné pokyny od jiných institucí nejsou požadavky ČSOB. Ověřit každou povinnost a datum platnosti."
+    },
+    {
+      "id": "SUP_LIABILITY_010",
+      "document_type": "support_procedure",
+      "schema_version": "1.0",
+      "language": "cs",
+      "category": "liability_procedures",
+      "title": "Škoda způsobená zvířetem",
+      "scenario": "Klient řeší situaci: škoda způsobená zvířetem. Potřebuje praktický, ověřený postup bez předčasného příslibu plnění.",
+      "intent_tag": "liability_animal",
+      "question_variations": [
+        "Pes v zahraničí poškodil cizí věc.",
+        "Náš pes na dovolené někoho pokousal.",
+        "Je to kryté cestovním pojištěním?"
+      ],
+      "conditions": [
+        "Postup posuzovat podle země události, konkrétního dopravce nebo poskytovatele služby a verze smlouvy."
+      ],
+      "immediate_steps": [
+        {
+          "text": "Zdokumentujte okolnosti a rozsah způsobené škody, ideálně fotografiemi a údaji o svědcích.",
+          "requirement_type": "recommended",
+          "evidence_level": "official_insurer",
+          "source_ids": [
+            "CSOB_VPP2021"
+          ],
+          "condition": null
+        },
+        {
+          "text": "U větší škody neprodleně kontaktujte asistenci a bez souhlasu pojišťovny neuznávejte odpovědnost ani neprovádějte úhradu.",
+          "requirement_type": "recommended",
+          "evidence_level": "official_insurer",
+          "source_ids": [
+            "CSOB_VPP2021"
+          ],
+          "condition": "Pokud jde o větší škodu podle pokynů VPP CP 2021."
+        },
+        {
+          "text": "Nepodepisujte dokument, jehož obsahu nerozumíte.",
+          "requirement_type": "recommended",
+          "evidence_level": "official_insurer",
+          "source_ids": [
+            "CSOB_GUIDE"
+          ],
+          "condition": null
+        }
+      ],
+      "required_documents": [],
+      "recommended_documents": [
+        {
+          "name": "Fotografie poškození a dostupná svědecká prohlášení.",
+          "requirement_type": "recommended",
+          "source_ids": [
+            "CSOB_VPP2021"
+          ]
+        }
+      ],
+      "police_involvement": {
+        "status": "not_established",
+        "guidance": "Z dostupných zdrojů nevyplývá jednotná povinnost pořídit policejní protokol právě pro tento scénář.",
+        "source_ids": [],
+        "needs_expert_review": true
+      },
+      "clarifying_questions": [
+        "Jaká škoda vznikla, komu a za jakých okolností?",
+        "Požaduje někdo zaplacení nebo podpis dokumentu?"
+      ],
+      "coverage_considerations": [
+        "Ověřit sjednané pojištění odpovědnosti, příčinu škody, charakter předmětu a případné výluky.",
+        "U aktuálních webových doporučení je nutné ověřit soulad s verzí pojistných podmínek použitelnou pro smlouvu."
+      ],
+      "escalation_conditions": [
+        "Pokud potřebujete závazné rozhodnutí o krytí, přesný seznam povinných dokladů nebo výjimku z postupu, předejte dotaz pracovníkovi pojišťovny."
+      ],
+      "open_questions_for_expert": [
+        "Potvrdit pro scénář „Škoda způsobená zvířetem“ přesné doklady, použitelné výluky, rozsah asistence a případné povinnosti vůči ČSOB podle sjednaného produktu."
+      ],
+      "sources": [
+        {
+          "source_id": "CSOB_VPP2021",
+          "url": "https://www.csobpoj.cz/documents/10332/5083102/11N9393%2BVPP%2BCP%2B2021_form%C3%A1t%2BA4_CZ_v%C4%8Detn%C4%9B%2Boce%C5%88ovac%C3%ADch%2Btabulek_final_PDF-A.pdf/91a13cf6-8af5-00b8-784b-2f4f65ab34d0?t=1714117917863",
+          "section": "Pokyny pro klienta (strana 2) a jednotlivá ustanovení VPP CP 2021",
+          "last_checked_at": "2026-11-26",
+          "effective_from": "2021-04-01"
+        },
+        {
+          "source_id": "CSOB_GUIDE",
+          "url": "https://www.csobpoj.cz/jak-postupovat-pri-skode-cestovni-pojisteni",
+          "section": "Událost v zahraničí",
+          "last_checked_at": "2026-11-26",
+          "effective_from": null
+        }
+      ],
+      "source_ids": [
+        "CSOB_VPP2021",
+        "CSOB_GUIDE"
+      ],
+      "evidence_level": "needs_expert_review",
+      "official_scenario_specific_evidence": false,
+      "procedure_completeness": "unresolved",
+      "priority": "P2",
+      "policy_version_check_required": true,
+      "applicable_policy_versions": [],
+      "review_status": "DRAFT",
+      "reviewed_by": null,
+      "last_verified_at": null,
+      "last_public_source_checked_at": "2026-11-26",
+      "approved_at": null,
+      "publication_status": "REVIEW_ONLY",
+      "retrieval_eligible": false,
+      "notes_for_reviewer": "Obecné pokyny od jiných institucí nejsou požadavky ČSOB. Ověřit každou povinnost a datum platnosti."
+    },
+    {
+      "id": "SUP_LIABILITY_011",
+      "document_type": "support_procedure",
+      "schema_version": "1.0",
+      "language": "cs",
+      "category": "liability_procedures",
+      "title": "Dopravní nehoda v půjčeném autě",
+      "scenario": "Klient řeší situaci: dopravní nehoda v půjčeném autě. Potřebuje praktický, ověřený postup bez předčasného příslibu plnění.",
+      "intent_tag": "liability_vehicle",
+      "question_variations": [
+        "S půjčeným autem jsem odřel jiné auto.",
+        "Při řízení půjčeného auta jsem způsobil škodu.",
+        "Jde o cestovní odpovědnost nebo auto pojištění?"
+      ],
+      "conditions": [
+        "Postup posuzovat podle země události, konkrétního dopravce nebo poskytovatele služby a verze smlouvy."
+      ],
+      "immediate_steps": [
+        {
+          "text": "Zdokumentujte okolnosti a rozsah způsobené škody, ideálně fotografiemi a údaji o svědcích.",
+          "requirement_type": "recommended",
+          "evidence_level": "official_insurer",
+          "source_ids": [
+            "CSOB_VPP2021"
+          ],
+          "condition": null
+        },
+        {
+          "text": "U větší škody neprodleně kontaktujte asistenci a bez souhlasu pojišťovny neuznávejte odpovědnost ani neprovádějte úhradu.",
+          "requirement_type": "recommended",
+          "evidence_level": "official_insurer",
+          "source_ids": [
+            "CSOB_VPP2021"
+          ],
+          "condition": "Pokud jde o větší škodu podle pokynů VPP CP 2021."
+        },
+        {
+          "text": "Nepodepisujte dokument, jehož obsahu nerozumíte.",
+          "requirement_type": "recommended",
+          "evidence_level": "official_insurer",
+          "source_ids": [
+            "CSOB_GUIDE"
+          ],
+          "condition": null
+        }
+      ],
+      "required_documents": [],
+      "recommended_documents": [
+        {
+          "name": "Fotografie poškození a dostupná svědecká prohlášení.",
+          "requirement_type": "recommended",
+          "source_ids": [
+            "CSOB_VPP2021"
+          ]
+        }
+      ],
+      "police_involvement": {
+        "status": "not_established",
+        "guidance": "Z dostupných zdrojů nevyplývá jednotná povinnost pořídit policejní protokol právě pro tento scénář.",
+        "source_ids": [],
+        "needs_expert_review": true
+      },
+      "clarifying_questions": [
+        "Jaká škoda vznikla, komu a za jakých okolností?",
+        "Požaduje někdo zaplacení nebo podpis dokumentu?",
+        "Máte ke služebnímu nebo půjčenému autu samostatnou pojistku?"
+      ],
+      "coverage_considerations": [
+        "Ověřit sjednané pojištění odpovědnosti, příčinu škody, charakter předmětu a případné výluky.",
+        "U aktuálních webových doporučení je nutné ověřit soulad s verzí pojistných podmínek použitelnou pro smlouvu."
+      ],
+      "escalation_conditions": [
+        "Pokud potřebujete závazné rozhodnutí o krytí, přesný seznam povinných dokladů nebo výjimku z postupu, předejte dotaz pracovníkovi pojišťovny."
+      ],
+      "open_questions_for_expert": [
+        "Potvrdit hranici mezi cestovní odpovědností a škodou na půjčeném nebo motorovém vozidle."
+      ],
+      "sources": [
+        {
+          "source_id": "CSOB_VPP2021",
+          "url": "https://www.csobpoj.cz/documents/10332/5083102/11N9393%2BVPP%2BCP%2B2021_form%C3%A1t%2BA4_CZ_v%C4%8Detn%C4%9B%2Boce%C5%88ovac%C3%ADch%2Btabulek_final_PDF-A.pdf/91a13cf6-8af5-00b8-784b-2f4f65ab34d0?t=1714117917863",
+          "section": "Pokyny pro klienta (strana 2) a jednotlivá ustanovení VPP CP 2021",
+          "last_checked_at": "2026-11-26",
+          "effective_from": "2021-04-01"
+        },
+        {
+          "source_id": "CSOB_GUIDE",
+          "url": "https://www.csobpoj.cz/jak-postupovat-pri-skode-cestovni-pojisteni",
+          "section": "Událost v zahraničí",
+          "last_checked_at": "2026-11-26",
+          "effective_from": null
+        }
+      ],
+      "source_ids": [
+        "CSOB_VPP2021",
+        "CSOB_GUIDE"
+      ],
+      "evidence_level": "needs_expert_review",
+      "official_scenario_specific_evidence": false,
+      "procedure_completeness": "unresolved",
+      "priority": "P2",
+      "policy_version_check_required": true,
+      "applicable_policy_versions": [],
+      "review_status": "DRAFT",
+      "reviewed_by": null,
+      "last_verified_at": null,
+      "last_public_source_checked_at": "2026-11-26",
+      "approved_at": null,
+      "publication_status": "REVIEW_ONLY",
+      "retrieval_eligible": false,
+      "notes_for_reviewer": "Obecné pokyny od jiných institucí nejsou požadavky ČSOB. Ověřit každou povinnost a datum platnosti."
+    },
+    {
+      "id": "SUP_LIABILITY_012",
+      "document_type": "support_procedure",
+      "schema_version": "1.0",
+      "language": "cs",
+      "category": "liability_procedures",
+      "title": "Nátlak na okamžité podepsání uznání viny",
+      "scenario": "Klient řeší situaci: nátlak na okamžité podepsání uznání viny. Potřebuje praktický, ověřený postup bez předčasného příslibu plnění.",
+      "intent_tag": "liability_sign",
+      "question_variations": [
+        "Chtějí, ať podepíšu papír o vině.",
+        "Nerozumím dokumentu od poškozeného.",
+        "Mám ho podepsat?"
+      ],
+      "conditions": [
+        "Postup posuzovat podle země události, konkrétního dopravce nebo poskytovatele služby a verze smlouvy."
+      ],
+      "immediate_steps": [
+        {
+          "text": "Zdokumentujte okolnosti a rozsah způsobené škody, ideálně fotografiemi a údaji o svědcích.",
+          "requirement_type": "recommended",
+          "evidence_level": "official_insurer",
+          "source_ids": [
+            "CSOB_VPP2021"
+          ],
+          "condition": null
+        },
+        {
+          "text": "U větší škody neprodleně kontaktujte asistenci a bez souhlasu pojišťovny neuznávejte odpovědnost ani neprovádějte úhradu.",
+          "requirement_type": "recommended",
+          "evidence_level": "official_insurer",
+          "source_ids": [
+            "CSOB_VPP2021"
+          ],
+          "condition": "Pokud jde o větší škodu podle pokynů VPP CP 2021."
+        },
+        {
+          "text": "Nepodepisujte dokument, jehož obsahu nerozumíte.",
+          "requirement_type": "recommended",
+          "evidence_level": "official_insurer",
+          "source_ids": [
+            "CSOB_GUIDE"
+          ],
+          "condition": null
+        },
+        {
+          "text": "U větší škody se podle VPP CP 2021 bez souhlasu pojistitele nezavazujte k úhradě ani neuznávejte odpovědnost.",
+          "requirement_type": "recommended",
+          "evidence_level": "official_insurer",
+          "source_ids": [
+            "CSOB_VPP2021"
+          ],
+          "condition": "Při větší škodě a při použitelnosti VPP CP 2021."
+        }
+      ],
+      "required_documents": [],
+      "recommended_documents": [
+        {
+          "name": "Fotografie poškození a dostupná svědecká prohlášení.",
+          "requirement_type": "recommended",
+          "source_ids": [
+            "CSOB_VPP2021"
+          ]
+        }
+      ],
+      "police_involvement": {
+        "status": "not_established",
+        "guidance": "Z dostupných zdrojů nevyplývá jednotná povinnost pořídit policejní protokol právě pro tento scénář.",
+        "source_ids": [],
+        "needs_expert_review": true
+      },
+      "clarifying_questions": [
+        "Jaká škoda vznikla, komu a za jakých okolností?",
+        "Požaduje někdo zaplacení nebo podpis dokumentu?"
+      ],
+      "coverage_considerations": [
+        "Ověřit sjednané pojištění odpovědnosti, příčinu škody, charakter předmětu a případné výluky.",
+        "U aktuálních webových doporučení je nutné ověřit soulad s verzí pojistných podmínek použitelnou pro smlouvu."
+      ],
+      "escalation_conditions": [
+        "Pokud potřebujete závazné rozhodnutí o krytí, přesný seznam povinných dokladů nebo výjimku z postupu, předejte dotaz pracovníkovi pojišťovny."
+      ],
+      "open_questions_for_expert": [
+        "Potvrdit pro scénář „Nátlak na okamžité podepsání uznání viny“ přesné doklady, použitelné výluky, rozsah asistence a případné povinnosti vůči ČSOB podle sjednaného produktu."
+      ],
+      "sources": [
+        {
+          "source_id": "CSOB_VPP2021",
+          "url": "https://www.csobpoj.cz/documents/10332/5083102/11N9393%2BVPP%2BCP%2B2021_form%C3%A1t%2BA4_CZ_v%C4%8Detn%C4%9B%2Boce%C5%88ovac%C3%ADch%2Btabulek_final_PDF-A.pdf/91a13cf6-8af5-00b8-784b-2f4f65ab34d0?t=1714117917863",
+          "section": "Pokyny pro klienta (strana 2) a jednotlivá ustanovení VPP CP 2021",
+          "last_checked_at": "2026-11-26",
+          "effective_from": "2021-04-01"
+        },
+        {
+          "source_id": "CSOB_GUIDE",
+          "url": "https://www.csobpoj.cz/jak-postupovat-pri-skode-cestovni-pojisteni",
+          "section": "Událost v zahraničí",
+          "last_checked_at": "2026-11-26",
+          "effective_from": null
+        }
+      ],
+      "source_ids": [
+        "CSOB_VPP2021",
+        "CSOB_GUIDE"
+      ],
+      "evidence_level": "official_insurer",
+      "official_scenario_specific_evidence": true,
+      "procedure_completeness": "partial",
+      "priority": "P2",
+      "policy_version_check_required": true,
+      "applicable_policy_versions": [],
+      "review_status": "DRAFT",
+      "reviewed_by": null,
+      "last_verified_at": null,
+      "last_public_source_checked_at": "2026-11-26",
+      "approved_at": null,
+      "publication_status": "REVIEW_ONLY",
+      "retrieval_eligible": false,
+      "notes_for_reviewer": "Obecné pokyny od jiných institucí nejsou požadavky ČSOB. Ověřit každou povinnost a datum platnosti."
+    },
+    {
+      "id": "SUP_LIABILITY_013",
+      "document_type": "support_procedure",
+      "schema_version": "1.0",
+      "language": "cs",
+      "category": "liability_procedures",
+      "title": "Poškozený požaduje okamžitou hotovost",
+      "scenario": "Klient řeší situaci: poškozený požaduje okamžitou hotovost. Potřebuje praktický, ověřený postup bez předčasného příslibu plnění.",
+      "intent_tag": "liability_cash",
+      "question_variations": [
+        "Cizí člověk po mně chce hned zaplatit.",
+        "Někdo tvrdí, že jsem mu způsobil velkou škodu.",
+        "Můžu mu dát peníze a pak je chtít proplatit?"
+      ],
+      "conditions": [
+        "Postup posuzovat podle země události, konkrétního dopravce nebo poskytovatele služby a verze smlouvy."
+      ],
+      "immediate_steps": [
+        {
+          "text": "Zdokumentujte okolnosti a rozsah způsobené škody, ideálně fotografiemi a údaji o svědcích.",
+          "requirement_type": "recommended",
+          "evidence_level": "official_insurer",
+          "source_ids": [
+            "CSOB_VPP2021"
+          ],
+          "condition": null
+        },
+        {
+          "text": "U větší škody neprodleně kontaktujte asistenci a bez souhlasu pojišťovny neuznávejte odpovědnost ani neprovádějte úhradu.",
+          "requirement_type": "recommended",
+          "evidence_level": "official_insurer",
+          "source_ids": [
+            "CSOB_VPP2021"
+          ],
+          "condition": "Pokud jde o větší škodu podle pokynů VPP CP 2021."
+        },
+        {
+          "text": "Nepodepisujte dokument, jehož obsahu nerozumíte.",
+          "requirement_type": "recommended",
+          "evidence_level": "official_insurer",
+          "source_ids": [
+            "CSOB_GUIDE"
+          ],
+          "condition": null
+        },
+        {
+          "text": "U větší škody se podle VPP CP 2021 bez souhlasu pojistitele nezavazujte k úhradě ani neuznávejte odpovědnost.",
+          "requirement_type": "recommended",
+          "evidence_level": "official_insurer",
+          "source_ids": [
+            "CSOB_VPP2021"
+          ],
+          "condition": "Při větší škodě a při použitelnosti VPP CP 2021."
+        }
+      ],
+      "required_documents": [],
+      "recommended_documents": [
+        {
+          "name": "Fotografie poškození a dostupná svědecká prohlášení.",
+          "requirement_type": "recommended",
+          "source_ids": [
+            "CSOB_VPP2021"
+          ]
+        }
+      ],
+      "police_involvement": {
+        "status": "not_established",
+        "guidance": "Z dostupných zdrojů nevyplývá jednotná povinnost pořídit policejní protokol právě pro tento scénář.",
+        "source_ids": [],
+        "needs_expert_review": true
+      },
+      "clarifying_questions": [
+        "Jaká škoda vznikla, komu a za jakých okolností?",
+        "Požaduje někdo zaplacení nebo podpis dokumentu?"
+      ],
+      "coverage_considerations": [
+        "Ověřit sjednané pojištění odpovědnosti, příčinu škody, charakter předmětu a případné výluky.",
+        "U aktuálních webových doporučení je nutné ověřit soulad s verzí pojistných podmínek použitelnou pro smlouvu."
+      ],
+      "escalation_conditions": [
+        "Pokud potřebujete závazné rozhodnutí o krytí, přesný seznam povinných dokladů nebo výjimku z postupu, předejte dotaz pracovníkovi pojišťovny."
+      ],
+      "open_questions_for_expert": [
+        "Potvrdit pro scénář „Poškozený požaduje okamžitou hotovost“ přesné doklady, použitelné výluky, rozsah asistence a případné povinnosti vůči ČSOB podle sjednaného produktu."
+      ],
+      "sources": [
+        {
+          "source_id": "CSOB_VPP2021",
+          "url": "https://www.csobpoj.cz/documents/10332/5083102/11N9393%2BVPP%2BCP%2B2021_form%C3%A1t%2BA4_CZ_v%C4%8Detn%C4%9B%2Boce%C5%88ovac%C3%ADch%2Btabulek_final_PDF-A.pdf/91a13cf6-8af5-00b8-784b-2f4f65ab34d0?t=1714117917863",
+          "section": "Pokyny pro klienta (strana 2) a jednotlivá ustanovení VPP CP 2021",
+          "last_checked_at": "2026-11-26",
+          "effective_from": "2021-04-01"
+        },
+        {
+          "source_id": "CSOB_GUIDE",
+          "url": "https://www.csobpoj.cz/jak-postupovat-pri-skode-cestovni-pojisteni",
+          "section": "Událost v zahraničí",
+          "last_checked_at": "2026-11-26",
+          "effective_from": null
+        }
+      ],
+      "source_ids": [
+        "CSOB_VPP2021",
+        "CSOB_GUIDE"
+      ],
+      "evidence_level": "official_insurer",
+      "official_scenario_specific_evidence": true,
+      "procedure_completeness": "partial",
+      "priority": "P2",
+      "policy_version_check_required": true,
+      "applicable_policy_versions": [],
+      "review_status": "DRAFT",
+      "reviewed_by": null,
+      "last_verified_at": null,
+      "last_public_source_checked_at": "2026-11-26",
+      "approved_at": null,
+      "publication_status": "REVIEW_ONLY",
+      "retrieval_eligible": false,
+      "notes_for_reviewer": "Obecné pokyny od jiných institucí nejsou požadavky ČSOB. Ověřit každou povinnost a datum platnosti."
+    },
+    {
+      "id": "SUP_LIABILITY_014",
+      "document_type": "support_procedure",
+      "schema_version": "1.0",
+      "language": "cs",
+      "category": "liability_procedures",
+      "title": "Chybějící kontakt na svědka",
+      "scenario": "Klient řeší situaci: chybějící kontakt na svědka. Potřebuje praktický, ověřený postup bez předčasného příslibu plnění.",
+      "intent_tag": "liability_witness",
+      "question_variations": [
+        "Událost viděli lidé, ale odešli.",
+        "Mám jen fotku škody bez svědků.",
+        "Je svědecké prohlášení nutné?"
+      ],
+      "conditions": [
+        "Postup posuzovat podle země události, konkrétního dopravce nebo poskytovatele služby a verze smlouvy."
+      ],
+      "immediate_steps": [
+        {
+          "text": "Zdokumentujte okolnosti a rozsah způsobené škody, ideálně fotografiemi a údaji o svědcích.",
+          "requirement_type": "recommended",
+          "evidence_level": "official_insurer",
+          "source_ids": [
+            "CSOB_VPP2021"
+          ],
+          "condition": null
+        },
+        {
+          "text": "U větší škody neprodleně kontaktujte asistenci a bez souhlasu pojišťovny neuznávejte odpovědnost ani neprovádějte úhradu.",
+          "requirement_type": "recommended",
+          "evidence_level": "official_insurer",
+          "source_ids": [
+            "CSOB_VPP2021"
+          ],
+          "condition": "Pokud jde o větší škodu podle pokynů VPP CP 2021."
+        },
+        {
+          "text": "Nepodepisujte dokument, jehož obsahu nerozumíte.",
+          "requirement_type": "recommended",
+          "evidence_level": "official_insurer",
+          "source_ids": [
+            "CSOB_GUIDE"
+          ],
+          "condition": null
+        }
+      ],
+      "required_documents": [],
+      "recommended_documents": [
+        {
+          "name": "Fotografie poškození a dostupná svědecká prohlášení.",
+          "requirement_type": "recommended",
+          "source_ids": [
+            "CSOB_VPP2021"
+          ]
+        }
+      ],
+      "police_involvement": {
+        "status": "not_established",
+        "guidance": "Z dostupných zdrojů nevyplývá jednotná povinnost pořídit policejní protokol právě pro tento scénář.",
+        "source_ids": [],
+        "needs_expert_review": true
+      },
+      "clarifying_questions": [
+        "Jaká škoda vznikla, komu a za jakých okolností?",
+        "Požaduje někdo zaplacení nebo podpis dokumentu?"
+      ],
+      "coverage_considerations": [
+        "Ověřit sjednané pojištění odpovědnosti, příčinu škody, charakter předmětu a případné výluky.",
+        "U aktuálních webových doporučení je nutné ověřit soulad s verzí pojistných podmínek použitelnou pro smlouvu."
+      ],
+      "escalation_conditions": [
+        "Pokud potřebujete závazné rozhodnutí o krytí, přesný seznam povinných dokladů nebo výjimku z postupu, předejte dotaz pracovníkovi pojišťovny."
+      ],
+      "open_questions_for_expert": [
+        "Potvrdit pro scénář „Chybějící kontakt na svědka“ přesné doklady, použitelné výluky, rozsah asistence a případné povinnosti vůči ČSOB podle sjednaného produktu."
+      ],
+      "sources": [
+        {
+          "source_id": "CSOB_VPP2021",
+          "url": "https://www.csobpoj.cz/documents/10332/5083102/11N9393%2BVPP%2BCP%2B2021_form%C3%A1t%2BA4_CZ_v%C4%8Detn%C4%9B%2Boce%C5%88ovac%C3%ADch%2Btabulek_final_PDF-A.pdf/91a13cf6-8af5-00b8-784b-2f4f65ab34d0?t=1714117917863",
+          "section": "Pokyny pro klienta (strana 2) a jednotlivá ustanovení VPP CP 2021",
+          "last_checked_at": "2026-11-26",
+          "effective_from": "2021-04-01"
+        },
+        {
+          "source_id": "CSOB_GUIDE",
+          "url": "https://www.csobpoj.cz/jak-postupovat-pri-skode-cestovni-pojisteni",
+          "section": "Událost v zahraničí",
+          "last_checked_at": "2026-11-26",
+          "effective_from": null
+        }
+      ],
+      "source_ids": [
+        "CSOB_VPP2021",
+        "CSOB_GUIDE"
+      ],
+      "evidence_level": "needs_expert_review",
+      "official_scenario_specific_evidence": false,
+      "procedure_completeness": "unresolved",
+      "priority": "P2",
+      "policy_version_check_required": true,
+      "applicable_policy_versions": [],
+      "review_status": "DRAFT",
+      "reviewed_by": null,
+      "last_verified_at": null,
+      "last_public_source_checked_at": "2026-11-26",
+      "approved_at": null,
+      "publication_status": "REVIEW_ONLY",
+      "retrieval_eligible": false,
+      "notes_for_reviewer": "Obecné pokyny od jiných institucí nejsou požadavky ČSOB. Ověřit každou povinnost a datum platnosti."
+    }
+  ]
+}
