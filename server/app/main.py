@@ -1,5 +1,4 @@
 import logging
-import threading
 import time
 from contextlib import asynccontextmanager
 
@@ -17,7 +16,7 @@ logger = logging.getLogger(__name__)
 def _initialize_backend(app: FastAPI) -> None:
     started = time.perf_counter()
     print("Backend initialization started.", flush=True)
-    logger.info("Starting backend initialization in background.")
+    logger.info("Starting backend initialization.")
 
     try:
         print("Importing API routes.", flush=True)
@@ -65,13 +64,16 @@ async def lifespan(app: FastAPI):
     app.state.backend_ready = False
     app.state.initialization_error = None
 
-    initialization = threading.Thread(
-        target=_initialize_backend,
-        args=(app,),
-        name="backend-initialization",
-        daemon=True,
-    )
-    initialization.start()
+    # Keep the ASGI lifespan in startup until routes and retrieval models are
+    # initialized. Cloud Run's startup probe must not mark the revision ready
+    # while backend initialization is still running in a detached thread.
+    await run_in_threadpool(_initialize_backend, app)
+    if app.state.initialization_error:
+        raise RuntimeError(
+            "Backend initialization failed "
+            f"({app.state.initialization_error})."
+        )
+
     yield
 
 
